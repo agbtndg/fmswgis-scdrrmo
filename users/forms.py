@@ -189,6 +189,8 @@ class ProfileEditForm(UserChangeForm):
             'bio': forms.Textarea(attrs={'rows': 4, 'class': 'form-control'}),
             'position': forms.Select(attrs={'class': 'form-control'}),
             'profile_image': forms.FileInput(attrs={'class': 'form-control', 'accept': 'image/*'}),
+            'contact_number': forms.TextInput(attrs={'class': 'form-control', 'inputmode': 'numeric', 'pattern': '[0-9]*', 'maxlength': '11'}),
+            'emergency_number': forms.TextInput(attrs={'class': 'form-control', 'inputmode': 'numeric', 'pattern': '[0-9]*', 'maxlength': '11'}),
         }
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -198,17 +200,23 @@ class ProfileEditForm(UserChangeForm):
                     field.widget.attrs['class'] = 'form-control'
     
     def clean_contact_number(self):
-        """Validate contact number is exactly 11 digits."""
+        """Validate contact number: must be exactly 11 digits, digits only."""
         num = self.cleaned_data.get('contact_number')
-        if num and len(num) != 11:
-            raise forms.ValidationError("Contact number must be exactly 11 digits.")
+        if num:
+            cleaned = ''.join(filter(str.isdigit, str(num)))
+            if len(cleaned) != 11:
+                raise forms.ValidationError("Contact number must be exactly 11 digits (numbers only).")
+            return cleaned
         return num
-    
+
     def clean_emergency_number(self):
-        """Validate emergency contact number is exactly 11 digits."""
+        """Validate emergency contact number: must be exactly 11 digits, digits only."""
         num = self.cleaned_data.get('emergency_number')
-        if num and len(num) != 11:
-            raise forms.ValidationError("Emergency contact number must be exactly 11 digits.")
+        if num:
+            cleaned = ''.join(filter(str.isdigit, str(num)))
+            if len(cleaned) != 11:
+                raise forms.ValidationError("Emergency contact number must be exactly 11 digits (numbers only).")
+            return cleaned
         return num
     
     def clean_date_of_birth(self):

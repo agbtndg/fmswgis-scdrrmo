@@ -2986,3 +2986,66 @@ INFO 2025-11-16 22:53:29 basehttp 27536 17800 "GET /maps/my-activity/?tab=user-l
 INFO 2025-11-16 22:53:31 basehttp 27536 17800 "GET /maps/my-activity/?tab=user-logs&sort_order=recent HTTP/1.1" 200 45535
 INFO 2025-11-16 22:54:54 autoreload 27536 3556 C:\Users\aldri\Flood-Monitoring-System-with-GIS\maps\views.py changed, reloading.
 INFO 2025-11-16 22:54:55 autoreload 9932 18564 Watching for file changes with StatReloader
+INFO 2025-11-16 22:56:51 basehttp 9932 8428 "GET /maps/my-activity/?tab=user-logs&sort_order=recent HTTP/1.1" 200 45535
+INFO 2025-11-16 22:56:51 basehttp 9932 17596 "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+INFO 2025-11-16 22:56:51 basehttp 9932 8428 "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-11-16 22:56:51 basehttp 9932 16592 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 304 0
+INFO 2025-11-16 22:56:51 basehttp 9932 20808 "GET /static/images/drrmo_logo.png HTTP/1.1" 304 0
+INFO 2025-11-16 22:56:51 basehttp 9932 16592 "GET /static/webfonts/fa-brands-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-16 22:56:51 basehttp 9932 20808 "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+INFO 2025-11-16 22:56:54 basehttp 9932 16592 "GET /maps/my-activity/?tab=user-logs&sort_order=oldest HTTP/1.1" 200 45535
+INFO 2025-11-16 22:57:04 basehttp 9932 16592 "GET /maps/my-activity/?tab=assessments&sort_order=recent HTTP/1.1" 200 45537
+INFO 2025-11-16 22:57:09 basehttp 9932 16592 "GET /profile/ HTTP/1.1" 200 38323
+INFO 2025-11-16 22:57:49 basehttp 9932 16592 "POST /profile/ HTTP/1.1" 200 39248
+WARNING 2025-11-16 22:57:49 log 9932 16592 Not Found: /media/istockphoto-816152804-612x612.webp
+WARNING 2025-11-16 22:57:49 basehttp 9932 16592 "GET /media/istockphoto-816152804-612x612.webp HTTP/1.1" 404 5255
+INFO 2025-11-16 22:58:15 basehttp 9932 16592 "POST /profile/ HTTP/1.1" 302 0
+INFO 2025-11-16 22:58:15 basehttp 9932 16592 "GET /profile/ HTTP/1.1" 200 38570
+INFO 2025-11-16 23:00:02 autoreload 9932 18564 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-16 23:00:03 autoreload 26852 22476 Watching for file changes with StatReloader
+INFO 2025-11-16 23:01:07 basehttp 26852 7668 "GET /profile/ HTTP/1.1" 200 38347
+INFO 2025-11-16 23:01:14 basehttp 26852 7668 "GET /profile/ HTTP/1.1" 200 38347
+INFO 2025-11-16 23:01:22 basehttp 26852 7668 "POST /profile/ HTTP/1.1" 200 39050
+INFO 2025-11-16 23:01:36 basehttp 26852 7668 "POST /profile/ HTTP/1.1" 200 39060
+INFO 2025-11-16 23:02:17 autoreload 26852 22476 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-16 23:02:17 autoreload 13716 17484 Watching for file changes with StatReloader
+INFO 2025-11-16 23:02:53 basehttp 13716 9732 "POST /profile/ HTTP/1.1" 200 39060
+INFO 2025-11-16 23:03:01 basehttp 13716 9732 "POST /profile/ HTTP/1.1" 302 0
+INFO 2025-11-16 23:03:01 basehttp 13716 9732 "GET /profile/ HTTP/1.1" 200 38550
+INFO 2025-11-16 23:03:09 basehttp 13716 9732 "POST /profile/ HTTP/1.1" 302 0
+INFO 2025-11-16 23:03:09 basehttp 13716 9732 "GET /profile/ HTTP/1.1" 200 38765
+INFO 2025-11-16 23:03:09 basehttp 13716 9732 "GET /media/profile_images/istockphoto-816152804-612x612_EfIlA0d.webp HTTP/1.1" 200 14964
+INFO 2025-11-16 23:03:15 basehttp 13716 9732 "POST /profile/ HTTP/1.1" 200 39093
+INFO 2025-11-16 23:03:15 basehttp 13716 9732 "GET /media/profile_images/istockphoto-816152804-612x612_EfIlA0d.webp HTTP/1.1" 304 0
+INFO 2025-11-16 23:03:42 basehttp 13716 9732 "GET /home/ HTTP/1.1" 200 41176
+INFO 2025-11-16 23:03:43 basehttp 13716 9732 "GET /profile/ HTTP/1.1" 200 38542
+INFO 2025-11-16 23:03:43 basehttp 13716 9732 "GET /media/profile_images/istockphoto-816152804-612x612_EfIlA0d.webp HTTP/1.1" 304 0
+INFO 2025-11-16 23:04:27 basehttp 13716 9732 "GET /profile/ HTTP/1.1" 200 39259
+INFO 2025-11-16 23:04:27 basehttp 13716 9732 "GET /media/profile_images/istockphoto-816152804-612x612_EfIlA0d.webp HTTP/1.1" 304 0
+INFO 2025-11-16 23:04:57 basehttp 13716 9732 "POST /profile/ HTTP/1.1" 302 0
+INFO 2025-11-16 23:04:57 basehttp 13716 9732 "GET /profile/ HTTP/1.1" 200 39492
+INFO 2025-11-16 23:04:57 basehttp 13716 9732 "GET /media/profile_images/istockphoto-816152804-612x612_EfIlA0d.webp HTTP/1.1" 304 0
+INFO 2025-11-16 23:05:29 basehttp 13716 9732 "GET /profile/ HTTP/1.1" 200 39269
+INFO 2025-11-16 23:05:29 basehttp 13716 9732 "GET /media/profile_images/istockphoto-816152804-612x612_EfIlA0d.webp HTTP/1.1" 304 0
+INFO 2025-11-16 23:05:31 basehttp 13716 9732 "GET /profile/ HTTP/1.1" 200 39269
+INFO 2025-11-16 23:05:34 basehttp 13716 9732 "GET /profile/ HTTP/1.1" 200 39269
+INFO 2025-11-16 23:05:46 basehttp 13716 9732 "POST /profile/ HTTP/1.1" 200 39772
+INFO 2025-11-16 23:05:46 basehttp 13716 9732 "GET /media/profile_images/istockphoto-816152804-612x612_EfIlA0d.webp HTTP/1.1" 304 0
+INFO 2025-11-16 23:05:50 basehttp 13716 9732 "POST /profile/ HTTP/1.1" 302 0
+INFO 2025-11-16 23:05:50 basehttp 13716 9732 "GET /profile/ HTTP/1.1" 200 39482
+INFO 2025-11-16 23:07:06 basehttp 13716 9732 "POST /profile/ HTTP/1.1" 302 0
+INFO 2025-11-16 23:07:06 basehttp 13716 9732 "GET /profile/ HTTP/1.1" 200 39482
+INFO 2025-11-16 23:07:06 basehttp 13716 9732 "GET /media/profile_images/istockphoto-816152804-612x612_EfIlA0d.webp HTTP/1.1" 304 0
+INFO 2025-11-16 23:07:13 basehttp 13716 9732 "POST /profile/ HTTP/1.1" 302 0
+INFO 2025-11-16 23:07:13 basehttp 13716 9732 "GET /profile/ HTTP/1.1" 200 39482
+INFO 2025-11-16 23:07:57 basehttp 13716 9732 "GET /profile/ HTTP/1.1" 200 39403
+INFO 2025-11-16 23:07:57 basehttp 13716 9732 "GET /media/profile_images/istockphoto-816152804-612x612_EfIlA0d.webp HTTP/1.1" 304 0
+INFO 2025-11-16 23:08:03 basehttp 13716 9732 "POST /profile/ HTTP/1.1" 302 0
+INFO 2025-11-16 23:08:03 basehttp 13716 9732 "GET /profile/ HTTP/1.1" 200 39609
+INFO 2025-11-16 23:08:11 basehttp 13716 9732 "GET /home/ HTTP/1.1" 200 41372
+INFO 2025-11-16 23:08:12 basehttp 13716 9732 "GET /maps/my-activity/ HTTP/1.1" 200 54184
+INFO 2025-11-16 23:08:13 basehttp 13716 9732 "GET /profile/ HTTP/1.1" 200 39386
+INFO 2025-11-16 23:08:19 basehttp 13716 9732 "GET /home/ HTTP/1.1" 200 41372
+INFO 2025-11-16 23:08:27 basehttp 13716 9732 "GET /maps/my-activity/ HTTP/1.1" 200 54184
+INFO 2025-11-16 23:08:38 autoreload 13716 17484 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-16 23:08:38 autoreload 17884 13144 Watching for file changes with StatReloader
