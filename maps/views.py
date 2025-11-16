@@ -234,8 +234,10 @@ def save_assessment(request):
 # View for staff to see their own activity history
 @login_required
 def my_activity(request):
-    # Get sort parameter (default: recent first)
-    sort_order = request.GET.get('sort', 'recent')
+    # Get sort parameter (default: recent first).
+    # The UI uses `sort_order` in `my_activity.html` while `all_activities.html` uses `sort`.
+    # Accept both for compatibility.
+    sort_order = request.GET.get('sort') or request.GET.get('sort_order') or 'recent'
     
     assessments = AssessmentRecord.objects.filter(user=request.user)
     reports = ReportRecord.objects.filter(user=request.user)
@@ -285,7 +287,8 @@ def all_activities(request):
         raise PermissionDenied
     
     # Get sort parameter (default: recent first)
-    sort_order = request.GET.get('sort', 'recent')
+    # Accept both 'sort' and 'sort_order' for compatibility with templates
+    sort_order = request.GET.get('sort') or request.GET.get('sort_order') or 'recent'
     
     assessments = AssessmentRecord.objects.all().select_related('user')
     reports = ReportRecord.objects.all().select_related('user')
@@ -295,15 +298,18 @@ def all_activities(request):
     
     # Apply ordering based on sort parameter
     if sort_order == 'oldest':
-        order_by = 'timestamp'  # Oldest first
+        assessments = assessments.order_by('timestamp')
+        reports = reports.order_by('timestamp')
+        # Certificates also have a timestamp, use that for reliable chronological ordering
+        certificates = certificates.order_by('timestamp')
+        flood_activities = flood_activities.order_by('timestamp')
+        user_logs = user_logs.order_by('timestamp')
     else:
-        order_by = '-timestamp'  # Recent first (default)
-    
-    assessments = assessments.order_by(order_by)
-    reports = reports.order_by(order_by)
-    certificates = certificates.order_by(order_by)
-    flood_activities = flood_activities.order_by(order_by)
-    user_logs = user_logs.order_by(order_by)
+        assessments = assessments.order_by('-timestamp')
+        reports = reports.order_by('-timestamp')
+        certificates = certificates.order_by('-timestamp')
+        flood_activities = flood_activities.order_by('-timestamp')
+        user_logs = user_logs.order_by('-timestamp')
     
     # Get filter parameters
     filter_user = request.GET.get('user', None)

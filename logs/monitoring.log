@@ -2942,3 +2942,47 @@ INFO 2025-11-16 22:28:13 views 15768 19164 API returned - Rain: 0.0mm, Temp: 26.
 INFO 2025-11-16 22:28:13 views 15768 19164 Processed 7 days of weather forecast
 INFO 2025-11-16 22:28:13 basehttp 15768 19164 "GET /monitoring/ HTTP/1.1" 200 85322
 INFO 2025-11-16 22:29:06 basehttp 15768 19164 "GET /maps/my-activity/ HTTP/1.1" 200 45537
+INFO 2025-11-16 22:33:21 basehttp 15768 19164 "GET /maps/my-activity/?tab=assessments&sort_order=oldest HTTP/1.1" 200 45524
+INFO 2025-11-16 22:33:27 basehttp 15768 19164 "GET /maps/my-activity/?tab=assessments&sort_order=oldest HTTP/1.1" 200 45524
+INFO 2025-11-16 22:33:31 basehttp 15768 19164 "GET /maps/my-activity/?tab=reports&sort_order=oldest HTTP/1.1" 200 45520
+INFO 2025-11-16 22:34:38 basehttp 15768 19164 "GET /maps/my-activity/ HTTP/1.1" 200 45535
+INFO 2025-11-16 22:36:14 views 15768 19164 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-16 22:36:15 views 15768 19164 API returned - Rain: 0.0mm, Temp: 26.4°C, Humidity: 91%, Wind: 11.5km/h
+INFO 2025-11-16 22:36:15 views 15768 19164 Processed 7 days of weather forecast
+INFO 2025-11-16 22:36:15 basehttp 15768 19164 "GET /monitoring/ HTTP/1.1" 200 85322
+INFO 2025-11-16 22:36:16 basehttp 15768 19164 "GET /maps/my-activity/ HTTP/1.1" 200 45536
+INFO 2025-11-16 22:36:23 basehttp 15768 19164 "GET /home/ HTTP/1.1" 200 40606
+INFO 2025-11-16 22:39:26 autoreload 15768 8488 C:\Users\aldri\Flood-Monitoring-System-with-GIS\maps\views.py changed, reloading.
+INFO 2025-11-16 22:39:27 autoreload 27368 6660 Watching for file changes with StatReloader
+INFO 2025-11-16 22:40:27 basehttp 27368 21140 "GET /home/ HTTP/1.1" 200 40606
+INFO 2025-11-16 22:40:29 basehttp 27368 21140 "GET /maps/my-activity/ HTTP/1.1" 200 45536
+INFO 2025-11-16 22:40:32 basehttp 27368 21140 "GET /maps/my-activity/?tab=assessments&sort_order=oldest HTTP/1.1" 200 45536
+INFO 2025-11-16 22:40:37 basehttp 27368 21140 "GET /maps/my-activity/?tab=assessments&sort_order=oldest HTTP/1.1" 200 45536
+INFO 2025-11-16 22:40:39 basehttp 27368 21140 "GET /maps/my-activity/?tab=assessments&sort_order=oldest HTTP/1.1" 200 45536
+INFO 2025-11-16 22:41:18 autoreload 25940 26252 Watching for file changes with StatReloader
+INFO 2025-11-16 22:41:19 basehttp 25940 18912 "GET / HTTP/1.1" 302 0
+INFO 2025-11-16 22:41:19 basehttp 25940 18912 "GET /home/ HTTP/1.1" 200 40606
+INFO 2025-11-16 22:41:20 basehttp 25940 18912 "GET /maps/my-activity/ HTTP/1.1" 200 45536
+INFO 2025-11-16 22:41:22 basehttp 25940 18912 "GET /maps/my-activity/?tab=assessments&sort_order=oldest HTTP/1.1" 200 45536
+INFO 2025-11-16 22:44:50 autoreload 25940 26252 C:\Users\aldri\Flood-Monitoring-System-with-GIS\maps\views.py changed, reloading.
+INFO 2025-11-16 22:44:50 autoreload 4184 19320 Watching for file changes with StatReloader
+INFO 2025-11-16 22:45:36 basehttp 4184 18696 "GET /maps/my-activity/?tab=assessments&sort_order=oldest HTTP/1.1" 200 45537
+INFO 2025-11-16 22:45:38 basehttp 4184 18696 "GET /maps/my-activity/?tab=assessments&sort_order=oldest HTTP/1.1" 200 45537
+INFO 2025-11-16 22:47:16 autoreload 4184 19320 C:\Users\aldri\Flood-Monitoring-System-with-GIS\maps\views.py changed, reloading.
+INFO 2025-11-16 22:47:17 autoreload 8576 15488 Watching for file changes with StatReloader
+INFO 2025-11-16 22:50:26 autoreload 8576 15488 C:\Users\aldri\Flood-Monitoring-System-with-GIS\maps\views.py changed, reloading.
+INFO 2025-11-16 22:50:27 autoreload 27536 3556 Watching for file changes with StatReloader
+INFO 2025-11-16 22:52:40 basehttp 27536 17800 "GET /maps/my-activity/?tab=assessments&sort_order=oldest HTTP/1.1" 200 45537
+INFO 2025-11-16 22:52:41 basehttp 27536 17800 "GET /maps/my-activity/?tab=assessments&sort_order=recent HTTP/1.1" 200 45537
+INFO 2025-11-16 22:52:43 basehttp 27536 17800 "GET /maps/my-activity/?tab=assessments&sort_order=oldest HTTP/1.1" 200 45537
+INFO 2025-11-16 22:52:46 basehttp 27536 17800 "GET /maps/my-activity/?tab=assessments&sort_order=recent HTTP/1.1" 200 45537
+INFO 2025-11-16 22:52:49 basehttp 27536 17800 "GET /maps/my-activity/?tab=assessments&sort_order=oldest HTTP/1.1" 200 45537
+INFO 2025-11-16 22:53:02 basehttp 27536 17800 "GET /maps/my-activity/?tab=flood-records&sort_order=recent HTTP/1.1" 200 45539
+INFO 2025-11-16 22:53:06 basehttp 27536 17800 "GET /maps/my-activity/?tab=flood-records&sort_order=oldest HTTP/1.1" 200 45539
+INFO 2025-11-16 22:53:10 basehttp 27536 17800 "GET /maps/my-activity/?tab=flood-records&sort_order=recent HTTP/1.1" 200 45539
+INFO 2025-11-16 22:53:13 basehttp 27536 17800 "GET /maps/my-activity/?tab=flood-records&sort_order=oldest HTTP/1.1" 200 45539
+INFO 2025-11-16 22:53:21 basehttp 27536 17800 "GET /maps/my-activity/?tab=flood-records&sort_order=recent HTTP/1.1" 200 45539
+INFO 2025-11-16 22:53:29 basehttp 27536 17800 "GET /maps/my-activity/?tab=user-logs&sort_order=oldest HTTP/1.1" 200 45535
+INFO 2025-11-16 22:53:31 basehttp 27536 17800 "GET /maps/my-activity/?tab=user-logs&sort_order=recent HTTP/1.1" 200 45535
+INFO 2025-11-16 22:54:54 autoreload 27536 3556 C:\Users\aldri\Flood-Monitoring-System-with-GIS\maps\views.py changed, reloading.
+INFO 2025-11-16 22:54:55 autoreload 9932 18564 Watching for file changes with StatReloader
