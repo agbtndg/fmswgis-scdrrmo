@@ -19,7 +19,9 @@
             flex-direction: column;
             gap: 12px;
             max-width: 420px;
-            pointer-events: none;
+            /* allow interacting with toast notifications */
+            pointer-events: auto;
+            
         }
 
         .toast-notification {
@@ -141,9 +143,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 4px;
+            pointer-events: auto;
+            z-index: 99999; /* keep toast above other UI overlays */
             transition: all 0.2s;
             flex-shrink: 0;
+            pointer-events: auto;
+            z-index: 100000; /* ensure close button is clickable */
         }
 
         .toast-close:hover {
@@ -589,7 +594,7 @@
                 <div class="toast-content">
                     <p class="toast-message">${message}</p>
                 </div>
-                <button class="toast-close" onclick="dismissToast(this)">
+                <button type="button" class="toast-close" aria-label="Close" onclick="dismissToast(this)">
                     <i class="fas fa-times"></i>
                 </button>
                 <div class="toast-progress"></div>

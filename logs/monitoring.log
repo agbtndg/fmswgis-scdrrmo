@@ -2420,3 +2420,393 @@ INFO 2025-11-16 15:50:19 basehttp 25248 5276 "GET /logout/ HTTP/1.1" 302 0
 INFO 2025-11-16 15:50:19 basehttp 25248 5276 "GET / HTTP/1.1" 200 13212
 INFO 2025-11-16 15:50:21 basehttp 25248 5276 "GET /register/ HTTP/1.1" 200 23376
 INFO 2025-11-16 15:50:25 basehttp 25248 5276 "GET / HTTP/1.1" 200 13212
+INFO 2025-11-16 16:02:25 autoreload 17516 25788 Watching for file changes with StatReloader
+INFO 2025-11-16 16:02:28 basehttp 17516 16592 "GET / HTTP/1.1" 200 13212
+INFO 2025-11-16 16:02:47 basehttp 17516 16592 "POST / HTTP/1.1" 200 13547
+INFO 2025-11-16 16:02:56 basehttp 17516 16592 "GET /register/ HTTP/1.1" 200 23376
+INFO 2025-11-16 16:18:25 autoreload 17516 25788 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-16 16:18:26 autoreload 19004 21576 Watching for file changes with StatReloader
+INFO 2025-11-16 16:18:31 autoreload 19004 21576 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-16 16:18:31 autoreload 22128 14756 Watching for file changes with StatReloader
+INFO 2025-11-16 16:22:31 basehttp 22128 8224 "GET /register/ HTTP/1.1" 200 23623
+INFO 2025-11-16 16:22:38 basehttp 22128 8224 "GET / HTTP/1.1" 200 13212
+INFO 2025-11-16 16:22:40 basehttp 22128 8224 "GET /register/ HTTP/1.1" 200 23623
+INFO 2025-11-16 16:22:43 basehttp 22128 8224 "GET / HTTP/1.1" 200 13212
+INFO 2025-11-16 16:22:46 basehttp 22128 8224 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-11-16 16:22:46 basehttp 22128 8224 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4177
+INFO 2025-11-16 16:22:46 basehttp 22128 17152 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2938
+INFO 2025-11-16 16:22:46 basehttp 22128 13840 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2960
+INFO 2025-11-16 16:22:46 basehttp 22128 12272 "GET /static/admin/js/theme.js HTTP/1.1" 200 1704
+INFO 2025-11-16 16:22:46 basehttp 22128 8224 "GET /static/admin/css/base.css HTTP/1.1" 200 23300
+INFO 2025-11-16 16:22:46 basehttp 22128 3324 "GET /static/admin/css/login.css HTTP/1.1" 200 1012
+INFO 2025-11-16 16:22:46 basehttp 22128 1116 "GET /static/admin/css/responsive.css HTTP/1.1" 200 17469
+INFO 2025-11-16 16:22:46 basehttp 22128 3324 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3142
+INFO 2025-11-16 16:22:53 basehttp 22128 3324 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-11-16 16:22:53 basehttp 22128 3324 "GET /admin/ HTTP/1.1" 200 13399
+INFO 2025-11-16 16:22:53 basehttp 22128 3324 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 470
+INFO 2025-11-16 16:22:53 basehttp 22128 1116 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 383
+INFO 2025-11-16 16:22:53 basehttp 22128 3324 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 334
+INFO 2025-11-16 16:22:56 basehttp 22128 1116 "GET /admin/users/customuser/ HTTP/1.1" 200 14268
+INFO 2025-11-16 16:22:56 basehttp 22128 12272 "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 355
+INFO 2025-11-16 16:22:56 basehttp 22128 13840 "GET /static/admin/js/core.js HTTP/1.1" 200 6392
+INFO 2025-11-16 16:22:56 basehttp 22128 1116 "GET /static/admin/css/changelists.css HTTP/1.1" 200 7221
+INFO 2025-11-16 16:22:56 basehttp 22128 3324 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-16 16:22:56 basehttp 22128 17152 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 10029
+INFO 2025-11-16 16:22:56 basehttp 22128 12272 "GET /static/admin/js/actions.js HTTP/1.1" 200 8280
+INFO 2025-11-16 16:22:56 basehttp 22128 1116 "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1574
+INFO 2025-11-16 16:22:56 basehttp 22128 13840 "GET /static/admin/js/urlify.js HTTP/1.1" 200 8056
+INFO 2025-11-16 16:22:56 basehttp 22128 8224 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 296030
+INFO 2025-11-16 16:22:56 basehttp 22128 3324 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 331297
+INFO 2025-11-16 16:22:56 basehttp 22128 3324 "GET /static/admin/js/filters.js HTTP/1.1" 200 1008
+INFO 2025-11-16 16:22:56 basehttp 22128 3324 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 334
+INFO 2025-11-16 16:22:57 basehttp 22128 3324 "GET /admin/users/customuser/16/change/ HTTP/1.1" 200 36618
+INFO 2025-11-16 16:22:58 basehttp 22128 3324 "GET /static/admin/css/forms.css HTTP/1.1" 200 9023
+INFO 2025-11-16 16:22:58 basehttp 22128 1116 "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19727
+INFO 2025-11-16 16:22:58 basehttp 22128 12272 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 601
+INFO 2025-11-16 16:22:58 basehttp 22128 13840 "GET /static/admin/js/calendar.js HTTP/1.1" 200 9380
+INFO 2025-11-16 16:22:58 basehttp 22128 8224 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-16 16:22:58 basehttp 22128 3324 "GET /static/admin/css/widgets.css HTTP/1.1" 200 12586
+INFO 2025-11-16 16:22:58 basehttp 22128 8224 "GET /static/admin/js/change_form.js HTTP/1.1" 200 622
+INFO 2025-11-16 16:22:58 basehttp 22128 3324 "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 686
+INFO 2025-11-16 16:22:58 basehttp 22128 8224 "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1095
+INFO 2025-11-16 16:23:02 basehttp 22128 8224 "GET /admin/users/customuser/16/delete/ HTTP/1.1" 200 15161
+INFO 2025-11-16 16:23:02 basehttp 22128 8224 "GET /static/admin/js/cancel.js HTTP/1.1" 200 913
+INFO 2025-11-16 16:23:05 basehttp 22128 8224 "POST /admin/users/customuser/16/delete/ HTTP/1.1" 302 0
+INFO 2025-11-16 16:23:05 basehttp 22128 8224 "GET /admin/users/customuser/ HTTP/1.1" 302 0
+INFO 2025-11-16 16:23:05 basehttp 22128 8224 "GET /admin/login/?next=/admin/users/customuser/ HTTP/1.1" 200 4363
+INFO 2025-11-16 16:23:05 basehttp 22128 8224 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 439
+INFO 2025-11-16 16:23:08 basehttp 22128 8224 "GET / HTTP/1.1" 200 13317
+INFO 2025-11-16 16:23:11 basehttp 22128 8224 "GET /register/admin/ HTTP/1.1" 200 26142
+INFO 2025-11-16 16:29:47 basehttp 22128 412 "GET /register/admin/ HTTP/1.1" 200 26250
+INFO 2025-11-16 16:29:55 basehttp 22128 412 "GET / HTTP/1.1" 200 13406
+INFO 2025-11-16 16:29:57 basehttp 22128 412 "GET /register/ HTTP/1.1" 200 23810
+INFO 2025-11-16 16:30:01 basehttp 22128 412 "GET / HTTP/1.1" 200 13406
+INFO 2025-11-16 16:30:01 basehttp 22128 412 "GET /register/admin/ HTTP/1.1" 200 26250
+INFO 2025-11-16 16:30:07 basehttp 22128 412 "GET / HTTP/1.1" 200 13406
+INFO 2025-11-16 16:30:08 basehttp 22128 412 "GET /register/ HTTP/1.1" 200 23810
+INFO 2025-11-16 16:33:02 basehttp 22128 412 "GET /register/ HTTP/1.1" 200 23887
+INFO 2025-11-16 16:33:06 basehttp 22128 412 "GET / HTTP/1.1" 200 13429
+INFO 2025-11-16 16:33:06 basehttp 22128 412 "GET /register/admin/ HTTP/1.1" 200 26273
+INFO 2025-11-16 16:34:25 basehttp 22128 412 "GET /register/admin/ HTTP/1.1" 200 26273
+INFO 2025-11-16 16:36:11 basehttp 22128 412 "GET /register/admin/ HTTP/1.1" 200 26273
+INFO 2025-11-16 16:36:17 basehttp 22128 412 "GET / HTTP/1.1" 200 13429
+INFO 2025-11-16 16:36:21 basehttp 22128 412 "GET /register/admin/ HTTP/1.1" 200 26273
+INFO 2025-11-16 16:36:25 basehttp 22128 412 "GET / HTTP/1.1" 200 13429
+INFO 2025-11-16 16:38:39 basehttp 22128 412 "GET / HTTP/1.1" 200 13497
+INFO 2025-11-16 16:38:40 basehttp 22128 412 "GET /register/admin/ HTTP/1.1" 200 26273
+INFO 2025-11-16 16:38:47 basehttp 22128 412 "GET / HTTP/1.1" 200 13497
+INFO 2025-11-16 16:38:48 basehttp 22128 412 "GET /register/ HTTP/1.1" 200 24029
+INFO 2025-11-16 16:38:51 basehttp 22128 412 "GET / HTTP/1.1" 200 13497
+INFO 2025-11-16 16:40:11 basehttp 22128 412 "GET / HTTP/1.1" 200 13497
+INFO 2025-11-16 16:40:13 basehttp 22128 412 "GET /register/ HTTP/1.1" 200 24050
+INFO 2025-11-16 16:40:28 basehttp 22128 412 "GET / HTTP/1.1" 200 13497
+INFO 2025-11-16 16:42:21 basehttp 22128 412 "GET / HTTP/1.1" 200 13497
+INFO 2025-11-16 16:42:23 basehttp 22128 412 "GET /register/ HTTP/1.1" 200 24152
+INFO 2025-11-16 16:42:41 basehttp 22128 412 "GET / HTTP/1.1" 200 13497
+INFO 2025-11-16 16:42:42 basehttp 22128 412 "GET /register/admin/ HTTP/1.1" 200 26396
+INFO 2025-11-16 16:42:55 autoreload 22128 14756 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-16 16:42:55 autoreload 19096 9648 Watching for file changes with StatReloader
+INFO 2025-11-16 16:44:18 basehttp 19096 21864 "GET / HTTP/1.1" 200 13497
+INFO 2025-11-16 16:44:22 basehttp 19096 21864 "GET /register/admin/ HTTP/1.1" 200 26396
+INFO 2025-11-16 16:51:18 basehttp 19096 25180 "POST /register/admin/ HTTP/1.1" 200 28174
+INFO 2025-11-16 16:52:14 basehttp 19096 25180 "POST /register/admin/ HTTP/1.1" 302 0
+INFO 2025-11-16 16:52:14 basehttp 19096 25180 "GET / HTTP/1.1" 200 13668
+INFO 2025-11-16 16:59:50 basehttp 19096 3252 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-11-16 16:59:50 basehttp 19096 3252 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4177
+INFO 2025-11-16 16:59:50 basehttp 19096 16688 "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2025-11-16 16:59:50 basehttp 19096 3252 "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2025-11-16 16:59:50 basehttp 19096 7900 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2025-11-16 16:59:50 basehttp 19096 21136 "GET /static/admin/css/login.css HTTP/1.1" 304 0
+INFO 2025-11-16 16:59:50 basehttp 19096 15424 "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2025-11-16 16:59:50 basehttp 19096 6876 "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2025-11-16 16:59:50 basehttp 19096 6876 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:14 basehttp 19096 6876 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-11-16 17:00:14 basehttp 19096 6876 "GET /admin/ HTTP/1.1" 200 13399
+INFO 2025-11-16 17:00:14 basehttp 19096 6876 "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:14 basehttp 19096 15424 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:14 basehttp 19096 6876 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:16 basehttp 19096 6876 "GET /admin/users/customuser/ HTTP/1.1" 200 14270
+INFO 2025-11-16 17:00:16 basehttp 19096 16688 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:16 basehttp 19096 21136 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:16 basehttp 19096 3252 "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:16 basehttp 19096 7900 "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:16 basehttp 19096 6876 "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:16 basehttp 19096 21136 "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:16 basehttp 19096 16688 "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:16 basehttp 19096 3252 "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:16 basehttp 19096 7900 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:16 basehttp 19096 7900 "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:16 basehttp 19096 15424 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-16 17:00:16 basehttp 19096 15424 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:17 basehttp 19096 15424 "GET /admin/users/customuser/17/change/ HTTP/1.1" 200 36288
+INFO 2025-11-16 17:00:18 basehttp 19096 3252 "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:18 basehttp 19096 21136 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:18 basehttp 19096 15424 "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:18 basehttp 19096 16688 "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:18 basehttp 19096 16688 "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:18 basehttp 19096 16688 "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:18 basehttp 19096 7900 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-16 17:00:18 basehttp 19096 7900 "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:18 basehttp 19096 16688 "GET /static/admin/img/icon-clock.svg HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:21 basehttp 19096 7900 "GET /admin/users/customuser/17/delete/ HTTP/1.1" 200 13091
+INFO 2025-11-16 17:00:21 basehttp 19096 7900 "GET /static/admin/js/cancel.js HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:23 basehttp 19096 7900 "POST /admin/users/customuser/17/delete/ HTTP/1.1" 302 0
+INFO 2025-11-16 17:00:23 basehttp 19096 7900 "GET /admin/users/customuser/ HTTP/1.1" 302 0
+INFO 2025-11-16 17:00:23 basehttp 19096 7900 "GET /admin/login/?next=/admin/users/customuser/ HTTP/1.1" 200 4364
+INFO 2025-11-16 17:00:23 basehttp 19096 7900 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+INFO 2025-11-16 17:00:27 basehttp 19096 7900 "GET / HTTP/1.1" 200 13713
+INFO 2025-11-16 17:00:29 basehttp 19096 7900 "GET /register/admin/ HTTP/1.1" 200 26550
+INFO 2025-11-16 17:01:08 basehttp 19096 7900 "POST /register/admin/ HTTP/1.1" 200 27863
+INFO 2025-11-16 17:01:38 basehttp 19096 7900 "POST /register/admin/ HTTP/1.1" 200 27767
+INFO 2025-11-16 17:01:50 basehttp 19096 7900 "POST /register/admin/ HTTP/1.1" 200 27560
+INFO 2025-11-16 17:02:04 basehttp 19096 7900 "POST /register/admin/ HTTP/1.1" 302 0
+INFO 2025-11-16 17:02:04 basehttp 19096 7900 "GET / HTTP/1.1" 200 13884
+INFO 2025-11-16 17:02:16 basehttp 19096 7900 "POST / HTTP/1.1" 302 0
+INFO 2025-11-16 17:02:16 basehttp 19096 7900 "GET /home/ HTTP/1.1" 200 44951
+INFO 2025-11-16 17:02:23 basehttp 19096 7900 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-16 17:02:23 basehttp 19096 7900 "GET / HTTP/1.1" 200 13608
+INFO 2025-11-16 17:02:38 basehttp 19096 7900 "GET /register/ HTTP/1.1" 200 24368
+INFO 2025-11-16 17:05:40 basehttp 19096 7900 "GET /register/ HTTP/1.1" 200 24473
+INFO 2025-11-16 17:05:40 basehttp 19096 7900 "GET / HTTP/1.1" 200 13751
+INFO 2025-11-16 17:05:47 basehttp 19096 7900 "GET /register/ HTTP/1.1" 200 24473
+INFO 2025-11-16 17:06:56 basehttp 19096 7900 "POST /register/ HTTP/1.1" 200 25952
+INFO 2025-11-16 17:07:14 basehttp 19096 7900 "POST /register/ HTTP/1.1" 200 26007
+INFO 2025-11-16 17:07:26 basehttp 19096 7900 "POST /register/ HTTP/1.1" 302 0
+INFO 2025-11-16 17:07:26 basehttp 19096 7900 "GET / HTTP/1.1" 200 14033
+INFO 2025-11-16 17:09:11 basehttp 19096 7900 "GET /register/ HTTP/1.1" 200 24473
+INFO 2025-11-16 17:10:31 autoreload 19096 9648 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-16 17:10:32 autoreload 22212 13800 Watching for file changes with StatReloader
+INFO 2025-11-16 17:11:05 basehttp 22212 1780 "GET /register/ HTTP/1.1" 200 24473
+INFO 2025-11-16 17:11:18 basehttp 22212 1780 "POST /register/ HTTP/1.1" 200 26002
+INFO 2025-11-16 17:11:53 basehttp 22212 1780 "POST /register/ HTTP/1.1" 302 0
+INFO 2025-11-16 17:11:53 basehttp 22212 1780 "GET / HTTP/1.1" 200 14033
+INFO 2025-11-16 17:12:05 basehttp 22212 1780 "POST / HTTP/1.1" 302 0
+INFO 2025-11-16 17:12:05 basehttp 22212 1780 "GET /home/ HTTP/1.1" 200 46469
+INFO 2025-11-16 17:12:07 basehttp 22212 1780 "GET /approve/ HTTP/1.1" 200 35482
+INFO 2025-11-16 17:15:54 autoreload 22212 13800 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-16 17:15:54 autoreload 9116 22736 Watching for file changes with StatReloader
+INFO 2025-11-16 17:17:36 basehttp 9116 25140 "POST /approve/ HTTP/1.1" 302 0
+INFO 2025-11-16 17:17:36 basehttp 9116 25140 "GET /approve/ HTTP/1.1" 200 34430
+INFO 2025-11-16 17:17:38 basehttp 9116 25140 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-16 17:17:38 basehttp 9116 25140 "GET / HTTP/1.1" 200 13751
+ERROR 2025-11-16 17:17:39 log 9116 25140 Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\smartif.py", line 180, in translate_token
+    op = OPERATORS[token]
+         ~~~~~~~~~^^^^^^^
+KeyError: 'form[field]'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\views.py", line 62, in register
+    return render(request, 'users/register.html', {'form': form})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\defaulttags.py", line 961, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\defaulttags.py", line 894, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\smartif.py", line 171, in __init__
+    mapped_tokens.append(self.translate_token(token))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\smartif.py", line 182, in translate_token
+    return self.create_var(token)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\defaulttags.py", line 897, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 710, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '[field]' from 'form[field]'
+ERROR 2025-11-16 17:17:39 basehttp 9116 25140 "GET /register/ HTTP/1.1" 500 337779
+INFO 2025-11-16 17:18:07 autoreload 10296 11068 Watching for file changes with StatReloader
+INFO 2025-11-16 17:18:08 basehttp 9116 25140 "GET / HTTP/1.1" 200 13751
+ERROR 2025-11-16 17:18:09 log 9116 25140 Internal Server Error: /register/
+Traceback (most recent call last):
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\smartif.py", line 180, in translate_token
+    op = OPERATORS[token]
+         ~~~~~~~~~^^^^^^^
+KeyError: 'form[field]'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\views.py", line 62, in register
+    return render(request, 'users/register.html', {'form': form})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\defaulttags.py", line 962, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+                    ^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\defaulttags.py", line 961, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\defaulttags.py", line 894, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\smartif.py", line 171, in __init__
+    mapped_tokens.append(self.translate_token(token))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\smartif.py", line 182, in translate_token
+    return self.create_var(token)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\defaulttags.py", line 897, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 609, in compile_filter
+    return FilterExpression(token, self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\template\base.py", line 710, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '[field]' from 'form[field]'
+ERROR 2025-11-16 17:18:09 basehttp 9116 25140 "GET /register/ HTTP/1.1" 500 337779
+INFO 2025-11-16 17:21:44 autoreload 9116 22736 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-16 17:21:44 autoreload 18576 25580 Watching for file changes with StatReloader
+INFO 2025-11-16 17:23:43 autoreload 19848 4368 Watching for file changes with StatReloader
+INFO 2025-11-16 17:23:45 basehttp 18576 3684 "GET / HTTP/1.1" 200 13751
+INFO 2025-11-16 17:23:47 basehttp 18576 3684 "GET /register/ HTTP/1.1" 200 24473
+INFO 2025-11-16 17:24:08 basehttp 18576 3684 "POST /register/ HTTP/1.1" 200 27767
+INFO 2025-11-16 17:24:37 basehttp 18576 3684 "POST /register/ HTTP/1.1" 200 26177
+INFO 2025-11-16 17:25:05 basehttp 18576 3684 "POST /register/ HTTP/1.1" 200 27500
+INFO 2025-11-16 17:27:18 autoreload 18576 25580 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-16 17:27:19 autoreload 19848 4368 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-16 17:27:19 autoreload 11236 12320 Watching for file changes with StatReloader
+INFO 2025-11-16 17:27:19 autoreload 4152 13392 Watching for file changes with StatReloader
+INFO 2025-11-16 17:27:23 autoreload 11236 12320 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-16 17:27:23 autoreload 4152 13392 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-16 17:27:24 autoreload 21180 24396 Watching for file changes with StatReloader
+INFO 2025-11-16 17:27:24 autoreload 2092 9592 Watching for file changes with StatReloader
+INFO 2025-11-16 17:29:35 basehttp 21180 19464 "POST /register/ HTTP/1.1" 200 27366
+INFO 2025-11-16 17:29:47 basehttp 21180 19464 "POST /register/ HTTP/1.1" 200 26043
+INFO 2025-11-16 17:29:54 basehttp 21180 19464 "GET / HTTP/1.1" 200 13751
+INFO 2025-11-16 17:30:07 autoreload 21180 24396 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-16 17:30:07 autoreload 25544 25496 Watching for file changes with StatReloader

@@ -101,6 +101,7 @@
             flex-direction: column;
             gap: 12px;
             max-width: 400px;
+            pointer-events: auto; /* allow manual close */
         }
 
         .toast-notification {
@@ -115,6 +116,8 @@
             overflow: hidden;
             animation: slideInRight 0.4s ease-out;
             border-left: 4px solid;
+            pointer-events: auto;
+            z-index: 10000;
         }
 
         .toast-notification.hiding {
@@ -196,6 +199,8 @@
             border-radius: 4px;
             transition: all 0.2s ease;
             flex-shrink: 0;
+            pointer-events: auto;
+            z-index: 99999;
         }
 
         .toast-close:hover {
@@ -263,13 +268,17 @@
             transform: translateY(-50%);
             color: var(--text-muted);
             font-size: 16px;
-            z-index: 2;
+            z-index: 10; /* higher than bootstrap focus z-index so icon stays visible */
+            pointer-events: none; /* allow clicks to pass through to input */
         }
 
+        .form-control,
+        .form-control,
         input[type="text"],
         input[type="password"] {
             width: 100%;
-            padding: 14px 16px 14px 44px;
+            /* placeholder moved slightly to the right for login */
+            padding: 14px 16px 14px 40px;
             border: 2px solid var(--border-gray);
             border-radius: 10px;
             font-size: 15px;
@@ -286,7 +295,8 @@
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
-        .login-btn {
+        .login-btn,
+        .btn-primary {
             width: 100%;
             padding: 16px;
             background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
@@ -374,7 +384,7 @@
                 <label for="username">Username</label>
                 <div class="input-group">
                     <i class="fas fa-user"></i>
-                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required>
                 </div>
             </div>
 
@@ -382,11 +392,11 @@
                 <label for="password">Password</label>
                 <div class="input-group">
                     <i class="fas fa-lock"></i>
-                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
                 </div>
             </div>
 
-            <button type="submit" class="login-btn">
+            <button type="submit" class="btn-primary">
                 <i class="fas fa-sign-in-alt" style="margin-right: 8px;"></i>Login to Dashboard
             </button>
         </form>
@@ -425,7 +435,7 @@
                 <div class="toast-content">
                     <p class="toast-message">${message}</p>
                 </div>
-                <button class="toast-close" onclick="dismissToast(this)">
+                <button type="button" class="toast-close" aria-label="Close" onclick="dismissToast(this)">
                     <i class="fas fa-times"></i>
                 </button>
                 <div class="toast-progress"></div>

@@ -22,8 +22,21 @@ class CustomUserCreationForm(UserCreationForm):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        for field in self.fields.values():
+        placeholders = {
+            'first_name': 'Juan',
+            'last_name': 'Dela Cruz',
+            'username': 'juandelacruz123',
+            'email': 'juan@example.com',
+            'position': '-- Select Position --',
+            'contact_number': '09123456789',
+            'date_of_birth': '',
+            'password1': 'SecurePassword123!',
+            'password2': 'SecurePassword123!',
+        }
+        for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
+            if field_name in placeholders:
+                field.widget.attrs['placeholder'] = placeholders[field_name]
     
     def clean_date_of_birth(self):
         """Validate date of birth: must be 18-80 years old, no future dates."""
@@ -50,6 +63,25 @@ class CustomUserCreationForm(UserCreationForm):
         
         return dob
 
+    def clean_contact_number(self):
+        """Validate contact number is exactly 11 digits for registration."""
+        num = self.cleaned_data.get('contact_number')
+        if num:
+            # Remove spaces and common separators
+            cleaned = ''.join(filter(str.isdigit, str(num)))
+            if len(cleaned) != 11:
+                raise forms.ValidationError("Contact number must be exactly 11 digits.")
+        return num
+
+    def clean_email(self):
+        """Ensure email is unique for registration."""
+        email = self.cleaned_data.get('email')
+        if email:
+            email = email.strip().lower()
+        if email and CustomUser.objects.filter(email__iexact=email).exists():
+            raise forms.ValidationError("This email address is already registered.")
+        return email
+
 class AdminRegistrationForm(UserCreationForm):
     """
     Form for admin registration with secure registration key.
@@ -57,7 +89,7 @@ class AdminRegistrationForm(UserCreationForm):
     Includes date of birth validation (18-80 years old).
     """
     registration_key = forms.CharField(
-        widget=forms.PasswordInput(attrs={'class': 'form-control'}),
+        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Enter registration key'}),
         help_text="Enter the secure registration key provided by the system administrator."
     )
     class Meta:
@@ -73,8 +105,21 @@ class AdminRegistrationForm(UserCreationForm):
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        for field in self.fields.values():
+        placeholders = {
+            'first_name': 'Juan',
+            'last_name': 'Dela Cruz',
+            'username': 'admin_user',
+            'email': 'admin@example.com',
+            'position': '-- Select Position --',
+            'contact_number': '09123456789',
+            'date_of_birth': '',
+            'password1': 'SecurePassword123!',
+            'password2': 'SecurePassword123!',
+        }
+        for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
+            if field_name in placeholders:
+                field.widget.attrs['placeholder'] = placeholders[field_name]
     
     def clean_registration_key(self):
         key = self.cleaned_data.get('registration_key')
@@ -106,6 +151,24 @@ class AdminRegistrationForm(UserCreationForm):
                 raise forms.ValidationError("Age must not exceed 80 years.")
         
         return dob
+
+    def clean_contact_number(self):
+        """Validate contact number is exactly 11 digits for admin registration."""
+        num = self.cleaned_data.get('contact_number')
+        if num:
+            cleaned = ''.join(filter(str.isdigit, str(num)))
+            if len(cleaned) != 11:
+                raise forms.ValidationError("Contact number must be exactly 11 digits.")
+        return num
+
+    def clean_email(self):
+        """Ensure email is unique for admin registration."""
+        email = self.cleaned_data.get('email')
+        if email:
+            email = email.strip().lower()
+        if email and CustomUser.objects.filter(email__iexact=email).exists():
+            raise forms.ValidationError("This email address is already registered.")
+        return email
 
 class ProfileEditForm(UserChangeForm):
     """
