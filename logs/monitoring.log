@@ -2379,3 +2379,44 @@ INFO 2025-11-16 14:07:53 basehttp 12020 13024 "GET /monitoring/api/data/ HTTP/1.
 INFO 2025-11-16 14:57:41 basehttp 12020 18540 "GET /monitoring/api/data/ HTTP/1.1" 200 54
 INFO 2025-11-16 15:00:44 basehttp 12020 18540 "GET /monitoring/api/data/ HTTP/1.1" 200 54
 INFO 2025-11-16 15:05:44 basehttp 12020 18540 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-11-16 15:48:19 autoreload 25248 18880 Watching for file changes with StatReloader
+INFO 2025-11-16 15:48:20 basehttp 25248 5276 "GET / HTTP/1.1" 302 0
+INFO 2025-11-16 15:48:20 basehttp 25248 5276 "GET /home/ HTTP/1.1" 200 45466
+INFO 2025-11-16 15:48:28 basehttp 25248 5276 "GET /maps/ HTTP/1.1" 200 1035316
+INFO 2025-11-16 15:48:32 basehttp 25248 5276 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-16 15:48:34 basehttp 25248 5276 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.812415&lon=123.018998&risk=LF HTTP/1.1" 200 10609
+INFO 2025-11-16 15:48:34 basehttp 25248 5276 "GET /static/images/drrmo_header.png HTTP/1.1" 304 0
+INFO 2025-11-16 15:48:39 basehttp 25248 5276 "GET /maps/certificate/form/?barangay=Eustaquio%20Lopez&lat=10.812415&lon=123.018998&risk=LF HTTP/1.1" 200 17029
+INFO 2025-11-16 15:48:45 basehttp 25248 5276 "POST /maps/certificate/ HTTP/1.1" 200 10530
+INFO 2025-11-16 15:48:50 views 25248 5276 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-16 15:48:51 views 25248 5276 API returned - Rain: 0.0mm, Temp: 27.9°C, Humidity: 83%, Wind: 15.8km/h
+INFO 2025-11-16 15:48:51 views 25248 5276 Processed 7 days of weather forecast
+INFO 2025-11-16 15:48:51 basehttp 25248 5276 "GET /monitoring/ HTTP/1.1" 200 85478
+INFO 2025-11-16 15:48:57 basehttp 25248 5276 "GET /monitoring/api/trends/?time_range=7d HTTP/1.1" 200 659
+INFO 2025-11-16 15:48:57 basehttp 25248 5276 "GET /monitoring/api/trends/?time_range=30d HTTP/1.1" 200 1445
+INFO 2025-11-16 15:48:58 basehttp 25248 5276 "GET /monitoring/api/trends/?time_range=90d HTTP/1.1" 200 1445
+INFO 2025-11-16 15:48:59 basehttp 25248 5276 "GET /monitoring/api/trends/?time_range=30d HTTP/1.1" 200 1445
+INFO 2025-11-16 15:49:01 basehttp 25248 5276 "GET /monitoring/api/trends/?time_range=30d HTTP/1.1" 200 1445
+INFO 2025-11-16 15:49:01 basehttp 25248 5276 "GET /monitoring/api/trends/?time_range=90d HTTP/1.1" 200 1445
+INFO 2025-11-16 15:49:02 basehttp 25248 5276 "GET /monitoring/api/trends/?time_range=7d HTTP/1.1" 200 659
+INFO 2025-11-16 15:49:02 basehttp 25248 5276 "GET /monitoring/api/trends/?time_range=30d HTTP/1.1" 200 1445
+INFO 2025-11-16 15:49:09 basehttp 25248 5276 "GET /approve/ HTTP/1.1" 200 32791
+INFO 2025-11-16 15:49:14 basehttp 25248 5276 "GET /maps/my-activity/ HTTP/1.1" 200 58729
+INFO 2025-11-16 15:49:15 basehttp 25248 5276 "GET /maps/all-activities/ HTTP/1.1" 200 68582
+INFO 2025-11-16 15:49:42 basehttp 25248 5276 "GET /maps/all-activities/?tab=assessments&user=&date=&sort=recent HTTP/1.1" 200 68578
+INFO 2025-11-16 15:49:46 basehttp 25248 5276 "GET /home/ HTTP/1.1" 200 45456
+INFO 2025-11-16 15:49:49 views 25248 5276 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-16 15:49:50 views 25248 5276 API returned - Rain: 0.0mm, Temp: 27.9°C, Humidity: 83%, Wind: 15.8km/h
+INFO 2025-11-16 15:49:50 views 25248 5276 Processed 7 days of weather forecast
+INFO 2025-11-16 15:49:50 basehttp 25248 5276 "GET /monitoring/ HTTP/1.1" 200 85478
+INFO 2025-11-16 15:49:51 basehttp 25248 5276 "GET /approve/ HTTP/1.1" 200 32791
+INFO 2025-11-16 15:49:53 basehttp 25248 5276 "GET /maps/my-activity/ HTTP/1.1" 200 58729
+INFO 2025-11-16 15:49:57 basehttp 25248 5276 "GET /maps/all-activities/ HTTP/1.1" 200 68582
+INFO 2025-11-16 15:50:00 basehttp 25248 5276 "GET /profile/ HTTP/1.1" 200 38506
+INFO 2025-11-16 15:50:15 basehttp 25248 5276 "POST /profile/ HTTP/1.1" 302 0
+INFO 2025-11-16 15:50:15 basehttp 25248 5276 "GET /profile/ HTTP/1.1" 200 38928
+INFO 2025-11-16 15:50:15 basehttp 25248 5276 "GET /media/profile_images/istockphoto-816152804-612x612.webp HTTP/1.1" 200 14964
+INFO 2025-11-16 15:50:19 basehttp 25248 5276 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-16 15:50:19 basehttp 25248 5276 "GET / HTTP/1.1" 200 13212
+INFO 2025-11-16 15:50:21 basehttp 25248 5276 "GET /register/ HTTP/1.1" 200 23376
+INFO 2025-11-16 15:50:25 basehttp 25248 5276 "GET / HTTP/1.1" 200 13212
