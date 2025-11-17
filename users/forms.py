@@ -87,6 +87,7 @@ class AdminRegistrationForm(UserCreationForm):
     Form for admin registration with secure registration key.
     Staff ID is automatically generated upon user creation.
     Includes date of birth validation (18-80 years old).
+    Admin accounts do not require a position field as they are system administrators.
     """
     registration_key = forms.CharField(
         widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Enter registration key'}),
@@ -96,7 +97,7 @@ class AdminRegistrationForm(UserCreationForm):
         model = CustomUser
         fields = [
             'username', 'email', 'first_name', 'last_name',
-            'position', 'contact_number', 'date_of_birth',
+            'contact_number', 'date_of_birth',
             'password1', 'password2'
         ]
         widgets = {
@@ -106,18 +107,18 @@ class AdminRegistrationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         placeholders = {
-            'first_name': 'Juan',
-            'last_name': 'Dela Cruz',
-            'username': 'admin_user',
-            'email': 'admin@example.com',
-            'position': '-- Select Position --',
-            'contact_number': '09123456789',
+            'first_name': 'ex. Juan',
+            'last_name': 'ex. Dela Cruz',
+            'username': 'ex. admin_user',
+            'email': 'ex. admin@example.com',
+            'contact_number': 'ex. 09123456789',
             'date_of_birth': '',
-            'password1': 'SecurePassword123!',
-            'password2': 'SecurePassword123!',
+            'password1': 'ex. SecurePassword123!',
+            'password2': 'ex. SecurePassword123!',
         }
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
+            field.required = True
             if field_name in placeholders:
                 field.widget.attrs['placeholder'] = placeholders[field_name]
     

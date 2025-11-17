@@ -646,16 +646,17 @@
                     </div>
                 </div>
 
-                <!-- Position & Contact Number -->
+                <!-- Date of Birth & Contact Number -->
                 <div class="form-row">
-                    <div class="form-group {% if form.position.errors %}error{% endif %}">
-                        <label><i class="fas fa-briefcase"></i> Position</label>
+                    <div class="form-group {% if form.date_of_birth.errors %}error{% endif %}">
+                        <label><i class="fas fa-calendar-alt"></i> Date of Birth</label>
                         <div class="input-wrapper">
-                            {{ form.position }}
+                            {{ form.date_of_birth }}
                         </div>
-                        {% if form.position.errors %}
+                        <span class="form-help">Must be 18-80 years old</span>
+                        {% if form.date_of_birth.errors %}
                             <ul class="errorlist">
-                                {% for error in form.position.errors %}
+                                {% for error in form.date_of_birth.errors %}
                                     <li>{{ error }}</li>
                                 {% endfor %}
                             </ul>
@@ -670,24 +671,6 @@
                         {% if form.contact_number.errors %}
                             <ul class="errorlist">
                                 {% for error in form.contact_number.errors %}
-                                    <li>{{ error }}</li>
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
-                    </div>
-                </div>
-
-                <!-- Date of Birth -->
-                <div class="form-row">
-                    <div class="form-group {% if form.date_of_birth.errors %}error{% endif %}">
-                        <label><i class="fas fa-calendar-alt"></i> Date of Birth</label>
-                        <div class="input-wrapper">
-                            {{ form.date_of_birth }}
-                        </div>
-                        <span class="form-help">Must be 18-80 years old</span>
-                        {% if form.date_of_birth.errors %}
-                            <ul class="errorlist">
-                                {% for error in form.date_of_birth.errors %}
                                     <li>{{ error }}</li>
                                 {% endfor %}
                             </ul>
