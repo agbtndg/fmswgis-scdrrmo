@@ -442,3 +442,38 @@ INFO 2025-11-17 10:09:28 views 6004 6940 Processed 7 days of weather forecast
 INFO 2025-11-17 10:09:29 views 6004 6940 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
 INFO 2025-11-17 10:09:30 views 6004 6940 API returned - Rain: 0.0mm, Temp: 29.8°C, Humidity: 75%, Wind: 17.7km/h
 INFO 2025-11-17 10:09:30 views 6004 6940 Processed 7 days of weather forecast
+INFO 2025-11-17 10:20:00 views 20588 21028 Flood record deleted: 118 - Test Flood
+WARNING 2025-11-17 10:20:02 views 20588 21028 Form validation errors: <ul class="errorlist"><li>event<ul class="errorlist" id="id_event_error"><li>Select a valid choice. Updated Flood is not one of the available choices.</li></ul></li></ul>
+WARNING 2025-11-17 10:20:04 views 20588 21028 Form validation errors: <ul class="errorlist"><li>affected_barangays<ul class="errorlist" id="id_affected_barangays_error"><li>Please select at least one affected barangay.</li></ul></li><li>casualties_dead<ul class="errorlist" id="id_casualties_dead_error"><li>This field is required.</li></ul></li><li>casualties_injured<ul class="errorlist" id="id_casualties_injured_error"><li>This field is required.</li></ul></li><li>casualties_missing<ul class="errorlist" id="id_casualties_missing_error"><li>This field is required.</li></ul></li><li>affected_persons<ul class="errorlist" id="id_affected_persons_error"><li>This field is required.</li></ul></li><li>affected_families<ul class="errorlist" id="id_affected_families_error"><li>This field is required.</li></ul></li><li>houses_damaged_partially<ul class="errorlist" id="id_houses_damaged_partially_error"><li>This field is required.</li></ul></li><li>houses_damaged_totally<ul class="errorlist" id="id_houses_damaged_totally_error"><li>This field is required.</li></ul></li><li>damage_infrastructure_php<ul class="errorlist" id="id_damage_infrastructure_php_error"><li>This field is required.</li></ul></li><li>damage_agriculture_php<ul class="errorlist" id="id_damage_agriculture_php_error"><li>This field is required.</li></ul></li><li>damage_institutions_php<ul class="errorlist" id="id_damage_institutions_php_error"><li>This field is required.</li></ul></li><li>damage_private_commercial_php<ul class="errorlist" id="id_damage_private_commercial_php_error"><li>This field is required.</li></ul></li><li>damage_total_php<ul class="errorlist" id="id_damage_total_php_error"><li>This field is required.</li></ul></li></ul>
+INFO 2025-11-17 10:20:05 views 20588 21028 Flood record created: 123 - Flood
+INFO 2025-11-17 10:20:06 views 20588 21028 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-17 10:20:07 views 20588 21028 API returned - Rain: 0.0mm, Temp: 30.0°C, Humidity: 74%, Wind: 17.7km/h
+INFO 2025-11-17 10:20:07 views 20588 21028 Processed 7 days of weather forecast
+INFO 2025-11-17 10:20:08 views 20588 21028 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-17 10:20:09 views 20588 21028 API returned - Rain: 0.0mm, Temp: 30.0°C, Humidity: 74%, Wind: 17.7km/h
+INFO 2025-11-17 10:20:09 views 20588 21028 Processed 7 days of weather forecast
+INFO 2025-11-17 10:20:09 views 20588 21028 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-17 10:20:10 views 20588 21028 API returned - Rain: 0.0mm, Temp: 30.0°C, Humidity: 74%, Wind: 17.7km/h
+INFO 2025-11-17 10:20:10 views 20588 21028 Processed 7 days of weather forecast
+INFO 2025-11-17 10:20:12 views 20588 21028 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-17 10:20:12 views 20588 21028 API returned - Rain: 0.0mm, Temp: 30.0°C, Humidity: 74%, Wind: 17.7km/h
+INFO 2025-11-17 10:20:12 views 20588 21028 Processed 7 days of weather forecast
+INFO 2025-11-17 10:20:13 views 20588 21028 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-17 10:20:14 views 20588 21028 API returned - Rain: 0.0mm, Temp: 30.0°C, Humidity: 74%, Wind: 17.7km/h
+INFO 2025-11-17 10:20:14 views 20588 21028 Processed 7 days of weather forecast
+INFO 2025-11-17 10:20:15 views 20588 21028 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-17 10:20:15 views 20588 21028 API returned - Rain: 0.0mm, Temp: 30.0°C, Humidity: 74%, Wind: 17.7km/h
+INFO 2025-11-17 10:20:15 views 20588 21028 Processed 7 days of weather forecast
+INFO 2025-11-17 13:47:07 views 29160 16688 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-17 13:47:11 views 29160 16688 API returned - Rain: 0.0mm, Temp: 30.8°C, Humidity: 70%, Wind: 18.0km/h
+INFO 2025-11-17 13:47:11 views 29160 16688 Processed 7 days of weather forecast
+INFO 2025-11-17 13:47:11 views 29160 16688 Created new rainfall record: 0.0mm
+INFO 2025-11-17 13:47:11 views 29160 16688 Created new weather record
+INFO 2025-11-17 13:47:11 views 29160 16688 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+INFO 2025-11-17 13:47:13 views 29160 16688 Created new tide record: -0.28m from WorldTides API
+INFO 2025-11-17 13:48:45 views 29160 16688 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-17 13:48:47 views 29160 16688 API returned - Rain: 0.0mm, Temp: 30.8°C, Humidity: 70%, Wind: 18.0km/h
+INFO 2025-11-17 13:48:47 views 29160 16688 Processed 7 days of weather forecast
+INFO 2025-11-17 13:51:02 views 29160 10020 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-17 13:51:04 views 29160 10020 API returned - Rain: 0.0mm, Temp: 30.8°C, Humidity: 70%, Wind: 18.0km/h
+INFO 2025-11-17 13:51:04 views 29160 10020 Processed 7 days of weather forecast
