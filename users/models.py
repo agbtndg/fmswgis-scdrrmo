@@ -15,6 +15,7 @@ class CustomUser(AbstractUser):
     staff_id = models.CharField(max_length=10, unique=True, verbose_name="Staff ID")
     is_approved = models.BooleanField(default=False, verbose_name="Approved")
     position = models.CharField(max_length=50, choices=POSITION_CHOICES, default="others", verbose_name="Position")
+    custom_position = models.CharField(max_length=100, blank=True, null=True, verbose_name="Custom Position")
     contact_number = models.CharField(max_length=11, blank=True, verbose_name="Contact Number")
     emergency_contact = models.CharField(max_length=100, blank=True, verbose_name="Emergency Contact")
     emergency_number = models.CharField(max_length=11, blank=True, verbose_name="Emergency Contact Number")

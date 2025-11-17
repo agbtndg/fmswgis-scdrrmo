@@ -580,16 +580,17 @@
                     </div>
                 </div>
 
-                <!-- Staff ID & Position -->
+                <!-- Date of Birth & Contact Number -->
                 <div class="form-row">
-                    <div class="form-group {% if form.position.errors %}error{% endif %}">
-                        <label><i class="fas fa-briefcase"></i> Position</label>
+                    <div class="form-group {% if form.date_of_birth.errors %}error{% endif %}">
+                        <label><i class="fas fa-calendar-alt"></i> Date of Birth</label>
                         <div class="input-wrapper">
-                            {{ form.position }}
+                            {{ form.date_of_birth }}
                         </div>
-                        {% if form.position.errors %}
+                        <span class="form-help">Must be 18-80 years old</span>
+                        {% if form.date_of_birth.errors %}
                             <ul class="errorlist">
-                                {% for error in form.position.errors %}
+                                {% for error in form.date_of_birth.errors %}
                                     <li>{{ error }}</li>
                                 {% endfor %}
                             </ul>
@@ -611,17 +612,29 @@
                     </div>
                 </div>
 
-                <!-- Date of Birth -->
+                <!-- Position & Custom Position -->
                 <div class="form-row">
-                    <div class="form-group {% if form.date_of_birth.errors %}error{% endif %}">
-                        <label><i class="fas fa-calendar-alt"></i> Date of Birth</label>
+                    <div class="form-group {% if form.position.errors %}error{% endif %}">
+                        <label><i class="fas fa-briefcase"></i> Position</label>
                         <div class="input-wrapper">
-                            {{ form.date_of_birth }}
+                            {{ form.position }}
                         </div>
-                        <span class="form-help">Must be 18-80 years old</span>
-                        {% if form.date_of_birth.errors %}
+                        {% if form.position.errors %}
                             <ul class="errorlist">
-                                {% for error in form.date_of_birth.errors %}
+                                {% for error in form.position.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                    <div class="form-group {% if form.custom_position.errors %}error{% endif %}" id="customPositionGroup" style="display: none;">
+                        <label><i class="fas fa-edit"></i> Specify Position</label>
+                        <div class="input-wrapper">
+                            {{ form.custom_position }}
+                        </div>
+                        {% if form.custom_position.errors %}
+                            <ul class="errorlist">
+                                {% for error in form.custom_position.errors %}
                                     <li>{{ error }}</li>
                                 {% endfor %}
                             </ul>
@@ -674,6 +687,30 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const positionField = document.querySelector('select[name="position"]');
+            const customPositionGroup = document.getElementById('customPositionGroup');
+            const customPositionField = document.querySelector('input[name="custom_position"]');
+            
+            // Function to toggle custom position field visibility
+            function toggleCustomPositionField() {
+                if (positionField.value === 'others') {
+                    customPositionGroup.style.display = 'flex';
+                    customPositionField.required = true;
+                } else {
+                    customPositionGroup.style.display = 'none';
+                    customPositionField.required = false;
+                    customPositionField.value = '';
+                }
+            }
+            
+            // Show/hide on page load (in case form is being re-rendered with errors)
+            toggleCustomPositionField();
+            
+            // Show/hide on change
+            if (positionField) {
+                positionField.addEventListener('change', toggleCustomPositionField);
+            }
+
             const contactField = document.querySelector('input[name="contact_number"]');
             
             if (contactField) {

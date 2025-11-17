@@ -3911,3 +3911,65 @@ INFO 2025-11-18 04:28:10 autoreload 7040 17004 C:\Users\aldri\Flood-Monitoring-S
 INFO 2025-11-18 04:28:10 autoreload 4612 6728 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
 INFO 2025-11-18 04:28:10 autoreload 3824 13812 Watching for file changes with StatReloader
 INFO 2025-11-18 04:28:10 autoreload 29432 9480 Watching for file changes with StatReloader
+INFO 2025-11-18 04:32:27 autoreload 29432 9480 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-18 04:32:28 autoreload 7804 10344 Watching for file changes with StatReloader
+INFO 2025-11-18 04:32:28 autoreload 3824 13812 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-18 04:32:28 autoreload 13840 12108 Watching for file changes with StatReloader
+INFO 2025-11-18 04:32:49 basehttp 7804 5264 "GET /register/ HTTP/1.1" 200 24507
+INFO 2025-11-18 04:33:49 basehttp 7804 5264 "GET /register/ HTTP/1.1" 200 24507
+INFO 2025-11-18 04:35:24 autoreload 13840 12108 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\models.py changed, reloading.
+INFO 2025-11-18 04:35:25 autoreload 22536 2120 Watching for file changes with StatReloader
+INFO 2025-11-18 04:35:25 autoreload 7804 10344 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\models.py changed, reloading.
+INFO 2025-11-18 04:35:26 autoreload 11936 17072 Watching for file changes with StatReloader
+INFO 2025-11-18 04:35:30 autoreload 11936 17072 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-18 04:35:30 autoreload 22536 2120 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-18 04:35:31 autoreload 15496 24056 Watching for file changes with StatReloader
+INFO 2025-11-18 04:35:31 autoreload 8624 22820 Watching for file changes with StatReloader
+INFO 2025-11-18 04:35:36 autoreload 8624 22820 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-18 04:35:36 autoreload 15496 24056 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-18 04:35:36 autoreload 26372 2572 Watching for file changes with StatReloader
+INFO 2025-11-18 04:35:36 autoreload 23032 16444 Watching for file changes with StatReloader
+INFO 2025-11-18 04:35:41 autoreload 26372 2572 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-18 04:35:41 autoreload 23032 16444 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-18 04:35:41 autoreload 9596 21912 Watching for file changes with StatReloader
+INFO 2025-11-18 04:35:41 autoreload 2116 25688 Watching for file changes with StatReloader
+INFO 2025-11-18 04:37:34 basehttp 9596 25320 "GET /register/ HTTP/1.1" 200 26140
+INFO 2025-11-18 04:38:35 basehttp 9596 25320 "POST /register/ HTTP/1.1" 200 27702
+INFO 2025-11-18 04:38:52 basehttp 9596 25320 "POST /register/ HTTP/1.1" 302 0
+INFO 2025-11-18 04:38:52 basehttp 9596 25320 "GET / HTTP/1.1" 200 14033
+INFO 2025-11-18 04:39:11 autoreload 9596 21912 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-18 04:39:12 autoreload 25384 12544 Watching for file changes with StatReloader
+INFO 2025-11-18 04:39:14 basehttp 25384 22472 "POST / HTTP/1.1" 302 0
+INFO 2025-11-18 04:39:14 basehttp 25384 22472 "GET /home/ HTTP/1.1" 200 41408
+INFO 2025-11-18 04:39:15 basehttp 25384 22472 "GET /approve/ HTTP/1.1" 200 34198
+INFO 2025-11-18 04:39:15 basehttp 25384 22472 "GET /static/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-18 04:39:18 basehttp 25384 22472 "POST /approve/ HTTP/1.1" 302 0
+INFO 2025-11-18 04:39:18 basehttp 25384 22472 "GET /approve/ HTTP/1.1" 200 33296
+INFO 2025-11-18 04:39:23 basehttp 25384 22472 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-18 04:39:23 basehttp 25384 22472 "GET / HTTP/1.1" 200 13751
+INFO 2025-11-18 04:39:34 basehttp 25384 22472 "GET /register/ HTTP/1.1" 200 26194
+INFO 2025-11-18 04:39:38 basehttp 25384 22472 "GET /register/ HTTP/1.1" 200 26194
+INFO 2025-11-18 04:40:14 basehttp 25384 22472 "POST /register/ HTTP/1.1" 200 28325
+INFO 2025-11-18 04:40:24 basehttp 25384 22472 "POST /register/ HTTP/1.1" 200 27817
+INFO 2025-11-18 04:40:42 basehttp 25384 22472 "POST /register/ HTTP/1.1" 302 0
+INFO 2025-11-18 04:40:42 basehttp 25384 22472 "GET / HTTP/1.1" 200 14033
+INFO 2025-11-18 04:41:15 basehttp 25384 22472 "POST / HTTP/1.1" 200 14086
+INFO 2025-11-18 04:41:24 basehttp 25384 22472 "POST / HTTP/1.1" 302 0
+INFO 2025-11-18 04:41:24 basehttp 25384 22472 "GET /home/ HTTP/1.1" 200 41889
+INFO 2025-11-18 04:41:26 basehttp 25384 22472 "GET /approve/ HTTP/1.1" 200 34198
+INFO 2025-11-18 04:41:29 basehttp 25384 22472 "POST /approve/ HTTP/1.1" 302 0
+INFO 2025-11-18 04:41:29 basehttp 25384 22472 "GET /approve/ HTTP/1.1" 200 34194
+INFO 2025-11-18 04:41:32 basehttp 25384 22472 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-18 04:41:32 basehttp 25384 22472 "GET / HTTP/1.1" 200 13751
+INFO 2025-11-18 04:41:40 basehttp 25384 22472 "POST / HTTP/1.1" 302 0
+INFO 2025-11-18 04:41:40 basehttp 25384 22472 "GET /home/ HTTP/1.1" 200 35763
+INFO 2025-11-18 04:41:45 basehttp 25384 22472 "GET /maps/ HTTP/1.1" 200 64281
+INFO 2025-11-18 04:41:45 basehttp 25384 22472 "GET /static/css/ol.css HTTP/1.1" 304 0
+INFO 2025-11-18 04:41:45 basehttp 25384 29508 "GET /static/js/ol.js HTTP/1.1" 304 0
+WARNING 2025-11-18 04:41:50 log 25384 29508 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 04:41:50 basehttp 25384 29508 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5029
+WARNING 2025-11-18 04:41:50 basehttp 25384 29508 "GET /static/js/bootstrap.bundle.min.js.map HTTP/1.1" 404 2017
+INFO 2025-11-18 04:41:50 basehttp 25384 11376 "GET /static/css/bootstrap.min.css.map HTTP/1.1" 200 589892
+INFO 2025-11-18 04:41:50 basehttp 25384 22472 "GET /static/js/ol.js.map HTTP/1.1" 200 4835285
+INFO 2025-11-18 04:42:16 autoreload 25384 12544 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-18 04:42:17 autoreload 13184 17120 Watching for file changes with StatReloader

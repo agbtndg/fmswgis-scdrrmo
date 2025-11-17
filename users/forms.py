@@ -13,7 +13,7 @@ class CustomUserCreationForm(UserCreationForm):
         model = CustomUser
         fields = [
             'username', 'email', 'first_name', 'last_name',
-            'position', 'contact_number', 'date_of_birth',
+            'position', 'custom_position', 'contact_number', 'date_of_birth',
             'password1', 'password2'
         ]
         widgets = {
@@ -23,18 +23,20 @@ class CustomUserCreationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         placeholders = {
-            'first_name': 'Juan',
-            'last_name': 'Dela Cruz',
-            'username': 'juandelacruz123',
-            'email': 'juan@example.com',
+            'first_name': 'ex. Juan',
+            'last_name': 'ex. Dela Cruz',
+            'username': 'ex. juandelacruz123',
+            'email': 'ex. juan@example.com',
             'position': '-- Select Position --',
-            'contact_number': '09123456789',
+            'custom_position': 'ex. Specify your position',
+            'contact_number': 'ex. 09123456789',
             'date_of_birth': '',
-            'password1': 'SecurePassword123!',
-            'password2': 'SecurePassword123!',
+            'password1': 'ex. SecurePassword123!',
+            'password2': 'ex. SecurePassword123!',
         }
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
+            field.required = True
             if field_name in placeholders:
                 field.widget.attrs['placeholder'] = placeholders[field_name]
     
@@ -181,7 +183,7 @@ class ProfileEditForm(UserChangeForm):
         model = CustomUser
         fields = [
             'first_name', 'last_name', 'email',
-            'position', 'contact_number',
+            'position', 'custom_position', 'contact_number',
             'emergency_contact', 'emergency_number',
             'bio', 'date_of_birth', 'profile_image'
         ]

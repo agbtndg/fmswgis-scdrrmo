@@ -445,6 +445,13 @@
                             <div class="invalid-feedback">{{ form.position.errors.as_text }}</div>
                         {% endif %}
                     </div>
+                    <div class="mb-3" id="customPositionDiv" style="display: none;">
+                        <label for="custom_position" class="form-label">Specify Position</label>
+                        <input type="text" class="form-control {% if form.custom_position.errors %}is-invalid{% endif %}" id="custom_position" name="custom_position" value="{{ form.custom_position.value|default:'' }}" placeholder="ex. Specify your position">
+                        {% if form.custom_position.errors %}
+                            <div class="invalid-feedback">{{ form.custom_position.errors.as_text }}</div>
+                        {% endif %}
+                    </div>
                     <div class="mb-3">
                         <label for="bio" class="form-label">Bio</label>
                         <textarea class="form-control {% if form.bio.errors %}is-invalid{% endif %}" id="bio" name="bio" rows="3">{{ form.bio.value|default:'' }}</textarea>
@@ -473,6 +480,31 @@
     // Handle form submission and modal display
     document.addEventListener('DOMContentLoaded', function() {
         const form = document.getElementById('profileForm');
+        const positionField = document.getElementById('position');
+        const customPositionDiv = document.getElementById('customPositionDiv');
+        const customPositionField = document.getElementById('custom_position');
+
+        // Function to toggle custom position field visibility
+        function toggleCustomPositionField() {
+            if (positionField && customPositionDiv && customPositionField) {
+                if (positionField.value === 'others') {
+                    customPositionDiv.style.display = 'block';
+                    customPositionField.required = true;
+                } else {
+                    customPositionDiv.style.display = 'none';
+                    customPositionField.required = false;
+                    customPositionField.value = '';
+                }
+            }
+        }
+
+        // Show/hide on page load
+        toggleCustomPositionField();
+
+        // Show/hide on change
+        if (positionField) {
+            positionField.addEventListener('change', toggleCustomPositionField);
+        }
 
         // If there are form errors, reopen the modal
         {% if form.errors %}
