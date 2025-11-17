@@ -400,39 +400,50 @@
         text-align: center;
         color: white;
         background: #ffffff;
-        padding: 32px 40px;
-        border-radius: 12px;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        padding: 32px 36px;
+        border-radius: 16px;
+        box-shadow: 0 16px 48px rgba(0,0,0,0.25);
         border: 1px solid var(--border-gray);
+        max-width: 320px;
     }
 
     #loading-content h3 {
-        color: var(--text-dark);
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 20px;
+        color: var(--primary-blue);
+        font-size: 20px;
+        font-weight: 800;
+        margin-bottom: 10px;
+        letter-spacing: -0.02em;
+    }
+
+    #loading-content::after {
+        content: '';
+        display: block;
+        font-size: 13px;
+        color: var(--text-muted);
+        margin-bottom: 24px;
+        font-weight: 500;
     }
 
     #cancel-btn, #see-result-btn {
-        margin-top: 16px;
-        padding: 12px 24px;
+        margin-top: 12px;
+        padding: 14px 28px;
         border: none;
-        border-radius: 8px;
+        border-radius: 10px;
         background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
         color: white;
         cursor: pointer;
         font-size: 14px;
-        font-weight: 600;
+        font-weight: 700;
         transition: all 0.2s ease;
         font-family: inherit;
-        box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
+        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.2);
         width: 100%;
     }
 
     #cancel-btn:hover, #see-result-btn:hover {
         background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
         transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+        box-shadow: 0 12px 32px rgba(37, 99, 235, 0.4);
     }
 
     #see-result-btn {
@@ -442,7 +453,7 @@
 
     #see-result-btn:hover {
         background: linear-gradient(135deg, #059669, #047857);
-        box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+        box-shadow: 0 12px 32px rgba(16, 185, 129, 0.4);
     }
 
     #assessment-panel {
@@ -466,56 +477,58 @@
     }
 
     .assessment-header {
-        padding: 24px;
+        padding: 28px 28px;
         border-bottom: 1px solid var(--border-gray);
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background: var(--light-gray);
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
     }
 
     .assessment-header h2 {
-        font-size: 18px;
-        font-weight: 600;
-        color: var(--text-dark);
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--primary-blue);
+        letter-spacing: -0.02em;
     }
 
     #close-assessment {
         border: none;
-        background: #f3f4f6;
-        font-size: 20px;
+        background: transparent;
+        font-size: 28px;
         cursor: pointer;
-        width: 32px;
-        height: 32px;
-        border-radius: 6px;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
         color: var(--text-muted);
         transition: all 0.2s ease;
+        font-weight: 300;
     }
 
     #close-assessment:hover {
-        background: #e5e7eb;
-        color: var(--text-dark);
+        background: rgba(30, 58, 95, 0.08);
+        color: var(--primary-blue);
     }
 
     #assessment-content {
-        padding: 24px;
+        padding: 28px;
         flex: 1;
         overflow-y: auto;
     }
 
     #assessment-content p {
-        margin-bottom: 16px;
-        font-size: 14px;
-        line-height: 1.6;
+        margin-bottom: 18px;
+        font-size: 15px;
+        line-height: 1.8;
         color: var(--text-dark);
     }
 
     #assessment-content strong {
-        color: var(--text-dark);
-        font-weight: 600;
+        color: var(--primary-blue);
+        font-weight: 700;
     }
 
     .chart-container {
@@ -682,7 +695,7 @@
     <!-- Assessment Panel -->
     <div id="assessment-panel">
         <div class="assessment-header">
-            <h2>Flood Assessment</h2>
+            <h2>Flood Risk Assessment</h2>
             <button id="close-assessment">×</button>
         </div>
         <div id="assessment-content"></div>
