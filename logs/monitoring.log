@@ -4419,3 +4419,59 @@ INFO 2025-11-18 05:09:33 basehttp 8812 13628 "GET /maps/certificate/form/?barang
 INFO 2025-11-18 05:11:39 basehttp 8812 13628 "GET /maps/certificate/form/?barangay=Eustaquio%20Lopez&lat=10.808100&lon=123.023391&risk=LF HTTP/1.1" 200 21364
 INFO 2025-11-18 05:12:48 basehttp 8812 13628 "GET /maps/certificate/form/?barangay=Eustaquio%20Lopez&lat=10.808100&lon=123.023391&risk=LF HTTP/1.1" 200 21339
 INFO 2025-11-18 05:13:07 basehttp 8812 13628 "POST /maps/certificate/ HTTP/1.1" 200 10516
+INFO 2025-11-18 05:15:03 basehttp 8812 13628 "GET /home/ HTTP/1.1" 200 35564
+INFO 2025-11-18 05:15:18 views 8812 13628 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 05:15:19 views 8812 13628 API returned - Rain: 0.0mm, Temp: 26.0°C, Humidity: 93%, Wind: 10.7km/h
+INFO 2025-11-18 05:15:19 views 8812 13628 Processed 7 days of weather forecast
+INFO 2025-11-18 05:15:19 views 8812 13628 Created new rainfall record: 0.0mm
+INFO 2025-11-18 05:15:19 views 8812 13628 Created new weather record
+INFO 2025-11-18 05:15:19 views 8812 13628 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+INFO 2025-11-18 05:15:20 views 8812 13628 Created new tide record: 0.29m from WorldTides API
+INFO 2025-11-18 05:15:20 basehttp 8812 13628 "GET /monitoring/ HTTP/1.1" 200 73877
+INFO 2025-11-18 05:15:20 basehttp 8812 13628 "GET /static/js/chart.js HTTP/1.1" 200 208536
+INFO 2025-11-18 05:16:20 basehttp 8812 13628 "GET /maps/ HTTP/1.1" 200 1038449
+INFO 2025-11-18 05:16:31 basehttp 8812 13628 "GET /maps/ HTTP/1.1" 200 1038449
+INFO 2025-11-18 05:16:35 basehttp 8812 13628 "GET /home/ HTTP/1.1" 200 40624
+INFO 2025-11-18 05:17:00 basehttp 8812 13628 "GET /home/ HTTP/1.1" 200 40624
+INFO 2025-11-18 05:17:03 basehttp 8812 13628 "GET /maps/ HTTP/1.1" 200 1038449
+INFO 2025-11-18 05:18:31 basehttp 8812 13628 "GET /maps/ HTTP/1.1" 200 1038449
+INFO 2025-11-18 05:18:50 basehttp 8812 13628 "GET /maps/ HTTP/1.1" 200 1038449
+INFO 2025-11-18 05:19:29 autoreload 6732 25008 Watching for file changes with StatReloader
+INFO 2025-11-18 05:19:31 basehttp 6732 21068 "GET / HTTP/1.1" 302 0
+INFO 2025-11-18 05:19:31 basehttp 6732 21068 "GET /home/ HTTP/1.1" 200 40624
+INFO 2025-11-18 05:20:10 basehttp 6732 21068 "GET /home/ HTTP/1.1" 200 40697
+INFO 2025-11-18 05:20:17 basehttp 6732 21068 "GET /maps/ HTTP/1.1" 200 1038522
+INFO 2025-11-18 05:20:26 views 6732 21068 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 05:20:27 views 6732 21068 API returned - Rain: 0.0mm, Temp: 26.0°C, Humidity: 93%, Wind: 10.7km/h
+INFO 2025-11-18 05:20:27 views 6732 21068 Processed 7 days of weather forecast
+INFO 2025-11-18 05:20:27 basehttp 6732 21068 "GET /monitoring/ HTTP/1.1" 200 73950
+INFO 2025-11-18 05:20:30 basehttp 6732 21068 "GET /maps/ HTTP/1.1" 200 1038522
+INFO 2025-11-18 05:21:37 basehttp 6732 21068 "GET /maps/ HTTP/1.1" 200 1038523
+INFO 2025-11-18 05:23:50 basehttp 6732 21068 "GET /maps/ HTTP/1.1" 200 1038541
+INFO 2025-11-18 05:23:55 views 6732 21068 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 05:23:57 views 6732 21068 API returned - Rain: 0.0mm, Temp: 26.0°C, Humidity: 93%, Wind: 10.7km/h
+INFO 2025-11-18 05:23:57 views 6732 21068 Processed 7 days of weather forecast
+INFO 2025-11-18 05:23:57 basehttp 6732 21068 "GET /monitoring/ HTTP/1.1" 200 73969
+INFO 2025-11-18 05:24:02 basehttp 6732 21068 "GET /home/ HTTP/1.1" 200 40698
+INFO 2025-11-18 05:24:06 views 6732 21068 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 05:24:07 views 6732 21068 API returned - Rain: 0.0mm, Temp: 26.0°C, Humidity: 93%, Wind: 10.7km/h
+INFO 2025-11-18 05:24:07 views 6732 21068 Processed 7 days of weather forecast
+INFO 2025-11-18 05:24:07 basehttp 6732 21068 "GET /monitoring/ HTTP/1.1" 200 73969
+INFO 2025-11-18 05:24:12 basehttp 6732 21068 "GET /maps/my-activity/ HTTP/1.1" 200 55267
+INFO 2025-11-18 05:24:16 basehttp 6732 21068 "GET /maps/ HTTP/1.1" 200 1038541
+INFO 2025-11-18 05:24:26 basehttp 6732 21068 "GET /home/ HTTP/1.1" 200 40698
+INFO 2025-11-18 05:24:46 basehttp 6732 21068 "GET /maps/my-activity/ HTTP/1.1" 200 55267
+INFO 2025-11-18 05:24:51 basehttp 6732 21068 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-18 05:24:51 basehttp 6732 21068 "GET / HTTP/1.1" 200 13751
+INFO 2025-11-18 05:24:58 basehttp 6732 21068 "POST / HTTP/1.1" 302 0
+INFO 2025-11-18 05:24:58 basehttp 6732 21068 "GET /home/ HTTP/1.1" 200 46604
+INFO 2025-11-18 05:25:15 basehttp 6732 21068 "GET /approve/ HTTP/1.1" 200 34566
+INFO 2025-11-18 05:25:18 basehttp 6732 21068 "GET /maps/my-activity/ HTTP/1.1" 200 47726
+INFO 2025-11-18 05:25:28 basehttp 6732 21068 "GET /home/ HTTP/1.1" 200 46390
+INFO 2025-11-18 05:25:30 basehttp 6732 21068 "GET /maps/all-activities/ HTTP/1.1" 200 85068
+INFO 2025-11-18 05:25:48 basehttp 6732 21068 "GET /maps/all-activities/?tab=user-logs&user=&date=&sort=oldest HTTP/1.1" 200 85062
+INFO 2025-11-18 05:26:00 basehttp 6732 21068 "GET /maps/all-activities/?tab=user-logs&user=&date=&sort=recent HTTP/1.1" 200 85060
+INFO 2025-11-18 05:26:15 basehttp 6732 21068 "GET /home/ HTTP/1.1" 200 46390
+INFO 2025-11-18 05:26:39 basehttp 6732 21068 "GET /home/ HTTP/1.1" 200 46390
+INFO 2025-11-18 05:26:45 basehttp 6732 21068 "GET /maps/ HTTP/1.1" 200 1039062
+INFO 2025-11-18 05:26:54 basehttp 6732 21068 "GET /home/ HTTP/1.1" 200 46390
