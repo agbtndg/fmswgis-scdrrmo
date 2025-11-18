@@ -17,8 +17,9 @@
 
         body {
             font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
-            background: var(--light-gray);
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
             padding: 104px 20px 40px 20px;
+            min-height: 100vh;
         }
 
         .delete-container {
@@ -26,27 +27,28 @@
             margin: 0 auto;
             background: white;
             padding: 40px;
-            border-radius: 12px;
+            border-radius: 14px;
             border: 1px solid var(--border-gray);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
         }
 
         .delete-container .warning-icon {
             text-align: center;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
         .delete-container .warning-icon i {
-            font-size: 48px;
+            font-size: 56px;
             color: var(--danger-red);
         }
 
         .delete-container h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 16px;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
             text-align: center;
+            letter-spacing: -0.01em;
         }
 
         .delete-container .warning-message {
@@ -121,11 +123,11 @@
             flex: 1;
             padding: 12px 24px;
             border: none;
-            border-radius: 6px;
+            border-radius: 10px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 14px;
-            transition: all 0.2s ease;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             text-align: center;
             text-decoration: none;
             display: inline-flex;
@@ -137,29 +139,29 @@
         .btn-danger {
             background-color: var(--danger-red);
             color: white;
-            box-shadow: 0 2px 8px rgba(220, 38, 38, 0.15);
+            box-shadow: 0 2px 12px rgba(220, 38, 38, 0.2);
         }
 
         .btn-danger:hover {
             background-color: #b91c1c;
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.25);
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.35);
             text-decoration: none;
         }
 
         .btn-secondary {
-            background-color: var(--border-gray);
+            background-color: #e2e8f0;
             color: var(--text-dark);
-            border: 1px solid var(--border-gray);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: none;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
         }
 
         .btn-secondary:hover {
             background-color: #cbd5e1;
             color: var(--text-dark);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             text-decoration: none;
         }
 

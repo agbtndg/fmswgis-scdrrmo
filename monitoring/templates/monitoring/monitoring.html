@@ -58,25 +58,27 @@
 
         .page-header {
             background: white;
-            padding: 24px;
-            border-radius: 12px;
+            padding: 32px 28px;
+            border-radius: 14px;
             border: 1px solid var(--border-gray);
-            margin-bottom: 24px;
+            margin-bottom: 28px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .page-header h1 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 4px;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
         }
 
         .page-header p {
             font-size: 14px;
             color: var(--text-muted);
+            font-weight: 500;
         }
 
         .back-btn {
@@ -179,26 +181,28 @@
 
         .card {
             border: 1px solid var(--border-gray);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
+            border-radius: 14px;
+            padding: 28px;
+            margin-bottom: 24px;
             background-color: white;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
         }
 
         .card h2 {
             margin-top: 0;
-            margin-bottom: 16px;
-            color: var(--text-dark);
-            font-size: 18px;
-            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+            font-size: 20px;
+            font-weight: 800;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            letter-spacing: -0.01em;
         }
 
         .card h2 i {
             color: var(--secondary-blue);
+            font-size: 22px;
         }
 
         .refresh-info {
@@ -209,23 +213,24 @@
 
         .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 12px;
-            margin-top: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 20px;
         }
 
         .metric-item {
-            background: var(--light-gray);
-            padding: 16px;
-            border-radius: 8px;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            padding: 20px;
+            border-radius: 12px;
             border: 1px solid var(--border-gray);
             position: relative;
             cursor: help;
+            transition: all 0.2s ease;
         }
 
-        .metric-item:hover .metric-tooltip {
-            opacity: 1;
-            visibility: visible;
+        .metric-item:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            border-color: var(--secondary-blue);
         }
 
         .metric-tooltip {
@@ -269,29 +274,33 @@
             display: flex;
             align-items: center;
             color: var(--text-muted);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .metric-value {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--text-dark);
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary-blue);
         }
 
         .risk-banner {
             width: 100%;
-            padding: 18px;
-            margin-bottom: 20px;
-            border-radius: 8px;
+            padding: 24px 28px;
+            margin-bottom: 24px;
+            border-radius: 14px;
             color: white;
             text-align: center;
-            font-size: 18px;
-            font-weight: 700;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+            font-weight: 800;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
             border: 2px solid rgba(255, 255, 255, 0.3);
             position: relative;
             cursor: help;
+            letter-spacing: -0.01em;
         }
 
         .risk-banner:hover .risk-tooltip {
@@ -353,48 +362,66 @@
         }
 
         .graph-section {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .graph-title {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: var(--text-dark);
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--primary-blue);
+            letter-spacing: -0.01em;
         }
 
         .toggle-switch {
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         .toggle-switch label {
             margin-left: 8px;
             cursor: pointer;
-            font-size: 13px;
-            color: var(--text-muted);
+            font-size: 14px;
+            color: var(--text-dark);
+            font-weight: 500;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 12px;
-            font-size: 12px;
+            margin-top: 20px;
+            font-size: 14px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         table th, table td {
             border: 1px solid var(--border-gray);
-            padding: 10px;
+            padding: 16px 18px;
             text-align: left;
         }
 
         table th {
-            background-color: var(--light-gray);
-            font-weight: 600;
-            color: var(--text-dark);
+            background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+            font-weight: 800;
+            color: white;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.6px;
         }
 
         table td {
-            color: var(--text-muted);
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        table tbody tr:hover {
+            background-color: rgba(37, 99, 235, 0.06);
+        }
+
+        table tbody tr:nth-child(odd) {
+            background-color: rgba(248, 250, 252, 0.5);
         }
 
         .hidden {
@@ -403,45 +430,46 @@
 
         .btn {
             display: inline-block;
-            padding: 10px 16px;
+            padding: 12px 20px;
             background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
             color: white;
             text-decoration: none;
-            border-radius: 6px;
-            margin-top: 12px;
+            border-radius: 10px;
+            margin-top: 16px;
             margin-right: 8px;
-            font-weight: 600;
-            font-size: 13px;
+            font-weight: 700;
+            font-size: 14px;
             transition: all 0.2s;
             border: none;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
         }
 
         .btn:hover {
             background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
             text-decoration: none;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 8px 28px rgba(37, 99, 235, 0.35);
         }
 
         .btn-apply {
             background: linear-gradient(135deg, #10b981, #059669);
             color: white;
             border: none;
-            padding: 8px 12px;
-            font-size: 12px;
+            padding: 10px 16px;
+            font-size: 13px;
             margin-top: 0;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s;
-            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+            font-weight: 700;
         }
 
         .btn-apply:hover {
             background: linear-gradient(135deg, #059669, #047857);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 8px 28px rgba(16, 185, 129, 0.35);
         }
 
         .btn-reset {
@@ -512,55 +540,69 @@
         .charts-grid {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 24px;
         }
 
         .chart-container {
             background: white;
             border: 1px solid var(--border-gray);
-            border-radius: 12px;
-            padding: 16px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            border-radius: 14px;
+            padding: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .chart-container:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-color: rgba(37, 99, 235, 0.2);
         }
 
         .chart-container h3 {
             margin-top: 0;
-            margin-bottom: 12px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-dark);
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            letter-spacing: -0.01em;
         }
 
         .chart-container canvas {
-            max-height: 250px;
+            max-height: 300px;
         }
 
         /* Insights Section */
         .insights-section {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .insights-section h3 {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 12px;
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            color: var(--text-dark);
+            gap: 10px;
+            color: var(--primary-blue);
+            letter-spacing: -0.01em;
         }
 
         .alerts-container {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
         }
 
         .alert-card {
-            padding: 14px;
-            border-radius: 8px;
-            border-left: 4px solid;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            padding: 18px 20px;
+            border-radius: 12px;
+            border-left: 5px solid;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: all 0.2s ease;
+        }
+
+        .alert-card:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
         }
 
         .alert-high { background-color: #fef2f2; border-left-color: #ef4444; color: #991b1b; }
@@ -571,8 +613,10 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            font-weight: 600;
-            margin-bottom: 6px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
             font-size: 12px;
         }
 

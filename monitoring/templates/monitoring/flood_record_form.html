@@ -90,8 +90,9 @@
 
         body {
             font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
-            background: var(--light-gray);
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
             padding: 104px 20px 40px 20px;
+            min-height: 100vh;
         }
 
         /* Clean form container styling with professional appearance */
@@ -99,43 +100,148 @@
             max-width: 700px;
             margin: 0 auto;
             background: white;
-            padding: 40px;
-            border-radius: 12px;
+            padding: 48px 44px;
+            border-radius: 14px;
             border: 1px solid var(--border-gray);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 14px 14px 0 0;
+        }
+
+        .form-container {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 48px 44px;
+            border-radius: 14px;
+            border: 1px solid var(--border-gray);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
         }
 
         .form-container h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 8px;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            letter-spacing: -0.01em;
         }
 
         .form-container h2 i {
             color: var(--secondary-blue);
-            font-size: 28px;
+            font-size: 32px;
+            animation: fadeIn 0.5s ease-out;
         }
 
         .form-container > p {
             color: var(--text-muted);
             font-size: 14px;
+            margin-bottom: 32px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-gray);
+            line-height: 1.6;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-4px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Form sections with visual grouping */
+        .form-section {
+            margin-bottom: 36px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .form-section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .form-section-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 0.3px;
+            line-height: 1.5;
+        }
+
+        .form-section-title i {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+            color: white;
+            border-radius: 8px;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .form-fields-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
             margin-bottom: 24px;
         }
 
+        .form-fields-row.full {
+            grid-template-columns: 1fr;
+        }
+
+        @media (max-width: 768px) {
+            .form-fields-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 28px;
+        }
+
+        .form-group:last-of-type {
+            margin-bottom: 0;
         }
 
         .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 8px;
             color: var(--text-dark);
             font-size: 14px;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            line-height: 1.5;
+        }
+
+        .form-group label i {
+            font-size: 13px;
+            color: var(--secondary-blue);
+            opacity: 0.8;
         }
 
         .form-group select,
@@ -144,20 +250,35 @@
         .form-group input[type="number"],
         .form-group input[type="text"] {
             width: 100%;
-            padding: 12px 16px;
+            padding: 14px 16px;
             border: 2px solid var(--border-gray);
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 15px;
-            transition: all 0.2s ease;
-            background-color: #ffffff;
+            font-weight: 500;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
             font-family: inherit;
+            position: relative;
+            background-attachment: fixed;
+            line-height: 1.5;
+        }
+
+        .form-group select:hover,
+        .form-group input[type="date"]:hover,
+        .form-group input[type="datetime-local"]:hover,
+        .form-group input[type="number"]:hover,
+        .form-group input[type="text"]:hover {
+            border-color: var(--secondary-blue);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
         }
 
         .form-group select:focus,
         .form-group input:focus {
             outline: none;
             border-color: var(--secondary-blue);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15), inset 0 0 0 1px rgba(37, 99, 235, 0.05);
+            background: #ffffff;
         }
 
         /* Fixed barangay input container with proper tag overlay */
@@ -172,10 +293,10 @@
             width: 100%;
             padding: 12px 16px;
             border: 2px solid var(--border-gray);
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 15px;
-            transition: all 0.2s ease;
-            background-color: var(--light-gray);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
             font-family: inherit;
             cursor: default;
             color: transparent;
@@ -185,10 +306,16 @@
             overflow: hidden;
         }
 
+        .barangay-input-container input:hover {
+            border-color: var(--secondary-blue);
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+        }
+
         .barangay-input-container input:focus {
             outline: none;
             border-color: var(--secondary-blue);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15), inset 0 0 0 1px rgba(37, 99, 235, 0.05);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
         }
 
         /* Tags positioned absolutely inside the input area */
@@ -215,29 +342,52 @@
             pointer-events: auto;
             background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
             color: white;
-            padding: 6px 12px;
-            border-radius: 4px;
+            padding: 8px 14px;
+            border-radius: 6px;
             font-size: 13px;
-            font-weight: 500;
+            font-weight: 600;
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+            box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
             white-space: nowrap;
+            animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .barangay-input-container .barangay-tags .barangay-tag:hover {
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+            transform: translateY(-2px);
         }
 
         .barangay-input-container .barangay-tags .remove-barangay {
             cursor: pointer;
-            opacity: 0.9;
-            transition: opacity 0.2s ease;
+            opacity: 0.85;
+            transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             font-weight: 700;
-            font-size: 16px;
+            font-size: 18px;
             line-height: 1;
             margin-left: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
         }
 
         .barangay-input-container .barangay-tags .remove-barangay:hover {
             opacity: 1;
+            transform: scale(1.2);
         }
 
         .errorlist {
@@ -250,76 +400,263 @@
 
         .btn-wrapper {
             display: flex;
-            gap: 12px;
-            margin-top: 24px;
+            gap: 14px;
+            margin-top: 40px;
+            padding-top: 28px;
+            border-top: 1px solid var(--border-gray);
         }
 
         .btn-primary {
             flex: 1;
-            padding: 12px 24px;
-            background: linear-gradient(135deg, #10b981, #059669);
+            padding: 13px 24px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 14px;
-            transition: all 0.2s ease;
+            letter-spacing: 0.3px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             text-decoration: none;
-            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
+            box-shadow: 0 2px 12px rgba(16, 185, 129, 0.2), 0 1px 4px rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
         }
 
         .btn-primary:hover {
-            background: linear-gradient(135deg, #059669, #047857);
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.35), 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
         }
 
         .btn-primary:active {
             transform: translateY(0);
+            box-shadow: 0 1px 4px rgba(16, 185, 129, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         .btn-secondary {
             flex: 1;
-            padding: 12px 24px;
-            background: linear-gradient(135deg, #ef4444, #dc2626);
+            padding: 13px 24px;
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
             color: white;
-            border: 1px solid #ef4444;
-            border-radius: 8px;
+            border: none;
+            border-radius: 10px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 14px;
-            transition: all 0.2s ease;
+            letter-spacing: 0.3px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             text-align: center;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            box-shadow: 0 2px 8px rgba(239, 68, 68, 0.15);
+            box-shadow: 0 2px 12px rgba(239, 68, 68, 0.2), 0 1px 4px rgba(0, 0, 0, 0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
         }
 
         .btn-secondary:hover {
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+            box-shadow: 0 4px 20px rgba(239, 68, 68, 0.35), 0 2px 8px rgba(0, 0, 0, 0.08);
             text-decoration: none;
+        }
+
+        .btn-secondary:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 4px rgba(239, 68, 68, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Date input styling */
+        .form-group input[type="date"] {
+            cursor: pointer;
+            caret-color: transparent;
+        }
+        
+        .form-group input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+        }
+        }
+
+        .form-group input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            padding-right: 8px;
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+        }
+
+        .form-group input[type="date"]:hover::-webkit-calendar-picker-indicator {
+            opacity: 1;
         }
 
         small {
             color: var(--text-muted);
             font-size: 12px;
             display: block;
-            margin-top: 6px;
-            line-height: 1.4;
+            margin-top: 10px;
+            line-height: 1.6;
+            opacity: 0.9;
         }
 
-        @media (max-width: 768px) {
+        /* Multi-select dropdown with checkboxes */
+        .barangay-dropdown-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .barangay-dropdown-toggle {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--border-gray);
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--text-dark);
+        }
+
+        .barangay-dropdown-toggle:hover {
+            border-color: var(--secondary-blue);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
+        }
+
+        .barangay-dropdown-toggle.active {
+            border-color: var(--secondary-blue);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15), inset 0 0 0 1px rgba(37, 99, 235, 0.05);
+            background: #ffffff;
+        }
+
+        .barangay-dropdown-toggle::after {
+            content: '▼';
+            font-size: 12px;
+            color: var(--secondary-blue);
+            transition: transform 0.2s ease;
+        }
+
+        .barangay-dropdown-toggle.active::after {
+            transform: rotate(180deg);
+        }
+
+        .barangay-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 2px solid var(--secondary-blue);
+            border-radius: 10px;
+            margin-top: 6px;
+            display: none;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+        }
+
+        .barangay-dropdown-menu.show {
+            display: block;
+            animation: dropdownSlideIn 0.2s ease-out;
+        }
+
+        @keyframes dropdownSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .barangay-dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: background 0.15s ease;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .barangay-dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .barangay-dropdown-item:hover {
+            background: #f9fafb;
+        }
+
+        .barangay-dropdown-item input[type="checkbox"] {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--secondary-blue);
+        }
+
+        .barangay-dropdown-item label {
+            cursor: pointer;
+            flex: 1;
+            margin: 0;
+            font-size: 14px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .invalid-feedback {
+            display: block;
+            width: 100%;
+            margin-top: 8px;
+            font-size: 12px;
+            color: #ef4444;
+            font-weight: 500;
+            animation: slideIn 0.2s ease-out;
+        }
             .form-container {
                 padding: 24px;
             }
@@ -369,7 +706,10 @@
             {% csrf_token %}
             <!-- Event field first -->
             <div class="form-group">
-                <label for="{{ form.event.id_for_label }}">{{ form.event.label }}</label>
+                <label for="{{ form.event.id_for_label }}">
+                    <i class="fas fa-fire"></i>
+                    {{ form.event.label }}
+                </label>
                 {{ form.event }}
                 {% if form.event.errors %}
                     <ul class="errorlist">
@@ -385,7 +725,10 @@
 
             <!-- Barangay selection after event -->
             <div class="form-group">
-                <label for="{{ form.affected_barangays.id_for_label }}">{{ form.affected_barangays.label }}</label>
+                <label for="{{ form.affected_barangays.id_for_label }}">
+                    <i class="fas fa-location-dot"></i>
+                    {{ form.affected_barangays.label }}
+                </label>
                 <div class="barangay-input-container">
                     <input type="text" id="id_affected_barangays" name="affected_barangays" readonly value="{{ form.affected_barangays.value|default:'' }}" />
                     <div id="barangay-tags" class="barangay-tags"></div>
@@ -401,20 +744,33 @@
             </div>
             <!-- Barangay selection dropdown -->
             <div class="form-group">
-                <label for="barangay-select">Select Affected Barangay</label>
-                <select id="barangay-select" name="barangay-select">
-                    <option value="">-- Select Barangay --</option>
-                    {% for barangay_value, barangay_name in BARANGAYS %}
-                        <option value="{{ barangay_value }}">{{ barangay_name }}</option>
-                    {% endfor %}
-                </select>
+                <label>
+                    <i class="fas fa-list"></i>
+                    Select Affected Barangay
+                </label>
+                <div class="barangay-dropdown-wrapper">
+                    <div class="barangay-dropdown-toggle" id="barangay-dropdown-toggle">
+                        -- Select Barangays --
+                    </div>
+                    <div class="barangay-dropdown-menu" id="barangay-dropdown-menu">
+                        {% for barangay_value, barangay_name in BARANGAYS %}
+                            <div class="barangay-dropdown-item">
+                                <input type="checkbox" id="checkbox-{{ barangay_value }}" name="barangay-checkbox" value="{{ barangay_value }}" data-barangay-name="{{ barangay_name }}">
+                                <label for="checkbox-{{ barangay_value }}">{{ barangay_name }}</label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
 
             <!-- Render remaining fields except event and affected_barangays -->
             {% for field in form %}
                 {% if field.name != 'affected_barangays' and field.name != 'event' %}
                     <div class="form-group">
-                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        <label for="{{ field.id_for_label }}">
+                            <i class="fas fa-check"></i>
+                            {{ field.label }}
+                        </label>
                         {{ field }}
                         {% if field.errors %}
                             <ul class="errorlist">
@@ -560,36 +916,82 @@
         document.addEventListener('DOMContentLoaded', function() {
             markRequiredFields();
 
-            const barangaySelect = document.getElementById('barangay-select');
+            // Handle date input formatting (mm/dd/yyyy)
+            // Disable manual typing on date inputs - calendar picker only
+            const dateInputs = document.querySelectorAll('input[type="date"]');
+            dateInputs.forEach(dateInput => {
+                dateInput.addEventListener('keydown', function(e) {
+                    e.preventDefault();
+                });
+                dateInput.addEventListener('keypress', function(e) {
+                    e.preventDefault();
+                });
+                dateInput.addEventListener('keyup', function(e) {
+                    e.preventDefault();
+                });
+            });
+                        const dropdownToggle = document.getElementById('barangay-dropdown-toggle');
+            const dropdownMenu = document.getElementById('barangay-dropdown-menu');
+            const checkboxes = document.querySelectorAll('input[name="barangay-checkbox"]');
             const affectedInput = document.getElementById('id_affected_barangays');
             const barangayTags = document.getElementById('barangay-tags');
 
-            if (!barangaySelect || !affectedInput || !barangayTags) {
-                console.error('One or more elements not found');
-                return;
-            }
+            // Toggle dropdown visibility
+            dropdownToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('show');
+                dropdownToggle.classList.toggle('active');
+            });
 
-            barangaySelect.addEventListener('change', function() {
-                if (barangaySelect.value && !affectedInput.value.includes(barangaySelect.value)) {
-                    const currentValue = affectedInput.value ? affectedInput.value + ', ' : '';
-                    affectedInput.value = currentValue + barangaySelect.value;
-                    addBarangayTag(barangaySelect.value);
-                    barangaySelect.value = '';
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.barangay-dropdown-wrapper')) {
+                    dropdownMenu.classList.remove('show');
+                    dropdownToggle.classList.remove('active');
+                }
+            });
+
+            // Handle checkbox changes
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const selectedBarangays = Array.from(checkboxes)
+                        .filter(cb => cb.checked)
+                        .map(cb => cb.value);
                     
+                    // Update the hidden input
+                    affectedInput.value = selectedBarangays.join(', ');
+                    
+                    // Update tags display
+                    updateBarangayTags(selectedBarangays);
+                    
+                    // Clear validation error if any
                     affectedInput.classList.remove('is-invalid');
                     const errorFeedback = affectedInput.parentNode.querySelector('.invalid-feedback');
                     if (errorFeedback) {
                         errorFeedback.remove();
                     }
-                }
+                });
             });
 
-            function addBarangayTag(barangay) {
+            // Update tags based on selected barangays
+            function updateBarangayTags(selectedBarangays) {
+                barangayTags.innerHTML = '';
+                selectedBarangays.forEach(barangayValue => {
+                    const checkbox = document.querySelector(`input[value="${barangayValue}"]`);
+                    if (checkbox) {
+                        const barangayName = checkbox.getAttribute('data-barangay-name');
+                        addBarangayTag(barangayValue, barangayName);
+                    }
+                });
+                resizeInput();
+            }
+
+            function addBarangayTag(barangayValue, barangayName) {
                 const tag = document.createElement('span');
                 tag.className = 'barangay-tag';
                 
                 const tagText = document.createElement('span');
-                tagText.textContent = barangay;
+                tagText.textContent = barangayName;
                 tag.appendChild(tagText);
                 
                 const removeButton = document.createElement('span');
@@ -598,15 +1000,16 @@
                 removeButton.addEventListener('click', function(e) {
                     e.stopPropagation();
                     tag.remove();
-                    affectedInput.value = affectedInput.value
-                        .split(', ')
-                        .filter(b => b !== barangay)
-                        .join(', ');
                     
-                    resizeInput();
-                    validateField(affectedInput);
+                    // Uncheck the corresponding checkbox
+                    const checkbox = document.querySelector(`input[value="${barangayValue}"]`);
+                    if (checkbox) {
+                        checkbox.checked = false;
+                        checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+                    }
                 });
                 tag.appendChild(removeButton);
+                
                 barangayTags.appendChild(tag);
                 resizeInput();
             }
@@ -618,9 +1021,14 @@
             }
 
             if (affectedInput.value) {
-                affectedInput.value.split(', ').forEach(barangay => {
-                    if (barangay) addBarangayTag(barangay);
+                const initialBarangays = affectedInput.value.split(', ').filter(b => b.trim());
+                initialBarangays.forEach(barangay => {
+                    const checkbox = document.querySelector(`input[value="${barangay}"]`);
+                    if (checkbox) {
+                        checkbox.checked = true;
+                    }
                 });
+                updateBarangayTags(initialBarangays);
             }
 
             const form = document.querySelector('form');

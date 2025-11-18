@@ -4475,3 +4475,607 @@ INFO 2025-11-18 05:26:15 basehttp 6732 21068 "GET /home/ HTTP/1.1" 200 46390
 INFO 2025-11-18 05:26:39 basehttp 6732 21068 "GET /home/ HTTP/1.1" 200 46390
 INFO 2025-11-18 05:26:45 basehttp 6732 21068 "GET /maps/ HTTP/1.1" 200 1039062
 INFO 2025-11-18 05:26:54 basehttp 6732 21068 "GET /home/ HTTP/1.1" 200 46390
+INFO 2025-11-18 05:28:37 basehttp 6732 21068 "GET /profile/ HTTP/1.1" 200 41663
+INFO 2025-11-18 05:28:57 basehttp 6732 21068 "POST /profile/ HTTP/1.1" 302 0
+INFO 2025-11-18 05:28:57 basehttp 6732 21068 "GET /profile/ HTTP/1.1" 200 42046
+INFO 2025-11-18 05:28:57 basehttp 6732 21068 "GET /media/profile_images/rooftop1.jpg HTTP/1.1" 200 46325
+INFO 2025-11-18 05:29:13 basehttp 6732 21068 "GET /profile/ HTTP/1.1" 200 41823
+INFO 2025-11-18 05:29:13 basehttp 6732 21068 "GET /media/profile_images/rooftop1.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 05:29:15 basehttp 6732 21068 "GET /home/ HTTP/1.1" 200 48303
+INFO 2025-11-18 05:30:23 basehttp 6732 21068 "GET /maps/ HTTP/1.1" 200 1039062
+INFO 2025-11-18 05:30:25 views 6732 21068 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 05:30:26 views 6732 21068 API returned - Rain: 0.0mm, Temp: 26.0°C, Humidity: 93%, Wind: 11.0km/h
+INFO 2025-11-18 05:30:26 views 6732 21068 Processed 7 days of weather forecast
+INFO 2025-11-18 05:30:27 basehttp 6732 21068 "GET /monitoring/ HTTP/1.1" 200 74490
+INFO 2025-11-18 05:31:42 basehttp 6732 21068 "GET /home/ HTTP/1.1" 200 56694
+INFO 2025-11-18 05:33:11 basehttp 6732 21068 "GET /home/ HTTP/1.1" 200 48428
+INFO 2025-11-18 05:35:03 basehttp 6732 21068 "GET /home/ HTTP/1.1" 200 50690
+INFO 2025-11-18 05:36:26 basehttp 6732 21068 "GET /home/ HTTP/1.1" 200 49157
+INFO 2025-11-18 05:39:11 basehttp 6732 28752 "GET /home/ HTTP/1.1" 200 49212
+INFO 2025-11-18 05:41:28 basehttp 6732 28752 "GET /home/ HTTP/1.1" 200 49267
+INFO 2025-11-18 05:42:53 views 6732 28752 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 05:42:55 views 6732 28752 API returned - Rain: 0.0mm, Temp: 26.0°C, Humidity: 93%, Wind: 11.0km/h
+INFO 2025-11-18 05:42:55 views 6732 28752 Processed 7 days of weather forecast
+INFO 2025-11-18 05:42:55 basehttp 6732 28752 "GET /monitoring/ HTTP/1.1" 200 74490
+INFO 2025-11-18 05:43:00 basehttp 6732 28752 "GET /home/ HTTP/1.1" 200 49267
+INFO 2025-11-18 05:43:15 basehttp 6732 28752 "GET /maps/ HTTP/1.1" 200 1039349
+INFO 2025-11-18 05:44:05 basehttp 6732 28752 "GET /maps/ HTTP/1.1" 200 1039348
+INFO 2025-11-18 05:44:16 basehttp 6732 28752 "GET /maps/ HTTP/1.1" 200 1039348
+INFO 2025-11-18 05:45:49 basehttp 6732 28752 "POST /maps/save-assessment/ HTTP/1.1" 200 81
+INFO 2025-11-18 05:47:23 basehttp 6732 28752 "GET /maps/ HTTP/1.1" 200 1039735
+INFO 2025-11-18 05:47:31 basehttp 6732 28752 "POST /maps/save-assessment/ HTTP/1.1" 200 81
+INFO 2025-11-18 05:48:09 basehttp 6732 28752 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-18 05:49:23 basehttp 6732 28752 "GET /maps/ HTTP/1.1" 200 1039740
+INFO 2025-11-18 05:49:29 basehttp 6732 28752 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-18 05:49:41 basehttp 6732 28752 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-18 05:51:45 views 6732 28752 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 05:51:46 views 6732 28752 API returned - Rain: 0.0mm, Temp: 26.0°C, Humidity: 93%, Wind: 11.2km/h
+INFO 2025-11-18 05:51:46 views 6732 28752 Processed 7 days of weather forecast
+INFO 2025-11-18 05:51:46 basehttp 6732 28752 "GET /monitoring/ HTTP/1.1" 200 75195
+INFO 2025-11-18 05:53:21 views 6732 28752 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 05:53:23 views 6732 28752 API returned - Rain: 0.0mm, Temp: 26.0°C, Humidity: 93%, Wind: 11.2km/h
+INFO 2025-11-18 05:53:23 views 6732 28752 Processed 7 days of weather forecast
+INFO 2025-11-18 05:53:23 basehttp 6732 28752 "GET /monitoring/ HTTP/1.1" 200 75990
+INFO 2025-11-18 05:53:53 basehttp 6732 28752 "GET /monitoring/flood-record/ HTTP/1.1" 200 29990
+INFO 2025-11-18 05:54:01 views 6732 28752 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 05:54:03 views 6732 28752 API returned - Rain: 0.0mm, Temp: 26.0°C, Humidity: 93%, Wind: 11.2km/h
+INFO 2025-11-18 05:54:03 views 6732 28752 Processed 7 days of weather forecast
+INFO 2025-11-18 05:54:03 basehttp 6732 28752 "GET /monitoring/ HTTP/1.1" 200 75990
+INFO 2025-11-18 05:54:25 basehttp 6732 28752 "GET /monitoring/api/trends/?time_range=7d HTTP/1.1" 200 185
+INFO 2025-11-18 05:54:25 basehttp 6732 28752 "GET /monitoring/api/trends/?time_range=30d HTTP/1.1" 200 187
+INFO 2025-11-18 05:54:26 basehttp 6732 28752 "GET /monitoring/api/trends/?time_range=90d HTTP/1.1" 200 187
+INFO 2025-11-18 05:54:27 basehttp 6732 28752 "GET /monitoring/api/trends/?time_range=all HTTP/1.1" 200 184
+INFO 2025-11-18 05:55:07 basehttp 6732 28752 "GET /monitoring/flood-record/ HTTP/1.1" 200 29990
+INFO 2025-11-18 05:56:50 basehttp 6732 28752 "GET /monitoring/flood-record/ HTTP/1.1" 200 29990
+INFO 2025-11-18 05:56:55 views 6732 28752 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 05:56:56 views 6732 28752 API returned - Rain: 0.0mm, Temp: 26.0°C, Humidity: 93%, Wind: 11.2km/h
+INFO 2025-11-18 05:56:56 views 6732 28752 Processed 7 days of weather forecast
+INFO 2025-11-18 05:56:56 basehttp 6732 28752 "GET /monitoring/ HTTP/1.1" 200 75990
+INFO 2025-11-18 05:57:05 basehttp 6732 28752 "GET /monitoring/flood-record/ HTTP/1.1" 200 29990
+INFO 2025-11-18 06:08:27 basehttp 6732 388 "GET /monitoring/flood-record/ HTTP/1.1" 200 30070
+INFO 2025-11-18 06:08:35 views 6732 388 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 06:08:36 views 6732 388 API returned - Rain: 0.0mm, Temp: 25.9°C, Humidity: 94%, Wind: 10.9km/h
+INFO 2025-11-18 06:08:36 views 6732 388 Processed 7 days of weather forecast
+INFO 2025-11-18 06:08:36 basehttp 6732 388 "GET /monitoring/ HTTP/1.1" 200 75990
+INFO 2025-11-18 06:08:48 basehttp 6732 388 "GET /monitoring/flood-record/ HTTP/1.1" 200 30070
+INFO 2025-11-18 06:09:17 views 6732 388 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 06:09:19 views 6732 388 API returned - Rain: 0.0mm, Temp: 25.9°C, Humidity: 94%, Wind: 10.9km/h
+INFO 2025-11-18 06:09:19 views 6732 388 Processed 7 days of weather forecast
+INFO 2025-11-18 06:09:19 basehttp 6732 388 "GET /monitoring/ HTTP/1.1" 200 75990
+INFO 2025-11-18 06:09:21 basehttp 6732 388 "GET /approve/ HTTP/1.1" 200 34712
+INFO 2025-11-18 06:09:24 basehttp 6732 388 "GET /maps/my-activity/ HTTP/1.1" 200 55501
+INFO 2025-11-18 06:09:29 basehttp 6732 388 "GET /maps/all-activities/ HTTP/1.1" 200 95573
+INFO 2025-11-18 06:09:40 views 6732 388 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 06:09:41 views 6732 388 API returned - Rain: 0.0mm, Temp: 25.9°C, Humidity: 94%, Wind: 10.9km/h
+INFO 2025-11-18 06:09:41 views 6732 388 Processed 7 days of weather forecast
+INFO 2025-11-18 06:09:41 basehttp 6732 388 "GET /monitoring/ HTTP/1.1" 200 75990
+INFO 2025-11-18 06:10:59 basehttp 6732 388 "GET /monitoring/flood-record/ HTTP/1.1" 200 34185
+INFO 2025-11-18 06:12:55 basehttp 6732 388 "GET /monitoring/flood-record/ HTTP/1.1" 200 34185
+INFO 2025-11-18 06:13:02 autoreload 24476 17540 Watching for file changes with StatReloader
+INFO 2025-11-18 06:13:04 basehttp 24476 5288 "GET / HTTP/1.1" 302 0
+INFO 2025-11-18 06:13:04 basehttp 24476 5288 "GET /home/ HTTP/1.1" 200 49279
+INFO 2025-11-18 06:13:07 basehttp 24476 5288 "GET /monitoring/flood-record/ HTTP/1.1" 200 34185
+INFO 2025-11-18 06:15:45 basehttp 24476 5288 "GET /monitoring/flood-record/ HTTP/1.1" 200 37531
+INFO 2025-11-18 06:17:04 basehttp 24476 5288 "GET /monitoring/flood-record/ HTTP/1.1" 200 37774
+INFO 2025-11-18 06:20:51 basehttp 24476 5288 "GET /monitoring/flood-record/ HTTP/1.1" 200 40582
+INFO 2025-11-18 06:23:31 basehttp 24476 11776 "GET /monitoring/flood-record/ HTTP/1.1" 200 40924
+WARNING 2025-11-18 06:24:14 log 24476 11776 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 06:24:14 basehttp 24476 11776 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5029
+INFO 2025-11-18 06:26:01 basehttp 24476 11776 "GET /monitoring/flood-record/ HTTP/1.1" 200 41446
+INFO 2025-11-18 06:27:33 basehttp 24476 27924 "GET /monitoring/flood-record/ HTTP/1.1" 200 41963
+WARNING 2025-11-18 06:27:40 log 24476 27924 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 06:27:40 basehttp 24476 27924 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5029
+INFO 2025-11-18 06:28:02 autoreload 24584 11624 Watching for file changes with StatReloader
+INFO 2025-11-18 06:28:04 basehttp 24584 12004 "GET / HTTP/1.1" 302 0
+INFO 2025-11-18 06:28:04 basehttp 24584 12004 "GET /home/ HTTP/1.1" 200 49279
+INFO 2025-11-18 06:28:06 basehttp 24584 12004 "GET /monitoring/flood-record/ HTTP/1.1" 200 41963
+WARNING 2025-11-18 06:28:11 log 24584 12004 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 06:28:11 basehttp 24584 12004 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5029
+WARNING 2025-11-18 06:28:47 log 24584 12004 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 06:28:47 basehttp 24584 12004 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5029
+INFO 2025-11-18 06:30:36 basehttp 24584 12004 "GET /monitoring/flood-record/ HTTP/1.1" 200 41949
+WARNING 2025-11-18 06:30:36 log 24584 12004 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 06:30:36 basehttp 24584 12004 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5029
+INFO 2025-11-18 06:33:42 basehttp 24584 12004 "GET /monitoring/flood-record/ HTTP/1.1" 200 43230
+INFO 2025-11-18 06:36:27 basehttp 24584 12004 "GET /monitoring/flood-record/ HTTP/1.1" 200 41315
+INFO 2025-11-18 06:38:58 basehttp 24584 12004 "GET /monitoring/flood-record/ HTTP/1.1" 200 42437
+INFO 2025-11-18 06:40:43 basehttp 24584 12004 "GET /monitoring/flood-record/ HTTP/1.1" 200 42110
+INFO 2025-11-18 06:44:24 basehttp 24584 12004 "GET /monitoring/flood-record/ HTTP/1.1" 200 39409
+INFO 2025-11-18 06:44:28 basehttp 24584 12004 "GET /monitoring/flood-record/ HTTP/1.1" 200 39409
+INFO 2025-11-18 06:46:47 basehttp 24584 12004 "GET /monitoring/flood-record/ HTTP/1.1" 200 40102
+WARNING 2025-11-18 06:47:08 views 24584 12004 Form validation errors: <ul class="errorlist"><li>affected_persons<ul class="errorlist" id="id_affected_persons_error"><li>Number of affected persons should be at least equal to the number of affected families.</li></ul></li></ul>
+INFO 2025-11-18 06:47:08 basehttp 24584 12004 "POST /monitoring/flood-record/ HTTP/1.1" 200 211
+INFO 2025-11-18 06:47:18 views 24584 12004 Flood record created: 1 - Flood
+INFO 2025-11-18 06:47:18 basehttp 24584 12004 "POST /monitoring/flood-record/ HTTP/1.1" 200 136
+INFO 2025-11-18 06:47:20 views 24584 12004 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 06:47:22 views 24584 12004 API returned - Rain: 0.0mm, Temp: 26.6°C, Humidity: 92%, Wind: 12.0km/h
+INFO 2025-11-18 06:47:22 views 24584 12004 Processed 7 days of weather forecast
+INFO 2025-11-18 06:47:22 basehttp 24584 12004 "GET /monitoring/ HTTP/1.1" 200 77566
+INFO 2025-11-18 06:47:34 basehttp 24584 12004 "GET /monitoring/flood-record/edit/1/ HTTP/1.1" 200 30880
+INFO 2025-11-18 06:47:44 views 24584 12004 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 06:47:45 views 24584 12004 API returned - Rain: 0.0mm, Temp: 26.6°C, Humidity: 92%, Wind: 12.0km/h
+INFO 2025-11-18 06:47:45 views 24584 12004 Processed 7 days of weather forecast
+INFO 2025-11-18 06:47:45 basehttp 24584 12004 "GET /monitoring/ HTTP/1.1" 200 77566
+INFO 2025-11-18 06:47:51 basehttp 24584 12004 "GET /monitoring/flood-record/delete/1/ HTTP/1.1" 200 8540
+INFO 2025-11-18 06:48:02 views 24584 12004 Flood record deleted: 1 - Flood
+INFO 2025-11-18 06:48:02 basehttp 24584 12004 "POST /monitoring/flood-record/delete/1/ HTTP/1.1" 302 0
+INFO 2025-11-18 06:48:02 views 24584 12004 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 06:48:04 views 24584 12004 API returned - Rain: 0.0mm, Temp: 26.6°C, Humidity: 92%, Wind: 12.0km/h
+INFO 2025-11-18 06:48:04 views 24584 12004 Processed 7 days of weather forecast
+INFO 2025-11-18 06:48:04 basehttp 24584 12004 "GET /monitoring/ HTTP/1.1" 200 76265
+INFO 2025-11-18 06:48:24 basehttp 24584 12004 "GET /monitoring/flood-record/ HTTP/1.1" 200 40102
+INFO 2025-11-18 06:51:20 basehttp 24584 12004 "GET /monitoring/flood-record/ HTTP/1.1" 200 43156
+INFO 2025-11-18 06:51:44 views 24584 12004 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 06:51:45 views 24584 12004 API returned - Rain: 0.0mm, Temp: 26.6°C, Humidity: 92%, Wind: 12.0km/h
+INFO 2025-11-18 06:51:45 views 24584 12004 Processed 7 days of weather forecast
+INFO 2025-11-18 06:51:45 basehttp 24584 12004 "GET /monitoring/ HTTP/1.1" 200 75990
+INFO 2025-11-18 06:51:50 basehttp 24584 12004 "GET /monitoring/flood-record/ HTTP/1.1" 200 43156
+INFO 2025-11-18 06:52:18 basehttp 24584 12004 "GET /monitoring/flood-record/ HTTP/1.1" 200 40102
+INFO 2025-11-18 06:52:36 views 24584 12004 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 06:52:37 views 24584 12004 API returned - Rain: 0.0mm, Temp: 26.6°C, Humidity: 92%, Wind: 12.0km/h
+INFO 2025-11-18 06:52:37 views 24584 12004 Processed 7 days of weather forecast
+INFO 2025-11-18 06:52:37 basehttp 24584 12004 "GET /monitoring/ HTTP/1.1" 200 75990
+INFO 2025-11-18 06:52:44 basehttp 24584 12004 "GET /maps/my-activity/ HTTP/1.1" 200 58974
+INFO 2025-11-18 06:55:38 basehttp 24584 12004 "GET /maps/my-activity/ HTTP/1.1" 200 61021
+INFO 2025-11-18 06:55:54 basehttp 24584 12004 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-18 06:55:54 basehttp 24584 12004 "GET / HTTP/1.1" 200 13751
+INFO 2025-11-18 06:56:03 basehttp 24584 12004 "POST / HTTP/1.1" 302 0
+INFO 2025-11-18 06:56:04 basehttp 24584 12004 "GET /home/ HTTP/1.1" 200 47241
+INFO 2025-11-18 06:56:21 basehttp 24584 12004 "GET /maps/ HTTP/1.1" 200 1041266
+INFO 2025-11-18 06:56:31 basehttp 24584 12004 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-18 06:56:36 basehttp 24584 12004 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.811196&lon=123.026272&risk=LF HTTP/1.1" 200 10616
+INFO 2025-11-18 06:56:45 basehttp 24584 12004 "GET /maps/certificate/form/?barangay=Eustaquio%20Lopez&lat=10.811196&lon=123.026272&risk=LF HTTP/1.1" 200 21350
+INFO 2025-11-18 06:57:04 basehttp 24584 12004 "GET /home/ HTTP/1.1" 200 47024
+INFO 2025-11-18 07:00:10 basehttp 24584 12004 "GET /home/ HTTP/1.1" 200 48222
+INFO 2025-11-18 07:01:02 basehttp 24584 12004 "GET /home/ HTTP/1.1" 200 48302
+INFO 2025-11-18 07:01:03 basehttp 24584 12004 "GET /home/ HTTP/1.1" 200 48268
+INFO 2025-11-18 07:01:05 basehttp 24584 12004 "GET /home/ HTTP/1.1" 200 48268
+INFO 2025-11-18 07:01:07 basehttp 24584 12004 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-18 07:01:07 basehttp 24584 12004 "GET / HTTP/1.1" 200 13751
+INFO 2025-11-18 07:01:15 basehttp 24584 12004 "POST / HTTP/1.1" 302 0
+INFO 2025-11-18 07:01:15 basehttp 24584 12004 "GET /home/ HTTP/1.1" 200 52920
+INFO 2025-11-18 07:02:09 basehttp 24584 12004 "GET /home/ HTTP/1.1" 200 52706
+INFO 2025-11-18 07:02:10 basehttp 24584 12004 "GET /home/ HTTP/1.1" 200 52706
+INFO 2025-11-18 07:02:11 basehttp 24584 12004 - Broken pipe from ('127.0.0.1', 62972)
+INFO 2025-11-18 07:02:11 basehttp 24584 20176 "GET /home/ HTTP/1.1" 200 52706
+INFO 2025-11-18 07:02:11 basehttp 24584 20176 "GET /home/ HTTP/1.1" 200 52706
+INFO 2025-11-18 07:02:12 basehttp 24584 20176 "GET /home/ HTTP/1.1" 200 52706
+INFO 2025-11-18 07:02:12 basehttp 24584 20176 "GET /home/ HTTP/1.1" 200 52706
+INFO 2025-11-18 07:02:13 basehttp 24584 20176 "GET /home/ HTTP/1.1" 200 52706
+INFO 2025-11-18 07:02:13 basehttp 24584 20176 - Broken pipe from ('127.0.0.1', 57773)
+INFO 2025-11-18 07:02:13 basehttp 24584 25480 "GET /home/ HTTP/1.1" 200 52706
+INFO 2025-11-18 07:02:14 basehttp 24584 25480 "GET /home/ HTTP/1.1" 200 52706
+INFO 2025-11-18 07:03:16 basehttp 24584 25480 "GET /maps/my-activity/ HTTP/1.1" 200 64566
+INFO 2025-11-18 07:05:29 basehttp 24584 25480 "GET /maps/my-activity/ HTTP/1.1" 200 64512
+INFO 2025-11-18 07:05:38 basehttp 24584 25480 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-18 07:05:38 basehttp 24584 25480 "GET / HTTP/1.1" 200 13751
+INFO 2025-11-18 07:05:47 basehttp 24584 25480 "POST / HTTP/1.1" 302 0
+INFO 2025-11-18 07:05:47 basehttp 24584 25480 "GET /home/ HTTP/1.1" 200 48814
+INFO 2025-11-18 07:05:55 views 24584 25480 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 07:05:56 views 24584 25480 API returned - Rain: 0.0mm, Temp: 26.8°C, Humidity: 92%, Wind: 12.3km/h
+INFO 2025-11-18 07:05:56 views 24584 25480 Processed 7 days of weather forecast
+INFO 2025-11-18 07:05:56 basehttp 24584 25480 "GET /monitoring/ HTTP/1.1" 200 78904
+INFO 2025-11-18 07:06:40 basehttp 24584 25480 "GET /maps/my-activity/ HTTP/1.1" 200 65937
+INFO 2025-11-18 07:07:02 basehttp 24584 25480 "GET /profile/ HTTP/1.1" 200 44708
+INFO 2025-11-18 07:08:45 basehttp 24584 25480 "GET /profile/ HTTP/1.1" 200 51672
+INFO 2025-11-18 07:09:08 basehttp 24584 25480 "POST /profile/ HTTP/1.1" 302 0
+INFO 2025-11-18 07:09:08 basehttp 24584 25480 "GET /profile/ HTTP/1.1" 200 52098
+INFO 2025-11-18 07:09:08 basehttp 24584 25480 "GET /media/profile_images/rooftop2.jpg HTTP/1.1" 200 34652
+INFO 2025-11-18 07:09:56 basehttp 24584 25480 "GET /profile/ HTTP/1.1" 200 51913
+INFO 2025-11-18 07:09:56 basehttp 24584 25480 "GET /media/profile_images/rooftop2.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 07:10:50 basehttp 24584 25480 "GET /profile/ HTTP/1.1" 200 51936
+INFO 2025-11-18 07:10:50 basehttp 24584 25480 "GET /media/profile_images/rooftop2.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 07:14:04 basehttp 24584 25480 "GET /profile/ HTTP/1.1" 200 44863
+INFO 2025-11-18 07:14:04 basehttp 24584 25480 "GET /media/profile_images/rooftop2.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 07:54:06 basehttp 24584 1780 "GET /profile/ HTTP/1.1" 200 52150
+INFO 2025-11-18 07:54:06 basehttp 24584 1780 "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-11-18 07:54:06 basehttp 24584 12292 "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+INFO 2025-11-18 07:54:06 basehttp 24584 21384 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 304 0
+INFO 2025-11-18 07:54:06 basehttp 24584 17628 "GET /static/images/drrmo_logo.png HTTP/1.1" 304 0
+INFO 2025-11-18 07:54:06 basehttp 24584 8360 "GET /media/profile_images/rooftop2.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 07:54:06 basehttp 24584 8360 "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+INFO 2025-11-18 07:54:06 basehttp 24584 17628 "GET /static/webfonts/fa-brands-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-18 07:54:47 basehttp 24584 17628 "GET /profile/ HTTP/1.1" 200 52624
+INFO 2025-11-18 07:54:50 basehttp 24584 17628 "GET /profile/ HTTP/1.1" 200 52624
+INFO 2025-11-18 11:12:29 basehttp 24584 31184 "GET /profile/ HTTP/1.1" 200 53076
+INFO 2025-11-18 11:12:29 basehttp 24584 31184 "GET /media/profile_images/rooftop2.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 11:14:26 basehttp 24584 31184 "GET /profile/ HTTP/1.1" 200 48802
+INFO 2025-11-18 11:18:58 basehttp 24584 21548 "GET /monitoring/flood-record/ HTTP/1.1" 200 40102
+INFO 2025-11-18 11:19:04 views 24584 21548 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 11:19:05 views 24584 21548 API returned - Rain: 0.0mm, Temp: 29.0°C, Humidity: 79%, Wind: 20.6km/h
+INFO 2025-11-18 11:19:05 views 24584 21548 Processed 7 days of weather forecast
+INFO 2025-11-18 11:19:05 views 24584 21548 Created new rainfall record: 0.0mm
+INFO 2025-11-18 11:19:05 views 24584 21548 Created new weather record
+INFO 2025-11-18 11:19:05 views 24584 21548 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+INFO 2025-11-18 11:19:06 views 24584 21548 Created new tide record: 0.17m from WorldTides API
+INFO 2025-11-18 11:19:06 basehttp 24584 21548 "GET /monitoring/ HTTP/1.1" 200 78986
+INFO 2025-11-18 11:19:06 basehttp 24584 21548 "GET /static/js/chart.js HTTP/1.1" 304 0
+INFO 2025-11-18 11:19:17 basehttp 24584 21548 "GET /maps/ HTTP/1.1" 200 1042654
+INFO 2025-11-18 11:19:17 basehttp 24584 21548 "GET /static/css/ol.css HTTP/1.1" 304 0
+INFO 2025-11-18 11:19:17 basehttp 24584 31420 "GET /static/js/ol.js HTTP/1.1" 304 0
+INFO 2025-11-18 11:19:20 basehttp 24584 31420 "GET /maps/my-activity/ HTTP/1.1" 200 67062
+INFO 2025-11-18 11:19:20 basehttp 24584 31420 "GET /static/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-18 11:19:25 basehttp 24584 31420 "GET /home/ HTTP/1.1" 200 48603
+INFO 2025-11-18 11:20:21 basehttp 24584 31420 "GET /home/ HTTP/1.1" 200 48603
+INFO 2025-11-18 11:20:24 basehttp 24584 31420 "GET /profile/ HTTP/1.1" 200 47823
+INFO 2025-11-18 11:22:53 basehttp 24584 31420 "GET /maps/my-activity/ HTTP/1.1" 200 67062
+INFO 2025-11-18 11:22:58 views 24584 31420 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 11:22:59 views 24584 31420 API returned - Rain: 0.0mm, Temp: 29.0°C, Humidity: 79%, Wind: 20.6km/h
+INFO 2025-11-18 11:22:59 views 24584 31420 Processed 7 days of weather forecast
+INFO 2025-11-18 11:22:59 basehttp 24584 31420 "GET /monitoring/ HTTP/1.1" 200 78986
+INFO 2025-11-18 11:23:08 basehttp 24584 31420 "GET /profile/ HTTP/1.1" 200 48872
+INFO 2025-11-18 12:52:44 basehttp 24584 20084 "GET /home/ HTTP/1.1" 200 48603
+INFO 2025-11-18 12:52:44 basehttp 24584 20084 "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-11-18 12:52:44 basehttp 24584 2500 "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+INFO 2025-11-18 12:52:44 basehttp 24584 20168 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 304 0
+INFO 2025-11-18 12:52:44 basehttp 24584 18424 "GET /static/images/drrmo_logo.png HTTP/1.1" 304 0
+INFO 2025-11-18 12:52:44 basehttp 24584 18424 "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+INFO 2025-11-18 12:52:44 basehttp 24584 20168 "GET /static/webfonts/fa-brands-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-18 12:52:56 basehttp 24584 18424 "GET /maps/ HTTP/1.1" 200 1042654
+INFO 2025-11-18 12:53:13 basehttp 24584 18424 "GET /home/ HTTP/1.1" 200 48603
+INFO 2025-11-18 12:53:36 basehttp 24584 18424 "GET /maps/ HTTP/1.1" 200 1042654
+INFO 2025-11-18 12:53:47 basehttp 24584 18424 "GET /profile/ HTTP/1.1" 200 54515
+INFO 2025-11-18 12:53:47 basehttp 24584 18424 "GET /media/profile_images/rooftop2.jpg HTTP/1.1" 304 0
+INFO 2025-11-18 12:54:05 basehttp 24584 18424 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-18 12:54:05 basehttp 24584 18424 "GET / HTTP/1.1" 200 13751
+INFO 2025-11-18 12:54:20 basehttp 24584 18424 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-11-18 12:54:20 basehttp 24584 18424 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4177
+INFO 2025-11-18 12:54:20 basehttp 24584 20168 "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2025-11-18 12:54:20 basehttp 24584 2500 "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2025-11-18 12:54:20 basehttp 24584 18424 "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2025-11-18 12:54:20 basehttp 24584 25516 "GET /static/admin/css/login.css HTTP/1.1" 304 0
+INFO 2025-11-18 12:54:20 basehttp 24584 20084 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2025-11-18 12:54:20 basehttp 24584 24476 "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2025-11-18 12:54:20 basehttp 24584 25516 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:01 basehttp 24584 25516 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-11-18 12:55:01 basehttp 24584 25516 "GET /admin/ HTTP/1.1" 200 13399
+INFO 2025-11-18 12:55:01 basehttp 24584 25516 "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:01 basehttp 24584 25516 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:01 basehttp 24584 24476 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:04 basehttp 24584 25516 "GET /admin/users/customuser/ HTTP/1.1" 200 14535
+INFO 2025-11-18 12:55:04 basehttp 24584 2500 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:04 basehttp 24584 20084 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:04 basehttp 24584 18424 "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:04 basehttp 24584 20168 "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:04 basehttp 24584 25516 "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:04 basehttp 24584 20084 "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:04 basehttp 24584 2500 "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:04 basehttp 24584 18424 "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:04 basehttp 24584 25516 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:04 basehttp 24584 25516 "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:04 basehttp 24584 24476 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 12:55:04 basehttp 24584 24476 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:08 basehttp 24584 24476 "GET /admin/users/customuser/3/change/ HTTP/1.1" 200 36666
+INFO 2025-11-18 12:55:08 basehttp 24584 20084 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:08 basehttp 24584 2500 "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:08 basehttp 24584 24476 "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:08 basehttp 24584 18424 "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:08 basehttp 24584 2500 "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:08 basehttp 24584 2500 "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:08 basehttp 24584 25516 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 12:55:08 basehttp 24584 2500 "GET /static/admin/img/icon-clock.svg HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:08 basehttp 24584 25516 "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:11 basehttp 24584 25516 "GET /admin/users/customuser/3/delete/ HTTP/1.1" 200 14999
+INFO 2025-11-18 12:55:11 basehttp 24584 25516 "GET /static/admin/js/cancel.js HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:14 basehttp 24584 25516 "POST /admin/users/customuser/3/delete/ HTTP/1.1" 302 0
+INFO 2025-11-18 12:55:14 basehttp 24584 25516 "GET /admin/users/customuser/ HTTP/1.1" 302 0
+INFO 2025-11-18 12:55:14 basehttp 24584 25516 "GET /admin/login/?next=/admin/users/customuser/ HTTP/1.1" 200 4363
+INFO 2025-11-18 12:55:14 basehttp 24584 25516 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+INFO 2025-11-18 12:55:19 basehttp 24584 25516 "GET /admin/users/customuser/3/delete/ HTTP/1.1" 302 0
+INFO 2025-11-18 12:55:20 basehttp 24584 25516 "GET /admin/login/?next=/admin/users/customuser/3/delete/ HTTP/1.1" 200 4229
+INFO 2025-11-18 12:55:29 basehttp 24584 25516 "GET / HTTP/1.1" 200 13856
+INFO 2025-11-18 12:55:34 basehttp 24584 25516 "GET /register/admin/ HTTP/1.1" 200 25761
+INFO 2025-11-18 12:57:44 basehttp 24584 25516 "POST /register/admin/ HTTP/1.1" 200 27328
+INFO 2025-11-18 12:58:07 basehttp 24584 25516 "POST /register/admin/ HTTP/1.1" 302 0
+INFO 2025-11-18 12:58:07 basehttp 24584 25516 "GET / HTTP/1.1" 200 14027
+INFO 2025-11-18 12:58:24 basehttp 24584 25516 "POST / HTTP/1.1" 302 0
+INFO 2025-11-18 12:58:24 basehttp 24584 25516 "GET /home/ HTTP/1.1" 200 52664
+INFO 2025-11-18 12:58:57 basehttp 24584 25516 "GET /approve/ HTTP/1.1" 200 38110
+INFO 2025-11-18 12:59:06 basehttp 24584 25516 "GET /home/ HTTP/1.1" 200 52447
+INFO 2025-11-18 13:01:07 basehttp 24584 25516 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-18 13:01:08 basehttp 24584 25516 "GET / HTTP/1.1" 200 13751
+INFO 2025-11-18 13:01:12 basehttp 24584 25516 "GET /register/ HTTP/1.1" 200 26194
+INFO 2025-11-18 13:02:37 basehttp 24584 25516 "POST /register/ HTTP/1.1" 200 27788
+INFO 2025-11-18 13:03:35 basehttp 24584 25516 "POST /register/ HTTP/1.1" 200 28296
+INFO 2025-11-18 13:03:49 basehttp 24584 25516 "POST /register/ HTTP/1.1" 200 27788
+INFO 2025-11-18 13:04:20 basehttp 24584 25516 "POST /register/ HTTP/1.1" 200 27788
+INFO 2025-11-18 13:04:41 basehttp 24584 25516 "POST /register/ HTTP/1.1" 200 27790
+INFO 2025-11-18 13:05:18 basehttp 24584 25516 "POST /register/ HTTP/1.1" 302 0
+INFO 2025-11-18 13:05:18 basehttp 24584 25516 "GET / HTTP/1.1" 200 14033
+INFO 2025-11-18 13:05:38 basehttp 24584 25516 "POST / HTTP/1.1" 200 14086
+INFO 2025-11-18 13:06:07 basehttp 24584 25516 "POST / HTTP/1.1" 302 0
+INFO 2025-11-18 13:06:08 basehttp 24584 25516 "GET /home/ HTTP/1.1" 200 53104
+INFO 2025-11-18 13:06:28 basehttp 24584 25516 "GET /approve/ HTTP/1.1" 200 39388
+INFO 2025-11-18 13:06:32 basehttp 24584 25516 "POST /approve/ HTTP/1.1" 302 0
+INFO 2025-11-18 13:06:33 basehttp 24584 25516 "GET /approve/ HTTP/1.1" 200 39384
+INFO 2025-11-18 13:06:42 basehttp 24584 25516 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-18 13:06:42 basehttp 24584 25516 "GET / HTTP/1.1" 200 13751
+INFO 2025-11-18 13:06:56 basehttp 24584 25516 "POST / HTTP/1.1" 302 0
+INFO 2025-11-18 13:06:56 basehttp 24584 25516 "GET /home/ HTTP/1.1" 200 48446
+INFO 2025-11-18 13:07:08 basehttp 24584 25516 "GET /maps/ HTTP/1.1" 200 1042654
+INFO 2025-11-18 13:07:44 basehttp 24584 25516 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-18 13:07:47 basehttp 24584 25516 "GET /maps/report/?barangay=Barangay%20V%20(Pob.)&lat=10.789009&lon=122.980700&risk=LF HTTP/1.1" 200 10620
+INFO 2025-11-18 13:07:47 basehttp 24584 25516 "GET /static/images/drrmo_header.png HTTP/1.1" 304 0
+INFO 2025-11-18 13:08:19 basehttp 24584 25516 "GET /maps/certificate/form/?barangay=Barangay%20V%20(Pob.)&lat=10.789009&lon=122.980700&risk=LF HTTP/1.1" 200 21354
+INFO 2025-11-18 13:10:11 basehttp 24584 25516 "POST /maps/certificate/ HTTP/1.1" 200 10575
+INFO 2025-11-18 13:11:25 views 24584 25516 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+ERROR 2025-11-18 13:11:25 views 24584 25516 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002204E72FF50>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 13:11:25 basehttp 24584 25516 "GET /monitoring/ HTTP/1.1" 200 74579
+INFO 2025-11-18 13:12:07 basehttp 24584 25516 "GET /monitoring/flood-record/ HTTP/1.1" 200 40102
+INFO 2025-11-18 13:15:19 views 24584 25516 Flood record created: 2 - Flood
+INFO 2025-11-18 13:15:19 basehttp 24584 25516 "POST /monitoring/flood-record/ HTTP/1.1" 200 136
+INFO 2025-11-18 13:15:21 views 24584 25516 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+ERROR 2025-11-18 13:15:21 views 24584 25516 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002204E75BFE0>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 13:15:21 basehttp 24584 25516 "GET /monitoring/ HTTP/1.1" 200 75535
+INFO 2025-11-18 13:15:29 basehttp 24584 25516 "GET /home/ HTTP/1.1" 200 48289
+INFO 2025-11-18 13:15:45 views 24584 25516 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+ERROR 2025-11-18 13:15:45 views 24584 25516 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002204E7733E0>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 13:15:45 basehttp 24584 25516 "GET /monitoring/ HTTP/1.1" 200 75535
+INFO 2025-11-18 13:16:19 basehttp 24584 25516 "GET /monitoring/flood-record/edit/2/ HTTP/1.1" 200 30934
+INFO 2025-11-18 13:16:31 views 24584 25516 Flood record updated: 2 - Flood
+INFO 2025-11-18 13:16:31 basehttp 24584 25516 "POST /monitoring/flood-record/edit/2/ HTTP/1.1" 200 138
+INFO 2025-11-18 13:16:33 views 24584 25516 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+ERROR 2025-11-18 13:16:33 views 24584 25516 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002204E80CA40>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 13:16:33 basehttp 24584 25516 "GET /monitoring/ HTTP/1.1" 200 75535
+INFO 2025-11-18 13:16:41 basehttp 24584 25516 "GET /monitoring/flood-record/delete/2/ HTTP/1.1" 200 8594
+INFO 2025-11-18 13:16:44 views 24584 25516 Flood record deleted: 2 - Flood
+INFO 2025-11-18 13:16:44 basehttp 24584 25516 "POST /monitoring/flood-record/delete/2/ HTTP/1.1" 302 0
+INFO 2025-11-18 13:16:44 views 24584 25516 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+ERROR 2025-11-18 13:16:44 views 24584 25516 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002204E80EC30>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 13:16:44 basehttp 24584 25516 "GET /monitoring/ HTTP/1.1" 200 74854
+INFO 2025-11-18 13:16:50 basehttp 24584 25516 "GET /maps/my-activity/ HTTP/1.1" 200 48556
+INFO 2025-11-18 13:17:41 views 24584 25516 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+ERROR 2025-11-18 13:17:41 views 24584 25516 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002204E78BDD0>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 13:17:41 basehttp 24584 25516 "GET /monitoring/ HTTP/1.1" 200 74579
+INFO 2025-11-18 13:19:25 basehttp 24584 18496 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-18 13:19:25 basehttp 24584 18496 "GET / HTTP/1.1" 200 13751
+INFO 2025-11-18 13:19:27 basehttp 24584 18496 "GET /register/ HTTP/1.1" 200 26194
+INFO 2025-11-18 13:19:42 basehttp 24584 18496 "POST /register/ HTTP/1.1" 200 28807
+INFO 2025-11-18 13:20:22 basehttp 24584 18496 "POST /register/ HTTP/1.1" 200 28301
+INFO 2025-11-18 13:20:47 basehttp 24584 18496 "POST /register/ HTTP/1.1" 200 27777
+INFO 2025-11-18 13:23:08 basehttp 24584 18496 "POST /register/ HTTP/1.1" 200 28285
+INFO 2025-11-18 13:25:29 autoreload 24584 11624 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-18 13:25:30 autoreload 10648 30592 Watching for file changes with StatReloader
+INFO 2025-11-18 13:25:50 autoreload 10648 30592 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-18 13:25:51 autoreload 10828 7464 Watching for file changes with StatReloader
+INFO 2025-11-18 13:26:27 basehttp 10828 11580 "POST /register/ HTTP/1.1" 200 27781
+INFO 2025-11-18 13:26:37 basehttp 10828 11580 "POST /register/ HTTP/1.1" 302 0
+INFO 2025-11-18 13:26:37 basehttp 10828 11580 "GET / HTTP/1.1" 200 14033
+INFO 2025-11-18 13:26:42 basehttp 10828 11580 "GET /register/ HTTP/1.1" 200 26185
+INFO 2025-11-18 13:27:07 basehttp 10828 11580 "POST /register/ HTTP/1.1" 200 27816
+INFO 2025-11-18 13:27:19 basehttp 10828 11580 "POST /register/ HTTP/1.1" 302 0
+INFO 2025-11-18 13:27:20 basehttp 10828 11580 "GET / HTTP/1.1" 200 14033
+INFO 2025-11-18 13:27:42 basehttp 10828 11580 "POST / HTTP/1.1" 302 0
+INFO 2025-11-18 13:27:42 basehttp 10828 11580 "GET /home/ HTTP/1.1" 200 48631
+INFO 2025-11-18 13:28:05 basehttp 10828 11580 "GET /maps/ HTTP/1.1" 200 1042654
+INFO 2025-11-18 13:28:22 basehttp 10828 11580 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-18 13:28:29 basehttp 10828 11580 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.810527&lon=123.019822&risk=LF HTTP/1.1" 200 10616
+INFO 2025-11-18 13:29:40 basehttp 10828 11580 "GET /maps/certificate/form/?barangay=Eustaquio%20Lopez&lat=10.810527&lon=123.019822&risk=LF HTTP/1.1" 200 21350
+INFO 2025-11-18 13:32:31 basehttp 10828 11580 "POST /maps/certificate/ HTTP/1.1" 200 10535
+INFO 2025-11-18 13:32:40 basehttp 10828 11580 "GET /monitoring/flood-record/ HTTP/1.1" 200 40102
+INFO 2025-11-18 13:33:13 basehttp 10828 11580 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.810527&lon=123.019822&risk=LF HTTP/1.1" 200 9298
+INFO 2025-11-18 13:34:52 basehttp 10828 11580 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.810527&lon=123.019822&risk=LF HTTP/1.1" 200 9720
+WARNING 2025-11-18 13:35:03 log 10828 11580 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 13:35:03 basehttp 10828 11580 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5029
+INFO 2025-11-18 13:35:15 autoreload 10828 7464 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\forms.py changed, reloading.
+INFO 2025-11-18 13:35:16 autoreload 20704 11576 Watching for file changes with StatReloader
+INFO 2025-11-18 13:35:17 basehttp 20704 15836 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.810527&lon=123.019822&risk=LF HTTP/1.1" 200 10616
+WARNING 2025-11-18 13:35:17 log 20704 15836 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 13:35:17 basehttp 20704 15836 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5029
+INFO 2025-11-18 13:36:26 basehttp 20704 15836 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.810527&lon=123.019822&risk=LF HTTP/1.1" 200 10256
+WARNING 2025-11-18 13:36:26 log 20704 15836 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 13:36:26 basehttp 20704 15836 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5029
+INFO 2025-11-18 13:37:00 basehttp 20704 15836 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.810527&lon=123.019822&risk=LF HTTP/1.1" 200 9915
+INFO 2025-11-18 13:37:06 basehttp 20704 15836 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.810527&lon=123.019822&risk=LF HTTP/1.1" 200 9915
+INFO 2025-11-18 13:47:44 basehttp 20704 31384 "GET /monitoring/flood-record/ HTTP/1.1" 200 49467
+INFO 2025-11-18 13:47:54 basehttp 20704 31384 "GET /monitoring/flood-record/ HTTP/1.1" 200 49467
+INFO 2025-11-18 13:47:57 views 20704 31384 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 13:47:58 views 20704 31384 API returned - Rain: 0.0mm, Temp: 29.0°C, Humidity: 80%, Wind: 20.0km/h
+INFO 2025-11-18 13:47:58 views 20704 31384 Processed 7 days of weather forecast
+INFO 2025-11-18 13:47:58 basehttp 20704 31384 "GET /monitoring/ HTTP/1.1" 200 78986
+INFO 2025-11-18 13:48:01 basehttp 20704 31384 "GET /monitoring/flood-record/ HTTP/1.1" 200 49467
+WARNING 2025-11-18 13:48:08 log 20704 31384 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 13:48:08 basehttp 20704 31384 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5029
+INFO 2025-11-18 13:50:11 basehttp 20704 31384 "GET /monitoring/flood-record/ HTTP/1.1" 200 49235
+WARNING 2025-11-18 13:50:11 log 20704 31384 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-18 13:50:11 basehttp 20704 31384 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5029
+INFO 2025-11-18 13:51:06 views 20704 31384 Flood record created: 3 - Flood
+INFO 2025-11-18 13:51:06 basehttp 20704 31384 "POST /monitoring/flood-record/ HTTP/1.1" 200 136
+INFO 2025-11-18 13:51:08 views 20704 31384 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 13:51:09 views 20704 31384 API returned - Rain: 0.0mm, Temp: 29.0°C, Humidity: 80%, Wind: 20.0km/h
+INFO 2025-11-18 13:51:09 views 20704 31384 Processed 7 days of weather forecast
+INFO 2025-11-18 13:51:09 basehttp 20704 31384 "GET /monitoring/ HTTP/1.1" 200 80646
+INFO 2025-11-18 13:51:42 basehttp 20704 31384 "GET /profile/ HTTP/1.1" 200 54326
+INFO 2025-11-18 13:51:53 basehttp 20704 31384 "POST /profile/ HTTP/1.1" 302 0
+INFO 2025-11-18 13:51:53 basehttp 20704 31384 "GET /profile/ HTTP/1.1" 200 54776
+INFO 2025-11-18 13:51:53 basehttp 20704 31384 "GET /media/profile_images/rooftop1_2WOiqmG.jpg HTTP/1.1" 200 46325
+INFO 2025-11-18 13:52:01 basehttp 20704 31384 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-18 13:52:01 basehttp 20704 31384 "GET / HTTP/1.1" 200 13751
+INFO 2025-11-18 13:52:11 basehttp 20704 31384 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-11-18 13:52:11 basehttp 20704 31384 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4177
+INFO 2025-11-18 13:52:27 basehttp 20704 31384 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-11-18 13:52:27 basehttp 20704 31384 "GET /admin/ HTTP/1.1" 200 13399
+INFO 2025-11-18 13:52:32 basehttp 20704 31384 "GET /admin/users/customuser/ HTTP/1.1" 200 15355
+INFO 2025-11-18 13:52:32 basehttp 20704 31384 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 13:52:41 basehttp 20704 31384 "GET /admin/users/customuser/9/change/ HTTP/1.1" 200 36314
+INFO 2025-11-18 13:52:41 basehttp 20704 31384 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 13:52:44 basehttp 20704 31384 "GET /admin/users/customuser/9/delete/ HTTP/1.1" 200 12946
+INFO 2025-11-18 13:52:45 basehttp 20704 31384 "POST /admin/users/customuser/9/delete/ HTTP/1.1" 302 0
+INFO 2025-11-18 13:52:46 basehttp 20704 31384 "GET /admin/users/customuser/ HTTP/1.1" 200 15239
+INFO 2025-11-18 13:52:46 basehttp 20704 31384 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 13:52:48 basehttp 20704 31384 "GET /admin/users/customuser/8/change/ HTTP/1.1" 200 36298
+INFO 2025-11-18 13:52:48 basehttp 20704 31384 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 13:52:51 basehttp 20704 31384 "GET /admin/users/customuser/8/delete/ HTTP/1.1" 200 12937
+INFO 2025-11-18 13:52:53 basehttp 20704 31384 "POST /admin/users/customuser/8/delete/ HTTP/1.1" 302 0
+INFO 2025-11-18 13:52:53 basehttp 20704 31384 "GET /admin/users/customuser/ HTTP/1.1" 200 14968
+INFO 2025-11-18 13:52:53 basehttp 20704 31384 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 13:52:55 basehttp 20704 31384 "GET /admin/users/customuser/7/change/ HTTP/1.1" 200 36700
+INFO 2025-11-18 13:52:55 basehttp 20704 31384 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 13:52:57 basehttp 20704 31384 "GET /admin/users/customuser/7/delete/ HTTP/1.1" 200 15445
+INFO 2025-11-18 13:53:00 basehttp 20704 31384 "POST /admin/users/customuser/7/delete/ HTTP/1.1" 302 0
+INFO 2025-11-18 13:53:00 basehttp 20704 31384 "GET /admin/users/customuser/ HTTP/1.1" 200 14698
+INFO 2025-11-18 13:53:01 basehttp 20704 31384 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 13:53:02 basehttp 20704 31384 "GET /admin/users/customuser/6/change/ HTTP/1.1" 200 36371
+INFO 2025-11-18 13:53:02 basehttp 20704 31384 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 13:53:05 basehttp 20704 31384 "GET /admin/users/customuser/6/delete/ HTTP/1.1" 200 13680
+INFO 2025-11-18 13:53:06 basehttp 20704 31384 "POST /admin/users/customuser/6/delete/ HTTP/1.1" 302 0
+INFO 2025-11-18 13:53:06 basehttp 20704 31384 "GET /admin/users/customuser/ HTTP/1.1" 302 0
+INFO 2025-11-18 13:53:07 basehttp 20704 31384 "GET /admin/login/?next=/admin/users/customuser/ HTTP/1.1" 200 4366
+INFO 2025-11-18 13:53:25 basehttp 20704 31384 "GET / HTTP/1.1" 200 13856
+INFO 2025-11-18 16:14:06 basehttp 20704 496 "GET /register/admin/ HTTP/1.1" 200 25761
+INFO 2025-11-18 16:15:40 basehttp 20704 496 "POST /register/admin/ HTTP/1.1" 200 27292
+INFO 2025-11-18 16:16:07 basehttp 20704 496 "POST /register/admin/ HTTP/1.1" 302 0
+INFO 2025-11-18 16:16:08 basehttp 20704 496 "GET / HTTP/1.1" 200 14027
+INFO 2025-11-18 16:16:14 basehttp 20704 496 "POST / HTTP/1.1" 302 0
+INFO 2025-11-18 16:16:14 basehttp 20704 496 "GET /home/ HTTP/1.1" 200 52723
+INFO 2025-11-18 16:17:56 basehttp 20704 496 "GET /maps/ HTTP/1.1" 200 1043138
+INFO 2025-11-18 16:17:56 basehttp 20704 29968 "GET /static/js/ol.js HTTP/1.1" 304 0
+INFO 2025-11-18 16:17:56 basehttp 20704 496 "GET /static/css/ol.css HTTP/1.1" 304 0
+INFO 2025-11-18 16:18:40 basehttp 20704 496 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-18 16:18:43 basehttp 20704 496 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.812693&lon=123.032473&risk=LF HTTP/1.1" 200 9915
+INFO 2025-11-18 16:19:34 basehttp 20704 496 "GET /home/ HTTP/1.1" 200 52503
+INFO 2025-11-18 16:19:40 basehttp 20704 496 "GET /maps/ HTTP/1.1" 200 1043138
+INFO 2025-11-18 16:20:24 views 20704 496 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+ERROR 2025-11-18 16:20:24 views 20704 496 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024956592FF0>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:20:24 views 20704 496 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+ERROR 2025-11-18 16:20:24 views 20704 496 WorldTides API Error: HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.31672&lon=123.89071&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-11-18&days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024956593200>: Failed to resolve 'www.worldtides.info' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:20:24 basehttp 20704 496 "GET /monitoring/ HTTP/1.1" 200 76072
+INFO 2025-11-18 16:20:24 basehttp 20704 496 "GET /static/js/chart.js HTTP/1.1" 304 0
+INFO 2025-11-18 16:21:35 basehttp 20704 496 "GET /maps/ HTTP/1.1" 200 1043138
+INFO 2025-11-18 16:21:59 views 20704 496 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+ERROR 2025-11-18 16:21:59 views 20704 496 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000249565878C0>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:21:59 views 20704 496 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+ERROR 2025-11-18 16:21:59 views 20704 496 WorldTides API Error: HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.31672&lon=123.89071&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-11-18&days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000249565870B0>: Failed to resolve 'www.worldtides.info' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:21:59 basehttp 20704 496 "GET /monitoring/ HTTP/1.1" 200 76072
+INFO 2025-11-18 16:22:25 views 20704 496 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+ERROR 2025-11-18 16:22:25 views 20704 496 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000249565902C0>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:22:25 views 20704 496 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+ERROR 2025-11-18 16:22:25 views 20704 496 WorldTides API Error: HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.31672&lon=123.89071&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-11-18&days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024956590530>: Failed to resolve 'www.worldtides.info' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:22:25 basehttp 20704 496 "GET /monitoring/ HTTP/1.1" 200 76072
+INFO 2025-11-18 16:22:33 basehttp 20704 496 "GET /admin/ HTTP/1.1" 200 13403
+INFO 2025-11-18 16:22:38 basehttp 20704 496 "GET /admin/monitoring/rainfalldata/ HTTP/1.1" 200 14706
+INFO 2025-11-18 16:22:38 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:22:42 basehttp 20704 496 "GET /admin/monitoring/rainfalldata/2/change/ HTTP/1.1" 200 14789
+INFO 2025-11-18 16:22:42 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:22:53 basehttp 20704 496 "POST /admin/monitoring/rainfalldata/2/change/ HTTP/1.1" 302 0
+INFO 2025-11-18 16:22:53 basehttp 20704 496 "GET /admin/monitoring/rainfalldata/ HTTP/1.1" 200 14940
+INFO 2025-11-18 16:22:53 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:22:56 views 20704 496 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+ERROR 2025-11-18 16:22:56 views 20704 496 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024957B30530>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:22:56 views 20704 496 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+ERROR 2025-11-18 16:22:56 views 20704 496 WorldTides API Error: HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.31672&lon=123.89071&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-11-18&days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024957B31070>: Failed to resolve 'www.worldtides.info' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:22:56 basehttp 20704 496 "GET /monitoring/ HTTP/1.1" 200 76090
+INFO 2025-11-18 16:23:02 basehttp 20704 496 "GET /admin/monitoring/rainfalldata/2/change/ HTTP/1.1" 200 14790
+INFO 2025-11-18 16:23:02 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:23:08 basehttp 20704 496 "POST /admin/monitoring/rainfalldata/2/change/ HTTP/1.1" 302 0
+INFO 2025-11-18 16:23:08 basehttp 20704 496 "GET /admin/monitoring/rainfalldata/ HTTP/1.1" 200 14940
+INFO 2025-11-18 16:23:08 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:23:11 views 20704 496 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+ERROR 2025-11-18 16:23:11 views 20704 496 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024956592120>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:23:11 views 20704 496 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+ERROR 2025-11-18 16:23:11 views 20704 496 WorldTides API Error: HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.31672&lon=123.89071&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-11-18&days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024957B55610>: Failed to resolve 'www.worldtides.info' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:23:11 basehttp 20704 496 "GET /monitoring/ HTTP/1.1" 200 76079
+INFO 2025-11-18 16:23:19 basehttp 20704 496 "GET /admin/monitoring/rainfalldata/2/change/ HTTP/1.1" 200 14790
+INFO 2025-11-18 16:23:19 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:23:25 basehttp 20704 496 "POST /admin/monitoring/rainfalldata/2/change/ HTTP/1.1" 302 0
+INFO 2025-11-18 16:23:25 basehttp 20704 496 "GET /admin/monitoring/rainfalldata/ HTTP/1.1" 200 14940
+INFO 2025-11-18 16:23:25 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:23:26 views 20704 496 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+ERROR 2025-11-18 16:23:26 views 20704 496 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024957B328D0>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:23:26 views 20704 496 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+ERROR 2025-11-18 16:23:26 views 20704 496 WorldTides API Error: HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.31672&lon=123.89071&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-11-18&days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024956592630>: Failed to resolve 'www.worldtides.info' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:23:26 basehttp 20704 496 "GET /monitoring/ HTTP/1.1" 200 76083
+INFO 2025-11-18 16:23:28 views 20704 496 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+ERROR 2025-11-18 16:23:28 views 20704 496 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002495798BE60>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:23:28 views 20704 496 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+ERROR 2025-11-18 16:23:28 views 20704 496 WorldTides API Error: HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.31672&lon=123.89071&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-11-18&days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024957AC35F0>: Failed to resolve 'www.worldtides.info' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:23:28 basehttp 20704 496 "GET /monitoring/ HTTP/1.1" 200 76083
+INFO 2025-11-18 16:23:30 basehttp 20704 496 "GET /admin/monitoring/rainfalldata/2/change/ HTTP/1.1" 200 14791
+INFO 2025-11-18 16:23:31 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:23:35 basehttp 20704 496 "POST /admin/monitoring/rainfalldata/2/change/ HTTP/1.1" 302 0
+INFO 2025-11-18 16:23:36 basehttp 20704 496 "GET /admin/monitoring/rainfalldata/ HTTP/1.1" 200 14940
+INFO 2025-11-18 16:23:36 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:23:38 views 20704 496 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+ERROR 2025-11-18 16:23:38 views 20704 496 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024956584C20>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:23:38 views 20704 496 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+ERROR 2025-11-18 16:23:38 views 20704 496 WorldTides API Error: HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.31672&lon=123.89071&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-11-18&days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024957953470>: Failed to resolve 'www.worldtides.info' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:23:38 basehttp 20704 496 "GET /monitoring/ HTTP/1.1" 200 76096
+INFO 2025-11-18 16:25:06 basehttp 20704 496 "GET /admin/monitoring/rainfalldata/2/change/ HTTP/1.1" 200 14791
+INFO 2025-11-18 16:25:06 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:25:13 basehttp 20704 496 "POST /admin/monitoring/rainfalldata/2/change/ HTTP/1.1" 302 0
+INFO 2025-11-18 16:25:13 basehttp 20704 496 "GET /admin/monitoring/rainfalldata/ HTTP/1.1" 200 14940
+INFO 2025-11-18 16:25:14 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:25:16 basehttp 20704 496 "GET /admin/monitoring/tideleveldata/ HTTP/1.1" 200 14728
+INFO 2025-11-18 16:25:16 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:25:18 basehttp 20704 496 "GET /admin/monitoring/tideleveldata/2/change/ HTTP/1.1" 200 14803
+INFO 2025-11-18 16:25:18 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:25:29 basehttp 20704 496 "POST /admin/monitoring/tideleveldata/2/change/ HTTP/1.1" 302 0
+INFO 2025-11-18 16:25:29 basehttp 20704 496 "GET /admin/monitoring/tideleveldata/ HTTP/1.1" 200 14966
+INFO 2025-11-18 16:25:29 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:25:31 views 20704 496 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+ERROR 2025-11-18 16:25:31 views 20704 496 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024956529370>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:25:31 views 20704 496 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+ERROR 2025-11-18 16:25:31 views 20704 496 WorldTides API Error: HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.31672&lon=123.89071&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-11-18&days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024956529AF0>: Failed to resolve 'www.worldtides.info' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:25:31 basehttp 20704 496 "GET /monitoring/ HTTP/1.1" 200 76071
+INFO 2025-11-18 16:25:37 basehttp 20704 496 "GET /admin/monitoring/rainfalldata/ HTTP/1.1" 200 14706
+INFO 2025-11-18 16:25:38 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:25:39 basehttp 20704 496 "GET /admin/monitoring/rainfalldata/2/change/ HTTP/1.1" 200 14789
+INFO 2025-11-18 16:25:39 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:25:48 basehttp 20704 496 "POST /admin/monitoring/rainfalldata/2/change/ HTTP/1.1" 302 0
+INFO 2025-11-18 16:25:48 basehttp 20704 496 "GET /admin/monitoring/rainfalldata/ HTTP/1.1" 200 14940
+INFO 2025-11-18 16:25:48 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:25:50 views 20704 496 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+ERROR 2025-11-18 16:25:50 views 20704 496 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024956528800>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:25:50 views 20704 496 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+ERROR 2025-11-18 16:25:50 views 20704 496 WorldTides API Error: HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.31672&lon=123.89071&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-11-18&days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000249578902C0>: Failed to resolve 'www.worldtides.info' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:25:50 basehttp 20704 496 "GET /monitoring/ HTTP/1.1" 200 76076
+INFO 2025-11-18 16:25:59 basehttp 20704 496 "GET /admin/monitoring/rainfalldata/2/change/ HTTP/1.1" 200 14790
+INFO 2025-11-18 16:25:59 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:26:06 basehttp 20704 496 "POST /admin/monitoring/rainfalldata/2/change/ HTTP/1.1" 302 0
+INFO 2025-11-18 16:26:07 basehttp 20704 496 "GET /admin/monitoring/rainfalldata/ HTTP/1.1" 200 14940
+INFO 2025-11-18 16:26:07 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:26:09 views 20704 496 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+ERROR 2025-11-18 16:26:09 views 20704 496 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024956528170>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:26:09 views 20704 496 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+ERROR 2025-11-18 16:26:09 views 20704 496 WorldTides API Error: HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.31672&lon=123.89071&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-11-18&days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024957B56360>: Failed to resolve 'www.worldtides.info' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:26:09 basehttp 20704 496 "GET /monitoring/ HTTP/1.1" 200 76076
+INFO 2025-11-18 16:26:17 basehttp 20704 496 "GET /admin/monitoring/rainfalldata/2/change/ HTTP/1.1" 200 14790
+INFO 2025-11-18 16:26:17 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:26:21 basehttp 20704 496 "POST /admin/monitoring/rainfalldata/2/change/ HTTP/1.1" 302 0
+INFO 2025-11-18 16:26:22 basehttp 20704 496 "GET /admin/monitoring/rainfalldata/ HTTP/1.1" 200 14940
+INFO 2025-11-18 16:26:22 basehttp 20704 496 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-18 16:26:23 views 20704 496 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+ERROR 2025-11-18 16:26:23 views 20704 496 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002495798A300>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:26:23 views 20704 496 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+ERROR 2025-11-18 16:26:23 views 20704 496 WorldTides API Error: HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.31672&lon=123.89071&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-11-18&days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024956585310>: Failed to resolve 'www.worldtides.info' ([Errno 11001] getaddrinfo failed)"))
+INFO 2025-11-18 16:26:23 basehttp 20704 496 "GET /monitoring/ HTTP/1.1" 200 76093
+INFO 2025-11-18 16:30:02 basehttp 20704 496 "GET /monitoring/flood-record/ HTTP/1.1" 200 49235
+INFO 2025-11-18 16:30:32 basehttp 20704 496 "GET /maps/all-activities/ HTTP/1.1" 200 90011
+INFO 2025-11-18 16:30:33 basehttp 20704 496 "GET /static/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-18 16:30:40 basehttp 20704 496 "GET /maps/ HTTP/1.1" 200 1043138
+INFO 2025-11-18 16:30:45 basehttp 20704 496 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-18 16:30:47 basehttp 20704 496 "GET /maps/certificate/form/?barangay=Barangay%20VI%20Pob.%20(Hawaiian)&lat=10.814841&lon=123.002525&risk=LF HTTP/1.1" 200 21374
+INFO 2025-11-18 16:32:03 basehttp 20704 496 "POST /maps/certificate/ HTTP/1.1" 200 10627
+INFO 2025-11-18 23:21:09 basehttp 20704 31512 "GET /maps/my-activity/ HTTP/1.1" 200 47996
+INFO 2025-11-18 23:21:09 basehttp 20704 31512 "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-11-18 23:21:09 basehttp 20704 16100 "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+INFO 2025-11-18 23:21:09 basehttp 20704 24416 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 304 0
+INFO 2025-11-18 23:21:09 basehttp 20704 30344 "GET /static/images/drrmo_logo.png HTTP/1.1" 304 0
+INFO 2025-11-18 23:21:09 basehttp 20704 30344 "GET /static/webfonts/fa-brands-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-18 23:21:09 basehttp 20704 31512 "GET /static/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-18 23:21:09 basehttp 20704 24416 "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+INFO 2025-11-18 23:21:13 basehttp 20704 24416 "GET /approve/ HTTP/1.1" 200 38110
+INFO 2025-11-18 23:21:24 basehttp 20704 24416 "POST /approve/ HTTP/1.1" 302 0
+INFO 2025-11-18 23:21:24 basehttp 20704 24416 "GET /approve/ HTTP/1.1" 200 37438
+INFO 2025-11-18 23:21:26 basehttp 20704 24416 "GET /maps/all-activities/ HTTP/1.1" 200 56213
+INFO 2025-11-18 23:21:39 basehttp 20704 24416 "GET /home/ HTTP/1.1" 200 52635
+INFO 2025-11-18 23:21:43 views 20704 24416 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-18 23:21:44 views 20704 24416 API returned - Rain: 0.0mm, Temp: 26.4°C, Humidity: 92%, Wind: 15.8km/h
+INFO 2025-11-18 23:21:44 views 20704 24416 Processed 7 days of weather forecast
+INFO 2025-11-18 23:21:44 views 20704 24416 Created new rainfall record: 0.0mm
+INFO 2025-11-18 23:21:44 views 20704 24416 Created new weather record
+INFO 2025-11-18 23:21:44 views 20704 24416 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+INFO 2025-11-18 23:21:45 views 20704 24416 Created new tide record: 0.595m from WorldTides API
+INFO 2025-11-18 23:21:45 basehttp 20704 24416 "GET /monitoring/ HTTP/1.1" 200 81625
+INFO 2025-11-18 23:21:45 basehttp 20704 24416 "GET /static/js/chart.js HTTP/1.1" 304 0
+INFO 2025-11-18 23:21:49 basehttp 20704 24416 "GET /home/ HTTP/1.1" 200 52605

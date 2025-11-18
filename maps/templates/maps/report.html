@@ -254,10 +254,6 @@
     <div class="report-container">
         <div class="header">
             <img src="{% static 'images/drrmo_header.png' %}" alt="Silay DRRMO Header" style="width:100%;max-width:1100px;margin-bottom:20px;margin-top:-30px;display:block;">
-            <div class="qr-section">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data={{ request.build_absolute_uri }}" alt="QR Code" class="qr-code">
-                <div class="view-document">View document<br>online</div>
-            </div>
             <div class="header-info">
                 <h3>DATE</h3>
                 <p>{{ current_date }}</p>
@@ -266,9 +262,6 @@
                 <h3>COORDINATES</h3>
                 <p>{{ longitude }}, {{ latitude }}</p>
             </div>
-            <p class="note-text">
-                Note: When scanning the QR code, the assessment results in the website might vary from the results stated in this report due to updates in the data in the GeoRISKPH database. You may refer to the report available upon scanning the QR code for the updated assessment results
-            </p>
         </div>
         
         <div class="title">

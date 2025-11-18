@@ -192,11 +192,12 @@
 
                 /* Footer Styles */
                 footer {
-                    background-color: var(--primary-blue);
+                    background: linear-gradient(135deg, var(--primary-blue) 0%, #1a2e4a 100%);
                     color: white;
                     margin-top: auto;
-                    border-top: 1px solid rgba(255,255,255,0.1);
+                    border-top: 1px solid rgba(255, 255, 255, 0.1);
                     width: 100%;
+                    box-shadow: 0 -4px 12px rgba(30, 58, 95, 0.1);
                 }
                 .footer-container {
                     max-width: 1200px;
@@ -211,9 +212,10 @@
                 }
                 .footer-section h3 {
                     font-size: 16px;
-                    font-weight: 600;
+                    font-weight: 800;
                     margin-bottom: 16px;
-                    letter-spacing: -0.3px;
+                    letter-spacing: 0.3px;
+                    color: #ffffff;
                 }
                 .footer-section p {
                     font-size: 14px;
@@ -222,17 +224,19 @@
                     margin-bottom: 8px;
                 }
                 .footer-section a {
-                    color: rgba(255,255,255,0.8);
+                    color: rgba(255, 255, 255, 0.85);
                     text-decoration: none;
                     font-size: 14px;
+                    font-weight: 500;
                     display: flex;
                     align-items: center;
                     gap: 8px;
                     margin-bottom: 8px;
-                    transition: color 0.2s;
+                    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
                 }
                 .footer-section a:hover {
                     color: white;
+                    transform: translateX(4px);
                 }
                 .social-links {
                     display: flex;
@@ -243,16 +247,19 @@
                     display: inline-flex;
                     align-items: center;
                     justify-content: center;
-                    width: 36px;
-                    height: 36px;
-                    background-color: rgba(255,255,255,0.15);
-                    border-radius: 6px;
+                    width: 40px;
+                    height: 40px;
+                    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+                    border: 1px solid rgba(255, 255, 255, 0.15);
+                    border-radius: 10px;
                     color: white;
-                    transition: all 0.2s;
+                    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
                     margin-bottom: 0;
                 }
                 .social-links a:hover {
-                    background-color: rgba(255,255,255,0.25);
+                    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%);
+                    transform: translateY(-3px);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
                 }
                 .footer-divider {
                     height: 1px;
@@ -310,24 +317,25 @@
         }
         .navbar {
             width: 100%;
-            background: var(--primary-blue);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a2e4a 100%);
             color: white;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 32px;
             min-height: 64px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(30, 58, 95, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            transition: box-shadow 0.3s ease, padding 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(8px);
         }
 
         .navbar.scrolled {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 24px rgba(30, 58, 95, 0.25), 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         .navbar-left {
             display: flex;
@@ -340,9 +348,13 @@
             border-radius: 8px;
         }
         .navbar-title {
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         .navbar-center {
             display: flex;
@@ -350,22 +362,35 @@
             gap: 24px;
         }
         .nav-link {
-            color: white;
+            color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-            padding: 10px 16px;
-            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             gap: 8px;
             position: relative;
-            transition: background 0.2s;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .nav-link:hover, .nav-link.active {
-            background: rgba(255,255,255,0.12);
+            background: rgba(255, 255, 255, 0.18);
             color: white;
             text-decoration: none;
+            transform: translateY(-1px);
+        }
+        .dropdown-toggle {
+            cursor: pointer;
+            pointer-events: auto;
+            position: relative;
+        }
+        .dropdown-toggle::after {
+            content: '▼';
+            font-size: 10px;
+            margin-left: 6px;
+            display: inline-block;
+            opacity: 0.8;
         }
         .dropdown {
             position: relative;
@@ -378,13 +403,26 @@
             background: white;
             color: var(--text-dark);
             min-width: 180px;
-            box-shadow: 0 4px 16px rgba(30,58,95,0.10);
-            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(30, 58, 95, 0.15), 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
             overflow: hidden;
             z-index: 2000;
+            margin-top: 8px;
+            border: 1px solid rgba(226, 232, 240, 0.5);
         }
-        .dropdown:hover .dropdown-content, .dropdown:focus-within .dropdown-content {
+        .dropdown.active .dropdown-content {
             display: block;
+            animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .dropdown-content a {
             color: var(--text-dark);
@@ -392,10 +430,13 @@
             display: block;
             text-decoration: none;
             font-size: 15px;
-            transition: background 0.2s;
+            font-weight: 500;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .dropdown-content a:hover {
-            background: var(--light-gray);
+            background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
+            color: var(--secondary-blue);
+            padding-left: 20px;
         }
         .navbar-right {
             display: flex;
@@ -403,19 +444,20 @@
             gap: 16px;
         }
         .settings-btn {
-            background: none;
+            background: rgba(255, 255, 255, 0.12);
             border: none;
             color: white;
-            font-size: 22px;
+            font-size: 20px;
             cursor: pointer;
-            padding: 8px;
-            border-radius: 50%;
-            transition: background 0.2s;
+            padding: 10px;
+            border-radius: 10px;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
         }
         .settings-btn:hover, .settings-btn:focus {
-            background: rgba(255,255,255,0.15);
+            background: rgba(255, 255, 255, 0.22);
             outline: none;
+            transform: scale(1.05);
         }
         .settings-dropdown {
             display: none;
@@ -425,13 +467,16 @@
             background: white;
             color: var(--text-dark);
             min-width: 160px;
-            box-shadow: 0 4px 16px rgba(30,58,95,0.10);
-            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(30, 58, 95, 0.15), 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
             overflow: hidden;
             z-index: 2000;
+            margin-top: 8px;
+            border: 1px solid rgba(226, 232, 240, 0.5);
         }
         .settings-btn:focus + .settings-dropdown, .settings-btn.active + .settings-dropdown {
             display: block;
+            animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .settings-dropdown a {
             color: var(--text-dark);
@@ -439,10 +484,13 @@
             display: block;
             text-decoration: none;
             font-size: 15px;
-            transition: background 0.2s;
+            font-weight: 500;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .settings-dropdown a:hover {
-            background: var(--light-gray);
+            background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
+            color: var(--secondary-blue);
+            padding-left: 20px;
         }
         .main-content {
             flex: 1;
@@ -495,7 +543,7 @@
             <a href="{% url 'home' %}" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
             <a href="{% url 'map_view' %}" class="nav-link"><i class="fas fa-map"></i> Map</a>
             <div class="dropdown">
-                <a href="#" class="nav-link" style="cursor:default;pointer-events:none;"><i class="fas fa-chart-area"></i> Monitoring <i class="fas fa-caret-down"></i></a>
+                <a href="#" class="nav-link dropdown-toggle" data-dropdown="monitoring"><i class="fas fa-chart-area"></i> Monitoring</a>
                 <div class="dropdown-content">
                     <a href="{% url 'monitoring_view' %}"><i class="fas fa-chart-area"></i> Monitoring Page</a>
                     <a href="{% url 'flood_record_form' %}"><i class="fas fa-plus-circle"></i> Add Flood Record</a>
@@ -504,7 +552,7 @@
             {% if user.is_staff %}
                 <a href="{% url 'approve_users' %}" class="nav-link"><i class="fas fa-user-check"></i> User Approvals</a>
                 <div class="dropdown">
-                    <a href="#" class="nav-link" style="cursor:default;pointer-events:none;"><i class="fas fa-history"></i> Activity History <i class="fas fa-caret-down"></i></a>
+                    <a href="#" class="nav-link dropdown-toggle" data-dropdown="activity"><i class="fas fa-history"></i> Activity History</a>
                     <div class="dropdown-content">
                         <a href="{% url 'my_activity' %}"><i class="fas fa-user"></i> Your Activity History</a>
                         <a href="{% url 'all_activities' %}"><i class="fas fa-list"></i> All Activities</a>
@@ -665,6 +713,35 @@
                 settingsBtn.classList.remove('active');
             }
         });
+
+        // Dropdown click toggle for Monitoring and Activity History
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const parentDropdown = this.closest('.dropdown');
+                
+                // Close other dropdowns
+                document.querySelectorAll('.dropdown').forEach(dropdown => {
+                    if (dropdown !== parentDropdown) {
+                        dropdown.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current dropdown
+                parentDropdown.classList.toggle('active');
+            });
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown').forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        });
+
         // Highlight active nav link
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
