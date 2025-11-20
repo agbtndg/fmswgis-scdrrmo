@@ -200,28 +200,28 @@
                     box-shadow: 0 -4px 12px rgba(30, 58, 95, 0.1);
                 }
                 .footer-container {
-                    max-width: 1200px;
+                    max-width: 1400px;
                     margin: 0 auto;
-                    padding: 40px 20px 20px 20px;
+                    padding: 50px 40px 30px 40px;
                 }
                 .footer-content {
                     display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-                    gap: 30px;
-                    margin-bottom: 30px;
+                    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                    gap: 40px;
+                    margin-bottom: 40px;
                 }
                 .footer-section h3 {
-                    font-size: 16px;
+                    font-size: 17px;
                     font-weight: 800;
-                    margin-bottom: 16px;
+                    margin-bottom: 20px;
                     letter-spacing: 0.3px;
                     color: #ffffff;
                 }
                 .footer-section p {
                     font-size: 14px;
-                    line-height: 1.6;
+                    line-height: 1.7;
                     opacity: 0.9;
-                    margin-bottom: 8px;
+                    margin-bottom: 12px;
                 }
                 .footer-section a {
                     color: rgba(255, 255, 255, 0.85);
@@ -230,8 +230,8 @@
                     font-weight: 500;
                     display: flex;
                     align-items: center;
-                    gap: 8px;
-                    margin-bottom: 8px;
+                    gap: 10px;
+                    margin-bottom: 10px;
                     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
                 }
                 .footer-section a:hover {
@@ -264,7 +264,7 @@
                 .footer-divider {
                     height: 1px;
                     background-color: rgba(255,255,255,0.1);
-                    margin: 20px 0;
+                    margin: 30px 0;
                 }
                 .footer-bottom {
                     display: flex;
@@ -278,19 +278,19 @@
                 @media (max-width: 900px) {
                     .footer-content {
                         grid-template-columns: 1fr 1fr;
-                        gap: 18px;
+                        gap: 30px;
                     }
                     .footer-container {
-                        padding: 24px 10px 10px 10px;
+                        padding: 40px 20px 20px 20px;
                     }
                 }
                 @media (max-width: 600px) {
                     .footer-content {
                         grid-template-columns: 1fr;
-                        gap: 12px;
+                        gap: 24px;
                     }
                     .footer-container {
-                        padding: 16px 4px 8px 4px;
+                        padding: 30px 16px 16px 16px;
                     }
                     .footer-bottom {
                         flex-direction: column;
@@ -604,9 +604,19 @@
                 <!-- Office Hours Section -->
                 <div class="footer-section">
                     <h3><i class="fas fa-clock"></i> Office Hours</h3>
-                    <p><strong>Monday - Friday:</strong><br>8:00 AM - 5:00 PM</p>
-                    <p><strong>Saturday:</strong><br>8:00 AM - 12:00 PM</p>
-                    <p><strong>Sunday & Holidays:</strong><br>Closed</p>
+                    <p><strong>Certificates & Documents:</strong><br>Monday - Friday<br>8:00 AM - 5:00 PM</p>
+                    <p style="margin-top: 12px;"><strong>Emergency Response & Medical Assistance:</strong><br>Monday - Sunday<br>24/7, Including Holidays</p>
+                </div>
+                <!-- Data Sources Section -->
+                <div class="footer-section">
+                    <h3><i class="fas fa-database"></i> Data Sources</h3>
+                    <p><strong>Flood Risk Susceptibility:</strong></p>
+                    <a href="https://geoanalytics.georisk.gov.ph/" target="_blank"><i class="fas fa-external-link-alt"></i> GeoAnalytics</a>
+                    <a href="https://hazardhunter.georisk.gov.ph/" target="_blank"><i class="fas fa-external-link-alt"></i> HazardHunter PH</a>
+                    <p style="margin-top: 12px;"><strong>Weather Data:</strong></p>
+                    <a href="https://open-meteo.com/" target="_blank"><i class="fas fa-external-link-alt"></i> Open-Meteo API</a>
+                    <p style="margin-top: 12px;"><strong>Tidal Data:</strong></p>
+                    <a href="https://www.worldtides.info/home" target="_blank"><i class="fas fa-external-link-alt"></i> World Tides</a>
                 </div>
                 <!-- Social Media Section -->
                 <div class="footer-section">
@@ -621,8 +631,8 @@
             <div class="footer-bottom">
                 <p>&copy; 2025 DRRMO Silay City. All rights reserved.</p>
                 <div>
-                    <a href="#" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; margin-right: 16px;">Privacy Policy</a>
-                    <a href="#" style="color: rgba(255, 255, 255, 0.8); text-decoration: none;">Terms of Service</a>
+                    <a href="{% url 'privacy_policy' %}" style="color: rgba(255, 255, 255, 0.8); text-decoration: none; margin-right: 16px;">Privacy Policy</a>
+                    <a href="{% url 'terms_of_service' %}" style="color: rgba(255, 255, 255, 0.8); text-decoration: none;">Terms of Service</a>
                 </div>
             </div>
         </div>

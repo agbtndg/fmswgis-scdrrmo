@@ -9,7 +9,7 @@
     <style>
         @media print {
             @page {
-                margin: 4mm 10mm;
+                margin: 0mm 10mm;
                 size: letter;
             }
             html {
@@ -24,7 +24,7 @@
             }
             .report-container {
                 margin: 0 !important;
-                padding: 4mm 10mm !important;
+                padding: 0 0.5in !important;
                 max-width: 100% !important;
                 box-shadow: none !important;
                 width: 100% !important;
@@ -38,7 +38,7 @@
         @media print and (size: A4) {
             @page {
                 size: A4;
-                margin: 4mm 10mm;
+                margin: 0mm 10mm;
             }
             html {
                 width: 210mm;
@@ -55,7 +55,8 @@
             }
             .report-container {
                 margin: 0 !important;
-                padding: 4mm 10mm !important;
+                padding: 0 0.5in !important;
+                padding-top: 0 !important;
                 max-width: 100% !important;
                 box-shadow: none !important;
                 width: 100% !important;
@@ -97,9 +98,28 @@
         
         .header {
             text-align: center;
-            margin-bottom: 4px;
+            margin-top: -10px;
+            margin-bottom: 20px;
+            padding-top: 0;
             padding-bottom: 4px;
             border-bottom: 2px solid #000;
+        }
+        
+        @media print {
+            .header {
+                margin-top: -10px !important;
+                padding-top: 0 !important;
+            }
+            .header img {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+            }
+            body {
+                padding-top: 0 !important;
+            }
+            .report-container {
+                padding-top: 0 !important;
+            }
         }
         
         .qr-section {
@@ -122,30 +142,30 @@
         
         .header-info {
             text-align: left;
-            padding-top: 2px;
+            padding-top: 12px;
         }
         
         .header-info h3 {
-            font-size: 13.5px;
+            font-size: 16px;
             font-weight: 600;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
         }
         
         .header-info p {
-            font-size: 12.5px;
-            margin-bottom: 2px;
-            line-height: 1.4;
+            font-size: 15px;
+            margin-bottom: 8px;
+            line-height: 1.5;
         }
         
         .title {
             clear: both;
             text-align: center;
-            margin: 4px 0 4px 0;
-            padding-top: 2px;
+            margin: 16px 0 16px 0;
+            padding-top: 0;
         }
         
         .title h1 {
-            font-size: 16px;
+            font-size: 23px;
             font-weight: 700;
             letter-spacing: 0.5px;
         }
@@ -153,13 +173,13 @@
         .assessment-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 8px;
+            margin-bottom: 16px;
         }
         
         .assessment-table th,
         .assessment-table td {
             border: 1px solid #000;
-            padding: 9.5px;
+            padding: 14px;
             text-align: left;
             vertical-align: top;
         }
@@ -167,13 +187,13 @@
         .assessment-table th {
             background-color: #f0f0f0;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 16px;
             text-align: center;
         }
         
         .assessment-table td {
-            font-size: 12px;
-            line-height: 1.55;
+            font-size: 15px;
+            line-height: 1.7;
         }
         
         .hazard-col {
@@ -192,7 +212,7 @@
         
         .risk-level {
             font-weight: 600;
-            font-size: 13px;
+            font-size: 16px;
         }
         
         .risk-low { color: #059669; }
@@ -201,29 +221,29 @@
         .risk-very-high { color: #991b1b; }
         
         .explanation-section {
-            margin-top: 4px;
+            margin-top: 8px;
         }
         
         .explanation-section h3 {
-            font-size: 13px;
+            font-size: 16px;
             font-weight: 600;
-            margin-bottom: 4px;
+            margin-bottom: 10px;
         }
         
         .explanation-section h4 {
-            font-size: 12px;
+            font-size: 15px;
             font-weight: 600;
-            margin: 4px 0 2px 0;
+            margin: 10px 0 8px 0;
         }
         
         .explanation-section ul {
             margin-left: 20px;
-            font-size: 11px;
-            line-height: 1.65;
+            font-size: 14px;
+            line-height: 1.8;
         }
         
         .explanation-section ul li {
-            margin-bottom: 7px;
+            margin-bottom: 10px;
         }
         
         .action-buttons {
@@ -305,7 +325,7 @@
     
     <div class="report-container">
         <div class="header">
-            <img src="{% static 'images/drrmo_header.png' %}" alt="Silay DRRMO Header" style="width:100%;max-width:1100px;margin-bottom:20px;margin-top:-30px;display:block;">
+            <img src="{% static 'images/drrmo_header.png' %}" alt="Silay DRRMO Header" style="width:100%;max-width:1350px;margin-bottom:20px;margin-top:0;display:block;">
             <div class="header-info">
                 <h3>DATE</h3>
                 <p>{{ current_date }}</p>
@@ -333,7 +353,7 @@
                     <td class="hazard-col">Flood</td>
                     <td class="assessment-col">
                         <span class="risk-level {{ risk_class }}">{{ risk_label }}</span>
-                        <p style="margin-top: 10px; font-size: 10px;">{{ assessment_text }}</p>
+                        <p style="margin-top: 10px; font-size: 13px;">{{ assessment_text }}</p>
                     </td>
                     <td class="explanation-col">{{ recommendation_text }}</td>
                 </tr>

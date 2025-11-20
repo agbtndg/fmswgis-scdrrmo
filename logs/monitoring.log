@@ -6555,3 +6555,59 @@ INFO 2025-11-20 22:29:57 basehttp 8236 14456 "GET /register/ HTTP/1.1" 200 26204
 INFO 2025-11-20 22:30:42 basehttp 8236 14456 "GET / HTTP/1.1" 200 14056
 INFO 2025-11-20 22:30:55 basehttp 8236 14456 "POST / HTTP/1.1" 302 0
 INFO 2025-11-20 22:30:55 basehttp 8236 14456 "GET /home/ HTTP/1.1" 200 53300
+INFO 2025-11-20 22:39:31 basehttp 8236 1768 "GET /home/ HTTP/1.1" 200 53105
+INFO 2025-11-20 22:45:29 autoreload 23836 29400 Watching for file changes with StatReloader
+INFO 2025-11-20 22:45:31 basehttp 23836 25244 "GET / HTTP/1.1" 302 0
+INFO 2025-11-20 22:45:31 basehttp 23836 25244 "GET /home/ HTTP/1.1" 200 54081
+INFO 2025-11-20 22:53:22 basehttp 23836 29356 "GET /home/ HTTP/1.1" 200 54087
+INFO 2025-11-20 22:55:32 basehttp 23836 29356 "GET /home/ HTTP/1.1" 200 54106
+INFO 2025-11-20 22:57:09 basehttp 23836 29356 "GET /home/ HTTP/1.1" 200 54105
+INFO 2025-11-20 22:57:32 basehttp 23836 29356 "GET /home/ HTTP/1.1" 200 54105
+INFO 2025-11-20 22:57:46 basehttp 23836 29356 "GET /home/ HTTP/1.1" 200 54101
+INFO 2025-11-20 22:57:56 basehttp 23836 29356 "GET /maps/ HTTP/1.1" 200 1044321
+INFO 2025-11-20 22:58:16 views 23836 29356 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-20 22:58:17 views 23836 29356 API returned - Rain: 0.0mm, Temp: 26.1°C, Humidity: 93%, Wind: 13.2km/h
+INFO 2025-11-20 22:58:17 views 23836 29356 Processed 7 days of weather forecast
+INFO 2025-11-20 22:58:17 basehttp 23836 29356 "GET /monitoring/ HTTP/1.1" 200 93146
+INFO 2025-11-20 22:58:46 basehttp 23836 29356 "GET /approve/ HTTP/1.1" 200 38396
+INFO 2025-11-20 22:58:52 basehttp 23836 29356 "GET /maps/all-activities/ HTTP/1.1" 200 157429
+INFO 2025-11-20 22:59:34 basehttp 23836 29356 "GET /maps/all-activities/ HTTP/1.1" 200 157365
+INFO 2025-11-20 22:59:38 basehttp 23836 29356 "GET /maps/all-activities/?tab=assessments&user=&date=&sort=recent HTTP/1.1" 200 157361
+INFO 2025-11-20 22:59:42 basehttp 23836 29356 "GET /maps/all-activities/?tab=assessments&user=&date=2025-11-19&sort=recent HTTP/1.1" 200 49931
+INFO 2025-11-20 22:59:50 basehttp 23836 29356 "GET /maps/all-activities/?tab=assessments&user=&date=2025-11-20&sort=recent HTTP/1.1" 200 157579
+INFO 2025-11-20 23:00:00 basehttp 23836 29356 "GET /maps/all-activities/?tab=assessments&user=11&date=2025-11-20&sort=recent HTTP/1.1" 200 157691
+INFO 2025-11-20 23:00:14 basehttp 23836 29356 "GET /maps/all-activities/?tab=assessments&user=11&date=2025-11-20&sort=oldest HTTP/1.1" 200 157810
+INFO 2025-11-20 23:00:23 basehttp 23836 29356 "GET /maps/all-activities/?tab=assessments&user=&date=&sort=recent HTTP/1.1" 200 157361
+INFO 2025-11-20 23:00:24 basehttp 23836 29356 "GET /maps/all-activities/?tab=assessments&user=&date=&sort=recent HTTP/1.1" 200 157361
+INFO 2025-11-20 23:00:43 basehttp 23836 29356 "GET /profile/ HTTP/1.1" 200 56000
+INFO 2025-11-20 23:00:48 basehttp 23836 29356 "GET /home/ HTTP/1.1" 200 54101
+INFO 2025-11-20 23:01:10 basehttp 23836 29356 "GET /home/ HTTP/1.1" 200 54101
+INFO 2025-11-20 23:01:29 basehttp 23836 29356 "GET /maps/ HTTP/1.1" 200 1044321
+INFO 2025-11-20 23:01:31 basehttp 23836 29356 "GET /home/ HTTP/1.1" 200 54101
+INFO 2025-11-20 23:09:07 autoreload 23836 29400 C:\Users\aldri\Flood-Monitoring-System-with-GIS\maps\urls.py changed, reloading.
+INFO 2025-11-20 23:09:08 autoreload 18772 10248 Watching for file changes with StatReloader
+INFO 2025-11-20 23:23:55 basehttp 18772 16272 "GET /home/ HTTP/1.1" 200 54143
+INFO 2025-11-20 23:23:56 basehttp 18772 16272 "GET /maps/privacy-policy/ HTTP/1.1" 200 39924
+INFO 2025-11-20 23:24:12 basehttp 18772 16272 "GET /maps/terms-of-service/ HTTP/1.1" 200 44791
+INFO 2025-11-20 23:24:41 basehttp 18772 16272 "GET /maps/ HTTP/1.1" 200 1044363
+INFO 2025-11-20 23:24:49 basehttp 18772 16272 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-20 23:24:50 basehttp 18772 16272 "GET /maps/certificate/form/?barangay=Eustaquio%20Lopez&lat=10.795157&lon=123.016253&risk=LF HTTP/1.1" 200 24418
+INFO 2025-11-20 23:24:57 basehttp 18772 16272 "POST /maps/certificate/ HTTP/1.1" 200 11253
+INFO 2025-11-20 23:25:10 basehttp 18772 16272 "POST /maps/certificate/ HTTP/1.1" 200 10343
+INFO 2025-11-20 23:25:37 basehttp 18772 16272 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.795157&lon=123.016253&risk=LF HTTP/1.1" 200 11626
+INFO 2025-11-20 23:25:47 autoreload 18772 10248 C:\Users\aldri\Flood-Monitoring-System-with-GIS\maps\views.py changed, reloading.
+INFO 2025-11-20 23:25:48 autoreload 27692 18696 Watching for file changes with StatReloader
+INFO 2025-11-20 23:31:10 basehttp 27692 9704 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.795157&lon=123.016253&risk=LF HTTP/1.1" 200 11916
+INFO 2025-11-20 23:33:54 basehttp 27692 9704 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.795157&lon=123.016253&risk=LF HTTP/1.1" 200 11916
+INFO 2025-11-20 23:34:58 basehttp 27692 9704 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.795157&lon=123.016253&risk=LF HTTP/1.1" 200 11915
+INFO 2025-11-20 23:36:34 basehttp 27692 9704 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.795157&lon=123.016253&risk=LF HTTP/1.1" 200 11915
+INFO 2025-11-20 23:36:49 basehttp 27692 9704 "GET /maps/certificate/form/?barangay=Eustaquio%20Lopez&lat=10.795157&lon=123.016253&risk=LF HTTP/1.1" 200 24418
+INFO 2025-11-20 23:36:58 basehttp 27692 9704 "POST /maps/certificate/ HTTP/1.1" 200 11237
+INFO 2025-11-20 23:38:39 basehttp 27692 9704 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.795157&lon=123.016253&risk=LF HTTP/1.1" 200 11920
+INFO 2025-11-20 23:38:40 basehttp 27692 9704 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.795157&lon=123.016253&risk=LF HTTP/1.1" 200 11920
+INFO 2025-11-20 23:40:16 basehttp 27692 9704 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.795157&lon=123.016253&risk=LF HTTP/1.1" 200 11922
+INFO 2025-11-20 23:41:40 basehttp 27692 9704 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.795157&lon=123.016253&risk=LF HTTP/1.1" 200 11922
+INFO 2025-11-20 23:42:27 basehttp 27692 9704 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.795157&lon=123.016253&risk=LF HTTP/1.1" 200 12173
+INFO 2025-11-20 23:44:26 basehttp 27692 9704 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.795157&lon=123.016253&risk=LF HTTP/1.1" 200 12171
+INFO 2025-11-20 23:45:25 basehttp 27692 9704 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.795157&lon=123.016253&risk=LF HTTP/1.1" 200 12170
+INFO 2025-11-20 23:46:37 basehttp 27692 9704 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.795157&lon=123.016253&risk=LF HTTP/1.1" 200 12178

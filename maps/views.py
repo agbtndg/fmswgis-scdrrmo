@@ -25,6 +25,14 @@ def error_view(request):
     
     return render(request, 'maps/error.html', context)
 
+def privacy_policy_view(request):
+    """Display Privacy Policy page"""
+    return render(request, 'maps/privacy_policy.html')
+
+def terms_of_service_view(request):
+    """Display Terms of Service page"""
+    return render(request, 'maps/terms_of_service.html')
+
 @login_required
 def map_view(request):
     barangays = serialize('geojson', Barangay.objects.all(), geometry_field='geometry', fields=('id', 'name', 'parent_id', 'geometry'))
