@@ -1863,3 +1863,84 @@ ERROR 2025-11-18 16:26:09 views 20704 496 Open-Meteo API Error: HTTPSConnectionP
 ERROR 2025-11-18 16:26:09 views 20704 496 WorldTides API Error: HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.31672&lon=123.89071&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-11-18&days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024957B56360>: Failed to resolve 'www.worldtides.info' ([Errno 11001] getaddrinfo failed)"))
 ERROR 2025-11-18 16:26:23 views 20704 496 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002495798A300>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
 ERROR 2025-11-18 16:26:23 views 20704 496 WorldTides API Error: HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.31672&lon=123.89071&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-11-18&days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000024956585310>: Failed to resolve 'www.worldtides.info' ([Errno 11001] getaddrinfo failed)"))
+ERROR 2025-11-19 12:45:00 views 22204 10392 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001E2C9D60170>, 'Connection to api.open-meteo.com timed out. (connect timeout=10)'))
+ERROR 2025-11-19 12:45:10 views 22204 10392 WorldTides API Error: HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.31672&lon=123.89071&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-11-19&days=1 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001E2C9D0C4D0>, 'Connection to www.worldtides.info timed out. (connect timeout=10)'))
+ERROR 2025-11-19 13:59:26 log 19252 25760 Internal Server Error: /monitoring/benchmark-settings/
+Traceback (most recent call last):
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 56, in _view_wrapper
+    test_pass = test_func(request.user)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 56, in _view_wrapper
+    test_pass = test_func(request.user)
+                          ^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CustomUser' object has no attribute 'user'
+ERROR 2025-11-19 13:59:26 basehttp 19252 25760 "GET /monitoring/benchmark-settings/ HTTP/1.1" 500 91130
+ERROR 2025-11-19 16:21:35 log 32624 17816 Internal Server Error: /home/
+Traceback (most recent call last):
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\views.py", line 297, in home
+    combined_risk_level, combined_risk_color = get_combined_risk_level(rain_risk_level, tide_risk_level)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py", line 56, in get_combined_risk_level
+    if rainfall_mm >= settings.rainfall_high_threshold and tide_m >= settings.tide_high_threshold:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '>=' not supported between instances of 'str' and 'float'
+ERROR 2025-11-19 16:21:35 basehttp 32624 17816 "GET /home/ HTTP/1.1" 500 94271
+ERROR 2025-11-19 16:24:39 log 32624 17816 Internal Server Error: /home/
+Traceback (most recent call last):
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\views.py", line 297, in home
+    combined_risk_level, combined_risk_color = get_combined_risk_level(rain_risk_level, tide_risk_level)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py", line 56, in get_combined_risk_level
+    if rainfall_mm >= settings.rainfall_high_threshold and tide_m >= settings.tide_high_threshold:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '>=' not supported between instances of 'str' and 'float'
+ERROR 2025-11-19 16:24:39 basehttp 32624 17816 "GET /home/ HTTP/1.1" 500 94271
+ERROR 2025-11-19 16:25:00 log 5260 10148 Internal Server Error: /home/
+Traceback (most recent call last):
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\views.py", line 297, in home
+    combined_risk_level, combined_risk_color = get_combined_risk_level(rain_risk_level, tide_risk_level)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py", line 56, in get_combined_risk_level
+    if rainfall_mm >= settings.rainfall_high_threshold and tide_m >= settings.tide_high_threshold:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '>=' not supported between instances of 'str' and 'float'
+ERROR 2025-11-19 16:25:00 basehttp 5260 10148 "GET /home/ HTTP/1.1" 500 93946

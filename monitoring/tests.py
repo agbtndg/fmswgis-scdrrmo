@@ -515,6 +515,42 @@ class FloodRiskLevelFunctionTest(TestCase):
         combined, color = get_combined_risk_level(rain_risk, tide_risk)
         self.assertEqual(combined, 'Critical Risk')
         self.assertEqual(color, 'red')
+    
+    def test_get_combined_risk_level_rainfall_priority(self):
+        """Test combined risk with AND-based threshold logic - Low risk example"""
+        from monitoring.views import get_combined_risk_level
+        
+        # Rainfall met moderate threshold but tide didn't
+        combined, color = get_combined_risk_level(rainfall_mm=32, tide_m=0.3)
+        self.assertEqual(combined, 'Low Risk')
+        self.assertEqual(color, 'yellow')
+    
+    def test_get_combined_risk_level_moderate_both_met(self):
+        """Test combined risk when both meet moderate thresholds"""
+        from monitoring.views import get_combined_risk_level
+        
+        # Both rainfall and tide met moderate thresholds
+        combined, color = get_combined_risk_level(rainfall_mm=32, tide_m=1.0)
+        self.assertEqual(combined, 'Moderate Risk')
+        self.assertEqual(color, 'orange')
+    
+    def test_get_combined_risk_level_high_both_met(self):
+        """Test combined risk when both meet high thresholds"""
+        from monitoring.views import get_combined_risk_level
+        
+        # Both rainfall and tide met high thresholds
+        combined, color = get_combined_risk_level(rainfall_mm=55, tide_m=1.6)
+        self.assertEqual(combined, 'High Risk')
+        self.assertEqual(color, 'red')
+    
+    def test_get_combined_risk_level_tide_only_met(self):
+        """Test combined risk when only tide meets threshold"""
+        from monitoring.views import get_combined_risk_level
+        
+        # Tide met threshold but rainfall didn't
+        combined, color = get_combined_risk_level(rainfall_mm=15, tide_m=1.2)
+        self.assertEqual(combined, 'Low Risk')
+        self.assertEqual(color, 'yellow')
 
 
 class GenerateFloodInsightsTest(TestCase):

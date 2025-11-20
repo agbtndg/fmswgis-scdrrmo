@@ -294,7 +294,7 @@ def home(request):
         context['tide_risk'] = {'level': tide_risk_level, 'color': tide_risk_color}
         
     if rainfall_data and tide_data:
-        combined_risk_level, combined_risk_color = get_combined_risk_level(rain_risk_level, tide_risk_level)
+        combined_risk_level, combined_risk_color = get_combined_risk_level(rainfall_data.value_mm, tide_data.height_m)
         context['combined_risk'] = {'level': combined_risk_level, 'color': combined_risk_color}
     
     context.update({

@@ -5079,3 +5079,437 @@ INFO 2025-11-18 23:21:45 views 20704 24416 Created new tide record: 0.595m from 
 INFO 2025-11-18 23:21:45 basehttp 20704 24416 "GET /monitoring/ HTTP/1.1" 200 81625
 INFO 2025-11-18 23:21:45 basehttp 20704 24416 "GET /static/js/chart.js HTTP/1.1" 304 0
 INFO 2025-11-18 23:21:49 basehttp 20704 24416 "GET /home/ HTTP/1.1" 200 52605
+INFO 2025-11-19 12:44:22 autoreload 22204 20948 Watching for file changes with StatReloader
+INFO 2025-11-19 12:44:39 basehttp 22204 22668 "GET / HTTP/1.1" 302 0
+INFO 2025-11-19 12:44:39 basehttp 22204 22668 "GET /home/ HTTP/1.1" 200 52605
+INFO 2025-11-19 12:44:40 basehttp 22204 30708 "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+INFO 2025-11-19 12:44:40 basehttp 22204 22668 "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-11-19 12:44:40 basehttp 22204 10392 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 304 0
+INFO 2025-11-19 12:44:40 basehttp 22204 27356 "GET /static/images/drrmo_logo.png HTTP/1.1" 304 0
+INFO 2025-11-19 12:44:40 basehttp 22204 27356 "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+INFO 2025-11-19 12:44:40 basehttp 22204 10392 "GET /static/webfonts/fa-brands-400.woff2 HTTP/1.1" 304 0
+WARNING 2025-11-19 12:44:40 log 22204 10392 Not Found: /favicon.ico
+WARNING 2025-11-19 12:44:40 basehttp 22204 10392 "GET /favicon.ico HTTP/1.1" 404 4918
+INFO 2025-11-19 12:44:48 views 22204 10392 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+ERROR 2025-11-19 12:45:00 views 22204 10392 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.753794&longitude=123.08416&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001E2C9D60170>, 'Connection to api.open-meteo.com timed out. (connect timeout=10)'))
+INFO 2025-11-19 12:45:00 views 22204 10392 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+ERROR 2025-11-19 12:45:10 views 22204 10392 WorldTides API Error: HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.31672&lon=123.89071&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-11-19&days=1 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001E2C9D0C4D0>, 'Connection to www.worldtides.info timed out. (connect timeout=10)'))
+INFO 2025-11-19 12:45:10 basehttp 22204 10392 "GET /monitoring/ HTTP/1.1" 200 75994
+INFO 2025-11-19 12:45:13 basehttp 22204 12000 "GET /static/js/chart.js HTTP/1.1" 304 0
+INFO 2025-11-19 12:50:14 basehttp 22204 13780 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-19 12:51:15 views 22204 13780 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 12:51:17 views 22204 13780 API returned - Rain: 0.0mm, Temp: 31.0°C, Humidity: 69%, Wind: 20.6km/h
+INFO 2025-11-19 12:51:17 views 22204 13780 Processed 7 days of weather forecast
+INFO 2025-11-19 12:51:17 views 22204 13780 Created new rainfall record: 0.0mm
+INFO 2025-11-19 12:51:17 views 22204 13780 Created new weather record
+INFO 2025-11-19 12:51:17 views 22204 13780 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+INFO 2025-11-19 12:51:19 views 22204 13780 Created new tide record: 0.029m from WorldTides API
+INFO 2025-11-19 12:51:19 basehttp 22204 13780 "GET /monitoring/ HTTP/1.1" 200 81957
+INFO 2025-11-19 12:55:55 views 22204 13780 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 12:55:57 views 22204 13780 API returned - Rain: 0.0mm, Temp: 31.0°C, Humidity: 69%, Wind: 20.6km/h
+INFO 2025-11-19 12:55:57 views 22204 13780 Processed 7 days of weather forecast
+INFO 2025-11-19 12:55:57 basehttp 22204 13780 "GET /monitoring/ HTTP/1.1" 200 85463
+INFO 2025-11-19 13:00:57 basehttp 22204 19132 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-19 13:01:42 autoreload 22204 20948 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 13:01:43 autoreload 13132 15608 Watching for file changes with StatReloader
+INFO 2025-11-19 13:02:01 views 13132 12128 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 13:02:03 views 13132 12128 API returned - Rain: 0.0mm, Temp: 31.0°C, Humidity: 69%, Wind: 20.4km/h
+INFO 2025-11-19 13:02:03 views 13132 12128 Processed 7 days of weather forecast
+INFO 2025-11-19 13:02:03 basehttp 13132 12128 "GET /monitoring/ HTTP/1.1" 200 85335
+INFO 2025-11-19 13:03:28 views 13132 12128 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 13:03:30 views 13132 12128 API returned - Rain: 0.0mm, Temp: 31.0°C, Humidity: 69%, Wind: 20.4km/h
+INFO 2025-11-19 13:03:30 views 13132 12128 Processed 7 days of weather forecast
+INFO 2025-11-19 13:03:30 basehttp 13132 12128 "GET /monitoring/ HTTP/1.1" 200 85335
+INFO 2025-11-19 13:04:43 views 13132 12128 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 13:04:45 views 13132 12128 API returned - Rain: 0.0mm, Temp: 31.0°C, Humidity: 69%, Wind: 20.4km/h
+INFO 2025-11-19 13:04:45 views 13132 12128 Processed 7 days of weather forecast
+INFO 2025-11-19 13:04:45 basehttp 13132 12128 "GET /monitoring/ HTTP/1.1" 200 85340
+INFO 2025-11-19 13:06:37 views 13132 12128 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 13:06:38 views 13132 12128 API returned - Rain: 0.0mm, Temp: 31.0°C, Humidity: 69%, Wind: 20.4km/h
+INFO 2025-11-19 13:06:38 views 13132 12128 Processed 7 days of weather forecast
+INFO 2025-11-19 13:06:39 basehttp 13132 12128 "GET /monitoring/ HTTP/1.1" 200 85384
+INFO 2025-11-19 13:06:47 views 13132 12128 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 13:06:48 views 13132 12128 API returned - Rain: 0.0mm, Temp: 31.0°C, Humidity: 69%, Wind: 20.4km/h
+INFO 2025-11-19 13:06:48 views 13132 12128 Processed 7 days of weather forecast
+INFO 2025-11-19 13:06:48 basehttp 13132 12128 "GET /monitoring/ HTTP/1.1" 200 85384
+INFO 2025-11-19 13:07:14 views 13132 12128 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 13:07:15 views 13132 12128 API returned - Rain: 0.0mm, Temp: 31.0°C, Humidity: 69%, Wind: 20.4km/h
+INFO 2025-11-19 13:07:15 views 13132 12128 Processed 7 days of weather forecast
+INFO 2025-11-19 13:07:16 basehttp 13132 12128 "GET /monitoring/ HTTP/1.1" 200 85340
+INFO 2025-11-19 13:07:58 autoreload 13132 15608 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 13:07:58 autoreload 23136 12968 Watching for file changes with StatReloader
+INFO 2025-11-19 13:09:19 basehttp 23136 5832 "GET /maps/ HTTP/1.1" 200 1043138
+INFO 2025-11-19 13:09:19 basehttp 23136 10328 "GET /static/css/ol.css HTTP/1.1" 304 0
+INFO 2025-11-19 13:09:19 basehttp 23136 10328 "GET /static/js/ol.js HTTP/1.1" 304 0
+INFO 2025-11-19 13:09:27 basehttp 23136 10328 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-19 13:09:28 basehttp 23136 10328 "GET /maps/certificate/form/?barangay=Eustaquio%20Lopez&lat=10.809718&lon=123.028883&risk=LF HTTP/1.1" 200 21350
+INFO 2025-11-19 13:14:45 basehttp 23136 12952 "GET /maps/certificate/form/?barangay=Eustaquio%20Lopez&lat=10.809718&lon=123.028883&risk=LF HTTP/1.1" 200 21385
+INFO 2025-11-19 13:15:07 basehttp 23136 12952 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-19 13:15:09 basehttp 23136 12952 "GET /maps/certificate/form/?barangay=Lantad&lat=10.818921&lon=122.971038&risk=MF HTTP/1.1" 200 21383
+INFO 2025-11-19 13:15:26 basehttp 23136 12952 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-19 13:15:28 basehttp 23136 12952 "GET /maps/certificate/form/?barangay=Lantad&lat=10.810744&lon=122.956784&risk=HF HTTP/1.1" 200 21373
+INFO 2025-11-19 13:15:37 basehttp 23136 12952 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-19 13:15:39 basehttp 23136 12952 "GET /maps/certificate/form/?barangay=Barangay%20VI%20Pob.%20(Hawaiian)&lat=10.824881&lon=122.984727&risk=VHF HTTP/1.1" 200 21437
+INFO 2025-11-19 13:18:41 basehttp 23136 12952 "GET /maps/certificate/form/?barangay=Barangay%20VI%20Pob.%20(Hawaiian)&lat=10.824881&lon=122.984727&risk=VHF HTTP/1.1" 200 21437
+INFO 2025-11-19 13:22:42 basehttp 23136 12952 "GET /maps/certificate/form/?barangay=Barangay%20VI%20Pob.%20(Hawaiian)&lat=10.824881&lon=122.984727&risk=VHF HTTP/1.1" 200 21439
+INFO 2025-11-19 13:22:53 basehttp 23136 12952 "GET /maps/certificate/form/?barangay=Barangay%20VI%20Pob.%20(Hawaiian)&lat=10.824881&lon=122.984727&risk=VHF HTTP/1.1" 200 21439
+INFO 2025-11-19 13:23:00 basehttp 23136 12952 "GET /maps/certificate/form/?barangay=Barangay%20VI%20Pob.%20(Hawaiian)&lat=10.824881&lon=122.984727&risk=VHF HTTP/1.1" 200 21439
+INFO 2025-11-19 13:26:18 basehttp 23136 3692 "GET /maps/certificate/form/?barangay=Barangay%20VI%20Pob.%20(Hawaiian)&lat=10.824881&lon=122.984727&risk=VHF HTTP/1.1" 200 22971
+INFO 2025-11-19 13:28:53 basehttp 23136 29476 "GET /maps/certificate/form/?barangay=Barangay%20VI%20Pob.%20(Hawaiian)&lat=10.824881&lon=122.984727&risk=VHF HTTP/1.1" 200 23076
+INFO 2025-11-19 13:31:42 basehttp 23136 29476 "GET /maps/certificate/form/?barangay=Barangay%20VI%20Pob.%20(Hawaiian)&lat=10.824881&lon=122.984727&risk=VHF HTTP/1.1" 200 23067
+INFO 2025-11-19 13:32:01 basehttp 23136 29476 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-19 13:32:03 basehttp 23136 29476 "GET /maps/certificate/form/?barangay=Rizal&lat=10.791756&lon=122.996441&risk=LF HTTP/1.1" 200 22995
+INFO 2025-11-19 13:32:16 basehttp 23136 29476 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-19 13:32:18 basehttp 23136 29476 "GET /maps/certificate/form/?barangay=Rizal&lat=10.806032&lon=122.992066&risk=MF HTTP/1.1" 200 23011
+INFO 2025-11-19 13:32:28 basehttp 23136 29476 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-19 13:32:30 basehttp 23136 29476 "GET /maps/certificate/form/?barangay=Lantad&lat=10.808111&lon=122.960595&risk=HF HTTP/1.1" 200 23003
+INFO 2025-11-19 13:32:38 views 23136 29476 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 13:32:40 views 23136 29476 API returned - Rain: 0.0mm, Temp: 30.9°C, Humidity: 69%, Wind: 20.9km/h
+INFO 2025-11-19 13:32:40 views 23136 29476 Processed 7 days of weather forecast
+INFO 2025-11-19 13:32:40 basehttp 23136 29476 "GET /monitoring/ HTTP/1.1" 200 85340
+INFO 2025-11-19 13:32:49 basehttp 23136 29476 "GET /profile/ HTTP/1.1" 200 54805
+INFO 2025-11-19 13:32:56 views 23136 29476 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 13:32:58 views 23136 29476 API returned - Rain: 0.0mm, Temp: 30.9°C, Humidity: 69%, Wind: 20.9km/h
+INFO 2025-11-19 13:32:58 views 23136 29476 Processed 7 days of weather forecast
+INFO 2025-11-19 13:32:58 basehttp 23136 29476 "GET /monitoring/ HTTP/1.1" 200 85340
+INFO 2025-11-19 13:33:55 views 23136 29476 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 13:33:57 views 23136 29476 API returned - Rain: 0.0mm, Temp: 30.9°C, Humidity: 69%, Wind: 20.9km/h
+INFO 2025-11-19 13:33:57 views 23136 29476 Processed 7 days of weather forecast
+INFO 2025-11-19 13:33:57 basehttp 23136 29476 "GET /monitoring/ HTTP/1.1" 200 85340
+INFO 2025-11-19 13:36:52 views 23136 29476 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 13:36:54 views 23136 29476 API returned - Rain: 0.0mm, Temp: 30.9°C, Humidity: 69%, Wind: 20.9km/h
+INFO 2025-11-19 13:36:54 views 23136 29476 Processed 7 days of weather forecast
+INFO 2025-11-19 13:36:54 basehttp 23136 29476 "GET /monitoring/ HTTP/1.1" 200 85340
+INFO 2025-11-19 13:41:54 basehttp 23136 28524 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-19 13:46:54 basehttp 23136 30556 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-19 13:49:58 autoreload 23136 12968 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\models.py changed, reloading.
+INFO 2025-11-19 13:49:58 autoreload 11440 17296 Watching for file changes with StatReloader
+INFO 2025-11-19 13:51:06 autoreload 11440 17296 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 13:51:07 autoreload 6444 13812 Watching for file changes with StatReloader
+INFO 2025-11-19 13:51:16 autoreload 6444 13812 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 13:51:17 autoreload 20324 24180 Watching for file changes with StatReloader
+INFO 2025-11-19 13:51:50 autoreload 20324 24180 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\urls.py changed, reloading.
+INFO 2025-11-19 13:51:50 autoreload 2616 25908 Watching for file changes with StatReloader
+INFO 2025-11-19 13:51:54 basehttp 2616 26172 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-19 13:52:07 autoreload 2616 25908 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 13:52:07 autoreload 2696 4596 Watching for file changes with StatReloader
+INFO 2025-11-19 13:52:16 autoreload 2696 4596 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 13:52:17 autoreload 20856 21604 Watching for file changes with StatReloader
+INFO 2025-11-19 13:52:45 autoreload 20856 21604 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\admin.py changed, reloading.
+INFO 2025-11-19 13:52:46 autoreload 19252 8564 Watching for file changes with StatReloader
+INFO 2025-11-19 13:56:54 basehttp 19252 25760 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-19 13:59:19 views 19252 25760 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 13:59:21 views 19252 25760 API returned - Rain: 0.0mm, Temp: 30.9°C, Humidity: 69%, Wind: 20.9km/h
+INFO 2025-11-19 13:59:21 views 19252 25760 Processed 7 days of weather forecast
+INFO 2025-11-19 13:59:21 basehttp 19252 25760 "GET /monitoring/ HTTP/1.1" 200 85504
+ERROR 2025-11-19 13:59:26 log 19252 25760 Internal Server Error: /monitoring/benchmark-settings/
+Traceback (most recent call last):
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 56, in _view_wrapper
+    test_pass = test_func(request.user)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 56, in _view_wrapper
+    test_pass = test_func(request.user)
+                          ^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+           ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CustomUser' object has no attribute 'user'
+ERROR 2025-11-19 13:59:26 basehttp 19252 25760 "GET /monitoring/benchmark-settings/ HTTP/1.1" 500 91130
+INFO 2025-11-19 13:59:46 autoreload 19252 8564 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 13:59:47 autoreload 23972 28928 Watching for file changes with StatReloader
+INFO 2025-11-19 14:00:36 basehttp 23972 31952 "GET /monitoring/benchmark-settings/ HTTP/1.1" 200 42817
+INFO 2025-11-19 14:53:53 basehttp 23972 20760 "GET /monitoring/benchmark-settings/ HTTP/1.1" 200 42817
+INFO 2025-11-19 14:57:39 views 23972 20760 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 14:57:41 views 23972 20760 API returned - Rain: 0.0mm, Temp: 30.4°C, Humidity: 71%, Wind: 20.5km/h
+INFO 2025-11-19 14:57:41 views 23972 20760 Processed 7 days of weather forecast
+INFO 2025-11-19 14:57:41 basehttp 23972 20760 "GET /monitoring/ HTTP/1.1" 200 85476
+INFO 2025-11-19 14:57:48 basehttp 23972 20760 "GET /monitoring/benchmark-settings/ HTTP/1.1" 200 42817
+INFO 2025-11-19 14:57:52 views 23972 20760 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 14:57:53 views 23972 20760 API returned - Rain: 0.0mm, Temp: 30.4°C, Humidity: 71%, Wind: 20.5km/h
+INFO 2025-11-19 14:57:53 views 23972 20760 Processed 7 days of weather forecast
+INFO 2025-11-19 14:57:53 basehttp 23972 20760 "GET /monitoring/ HTTP/1.1" 200 85476
+INFO 2025-11-19 14:58:17 basehttp 23972 20760 "GET /monitoring/benchmark-settings/ HTTP/1.1" 200 42817
+INFO 2025-11-19 15:02:28 autoreload 23972 28928 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\models.py changed, reloading.
+INFO 2025-11-19 15:02:29 autoreload 19112 23876 Watching for file changes with StatReloader
+INFO 2025-11-19 15:02:54 autoreload 19112 23876 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 15:02:54 autoreload 23200 10180 Watching for file changes with StatReloader
+INFO 2025-11-19 15:03:18 autoreload 23200 10180 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 15:03:20 autoreload 32244 16028 Watching for file changes with StatReloader
+INFO 2025-11-19 15:38:00 autoreload 32244 16028 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\models.py changed, reloading.
+INFO 2025-11-19 15:38:00 autoreload 20548 23040 Watching for file changes with StatReloader
+INFO 2025-11-19 15:39:15 autoreload 20548 23040 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 15:39:16 autoreload 4964 12796 Watching for file changes with StatReloader
+INFO 2025-11-19 15:39:28 autoreload 4964 12796 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 15:39:28 autoreload 5364 3536 Watching for file changes with StatReloader
+INFO 2025-11-19 15:39:40 autoreload 5364 3536 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 15:39:40 autoreload 32704 8580 Watching for file changes with StatReloader
+INFO 2025-11-19 15:40:03 autoreload 32704 8580 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 15:40:03 autoreload 27672 16500 Watching for file changes with StatReloader
+INFO 2025-11-19 15:41:26 basehttp 27672 19276 "GET /monitoring/benchmark-settings/ HTTP/1.1" 200 38570
+INFO 2025-11-19 15:42:00 views 27672 19276 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 15:42:01 views 27672 19276 API returned - Rain: 0.0mm, Temp: 29.8°C, Humidity: 74%, Wind: 19.9km/h
+INFO 2025-11-19 15:42:01 views 27672 19276 Processed 7 days of weather forecast
+INFO 2025-11-19 15:42:01 basehttp 27672 19276 "GET /monitoring/ HTTP/1.1" 200 85476
+INFO 2025-11-19 15:42:33 basehttp 27672 19276 "GET /monitoring/benchmark-settings/ HTTP/1.1" 200 38570
+INFO 2025-11-19 15:42:39 basehttp 27672 19276 "POST /monitoring/benchmark-settings/ HTTP/1.1" 302 0
+INFO 2025-11-19 15:42:39 basehttp 27672 19276 "GET /monitoring/benchmark-settings/ HTTP/1.1" 200 39163
+INFO 2025-11-19 15:42:49 views 27672 19276 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 15:42:50 views 27672 19276 API returned - Rain: 0.0mm, Temp: 29.8°C, Humidity: 74%, Wind: 19.9km/h
+INFO 2025-11-19 15:42:50 views 27672 19276 Processed 7 days of weather forecast
+INFO 2025-11-19 15:42:50 basehttp 27672 19276 "GET /monitoring/ HTTP/1.1" 200 85476
+INFO 2025-11-19 15:42:55 basehttp 27672 19276 "GET /monitoring/benchmark-settings/ HTTP/1.1" 200 38570
+INFO 2025-11-19 15:43:00 basehttp 27672 19276 "POST /monitoring/benchmark-settings/ HTTP/1.1" 302 0
+INFO 2025-11-19 15:43:00 basehttp 27672 19276 "GET /monitoring/benchmark-settings/ HTTP/1.1" 200 39163
+INFO 2025-11-19 15:43:09 basehttp 27672 19276 "POST /monitoring/benchmark-settings/ HTTP/1.1" 302 0
+INFO 2025-11-19 15:43:09 basehttp 27672 19276 "GET /monitoring/benchmark-settings/ HTTP/1.1" 200 39163
+INFO 2025-11-19 15:43:17 views 27672 19276 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 15:43:18 views 27672 19276 API returned - Rain: 0.0mm, Temp: 29.8°C, Humidity: 74%, Wind: 19.9km/h
+INFO 2025-11-19 15:43:18 views 27672 19276 Processed 7 days of weather forecast
+INFO 2025-11-19 15:43:18 basehttp 27672 19276 "GET /monitoring/ HTTP/1.1" 200 85476
+INFO 2025-11-19 15:43:34 views 27672 19276 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 15:43:35 views 27672 19276 API returned - Rain: 0.0mm, Temp: 29.8°C, Humidity: 74%, Wind: 19.9km/h
+INFO 2025-11-19 15:43:35 views 27672 19276 Processed 7 days of weather forecast
+INFO 2025-11-19 15:43:35 basehttp 27672 19276 "GET /monitoring/ HTTP/1.1" 200 85476
+INFO 2025-11-19 15:43:41 basehttp 27672 19276 "GET /admin HTTP/1.1" 301 0
+INFO 2025-11-19 15:43:41 basehttp 27672 14104 "GET /admin/ HTTP/1.1" 200 17466
+INFO 2025-11-19 15:43:41 basehttp 27672 14104 "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+INFO 2025-11-19 15:43:41 basehttp 27672 32532 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2025-11-19 15:43:41 basehttp 27672 23908 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2025-11-19 15:43:41 basehttp 27672 32512 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-11-19 15:43:41 basehttp 27672 14256 "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2025-11-19 15:43:41 basehttp 27672 26768 "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+INFO 2025-11-19 15:43:42 basehttp 27672 26768 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-11-19 15:43:42 basehttp 27672 14256 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-11-19 15:43:42 basehttp 27672 26768 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-11-19 15:43:46 basehttp 27672 26768 "GET /admin/monitoring/benchmarksettings/ HTTP/1.1" 200 13695
+INFO 2025-11-19 15:43:46 basehttp 27672 23908 "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2025-11-19 15:43:46 basehttp 27672 26768 "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+INFO 2025-11-19 15:43:46 basehttp 27672 32512 "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-11-19 15:43:46 basehttp 27672 14104 "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2025-11-19 15:43:46 basehttp 27672 32532 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2025-11-19 15:43:46 basehttp 27672 26768 "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-11-19 15:43:46 basehttp 27672 23908 "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-11-19 15:43:46 basehttp 27672 14256 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2025-11-19 15:43:46 basehttp 27672 32512 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2025-11-19 15:43:46 basehttp 27672 32512 "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2025-11-19 15:43:52 basehttp 27672 32512 "GET /admin/monitoring/benchmarksettings/1/change/ HTTP/1.1" 200 22351
+INFO 2025-11-19 15:43:52 basehttp 27672 14256 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-11-19 15:43:52 basehttp 27672 32512 "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+INFO 2025-11-19 15:43:52 basehttp 27672 32512 "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2025-11-19 15:43:52 basehttp 27672 14256 "GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+INFO 2025-11-19 15:43:52 basehttp 27672 23908 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 15:44:09 basehttp 27672 23908 "GET /admin/monitoring/weatherdata/ HTTP/1.1" 200 15673
+INFO 2025-11-19 15:44:10 basehttp 27672 23908 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 15:44:10 basehttp 27672 23908 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2025-11-19 15:44:13 basehttp 27672 23908 "GET /admin/monitoring/weatherdata/1/change/ HTTP/1.1" 200 16519
+INFO 2025-11-19 15:44:13 basehttp 27672 23908 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 15:44:18 basehttp 27672 23908 "GET /admin/monitoring/weatherdata/ HTTP/1.1" 200 15673
+INFO 2025-11-19 15:44:47 autoreload 22984 24420 Watching for file changes with StatReloader
+INFO 2025-11-19 15:44:50 basehttp 22984 4236 "GET / HTTP/1.1" 302 0
+INFO 2025-11-19 15:44:50 basehttp 22984 4236 "GET /home/ HTTP/1.1" 200 52738
+INFO 2025-11-19 15:45:17 basehttp 22984 4236 "GET /admin/ HTTP/1.1" 200 17466
+INFO 2025-11-19 15:45:29 basehttp 22984 4236 "GET /admin/monitoring/benchmarksettings/ HTTP/1.1" 200 13695
+INFO 2025-11-19 15:45:30 basehttp 22984 4236 "GET /admin/monitoring/benchmarksettings/1/change/ HTTP/1.1" 200 22351
+INFO 2025-11-19 15:45:31 basehttp 22984 4236 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 15:45:43 basehttp 22984 4236 "GET /admin/ HTTP/1.1" 200 17466
+INFO 2025-11-19 15:45:56 autoreload 22984 24420 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 15:45:56 autoreload 25028 24180 Watching for file changes with StatReloader
+INFO 2025-11-19 15:46:12 basehttp 25028 3980 "GET /admin/ HTTP/1.1" 200 17466
+INFO 2025-11-19 15:46:13 basehttp 25028 3980 "GET /admin/monitoring/benchmarksettings/ HTTP/1.1" 200 13695
+INFO 2025-11-19 15:46:15 basehttp 25028 3980 "GET /admin/monitoring/benchmarksettings/1/change/ HTTP/1.1" 200 22351
+INFO 2025-11-19 15:46:15 basehttp 25028 3980 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 15:46:25 views 25028 3980 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 15:46:27 views 25028 3980 API returned - Rain: 0.0mm, Temp: 29.5°C, Humidity: 75%, Wind: 20.1km/h
+INFO 2025-11-19 15:46:27 views 25028 3980 Processed 7 days of weather forecast
+INFO 2025-11-19 15:46:27 basehttp 25028 3980 "GET /monitoring/ HTTP/1.1" 200 85476
+INFO 2025-11-19 15:47:04 basehttp 25028 3980 "GET /home/ HTTP/1.1" 200 52738
+INFO 2025-11-19 15:47:21 basehttp 25028 3980 "GET /admin/monitoring/rainfalldata/ HTTP/1.1" 200 15694
+INFO 2025-11-19 15:47:21 basehttp 25028 3980 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 15:47:23 basehttp 25028 3980 "GET /admin/monitoring/rainfalldata/4/change/ HTTP/1.1" 200 15167
+INFO 2025-11-19 15:47:23 basehttp 25028 3980 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 15:47:33 basehttp 25028 3980 "POST /admin/monitoring/rainfalldata/4/change/ HTTP/1.1" 302 0
+INFO 2025-11-19 15:47:33 basehttp 25028 3980 "GET /admin/monitoring/rainfalldata/ HTTP/1.1" 200 15928
+INFO 2025-11-19 15:47:34 basehttp 25028 3980 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-19 15:47:34 basehttp 25028 3980 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO 2025-11-19 15:47:36 basehttp 25028 3980 "GET /home/ HTTP/1.1" 200 52767
+INFO 2025-11-19 15:47:43 views 25028 3980 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 15:47:44 views 25028 3980 API returned - Rain: 0.0mm, Temp: 29.5°C, Humidity: 75%, Wind: 20.1km/h
+INFO 2025-11-19 15:47:44 views 25028 3980 Processed 7 days of weather forecast
+INFO 2025-11-19 15:47:44 basehttp 25028 3980 "GET /monitoring/ HTTP/1.1" 200 85495
+INFO 2025-11-19 15:52:28 autoreload 25028 24180 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\models.py changed, reloading.
+INFO 2025-11-19 15:52:28 autoreload 24964 20324 Watching for file changes with StatReloader
+INFO 2025-11-19 15:52:45 basehttp 24964 21644 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-11-19 15:54:33 autoreload 24964 20324 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 15:54:33 autoreload 19644 6496 Watching for file changes with StatReloader
+INFO 2025-11-19 15:57:45 basehttp 19644 21608 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-11-19 16:01:15 autoreload 19644 6496 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\models.py changed, reloading.
+INFO 2025-11-19 16:01:16 autoreload 1564 9836 Watching for file changes with StatReloader
+INFO 2025-11-19 16:01:43 autoreload 1564 9836 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\models.py changed, reloading.
+INFO 2025-11-19 16:01:43 autoreload 9848 14500 Watching for file changes with StatReloader
+INFO 2025-11-19 16:02:45 basehttp 9848 22796 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-11-19 16:03:23 autoreload 9848 14500 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\models.py changed, reloading.
+INFO 2025-11-19 16:03:24 autoreload 25188 11104 Watching for file changes with StatReloader
+INFO 2025-11-19 16:03:58 autoreload 25188 11104 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 16:03:59 autoreload 32704 376 Watching for file changes with StatReloader
+INFO 2025-11-19 16:05:41 autoreload 32704 376 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 16:05:41 autoreload 7212 31280 Watching for file changes with StatReloader
+INFO 2025-11-19 16:05:53 autoreload 2528 20232 Watching for file changes with StatReloader
+INFO 2025-11-19 16:06:14 basehttp 7212 25628 "GET / HTTP/1.1" 302 0
+INFO 2025-11-19 16:06:14 basehttp 7212 25628 "GET /home/ HTTP/1.1" 200 52767
+INFO 2025-11-19 16:06:17 basehttp 7212 25628 "GET /home/ HTTP/1.1" 200 52767
+INFO 2025-11-19 16:06:20 views 7212 25628 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 16:06:21 views 7212 25628 API returned - Rain: 0.0mm, Temp: 29.4°C, Humidity: 76%, Wind: 19.9km/h
+INFO 2025-11-19 16:06:21 views 7212 25628 Processed 7 days of weather forecast
+INFO 2025-11-19 16:06:21 views 7212 25628 Created new rainfall record: 0.0mm
+INFO 2025-11-19 16:06:21 views 7212 25628 Created new weather record
+INFO 2025-11-19 16:06:21 views 7212 25628 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+INFO 2025-11-19 16:06:23 views 7212 25628 Created new tide record: -0.316m from WorldTides API
+INFO 2025-11-19 16:06:23 basehttp 7212 25628 "GET /monitoring/ HTTP/1.1" 200 85575
+INFO 2025-11-19 16:06:37 basehttp 7212 25628 "GET /monitoring/benchmark-settings/ HTTP/1.1" 200 41797
+INFO 2025-11-19 16:07:45 basehttp 7212 25628 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-11-19 16:08:00 basehttp 7212 25628 "POST /monitoring/benchmark-settings/ HTTP/1.1" 302 0
+INFO 2025-11-19 16:08:00 basehttp 7212 25628 "GET /monitoring/benchmark-settings/ HTTP/1.1" 200 42398
+INFO 2025-11-19 16:08:04 views 7212 25628 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 16:08:05 views 7212 25628 API returned - Rain: 0.0mm, Temp: 29.4°C, Humidity: 76%, Wind: 19.9km/h
+INFO 2025-11-19 16:08:05 views 7212 25628 Processed 7 days of weather forecast
+INFO 2025-11-19 16:08:05 basehttp 7212 25628 "GET /monitoring/ HTTP/1.1" 200 85575
+INFO 2025-11-19 16:09:50 basehttp 7212 25628 "GET /monitoring/benchmark-settings/ HTTP/1.1" 200 41796
+INFO 2025-11-19 16:12:45 basehttp 7212 25628 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-11-19 16:15:54 autoreload 7212 31280 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\models.py changed, reloading.
+INFO 2025-11-19 16:15:55 autoreload 22136 20060 Watching for file changes with StatReloader
+INFO 2025-11-19 16:17:25 autoreload 22136 20060 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 16:17:26 autoreload 32148 13116 Watching for file changes with StatReloader
+INFO 2025-11-19 16:17:43 autoreload 32148 13116 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 16:17:43 autoreload 6820 26124 Watching for file changes with StatReloader
+INFO 2025-11-19 16:17:45 basehttp 6820 15944 "GET /monitoring/api/data/ HTTP/1.1" 302 0
+INFO 2025-11-19 16:17:46 basehttp 6820 15944 "GET /?next=/monitoring/api/data/ HTTP/1.1" 200 13751
+INFO 2025-11-19 16:18:35 autoreload 6820 26124 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-11-19 16:18:36 autoreload 32624 13012 Watching for file changes with StatReloader
+INFO 2025-11-19 16:21:22 autoreload 11920 28864 Watching for file changes with StatReloader
+INFO 2025-11-19 16:21:31 basehttp 32624 17816 "GET /monitoring/benchmark-settings/ HTTP/1.1" 302 0
+INFO 2025-11-19 16:21:31 basehttp 32624 17816 "GET /?next=/monitoring/benchmark-settings/ HTTP/1.1" 200 13751
+INFO 2025-11-19 16:21:35 basehttp 32624 17816 "POST /?next=/monitoring/benchmark-settings/ HTTP/1.1" 302 0
+ERROR 2025-11-19 16:21:35 log 32624 17816 Internal Server Error: /home/
+Traceback (most recent call last):
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\views.py", line 297, in home
+    combined_risk_level, combined_risk_color = get_combined_risk_level(rain_risk_level, tide_risk_level)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py", line 56, in get_combined_risk_level
+    if rainfall_mm >= settings.rainfall_high_threshold and tide_m >= settings.tide_high_threshold:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '>=' not supported between instances of 'str' and 'float'
+ERROR 2025-11-19 16:21:35 basehttp 32624 17816 "GET /home/ HTTP/1.1" 500 94271
+INFO 2025-11-19 16:22:45 basehttp 32624 17816 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+ERROR 2025-11-19 16:24:39 log 32624 17816 Internal Server Error: /home/
+Traceback (most recent call last):
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\views.py", line 297, in home
+    combined_risk_level, combined_risk_color = get_combined_risk_level(rain_risk_level, tide_risk_level)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py", line 56, in get_combined_risk_level
+    if rainfall_mm >= settings.rainfall_high_threshold and tide_m >= settings.tide_high_threshold:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '>=' not supported between instances of 'str' and 'float'
+ERROR 2025-11-19 16:24:39 basehttp 32624 17816 "GET /home/ HTTP/1.1" 500 94271
+INFO 2025-11-19 16:24:58 autoreload 5260 4696 Watching for file changes with StatReloader
+INFO 2025-11-19 16:25:00 basehttp 5260 10148 "GET / HTTP/1.1" 302 0
+ERROR 2025-11-19 16:25:00 log 5260 10148 Internal Server Error: /home/
+Traceback (most recent call last):
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\views.py", line 297, in home
+    combined_risk_level, combined_risk_color = get_combined_risk_level(rain_risk_level, tide_risk_level)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py", line 56, in get_combined_risk_level
+    if rainfall_mm >= settings.rainfall_high_threshold and tide_m >= settings.tide_high_threshold:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '>=' not supported between instances of 'str' and 'float'
+ERROR 2025-11-19 16:25:00 basehttp 5260 10148 "GET /home/ HTTP/1.1" 500 93946
+INFO 2025-11-19 16:25:23 autoreload 5260 4696 C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\views.py changed, reloading.
+INFO 2025-11-19 16:25:24 autoreload 29612 736 Watching for file changes with StatReloader
+INFO 2025-11-19 16:25:46 basehttp 29612 15772 "GET /home/ HTTP/1.1" 200 53049
+INFO 2025-11-19 16:25:53 basehttp 29612 15772 "GET /monitoring/benchmark-settings/ HTTP/1.1" 200 43674
+INFO 2025-11-19 16:27:28 views 29612 15772 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 16:27:29 views 29612 15772 API returned - Rain: 0.0mm, Temp: 29.1°C, Humidity: 77%, Wind: 19.6km/h
+INFO 2025-11-19 16:27:29 views 29612 15772 Processed 7 days of weather forecast
+INFO 2025-11-19 16:27:29 basehttp 29612 15772 "GET /monitoring/ HTTP/1.1" 200 85575
+INFO 2025-11-19 20:20:30 basehttp 29612 29284 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-11-19 20:22:29 basehttp 29612 29808 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-11-19 20:27:29 basehttp 29612 31552 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-11-19 20:32:29 basehttp 29612 31552 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-11-19 20:37:29 basehttp 29612 31552 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-11-19 20:42:29 basehttp 29612 31552 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-11-19 20:47:29 basehttp 29612 31552 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-11-19 22:23:53 autoreload 29612 736 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\migrations\0007_remove_benchmarksettings_alert_heavy_rain_threshold_and_more.py changed, reloading.
+INFO 2025-11-19 22:23:54 autoreload 32576 22032 Watching for file changes with StatReloader
+INFO 2025-11-19 22:23:57 basehttp 32576 30396 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-11-19 22:23:57 views 32576 30396 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 22:23:59 views 32576 30396 API returned - Rain: 0.0mm, Temp: 26.5°C, Humidity: 92%, Wind: 12.0km/h
+INFO 2025-11-19 22:23:59 views 32576 30396 Processed 7 days of weather forecast
+INFO 2025-11-19 22:23:59 views 32576 30396 Created new rainfall record: 0.0mm
+INFO 2025-11-19 22:23:59 views 32576 30396 Created new weather record
+INFO 2025-11-19 22:23:59 views 32576 30396 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+INFO 2025-11-19 22:24:00 views 32576 30396 Created new tide record: 0.876m from WorldTides API
+INFO 2025-11-19 22:24:00 basehttp 32576 30396 "GET /monitoring/ HTTP/1.1" 200 85679
+INFO 2025-11-19 22:24:01 basehttp 32576 30396 "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-11-19 22:24:01 basehttp 32576 16616 "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+INFO 2025-11-19 22:24:01 basehttp 32576 9544 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 304 0
+INFO 2025-11-19 22:24:01 basehttp 32576 24348 "GET /static/images/drrmo_logo.png HTTP/1.1" 304 0
+INFO 2025-11-19 22:24:01 basehttp 32576 25456 "GET /static/js/chart.js HTTP/1.1" 304 0
+INFO 2025-11-19 22:24:01 basehttp 32576 24348 "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+INFO 2025-11-19 22:24:01 basehttp 32576 24348 "GET /static/webfonts/fa-brands-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-19 22:24:06 basehttp 32576 24348 "GET /monitoring/benchmark-settings/ HTTP/1.1" 200 43674
+INFO 2025-11-19 22:24:33 basehttp 32576 24348 "POST /monitoring/benchmark-settings/ HTTP/1.1" 302 0
+INFO 2025-11-19 22:24:33 basehttp 32576 24348 "GET /monitoring/benchmark-settings/ HTTP/1.1" 200 44267
+INFO 2025-11-19 22:24:54 basehttp 32576 24348 "GET /home/ HTTP/1.1" 200 52843
+INFO 2025-11-19 22:24:55 views 32576 24348 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 22:24:57 views 32576 24348 API returned - Rain: 0.0mm, Temp: 26.5°C, Humidity: 92%, Wind: 12.0km/h
+INFO 2025-11-19 22:24:57 views 32576 24348 Processed 7 days of weather forecast
+INFO 2025-11-19 22:24:57 basehttp 32576 24348 "GET /monitoring/ HTTP/1.1" 200 85679
+INFO 2025-11-19 22:25:29 basehttp 32576 24348 "GET /approve/ HTTP/1.1" 200 37377
+INFO 2025-11-19 22:25:29 basehttp 32576 24348 "GET /static/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-19 22:25:33 basehttp 32576 24348 "GET /maps/my-activity/ HTTP/1.1" 200 59601
+INFO 2025-11-19 22:25:46 basehttp 32576 24348 "GET /home/ HTTP/1.1" 200 52843
+INFO 2025-11-19 22:25:47 basehttp 32576 24348 "GET /home/ HTTP/1.1" 200 52843
+INFO 2025-11-19 22:25:57 basehttp 32576 24348 "GET /maps/ HTTP/1.1" 200 1043302
+INFO 2025-11-19 22:25:57 basehttp 32576 9544 "GET /static/js/ol.js HTTP/1.1" 304 0
+INFO 2025-11-19 22:25:57 basehttp 32576 24348 "GET /static/css/ol.css HTTP/1.1" 304 0
+INFO 2025-11-19 22:25:59 views 32576 24348 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-19 22:26:00 views 32576 24348 API returned - Rain: 0.0mm, Temp: 26.5°C, Humidity: 92%, Wind: 12.0km/h
+INFO 2025-11-19 22:26:00 views 32576 24348 Processed 7 days of weather forecast
+INFO 2025-11-19 22:26:00 basehttp 32576 24348 "GET /monitoring/ HTTP/1.1" 200 85679
+INFO 2025-11-19 22:26:16 basehttp 32576 24348 "GET /profile/ HTTP/1.1" 200 54969
+INFO 2025-11-19 22:27:36 basehttp 32576 24348 "GET /profile/ HTTP/1.1" 200 54959

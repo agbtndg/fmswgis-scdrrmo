@@ -233,25 +233,40 @@
             border-color: var(--secondary-blue);
         }
 
+        .metric-item:hover .metric-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
         .metric-tooltip {
             position: absolute;
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             color: white;
-            padding: 8px 12px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 400;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
             white-space: normal;
-            width: 200px;
+            width: 280px;
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, visibility 0.3s ease;
             z-index: 1000;
-            margin-top: 4px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            margin-top: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .metric-tooltip::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-bottom-color: rgba(0, 0, 0, 0.95);
         }
 
         .metric-tooltip::before {
@@ -292,7 +307,7 @@
             padding: 24px 28px;
             margin-bottom: 24px;
             border-radius: 14px;
-            color: white;
+            color: whitesmoke;
             text-align: center;
             font-size: 20px;
             font-weight: 800;
@@ -343,13 +358,9 @@
             color: #fbbf24;
         }
 
-        .risk-banner.low-risk { background-color: #10b981; }
-        .risk-banner.moderate-risk { background-color: #f59e0b; }
-        .risk-banner.high-risk { background-color: #f97316; }
-        .risk-banner.critical-risk {
-            background-color: #ef4444;
-            animation: pulse 2s infinite;
-        }
+        .risk-banner.low-risk { background-color: #fbbf24; }
+        .risk-banner.moderate-risk { background-color: #f97316; }
+        .risk-banner.high-risk { background-color: #ef4444; }
 
         @keyframes pulse {
             0%, 100% { opacity: 1; }
@@ -915,7 +926,7 @@
     </div>
 
     <!-- Flood Risk Alert Banner -->
-    <div class="risk-banner {% if 'Low Risk' in combined_risk_level %}low-risk{% elif 'Moderate Risk' in combined_risk_level %}moderate-risk{% elif 'High Risk' in combined_risk_level %}high-risk{% elif 'Critical Risk' in combined_risk_level %}critical-risk{% endif %}">
+    <div class="risk-banner {% if 'Low Risk' in combined_risk_level %}low-risk{% elif 'Moderate Risk' in combined_risk_level %}moderate-risk{% elif 'High Risk' in combined_risk_level %}high-risk{% endif %}">
         <i class="fas fa-exclamation-triangle" style="margin-right: 12px;"></i>
         Current Flood Risk: {{ combined_risk_level }}
         <div class="risk-tooltip">
@@ -931,31 +942,76 @@
             <div class="metric-item">
                 <div class="metric-label"><i class="fas fa-cloud-rain"></i> Rainfall</div>
                 <div class="metric-value" data-rainfall>{{ rainfall_data.value_mm }} mm</div>
-                <div class="metric-tooltip">Updated: {{ rainfall_data.timestamp|date:"M d, H:i" }}</div>
+                <div class="metric-tooltip">
+                    <div style="font-weight: 600; margin-bottom: 6px;">Rainfall Data</div>
+                    <div style="font-size: 11px; line-height: 1.5;">
+                        <div><strong>Value:</strong> {{ rainfall_data.value_mm }} mm</div>
+                        <div><strong>Source:</strong> Open-Meteo API</div>
+                        <div><strong>Location:</strong> Silay City (10.754°N, 123.084°E)</div>
+                        <div><strong>Updated:</strong> {{ rainfall_data.timestamp|date:"M d, Y H:i" }}</div>
+                        <div style="margin-top: 4px; padding-top: 4px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 10px;">Risk Level: {% if rainfall_data.value_mm >= 50 %}<span style="color: #ef4444;">High (≥50mm)</span>{% elif rainfall_data.value_mm >= 30 %}<span style="color: #f97316;">Moderate (30-50mm)</span>{% else %}<span style="color: #fbbf24;">Low (<30mm)</span>{% endif %}</div>
+                    </div>
+                </div>
             </div>
 
             <div class="metric-item">
                 <div class="metric-label"><i class="fas fa-thermometer-half"></i> Temperature</div>
                 <div class="metric-value" data-temperature>{{ weather_data.temperature_c }}°C</div>
-                <div class="metric-tooltip">Updated: {{ weather_data.timestamp|date:"M d, H:i" }}</div>
+                <div class="metric-tooltip">
+                    <div style="font-weight: 600; margin-bottom: 6px;">Temperature Data</div>
+                    <div style="font-size: 11px; line-height: 1.5;">
+                        <div><strong>Current:</strong> {{ weather_data.temperature_c }}°C</div>
+                        <div><strong>Source:</strong> Open-Meteo API</div>
+                        <div><strong>Sensor Height:</strong> 2 meters above ground</div>
+                        <div><strong>Updated:</strong> {{ weather_data.timestamp|date:"M d, Y H:i" }}</div>
+                        <div style="margin-top: 4px; padding-top: 4px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 10px;">Impact: {% if weather_data.temperature_c > 32 %}<span style="color: #ef4444;">High evaporation rate</span>{% else %}<span style="color: #fbbf24;">Normal conditions</span>{% endif %}</div>
+                    </div>
+                </div>
             </div>
 
             <div class="metric-item">
                 <div class="metric-label"><i class="fas fa-tint"></i> Humidity</div>
                 <div class="metric-value">{{ weather_data.humidity_percent }}%</div>
-                <div class="metric-tooltip">Updated: {{ weather_data.timestamp|date:"M d, H:i" }}</div>
+                <div class="metric-tooltip">
+                    <div style="font-weight: 600; margin-bottom: 6px;">Humidity Data</div>
+                    <div style="font-size: 11px; line-height: 1.5;">
+                        <div><strong>Current:</strong> {{ weather_data.humidity_percent }}%</div>
+                        <div><strong>Source:</strong> Open-Meteo API</div>
+                        <div><strong>Sensor Height:</strong> 2 meters above ground</div>
+                        <div><strong>Updated:</strong> {{ weather_data.timestamp|date:"M d, Y H:i" }}</div>
+                        <div style="margin-top: 4px; padding-top: 4px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 10px;">Status: {% if weather_data.humidity_percent > 85 %}<span style="color: #ef4444;">High (moisture saturation)</span>{% elif weather_data.humidity_percent > 70 %}<span style="color: #f97316;">Moderate</span>{% else %}<span style="color: #fbbf24;">Low</span>{% endif %}</div>
+                    </div>
+                </div>
             </div>
 
             <div class="metric-item">
                 <div class="metric-label"><i class="fas fa-wind"></i> Wind Speed</div>
                 <div class="metric-value">{{ weather_data.wind_speed_kph }} km/h</div>
-                <div class="metric-tooltip">Updated: {{ weather_data.timestamp|date:"M d, H:i" }}</div>
+                <div class="metric-tooltip">
+                    <div style="font-weight: 600; margin-bottom: 6px;">Wind Speed Data</div>
+                    <div style="font-size: 11px; line-height: 1.5;">
+                        <div><strong>Current:</strong> {{ weather_data.wind_speed_kph }} km/h</div>
+                        <div><strong>Source:</strong> Open-Meteo API</div>
+                        <div><strong>Sensor Height:</strong> 10 meters above ground</div>
+                        <div><strong>Updated:</strong> {{ weather_data.timestamp|date:"M d, Y H:i" }}</div>
+                        <div style="margin-top: 4px; padding-top: 4px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 10px;">Status: {% if weather_data.wind_speed_kph > 40 %}<span style="color: #ef4444;">High (storm risk)</span>{% elif weather_data.wind_speed_kph > 20 %}<span style="color: #f97316;">Moderate</span>{% else %}<span style="color: #fbbf24;">Light winds</span>{% endif %}</div>
+                    </div>
+                </div>
             </div>
 
             <div class="metric-item">
                 <div class="metric-label"><i class="fas fa-water"></i> Tide Level</div>
                 <div class="metric-value" data-tide>{{ tide_data.height_m }} m</div>
-                <div class="metric-tooltip">Updated: {{ tide_data.timestamp|date:"M d, H:i" }}</div>
+                <div class="metric-tooltip">
+                    <div style="font-weight: 600; margin-bottom: 6px;">Tide Level Data</div>
+                    <div style="font-size: 11px; line-height: 1.5;">
+                        <div><strong>Current:</strong> {{ tide_data.height_m }} m</div>
+                        <div><strong>Source:</strong> WorldTides API</div>
+                        <div><strong>Station:</strong> Cebu City (10.317°N, 123.891°E)</div>
+                        <div><strong>Updated:</strong> {{ tide_data.timestamp|date:"M d, Y H:i" }}</div>
+                        <div style="margin-top: 4px; padding-top: 4px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 10px;">Risk Level: {% if tide_data.height_m >= 1.5 %}<span style="color: #ef4444;">High (≥1.5m)</span>{% elif tide_data.height_m >= 1.0 %}<span style="color: #f97316;">Moderate (1.0-1.5m)</span>{% else %}<span style="color: #fbbf24;">Low (<1.0m)</span>{% endif %}</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

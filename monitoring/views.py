@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import JsonResponse
 from django.urls import reverse
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.views.decorators.http import require_http_methods
 import requests
-from .models import RainfallData, WeatherData, TideLevelData, FloodRecord
+from .models import RainfallData, WeatherData, TideLevelData, FloodRecord, BenchmarkSettings
 from django.utils import timezone
 from datetime import timedelta
 import json
@@ -18,46 +20,54 @@ logger = logging.getLogger(__name__)
 
 def get_flood_risk_level(rainfall_mm):
     """Determine flood risk level based on rainfall."""
-    if rainfall_mm > 100:
-        return "Critical Risk (>100mm)", "red"
-    elif rainfall_mm >= 50:
-        return "High Risk (50-100mm)", "orange"
-    elif rainfall_mm >= 30:
-        return "Moderate Risk (30-50mm)", "yellow"
+    settings = BenchmarkSettings.get_settings()
+    if rainfall_mm >= settings.rainfall_high_threshold:
+        return "High Risk (>={:.0f}mm)".format(settings.rainfall_high_threshold), "red"
+    elif rainfall_mm >= settings.rainfall_moderate_threshold:
+        return "Moderate Risk ({:.0f}-{:.0f}mm)".format(settings.rainfall_moderate_threshold, settings.rainfall_high_threshold), "orange"
     else:
-        return "Low Risk (<30mm)", "green"
+        return "Low Risk (<{:.0f}mm)".format(settings.rainfall_moderate_threshold), "yellow"
     
 
 def get_tide_risk_level(tide_m):
     """Determine tide risk level based on height."""
-    if tide_m > 2.0:
-        return "Critical Risk (>2.0m)", "red"
-    elif tide_m >= 1.5:
-        return "High Risk (1.5-2.0m)", "orange"
-    elif tide_m >= 1.0:
-        return "Moderate Risk (1.0-1.5m)", "yellow"
+    settings = BenchmarkSettings.get_settings()
+    if tide_m >= settings.tide_high_threshold:
+        return "High Risk (>={:.1f}m)".format(settings.tide_high_threshold), "red"
+    elif tide_m >= settings.tide_moderate_threshold:
+        return "Moderate Risk ({:.1f}-{:.1f}m)".format(settings.tide_moderate_threshold, settings.tide_high_threshold), "orange"
     else:
-        return "Low Risk (<1.0m)", "green"
+        return "Low Risk (<{:.1f}m)".format(settings.tide_moderate_threshold), "yellow"
     
 
-def get_combined_risk_level(rain_risk, tide_risk):
-    """Determine combined risk level based on the higher of rain or tide risk."""
-    risk_levels = {"Low Risk": 1, "Moderate Risk": 2, "High Risk": 3, "Critical Risk": 4}
-    rain_level = max(risk_levels.get(rain_risk.split('(')[0].strip(), 1), 1)
-    tide_level = max(risk_levels.get(tide_risk.split('(')[0].strip(), 1), 1)
-    combined_level = max(rain_level, tide_level)
-    if combined_level == 4:
-        return "Critical Risk", "red"
-    elif combined_level == 3:
-        return "High Risk", "orange"
-    elif combined_level == 2:
-        return "Moderate Risk", "yellow"
-    else:
-        return "Low Risk", "green"
+def get_combined_risk_level(rainfall_mm, tide_m):
+    """
+    Determine combined risk level based on threshold-based logic.
+    Both rainfall AND tide must meet thresholds to trigger that risk level.
+    
+    Example with defaults:
+    - Rainfall 32mm + Tide 0.3m = Low (rainfall met moderate threshold but tide didn't)
+    - Rainfall 32mm + Tide 1.0m = Moderate (both met moderate thresholds)
+    - Rainfall 50mm + Tide 1.5m = High (both met high thresholds)
+    """
+    settings = BenchmarkSettings.get_settings()
+    
+    # Check HIGH RISK: Both rainfall AND tide must meet high thresholds
+    if rainfall_mm >= settings.rainfall_high_threshold and tide_m >= settings.tide_high_threshold:
+        return "High Risk", "red"
+    
+    # Check MODERATE RISK: Both rainfall AND tide must meet moderate thresholds
+    if rainfall_mm >= settings.rainfall_moderate_threshold and tide_m >= settings.tide_moderate_threshold:
+        return "Moderate Risk", "orange"
+    
+    # Otherwise: LOW RISK
+    return "Low Risk", "yellow"
 
 
 def generate_flood_insights(weather_forecast, rainfall_data, tide_data, flood_records):
     """Generate intelligent flood prediction insights based on forecast data and historical patterns."""
+    settings = BenchmarkSettings.get_settings()
+    
     insights = {
         'risk_alerts': [],
         'forecast_analysis': [],
@@ -69,19 +79,20 @@ def generate_flood_insights(weather_forecast, rainfall_data, tide_data, flood_re
     if not weather_forecast:
         return insights
 
-    # Analyze forecast for high-risk periods
+    # Analyze forecast for high-risk periods based on rainfall benchmarks
     high_risk_days = []
     total_precipitation = 0
     max_precipitation = 0
-    heavy_rain_days = 0
+    high_rainfall_days = 0
 
     for i, day in enumerate(weather_forecast):
         precip = day.get('precipitation', 0)
         total_precipitation += precip
         max_precipitation = max(max_precipitation, precip)
 
-        if precip > 15:  # Heavy rainfall threshold
-            heavy_rain_days += 1
+        # Check if precipitation exceeds high risk threshold
+        if precip >= settings.rainfall_high_threshold:
+            high_rainfall_days += 1
             high_risk_days.append({
                 'day': i + 1,
                 'date': day.get('formatted_date', f'Day {i+1}'),
@@ -89,20 +100,20 @@ def generate_flood_insights(weather_forecast, rainfall_data, tide_data, flood_re
                 'risk_level': 'high'
             })
 
-    # Generate risk alerts
-    if heavy_rain_days > 0:
+    # Generate risk alerts based on rainfall thresholds
+    if high_rainfall_days > 0:
         insights['risk_alerts'].append({
             'type': 'warning',
-            'title': f'Heavy Rainfall Alert',
-            'message': f'{heavy_rain_days} day(s) with heavy rainfall (>15mm) predicted in the next 7 days',
+            'title': f'High Rainfall Alert',
+            'message': f'{high_rainfall_days} day(s) with rainfall ≥ {settings.rainfall_high_threshold}mm predicted in the next 7 days',
             'severity': 'high'
         })
         insights['severity'] = 'high'
 
-    if total_precipitation > 50:
+    if total_precipitation >= settings.rainfall_high_threshold * 2:
         insights['risk_alerts'].append({
             'type': 'warning',
-            'title': 'High Precipitation Volume',
+            'title': 'High Total Precipitation',
             'message': f'Total precipitation of {total_precipitation:.1f}mm expected over 7 days',
             'severity': 'medium'
         })
@@ -416,7 +427,11 @@ def monitoring_view(request):
     # Determine flood risk levels
     rain_risk_level, rain_risk_color = get_flood_risk_level(rainfall_data.value_mm if rainfall_data else 0)
     tide_risk_level, tide_risk_color = get_tide_risk_level(tide_data.height_m if tide_data else 0)
-    combined_risk_level, combined_risk_color = get_combined_risk_level(rain_risk_level, tide_risk_level)
+    
+    # Get current rainfall and tide values for combined risk calculation
+    current_rainfall_mm = rainfall_data.value_mm if rainfall_data else 0
+    current_tide_m = tide_data.height_m if tide_data else 0
+    combined_risk_level, combined_risk_color = get_combined_risk_level(current_rainfall_mm, current_tide_m)
 
     # Get earliest and latest data dates for date picker constraints
     earliest_rainfall = RainfallData.objects.order_by('timestamp').first()
@@ -772,4 +787,70 @@ def flood_record_delete(request, record_id):
     
     return render(request, 'monitoring/flood_record_delete.html', {
         'record': flood_record
+    })
+
+
+def is_staff_user(user):
+    """Check if user is a staff member"""
+    return user.is_staff
+
+
+@login_required
+@user_passes_test(is_staff_user)
+@require_http_methods(["GET", "POST"])
+def benchmark_settings_view(request):
+    """View for managing benchmark settings (admin only)"""
+    settings = BenchmarkSettings.get_settings()
+    
+    if request.method == 'POST':
+        try:
+            # Get form data
+            rainfall_moderate = float(request.POST.get('rainfall_moderate_threshold', 30))
+            rainfall_high = float(request.POST.get('rainfall_high_threshold', 50))
+            tide_moderate = float(request.POST.get('tide_moderate_threshold', 1.0))
+            tide_high = float(request.POST.get('tide_high_threshold', 1.5))
+            
+            # Validation
+            errors = []
+            if rainfall_moderate >= rainfall_high:
+                errors.append("Rainfall moderate threshold must be less than high threshold")
+            if tide_moderate >= tide_high:
+                errors.append("Tide moderate threshold must be less than high threshold")
+            if rainfall_moderate <= 0 or rainfall_high <= 0:
+                errors.append("Rainfall thresholds must be positive")
+            if tide_moderate <= 0 or tide_high <= 0:
+                errors.append("Tide thresholds must be positive")
+            
+            if errors:
+                for error in errors:
+                    messages.error(request, f"❌ {error}")
+                return render(request, 'monitoring/benchmark_settings.html', {
+                    'settings': settings,
+                    'errors': errors
+                })
+            
+            # Update settings
+            settings.rainfall_moderate_threshold = rainfall_moderate
+            settings.rainfall_high_threshold = rainfall_high
+            settings.tide_moderate_threshold = tide_moderate
+            settings.tide_high_threshold = tide_high
+            settings.updated_by = request.user.get_full_name() or request.user.username
+            settings.save()
+            
+            messages.success(request, "✅ Benchmark settings updated successfully!")
+            return redirect('benchmark_settings')
+        
+        except ValueError as e:
+            messages.error(request, f"❌ Invalid input: Please enter valid numbers")
+            return render(request, 'monitoring/benchmark_settings.html', {
+                'settings': settings
+            })
+        except Exception as e:
+            messages.error(request, f"❌ An error occurred: {str(e)}")
+            return render(request, 'monitoring/benchmark_settings.html', {
+                'settings': settings
+            })
+    
+    return render(request, 'monitoring/benchmark_settings.html', {
+        'settings': settings
     })

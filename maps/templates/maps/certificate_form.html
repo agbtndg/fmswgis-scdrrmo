@@ -321,18 +321,61 @@
             border-left: 4px solid #fca5a5;
         }
 
-        @keyframes slideIn {
-            from {
-                transform: translateX(400px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 16px 24px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3);
+            display: none;
+            z-index: 1050;
+            animation: slideIn 0.3s ease-out;
+            border-left: 4px solid #fca5a5;
         }
 
-        @media (max-width: 768px) {
+        /* Zone Status Tooltip */
+        .zone-status-container {
+            position: relative;
+        }
+
+        .zone-status-tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 1000;
+            margin-bottom: 8px;
+            box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .zone-status-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 16px;
+            border: 6px solid transparent;
+            border-top-color: #1e3a5f;
+        }
+
+        .zone-status-container:hover .zone-status-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
             .form-row {
                 grid-template-columns: 1fr;
             }
@@ -361,7 +404,6 @@
                 padding: 12px 20px;
                 font-size: 13px;
             }
-        }
 
         @media (max-width: 480px) {
             .form-container {
@@ -464,20 +506,23 @@
                 <div class="hint">Street name, sitio, or specific location within the barangay</div>
             </div>
 
+            <!-- Zone Status -->
+            <div class="form-group zone-status-container">
+                <label for="zone_status">Zone Status *</label>
+                <div class="zone-status-tooltip" id="zone-suggestion">
+                    Based on the flood risk susceptibility assessment of the location, the recommended zone status is: <strong>{{ zone_status }}</strong>
+                </div>
+                <input type="text" id="zone_status" name="zone_status" required
+                       placeholder="e.g., SAFE ZONE">
+                <div class="hint">Hover to see the suggested zone status based on flood susceptibility level</div>
+            </div>
+
             <!-- Auto-filled Information Section -->
             <div style="margin-bottom: 32px; margin-top: 32px; padding: 20px; background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 100%); border-left: 4px solid var(--secondary-blue); border-radius: 8px;">
                 <p style="font-size: 13px; font-weight: 600; color: #0c4a6e; margin: 0; display: flex; align-items: center; gap: 8px;">
                     <span style="font-size: 16px;">🔒</span>
                     <span>These fields are automatically filled</span>
                 </p>
-            </div>
-
-            <!-- Zone Status -->
-            <div class="form-group">
-                <label for="zone_status" class="readonly">Zone Status</label>
-                <input type="text" id="zone_status" name="zone_status" required readonly
-                       value="{{ zone_status }}">
-                <div class="hint">Automatically set based on flood susceptibility level</div>
             </div>
 
             <!-- Issue Date -->
