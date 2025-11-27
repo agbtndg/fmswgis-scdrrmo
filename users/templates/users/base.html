@@ -347,6 +347,12 @@
             width: 40px;
             border-radius: 8px;
         }
+        .navbar-title-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            line-height: 1.2;
+        }
         .navbar-title {
             font-size: 22px;
             font-weight: 800;
@@ -355,6 +361,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+        .navbar-subtitle {
+            font-size: 11px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.75);
+            letter-spacing: 0.3px;
         }
         .navbar-center {
             display: flex;
@@ -518,6 +530,9 @@
             .navbar-title {
                 font-size: 16px;
             }
+            .navbar-subtitle {
+                font-size: 9px;
+            }
             .navbar-logo {
                 height: 32px;
                 width: 32px;
@@ -536,7 +551,10 @@
         <div class="navbar-left">
             <a href="{% url 'home' %}" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit;">
                 <img src="{% static 'images/drrmo_logo.png' %}" alt="SCDRRMO Logo" class="navbar-logo">
-                <span class="navbar-title">SCDRRMO</span>
+                <div class="navbar-title-wrapper">
+                    <span class="navbar-title">SCDRRMO</span>
+                    <span class="navbar-subtitle">Flood Monitoring System with GIS</span>
+                </div>
             </a>
         </div>
         <div class="navbar-center">

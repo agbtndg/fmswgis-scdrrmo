@@ -8370,3 +8370,811 @@ LINE 1: ...itoring_benchmarksettings"."tide_high_threshold", "monitorin...
                                                              ^
 
 ERROR 2025-11-23 23:01:07 basehttp 17352 24804 "GET /home/ HTTP/1.1" 500 173721
+INFO 2025-11-23 23:04:27 autoreload 15552 20736 Watching for file changes with StatReloader
+INFO 2025-11-23 23:04:29 basehttp 15552 17956 "GET / HTTP/1.1" 302 0
+ERROR 2025-11-23 23:04:29 log 15552 17956 Internal Server Error: /home/
+Traceback (most recent call last):
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column monitoring_benchmarksettings.combined_risk_method does not exist
+LINE 1: ...itoring_benchmarksettings"."tide_high_threshold", "monitorin...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\users\views.py", line 336, in home
+    rain_risk_level, rain_risk_color = get_flood_risk_level(rainfall_data.value_mm)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py", line 23, in get_flood_risk_level
+    settings = BenchmarkSettings.get_settings()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\models.py", line 92, in get_settings
+    settings, created = cls.objects.get_or_create(pk=1)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 946, in get_or_create
+    return self.get(**kwargs), False
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1949, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column monitoring_benchmarksettings.combined_risk_method does not exist
+LINE 1: ...itoring_benchmarksettings"."tide_high_threshold", "monitorin...
+                                                             ^
+
+ERROR 2025-11-23 23:04:29 basehttp 15552 17956 "GET /home/ HTTP/1.1" 500 171654
+INFO 2025-11-23 23:07:52 basehttp 15552 17956 "GET /home/ HTTP/1.1" 200 59811
+INFO 2025-11-23 23:07:52 basehttp 15552 17956 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 304 0
+INFO 2025-11-23 23:07:52 basehttp 15552 17956 "GET /static/webfonts/fa-brands-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-23 23:08:01 basehttp 15552 17956 "GET /home/ HTTP/1.1" 200 59589
+INFO 2025-11-23 23:08:02 views 15552 17956 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-23 23:08:04 views 15552 17956 API returned - Rain: 0.0mm, Temp: 26.4°C, Humidity: 91%, Wind: 17.6km/h
+INFO 2025-11-23 23:08:04 views 15552 17956 Processed 7 days of weather forecast
+INFO 2025-11-23 23:08:04 views 15552 17956 Created new rainfall record: 0.0mm
+INFO 2025-11-23 23:08:04 views 15552 17956 Created new weather record
+INFO 2025-11-23 23:08:04 views 15552 17956 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+INFO 2025-11-23 23:08:05 views 15552 17956 Created new tide record: 0.985m from WorldTides API
+INFO 2025-11-23 23:08:06 basehttp 15552 17956 "GET /monitoring/ HTTP/1.1" 200 92613
+INFO 2025-11-23 23:08:06 basehttp 15552 17956 "GET /static/js/chart.js HTTP/1.1" 304 0
+INFO 2025-11-23 23:08:26 basehttp 15552 17956 "GET /home/ HTTP/1.1" 200 60044
+INFO 2025-11-23 23:08:45 basehttp 15552 17956 "GET /maps/ HTTP/1.1" 200 1044535
+INFO 2025-11-23 23:08:45 basehttp 15552 5044 "GET /static/js/ol.js HTTP/1.1" 304 0
+INFO 2025-11-23 23:08:45 basehttp 15552 17956 "GET /static/css/ol.css HTTP/1.1" 304 0
+INFO 2025-11-23 23:08:51 views 15552 17956 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-23 23:08:52 views 15552 17956 API returned - Rain: 0.0mm, Temp: 26.4°C, Humidity: 91%, Wind: 17.6km/h
+INFO 2025-11-23 23:08:52 views 15552 17956 Processed 7 days of weather forecast
+INFO 2025-11-23 23:08:52 basehttp 15552 17956 "GET /monitoring/ HTTP/1.1" 200 92613
+INFO 2025-11-23 23:09:02 basehttp 15552 17956 "GET /maps/my-activity/ HTTP/1.1" 200 60277
+INFO 2025-11-23 23:09:02 basehttp 15552 17956 "GET /static/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-23 23:09:09 basehttp 15552 17956 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-23 23:09:10 basehttp 15552 17956 "GET / HTTP/1.1" 200 14056
+INFO 2025-11-23 23:09:15 basehttp 15552 17956 "POST / HTTP/1.1" 302 0
+INFO 2025-11-23 23:09:16 basehttp 15552 17956 "GET /home/ HTTP/1.1" 200 69758
+INFO 2025-11-23 23:09:16 basehttp 15552 17956 "GET /media/profile_images/istockphoto-1192049556-612x612.webp HTTP/1.1" 304 0
+INFO 2025-11-23 23:09:16 basehttp 15552 5044 "GET /media/profile_images/rooftop5.jpg HTTP/1.1" 304 0
+INFO 2025-11-23 23:09:52 basehttp 15552 5044 "GET /approve/ HTTP/1.1" 200 41423
+INFO 2025-11-23 23:09:56 basehttp 15552 5044 "POST /approve/ HTTP/1.1" 302 0
+INFO 2025-11-23 23:09:57 basehttp 15552 5044 "GET /approve/ HTTP/1.1" 200 40610
+INFO 2025-11-23 23:10:01 basehttp 15552 5044 "GET /maps/my-activity/ HTTP/1.1" 200 67489
+INFO 2025-11-23 23:10:04 basehttp 15552 5044 "GET /maps/all-activities/ HTTP/1.1" 200 132050
+INFO 2025-11-23 23:10:07 basehttp 15552 5044 "GET /maps/all-activities/?date_range=7&tab=assessments HTTP/1.1" 200 132038
+INFO 2025-11-23 23:10:12 basehttp 15552 5044 "GET /maps/all-activities/?tab=assessments&show_all=1 HTTP/1.1" 200 131534
+INFO 2025-11-23 23:10:14 basehttp 15552 5044 "GET /maps/all-activities/?tab=assessments&date_range=90 HTTP/1.1" 200 132049
+INFO 2025-11-23 23:10:16 basehttp 15552 5044 "GET /maps/all-activities/?tab=assessments&date_range=30 HTTP/1.1" 200 132048
+INFO 2025-11-23 23:10:17 basehttp 15552 5044 "GET /maps/all-activities/?tab=assessments&date_range=7 HTTP/1.1" 200 132036
+INFO 2025-11-23 23:10:29 basehttp 15552 5044 "GET /maps/all-activities/?tab=assessments&date_range=7&search=&per_page=25&user=&date=&date_from=&date_to=&sort=oldest HTTP/1.1" 200 132024
+INFO 2025-11-23 23:10:36 basehttp 15552 5044 "GET /home/ HTTP/1.1" 200 69577
+INFO 2025-11-23 23:10:37 basehttp 15552 5044 "GET /home/ HTTP/1.1" 200 69577
+INFO 2025-11-23 23:10:50 basehttp 15552 5044 "GET /home/ HTTP/1.1" 200 69577
+INFO 2025-11-23 23:18:57 basehttp 15552 8152 "GET /home/ HTTP/1.1" 200 70156
+INFO 2025-11-23 23:19:04 basehttp 15552 8152 "GET /maps/ HTTP/1.1" 200 1045741
+INFO 2025-11-23 23:19:06 basehttp 15552 8152 "GET /home/ HTTP/1.1" 200 70156
+INFO 2025-11-23 23:32:47 basehttp 15552 28956 "GET /home/ HTTP/1.1" 200 70156
+INFO 2025-11-23 23:37:26 basehttp 15552 28956 "GET /admin HTTP/1.1" 301 0
+INFO 2025-11-23 23:37:26 basehttp 15552 3744 "GET /admin/ HTTP/1.1" 200 13982
+INFO 2025-11-23 23:37:27 basehttp 15552 30056 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-11-23 23:37:27 basehttp 15552 27452 "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+INFO 2025-11-23 23:37:27 basehttp 15552 836 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2025-11-23 23:37:27 basehttp 15552 3744 "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+INFO 2025-11-23 23:37:27 basehttp 15552 12528 "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2025-11-23 23:37:27 basehttp 15552 5076 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2025-11-23 23:37:27 basehttp 15552 12528 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-11-23 23:37:27 basehttp 15552 12528 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-11-23 23:37:27 basehttp 15552 5076 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-11-23 23:54:38 basehttp 15552 20464 "GET /admin/maps/assessmentrecord/ HTTP/1.1" 200 18998
+INFO 2025-11-23 23:54:38 basehttp 15552 20464 "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+INFO 2025-11-23 23:54:38 basehttp 15552 22316 "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-11-23 23:54:38 basehttp 15552 26936 "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2025-11-23 23:54:38 basehttp 15552 22316 "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-11-23 23:54:38 basehttp 15552 20464 "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2025-11-23 23:54:38 basehttp 15552 8124 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2025-11-23 23:54:38 basehttp 15552 26936 "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-11-23 23:54:38 basehttp 15552 19772 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2025-11-23 23:54:38 basehttp 15552 20464 "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2025-11-23 23:54:38 basehttp 15552 22316 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2025-11-23 23:54:38 basehttp 15552 22316 "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2025-11-23 23:54:38 basehttp 15552 19620 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-23 23:54:38 basehttp 15552 19620 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2025-11-23 23:54:38 basehttp 15552 20464 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2025-11-23 23:54:38 basehttp 15552 22316 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+INFO 2025-11-23 23:54:41 basehttp 15552 22316 "GET /admin/maps/assessmentrecord/38/change/ HTTP/1.1" 200 21040
+INFO 2025-11-23 23:54:41 basehttp 15552 19772 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2025-11-23 23:54:41 basehttp 15552 19620 "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+INFO 2025-11-23 23:54:41 basehttp 15552 20464 "GET /static/admin/js/calendar.js HTTP/1.1" 200 9141
+INFO 2025-11-23 23:54:41 basehttp 15552 22316 "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+INFO 2025-11-23 23:54:41 basehttp 15552 22316 "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2025-11-23 23:54:41 basehttp 15552 20464 "GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+INFO 2025-11-23 23:54:41 basehttp 15552 26936 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-23 23:54:41 basehttp 15552 22316 "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+INFO 2025-11-23 23:54:41 basehttp 15552 26936 "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+INFO 2025-11-23 23:54:58 basehttp 15552 26936 "GET /admin/ HTTP/1.1" 200 13982
+INFO 2025-11-23 23:55:00 basehttp 15552 26936 "GET /admin/auth/group/ HTTP/1.1" 200 13720
+INFO 2025-11-23 23:55:00 basehttp 15552 26936 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-23 23:55:02 basehttp 15552 26936 "GET /admin/maps/reportrecord/ HTTP/1.1" 200 18454
+INFO 2025-11-23 23:55:02 basehttp 15552 26936 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-23 23:55:04 basehttp 15552 26936 "GET /admin/maps/certificaterecord/ HTTP/1.1" 200 19317
+INFO 2025-11-23 23:55:05 basehttp 15552 26936 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-23 23:55:06 basehttp 15552 26936 "GET /admin/maps/floodsusceptibility/ HTTP/1.1" 200 40554
+INFO 2025-11-23 23:55:06 basehttp 15552 26936 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-23 23:55:08 basehttp 15552 26936 "GET /admin/maps/barangay/ HTTP/1.1" 200 20831
+INFO 2025-11-23 23:55:08 basehttp 15552 26936 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-23 23:55:15 basehttp 15552 26936 "GET /admin/maps/floodsusceptibility/ HTTP/1.1" 200 40554
+INFO 2025-11-23 23:55:16 basehttp 15552 26936 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-23 23:55:20 basehttp 15552 26936 "GET /admin/maps/floodsusceptibility/54/change/ HTTP/1.1" 200 89000
+INFO 2025-11-23 23:55:20 basehttp 15552 22316 "GET /static/gis/js/OLMapWidget.js HTTP/1.1" 200 9019
+INFO 2025-11-23 23:55:20 basehttp 15552 26936 "GET /static/gis/css/ol3.css HTTP/1.1" 200 773
+INFO 2025-11-23 23:55:20 basehttp 15552 20464 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-23 23:55:32 basehttp 15552 20464 "GET /admin/ HTTP/1.1" 200 13982
+INFO 2025-11-24 00:01:24 basehttp 15552 14644 "GET /admin/monitoring/floodrecord/ HTTP/1.1" 200 15665
+INFO 2025-11-24 00:01:24 basehttp 15552 14644 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-24 00:01:26 basehttp 15552 14644 "GET /admin/monitoring/floodrecord/7/change/ HTTP/1.1" 200 24531
+INFO 2025-11-24 00:01:26 basehttp 15552 14644 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-24 00:05:33 basehttp 15552 14644 "GET /maps/my-activity/ HTTP/1.1" 200 68048
+INFO 2025-11-24 16:08:28 basehttp 15552 6968 "GET /home/ HTTP/1.1" 200 70156
+INFO 2025-11-24 16:08:28 basehttp 15552 16028 "GET /media/profile_images/rooftop5.jpg HTTP/1.1" 304 0
+INFO 2025-11-24 16:08:28 basehttp 15552 6968 "GET /media/profile_images/istockphoto-1192049556-612x612.webp HTTP/1.1" 304 0
+INFO 2025-11-24 16:09:00 basehttp 15552 6968 "GET /maps/ HTTP/1.1" 200 1045741
+INFO 2025-11-24 16:09:28 basehttp 15552 6968 "GET /approve/ HTTP/1.1" 200 40955
+INFO 2025-11-24 16:59:10 views 15552 7864 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-24 16:59:11 views 15552 7864 API returned - Rain: 0.0mm, Temp: 26.6°C, Humidity: 93%, Wind: 15.3km/h
+INFO 2025-11-24 16:59:11 views 15552 7864 Processed 7 days of weather forecast
+INFO 2025-11-24 16:59:11 views 15552 7864 Created new rainfall record: 0.0mm
+INFO 2025-11-24 16:59:11 views 15552 7864 Created new weather record
+INFO 2025-11-24 16:59:11 views 15552 7864 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+INFO 2025-11-24 16:59:13 views 15552 7864 Created new tide record: -0.259m from WorldTides API
+INFO 2025-11-24 16:59:13 basehttp 15552 7864 "GET /monitoring/ HTTP/1.1" 200 93877
+INFO 2025-11-24 16:59:13 basehttp 15552 4976 "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+INFO 2025-11-24 16:59:13 basehttp 15552 7864 "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-11-24 16:59:13 basehttp 15552 7864 "GET /static/images/drrmo_logo.png HTTP/1.1" 304 0
+INFO 2025-11-24 16:59:13 basehttp 15552 4976 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 304 0
+INFO 2025-11-24 16:59:13 basehttp 15552 30088 "GET /static/js/chart.js HTTP/1.1" 304 0
+INFO 2025-11-24 16:59:13 basehttp 15552 30088 "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+INFO 2025-11-24 16:59:13 basehttp 15552 30088 "GET /static/webfonts/fa-brands-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-24 16:59:49 basehttp 15552 30088 "GET /home/ HTTP/1.1" 200 70157
+INFO 2025-11-24 16:59:59 basehttp 15552 30088 "GET /maps/ HTTP/1.1" 200 1045741
+INFO 2025-11-24 16:59:59 basehttp 15552 30088 "GET /static/css/ol.css HTTP/1.1" 304 0
+INFO 2025-11-24 16:59:59 basehttp 15552 4976 "GET /static/js/ol.js HTTP/1.1" 304 0
+INFO 2025-11-24 17:01:44 views 15552 30088 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-24 17:01:45 views 15552 30088 API returned - Rain: 0.0mm, Temp: 26.5°C, Humidity: 93%, Wind: 15.3km/h
+INFO 2025-11-24 17:01:45 views 15552 30088 Processed 7 days of weather forecast
+INFO 2025-11-24 17:01:45 basehttp 15552 30088 "GET /monitoring/ HTTP/1.1" 200 93877
+INFO 2025-11-24 17:01:46 basehttp 15552 30088 "GET /home/ HTTP/1.1" 200 70157
+INFO 2025-11-24 17:06:57 basehttp 15552 30508 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-24 17:06:58 basehttp 15552 30508 "GET / HTTP/1.1" 200 14056
+WARNING 2025-11-24 17:07:08 log 15552 30508 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-24 17:07:08 basehttp 15552 30508 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5029
+INFO 2025-11-24 17:07:08 basehttp 15552 30508 "GET /static/css/bootstrap.min.css.map HTTP/1.1" 200 589892
+INFO 2025-11-24 17:15:53 autoreload 5092 24356 Watching for file changes with StatReloader
+INFO 2025-11-24 17:15:59 basehttp 5092 25712 "GET / HTTP/1.1" 200 14056
+INFO 2025-11-24 17:18:04 autoreload 29232 21380 Watching for file changes with StatReloader
+INFO 2025-11-24 17:22:47 autoreload 29232 21380 C:\Users\aldri\Flood-Monitoring-System-with-GIS\silay_drrmo\settings.py changed, reloading.
+INFO 2025-11-24 17:24:29 autoreload 28584 8052 Watching for file changes with StatReloader
+INFO 2025-11-24 17:24:31 basehttp 28584 2936 "GET / HTTP/1.1" 200 14056
+INFO 2025-11-24 17:24:47 autoreload 28584 8052 C:\Users\aldri\Flood-Monitoring-System-with-GIS\silay_drrmo\settings.py changed, reloading.
+INFO 2025-11-24 17:24:47 autoreload 23588 1360 Watching for file changes with StatReloader
+ERROR 2025-11-24 17:25:19 log 23588 14932 Invalid HTTP_HOST header: 'zoe-sonic-katy.ngrok-free.dev'. You may need to add 'zoe-sonic-katy.ngrok-free.dev' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'zoe-sonic-katy.ngrok-free.dev'. You may need to add 'zoe-sonic-katy.ngrok-free.dev' to ALLOWED_HOSTS.
+WARNING 2025-11-24 17:25:19 basehttp 23588 14932 "GET / HTTP/1.1" 400 85256
+ERROR 2025-11-24 17:25:19 log 23588 21800 Invalid HTTP_HOST header: 'zoe-sonic-katy.ngrok-free.dev'. You may need to add 'zoe-sonic-katy.ngrok-free.dev' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'zoe-sonic-katy.ngrok-free.dev'. You may need to add 'zoe-sonic-katy.ngrok-free.dev' to ALLOWED_HOSTS.
+WARNING 2025-11-24 17:25:19 basehttp 23588 21800 "GET /favicon.ico HTTP/1.1" 400 84953
+INFO 2025-11-24 17:25:47 autoreload 23588 1360 C:\Users\aldri\Flood-Monitoring-System-with-GIS\silay_drrmo\settings.py changed, reloading.
+INFO 2025-11-24 17:25:47 autoreload 2076 22512 Watching for file changes with StatReloader
+INFO 2025-11-24 17:25:50 autoreload 2076 22512 C:\Users\aldri\Flood-Monitoring-System-with-GIS\silay_drrmo\settings.py changed, reloading.
+INFO 2025-11-24 17:25:50 autoreload 16600 9464 Watching for file changes with StatReloader
+ERROR 2025-11-24 17:25:55 log 16600 28540 Invalid HTTP_HOST header: 'zoe-sonic-katy.ngrok-free.dev'. You may need to add 'zoe-sonic-katy.ngrok-free.dev' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'zoe-sonic-katy.ngrok-free.dev'. You may need to add 'zoe-sonic-katy.ngrok-free.dev' to ALLOWED_HOSTS.
+WARNING 2025-11-24 17:25:55 basehttp 16600 28540 "GET / HTTP/1.1" 400 85319
+ERROR 2025-11-24 17:25:55 log 16600 15552 Invalid HTTP_HOST header: 'zoe-sonic-katy.ngrok-free.dev'. You may need to add 'zoe-sonic-katy.ngrok-free.dev' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'zoe-sonic-katy.ngrok-free.dev'. You may need to add 'zoe-sonic-katy.ngrok-free.dev' to ALLOWED_HOSTS.
+WARNING 2025-11-24 17:25:55 basehttp 16600 15552 "GET /favicon.ico HTTP/1.1" 400 85016
+ERROR 2025-11-24 17:26:07 log 16600 10876 Invalid HTTP_HOST header: 'zoe-sonic-katy.ngrok-free.dev'. You may need to add 'zoe-sonic-katy.ngrok-free.dev' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'zoe-sonic-katy.ngrok-free.dev'. You may need to add 'zoe-sonic-katy.ngrok-free.dev' to ALLOWED_HOSTS.
+WARNING 2025-11-24 17:26:07 basehttp 16600 10876 "GET / HTTP/1.1" 400 85319
+ERROR 2025-11-24 17:26:07 log 16600 18296 Invalid HTTP_HOST header: 'zoe-sonic-katy.ngrok-free.dev'. You may need to add 'zoe-sonic-katy.ngrok-free.dev' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\Flood-Monitoring-System-with-GIS\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'zoe-sonic-katy.ngrok-free.dev'. You may need to add 'zoe-sonic-katy.ngrok-free.dev' to ALLOWED_HOSTS.
+WARNING 2025-11-24 17:26:07 basehttp 16600 18296 "GET /favicon.ico HTTP/1.1" 400 85016
+INFO 2025-11-24 17:26:23 autoreload 16600 9464 C:\Users\aldri\Flood-Monitoring-System-with-GIS\silay_drrmo\settings.py changed, reloading.
+INFO 2025-11-24 17:26:23 autoreload 24944 23144 Watching for file changes with StatReloader
+INFO 2025-11-24 17:26:29 autoreload 24944 23144 C:\Users\aldri\Flood-Monitoring-System-with-GIS\silay_drrmo\settings.py changed, reloading.
+INFO 2025-11-24 17:26:29 autoreload 29856 23160 Watching for file changes with StatReloader
+INFO 2025-11-24 17:26:36 basehttp 29856 5560 "GET / HTTP/1.1" 200 14056
+INFO 2025-11-24 17:26:36 basehttp 29856 5560 "GET /static/css/font-awesome.min.css HTTP/1.1" 200 89225
+INFO 2025-11-24 17:26:36 basehttp 29856 14060 "GET /static/css/bootstrap.min.css HTTP/1.1" 200 232953
+INFO 2025-11-24 17:26:36 basehttp 29856 14368 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 17:26:36 basehttp 29856 14368 "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 126828
+WARNING 2025-11-24 17:26:36 log 29856 14368 Not Found: /favicon.ico
+WARNING 2025-11-24 17:26:36 basehttp 29856 14368 "GET /favicon.ico HTTP/1.1" 404 4933
+WARNING 2025-11-24 17:26:49 log 29856 15860 Not Found: /robots.txt
+WARNING 2025-11-24 17:26:49 basehttp 29856 15860 "GET /robots.txt HTTP/1.1" 404 4930
+INFO 2025-11-24 17:26:50 basehttp 29856 3308 "GET / HTTP/1.1" 200 14056
+INFO 2025-11-24 17:26:51 basehttp 29856 25088 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 17:27:02 basehttp 29856 4188 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 17:27:02 basehttp 29856 23388 "GET / HTTP/1.1" 200 14056
+INFO 2025-11-24 17:27:04 basehttp 29856 11068 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 17:27:12 basehttp 29856 5468 "GET /?fbclid=IwY2xjawORBDpleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR6zeaIpVcOS0Jbpa1pYYui8NM4Z1Zom8BzX1IY_XKbSLURbANoUu-eeo1kWRw_aem_64Uqd2cYdpGw9g55788Wbw HTTP/1.1" 200 14056
+INFO 2025-11-24 17:27:13 basehttp 29856 5468 "GET /static/css/bootstrap.min.css HTTP/1.1" 200 232953
+INFO 2025-11-24 17:27:13 basehttp 29856 23528 "GET /static/css/font-awesome.min.css HTTP/1.1" 200 89225
+INFO 2025-11-24 17:27:13 basehttp 29856 5140 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 17:27:13 basehttp 29856 5140 "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 126828
+WARNING 2025-11-24 17:27:13 log 29856 5140 Not Found: /favicon.ico
+WARNING 2025-11-24 17:27:13 basehttp 29856 5140 "GET /favicon.ico HTTP/1.1" 404 4933
+INFO 2025-11-24 17:27:15 basehttp 29856 14932 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 17:27:27 basehttp 29856 5140 "POST /?fbclid=IwY2xjawORBDpleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR6zeaIpVcOS0Jbpa1pYYui8NM4Z1Zom8BzX1IY_XKbSLURbANoUu-eeo1kWRw_aem_64Uqd2cYdpGw9g55788Wbw HTTP/1.1" 302 0
+INFO 2025-11-24 17:27:27 basehttp 29856 5140 "GET /home/ HTTP/1.1" 200 60841
+INFO 2025-11-24 17:27:27 basehttp 29856 5140 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 200 80669
+INFO 2025-11-24 17:27:28 basehttp 29856 5140 "GET /static/webfonts/fa-brands-400.woff2 HTTP/1.1" 200 104544
+INFO 2025-11-24 17:27:32 basehttp 29856 5140 "GET /maps/ HTTP/1.1" 200 1045114
+INFO 2025-11-24 17:27:32 basehttp 29856 23528 "GET /static/css/ol.css HTTP/1.1" 200 6634
+INFO 2025-11-24 17:27:32 basehttp 29856 5140 "GET /static/js/ol.js HTTP/1.1" 200 857360
+INFO 2025-11-24 17:27:42 views 29856 5140 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-24 17:27:43 views 29856 5140 API returned - Rain: 0.0mm, Temp: 26.5°C, Humidity: 93%, Wind: 15.5km/h
+INFO 2025-11-24 17:27:43 views 29856 5140 Processed 7 days of weather forecast
+INFO 2025-11-24 17:27:43 basehttp 29856 5140 "GET /monitoring/ HTTP/1.1" 200 93250
+INFO 2025-11-24 17:27:44 basehttp 29856 5140 "GET /static/js/chart.js HTTP/1.1" 200 208536
+INFO 2025-11-24 17:27:50 basehttp 29856 5140 "GET /maps/my-activity/ HTTP/1.1" 200 63020
+INFO 2025-11-24 17:27:51 basehttp 29856 5140 "GET /static/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 23900
+INFO 2025-11-24 17:27:55 basehttp 29856 5140 "GET /profile/ HTTP/1.1" 200 56247
+INFO 2025-11-24 17:27:55 basehttp 29856 5140 "GET /media/profile_images/rooftop5.jpg HTTP/1.1" 200 44647
+INFO 2025-11-24 17:28:05 basehttp 29856 5140 "GET /home/ HTTP/1.1" 200 60619
+INFO 2025-11-24 17:28:25 basehttp 29856 5140 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-24 17:28:25 basehttp 29856 5140 "GET / HTTP/1.1" 200 14056
+INFO 2025-11-24 17:28:54 basehttp 29856 9408 "GET / HTTP/1.1" 200 14056
+INFO 2025-11-24 17:30:03 basehttp 29856 27916 "GET /?fbclid=IwY2xjawORBOZleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR7PeJbXDBGwPBWW6VAPUBfO4an_T-LVmLrSDaTrHhBaZitQ4Ykx2uz4DX8YxQ_aem_tnXI9EF31bo3CXpZGLKhSA HTTP/1.1" 200 14056
+INFO 2025-11-24 17:30:03 basehttp 29856 27916 "GET /static/css/bootstrap.min.css HTTP/1.1" 200 232953
+INFO 2025-11-24 17:30:03 basehttp 29856 28860 "GET /static/css/font-awesome.min.css HTTP/1.1" 200 89225
+INFO 2025-11-24 17:30:03 basehttp 29856 18164 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 17:30:08 basehttp 29856 18164 "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 126828
+WARNING 2025-11-24 17:30:09 log 29856 18164 Not Found: /favicon.ico
+WARNING 2025-11-24 17:30:09 basehttp 29856 18164 "GET /favicon.ico HTTP/1.1" 404 4933
+INFO 2025-11-24 17:30:16 basehttp 29856 17556 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 17:30:40 basehttp 29856 2808 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 17:30:58 basehttp 29856 18164 "GET /register/ HTTP/1.1" 200 26195
+INFO 2025-11-24 17:31:27 basehttp 29856 7280 "GET /?fbclid=IwY2xjawORBTJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR4f0CmSRuqZxWAgKUIcNUHNYm_xX0YBbqGjOAB9b-VjTc02lUfq-nEO8wICog_aem_L9zlUuk_Zwd6xPnjQIuFuA HTTP/1.1" 200 14056
+INFO 2025-11-24 17:31:27 basehttp 29856 21192 "GET /static/css/font-awesome.min.css HTTP/1.1" 200 89225
+INFO 2025-11-24 17:31:27 basehttp 29856 7280 "GET /static/css/bootstrap.min.css HTTP/1.1" 200 232953
+INFO 2025-11-24 17:31:27 basehttp 29856 11604 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 17:31:30 basehttp 29856 11604 "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 126828
+WARNING 2025-11-24 17:31:31 log 29856 11604 Not Found: /favicon.ico
+WARNING 2025-11-24 17:31:31 basehttp 29856 11604 "GET /favicon.ico HTTP/1.1" 404 4933
+INFO 2025-11-24 17:31:34 basehttp 29856 8496 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 17:31:34 basehttp 29856 11604 "GET /register/ HTTP/1.1" 200 26195
+INFO 2025-11-24 17:33:08 basehttp 29856 17616 "POST /register/ HTTP/1.1" 302 0
+INFO 2025-11-24 17:33:09 basehttp 29856 17616 "GET / HTTP/1.1" 200 14338
+INFO 2025-11-24 17:33:18 basehttp 29856 16764 "POST /register/ HTTP/1.1" 302 0
+INFO 2025-11-24 17:33:20 basehttp 29856 16764 "GET / HTTP/1.1" 200 14338
+INFO 2025-11-24 17:33:32 basehttp 29856 17616 "POST / HTTP/1.1" 200 14391
+INFO 2025-11-24 17:33:37 basehttp 29856 29176 "POST / HTTP/1.1" 302 0
+INFO 2025-11-24 17:33:38 basehttp 29856 29176 "GET /home/ HTTP/1.1" 200 60841
+INFO 2025-11-24 17:33:40 basehttp 29856 16764 "POST / HTTP/1.1" 200 14391
+INFO 2025-11-24 17:33:50 basehttp 29856 29176 "GET /maps/ HTTP/1.1" 200 1045114
+INFO 2025-11-24 17:34:02 basehttp 29856 29176 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-24 17:34:11 basehttp 29856 29176 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.808744&lon=123.023924&risk=LF HTTP/1.1" 200 12178
+INFO 2025-11-24 17:34:12 basehttp 29856 29176 "GET /static/images/drrmo_header.png HTTP/1.1" 200 161208
+INFO 2025-11-24 17:34:46 basehttp 29856 8440 "POST / HTTP/1.1" 302 0
+INFO 2025-11-24 17:34:46 basehttp 29856 8440 "GET /home/ HTTP/1.1" 200 71227
+INFO 2025-11-24 17:34:49 basehttp 29856 8440 "GET /approve/ HTTP/1.1" 200 43518
+INFO 2025-11-24 17:34:49 basehttp 29856 8440 "GET /static/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-24 17:34:53 basehttp 29856 8440 "POST /approve/ HTTP/1.1" 302 0
+INFO 2025-11-24 17:34:53 basehttp 29856 8440 "GET /approve/ HTTP/1.1" 200 43513
+INFO 2025-11-24 17:34:55 basehttp 29856 8440 "POST /approve/ HTTP/1.1" 302 0
+INFO 2025-11-24 17:34:55 basehttp 29856 8440 "GET /approve/ HTTP/1.1" 200 43281
+INFO 2025-11-24 17:35:04 basehttp 29856 6472 "POST / HTTP/1.1" 302 0
+INFO 2025-11-24 17:35:05 basehttp 29856 6472 "GET /home/ HTTP/1.1" 200 59721
+INFO 2025-11-24 17:35:05 basehttp 29856 6472 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 200 80669
+INFO 2025-11-24 17:35:07 basehttp 29856 6472 "GET /static/webfonts/fa-brands-400.woff2 HTTP/1.1" 200 104544
+INFO 2025-11-24 17:35:35 basehttp 29856 8440 "GET /home/ HTTP/1.1" 200 71927
+INFO 2025-11-24 17:35:40 basehttp 29856 3184 "GET /home/ HTTP/1.1" 302 0
+INFO 2025-11-24 17:35:40 basehttp 29856 3184 "GET /?next=/home/ HTTP/1.1" 200 14056
+INFO 2025-11-24 17:35:40 basehttp 29856 3184 "GET /static/css/font-awesome.min.css HTTP/1.1" 200 89225
+INFO 2025-11-24 17:35:40 basehttp 29856 11948 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 17:35:40 basehttp 29856 23556 "GET /static/css/bootstrap.min.css HTTP/1.1" 200 232953
+INFO 2025-11-24 17:35:41 basehttp 29856 11948 "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 126828
+WARNING 2025-11-24 17:35:41 log 29856 11948 Not Found: /favicon.ico
+WARNING 2025-11-24 17:35:41 basehttp 29856 11948 "GET /favicon.ico HTTP/1.1" 404 4933
+INFO 2025-11-24 17:35:51 basehttp 29856 8440 "GET /maps/my-activity/ HTTP/1.1" 200 72432
+INFO 2025-11-24 17:35:55 basehttp 29856 8440 "GET /home/ HTTP/1.1" 200 71927
+INFO 2025-11-24 17:35:57 basehttp 29856 8440 "GET /maps/ HTTP/1.1" 200 1045741
+INFO 2025-11-24 17:36:04 basehttp 29856 11948 "POST /?next=/home/ HTTP/1.1" 302 0
+INFO 2025-11-24 17:36:04 basehttp 29856 11948 "GET /home/ HTTP/1.1" 200 59999
+INFO 2025-11-24 17:36:04 basehttp 29856 11948 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 200 80669
+INFO 2025-11-24 17:36:05 basehttp 29856 11948 "GET /static/webfonts/fa-brands-400.woff2 HTTP/1.1" 200 104544
+INFO 2025-11-24 17:37:13 basehttp 29856 9044 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 17:37:20 basehttp 29856 2668 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 17:37:21 basehttp 29856 25696 "GET /?fbclid=IwY2xjawORBp1leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR5EC8raj9Dh-0V5Z8HRQEA4zZqrKOzDKyzSQTvQUZ2tvlWHeFH_E29Evc7VzQ_aem_bq02s99f2cOITqQCNeA4UQ HTTP/1.1" 200 14056
+INFO 2025-11-24 17:37:22 basehttp 29856 25696 "GET /static/css/bootstrap.min.css HTTP/1.1" 200 232953
+INFO 2025-11-24 17:37:22 basehttp 29856 23928 "GET /static/css/font-awesome.min.css HTTP/1.1" 200 89225
+INFO 2025-11-24 17:37:22 basehttp 29856 27256 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 17:37:32 basehttp 29856 27256 "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 126828
+WARNING 2025-11-24 17:37:36 log 29856 27256 Not Found: /favicon.ico
+WARNING 2025-11-24 17:37:36 basehttp 29856 27256 "GET /favicon.ico HTTP/1.1" 404 4933
+INFO 2025-11-24 17:37:36 basehttp 29856 12752 "GET / HTTP/1.1" 200 14056
+INFO 2025-11-24 17:37:40 basehttp 29856 27256 "GET /register/ HTTP/1.1" 200 26195
+INFO 2025-11-24 17:37:43 basehttp 29856 24900 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 17:37:43 basehttp 29856 9304 "GET /maps/privacy-policy/ HTTP/1.1" 200 39867
+INFO 2025-11-24 17:37:51 basehttp 29856 9304 "GET /maps/terms-of-service/ HTTP/1.1" 200 44734
+INFO 2025-11-24 17:37:52 basehttp 29856 23772 "GET /?fbclid=IwY2xjawORBr5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR7dCtARe6vg5JiVMMmrm1rqHipQDEun6aa9Ui6gGO6pelKEOKfgF-1vVPcUsg_aem_2Zf4QFcEfPgWipTvb87boQ HTTP/1.1" 200 14056
+WARNING 2025-11-24 17:37:53 log 29856 23772 Not Found: /favicon.ico
+WARNING 2025-11-24 17:37:53 basehttp 29856 23772 "GET /favicon.ico HTTP/1.1" 404 4933
+INFO 2025-11-24 17:38:01 basehttp 29856 9304 "GET /home/ HTTP/1.1" 200 59781
+INFO 2025-11-24 17:38:05 basehttp 29856 9304 "GET /maps/ HTTP/1.1" 200 1045114
+INFO 2025-11-24 17:38:05 basehttp 29856 25460 "GET /static/css/ol.css HTTP/1.1" 200 6634
+INFO 2025-11-24 17:38:06 basehttp 29856 9304 "GET /static/js/ol.js HTTP/1.1" 200 857360
+INFO 2025-11-24 17:38:11 basehttp 29856 23772 "POST /?fbclid=IwY2xjawORBr5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR7dCtARe6vg5JiVMMmrm1rqHipQDEun6aa9Ui6gGO6pelKEOKfgF-1vVPcUsg_aem_2Zf4QFcEfPgWipTvb87boQ HTTP/1.1" 302 0
+INFO 2025-11-24 17:38:12 basehttp 29856 23772 "GET /home/ HTTP/1.1" 200 59724
+INFO 2025-11-24 17:38:12 basehttp 29856 23772 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 200 80669
+INFO 2025-11-24 17:38:14 basehttp 29856 23772 "GET /static/webfonts/fa-brands-400.woff2 HTTP/1.1" 200 104544
+INFO 2025-11-24 17:38:19 basehttp 29856 23772 "GET /maps/ HTTP/1.1" 200 1045114
+INFO 2025-11-24 17:38:20 basehttp 29856 19860 "GET /static/css/ol.css HTTP/1.1" 200 6634
+INFO 2025-11-24 17:38:26 basehttp 29856 27256 "GET /?fbclid=IwY2xjawORBp1leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR5EC8raj9Dh-0V5Z8HRQEA4zZqrKOzDKyzSQTvQUZ2tvlWHeFH_E29Evc7VzQ_aem_bq02s99f2cOITqQCNeA4UQ HTTP/1.1" 200 14056
+INFO 2025-11-24 17:38:28 basehttp 29856 9968 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 17:38:33 basehttp 29856 23772 "GET /static/js/ol.js HTTP/1.1" 200 857360
+INFO 2025-11-24 17:38:41 basehttp 29856 9792 "GET /?fbclid=IwY2xjawORBu9leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR4p1fA5VtlctnRP7t55soUj6cMDQ1U3996dheGaeJYaUTPCVDYLzY1SZKtDmw_aem_fr_RQmene1n13kwxVDv5jg HTTP/1.1" 200 14056
+WARNING 2025-11-24 17:38:41 log 29856 9792 Not Found: /favicon.ico
+WARNING 2025-11-24 17:38:41 basehttp 29856 9792 "GET /favicon.ico HTTP/1.1" 404 4933
+INFO 2025-11-24 17:39:39 basehttp 29856 21684 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-24 17:39:56 basehttp 29856 21684 "GET /maps/report/?barangay=Barangay%20V%20(Pob.)&lat=10.786511&lon=122.971989&risk=HF HTTP/1.1" 200 12558
+INFO 2025-11-24 17:39:56 basehttp 29856 21684 "GET /static/images/drrmo_header.png HTTP/1.1" 200 161208
+INFO 2025-11-24 17:41:50 basehttp 29856 6732 "GET /?fbclid=IwY2xjawORB6dleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR54K5W2JrEh6zYj1FcNsp2yHWFAJzfN4kLjyWBBiOaKIwPz660YS-xz6XjoKw_aem_Pt3yaJ2mnvjIxr3zUgVvDg HTTP/1.1" 200 14056
+INFO 2025-11-24 17:41:51 basehttp 29856 6732 "GET /static/css/bootstrap.min.css HTTP/1.1" 200 232953
+INFO 2025-11-24 17:41:51 basehttp 29856 21356 "GET /static/css/font-awesome.min.css HTTP/1.1" 200 89225
+INFO 2025-11-24 17:41:51 basehttp 29856 15800 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 17:41:51 basehttp 29856 15800 "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 126828
+WARNING 2025-11-24 17:41:52 log 29856 15800 Not Found: /favicon.ico
+WARNING 2025-11-24 17:41:52 basehttp 29856 15800 "GET /favicon.ico HTTP/1.1" 404 4933
+INFO 2025-11-24 17:42:03 basehttp 29856 15800 "GET /register/ HTTP/1.1" 200 26195
+INFO 2025-11-24 17:42:48 basehttp 29856 15800 "GET /?fbclid=IwY2xjawORB6dleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR54K5W2JrEh6zYj1FcNsp2yHWFAJzfN4kLjyWBBiOaKIwPz660YS-xz6XjoKw_aem_Pt3yaJ2mnvjIxr3zUgVvDg HTTP/1.1" 200 14056
+INFO 2025-11-24 17:43:15 basehttp 29856 15800 "POST /?fbclid=IwY2xjawORB6dleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR54K5W2JrEh6zYj1FcNsp2yHWFAJzfN4kLjyWBBiOaKIwPz660YS-xz6XjoKw_aem_Pt3yaJ2mnvjIxr3zUgVvDg HTTP/1.1" 302 0
+INFO 2025-11-24 17:43:16 basehttp 29856 15800 "GET /home/ HTTP/1.1" 200 60002
+INFO 2025-11-24 17:43:16 basehttp 29856 15800 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 200 80669
+INFO 2025-11-24 17:43:16 basehttp 29856 15800 "GET /static/webfonts/fa-brands-400.woff2 HTTP/1.1" 200 104544
+INFO 2025-11-24 17:43:23 basehttp 29856 13896 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-24 17:43:45 views 29856 13896 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-24 17:43:46 views 29856 13896 API returned - Rain: 0.0mm, Temp: 26.5°C, Humidity: 94%, Wind: 15.4km/h
+INFO 2025-11-24 17:43:46 views 29856 13896 Processed 7 days of weather forecast
+INFO 2025-11-24 17:43:46 basehttp 29856 13896 "GET /monitoring/ HTTP/1.1" 200 93250
+INFO 2025-11-24 17:43:47 basehttp 29856 13896 "GET /static/js/chart.js HTTP/1.1" 200 208536
+INFO 2025-11-24 17:43:57 basehttp 29856 15800 "GET /maps/ HTTP/1.1" 200 1045114
+INFO 2025-11-24 17:43:57 basehttp 29856 21928 "GET /static/css/ol.css HTTP/1.1" 200 6634
+INFO 2025-11-24 17:43:58 basehttp 29856 15800 "GET /static/js/ol.js HTTP/1.1" 200 857360
+INFO 2025-11-24 17:44:27 basehttp 29856 13896 "GET /maps/my-activity/ HTTP/1.1" 200 47429
+INFO 2025-11-24 17:44:27 basehttp 29856 13896 "GET /static/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 23900
+INFO 2025-11-24 17:44:58 basehttp 29856 13896 "GET /profile/ HTTP/1.1" 200 55997
+INFO 2025-11-24 17:45:14 views 29856 15800 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-24 17:45:15 views 29856 15800 API returned - Rain: 0.0mm, Temp: 26.4°C, Humidity: 94%, Wind: 15.1km/h
+INFO 2025-11-24 17:45:15 views 29856 15800 Processed 7 days of weather forecast
+INFO 2025-11-24 17:45:15 basehttp 29856 15800 "GET /monitoring/ HTTP/1.1" 200 93250
+INFO 2025-11-24 17:45:16 basehttp 29856 15800 "GET /static/js/chart.js HTTP/1.1" 200 208536
+INFO 2025-11-24 17:45:49 basehttp 29856 15800 "GET /home/ HTTP/1.1" 200 59781
+INFO 2025-11-24 17:46:05 basehttp 29856 15800 "GET /maps/my-activity/ HTTP/1.1" 200 43830
+INFO 2025-11-24 17:46:31 basehttp 29856 15800 "GET /home/ HTTP/1.1" 200 59781
+INFO 2025-11-24 17:52:03 basehttp 29856 7828 "GET /home/ HTTP/1.1" 200 59781
+INFO 2025-11-24 17:52:07 basehttp 29856 7828 "GET /profile/ HTTP/1.1" 200 55997
+INFO 2025-11-24 17:52:24 basehttp 29856 4672 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 17:52:57 basehttp 29856 24648 "POST /profile/ HTTP/1.1" 302 0
+INFO 2025-11-24 17:52:57 basehttp 29856 24648 "GET /profile/ HTTP/1.1" 200 56248
+INFO 2025-11-24 17:56:04 basehttp 29856 10056 "POST /profile/ HTTP/1.1" 302 0
+INFO 2025-11-24 17:56:04 basehttp 29856 10056 "GET /profile/ HTTP/1.1" 200 56555
+INFO 2025-11-24 17:56:05 basehttp 29856 10056 "GET /media/profile_images/Messenger_creation_A21C2DD6-547E-4873-875F-A03DD5C6EBDF.jpeg HTTP/1.1" 200 383435
+INFO 2025-11-24 18:30:35 basehttp 29856 27352 "GET /maps/ HTTP/1.1" 200 1045741
+WARNING 2025-11-24 18:31:40 log 29856 18948 Not Found: /apple-touch-icon-precomposed.png
+WARNING 2025-11-24 18:31:40 log 29856 17388 Not Found: /apple-touch-icon.png
+WARNING 2025-11-24 18:31:40 log 29856 26084 Not Found: /favicon.ico
+WARNING 2025-11-24 18:31:40 basehttp 29856 18948 "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 4996
+WARNING 2025-11-24 18:31:40 basehttp 29856 17388 "GET /apple-touch-icon.png HTTP/1.1" 404 4960
+WARNING 2025-11-24 18:31:40 basehttp 29856 26084 "GET /favicon.ico HTTP/1.1" 404 4933
+INFO 2025-11-24 18:31:51 basehttp 29856 5168 "GET / HTTP/1.1" 200 14056
+INFO 2025-11-24 18:31:51 basehttp 29856 5168 "GET /static/css/bootstrap.min.css HTTP/1.1" 200 232953
+INFO 2025-11-24 18:31:51 basehttp 29856 27968 "GET /static/css/font-awesome.min.css HTTP/1.1" 200 89225
+INFO 2025-11-24 18:31:51 basehttp 29856 5168 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 18:31:51 basehttp 29856 5168 "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 126828
+INFO 2025-11-24 18:31:51 basehttp 29856 5168 "GET /static/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 23900
+INFO 2025-11-24 18:32:20 basehttp 29856 5168 "POST / HTTP/1.1" 302 0
+INFO 2025-11-24 18:32:20 basehttp 29856 5168 "GET /home/ HTTP/1.1" 200 59719
+INFO 2025-11-24 18:32:20 basehttp 29856 5168 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 200 80669
+INFO 2025-11-24 18:32:21 basehttp 29856 5168 "GET /static/webfonts/fa-brands-400.woff2 HTTP/1.1" 200 104544
+WARNING 2025-11-24 18:32:21 log 29856 5168 Not Found: /favicon.ico
+WARNING 2025-11-24 18:32:21 basehttp 29856 5168 "GET /favicon.ico HTTP/1.1" 404 4933
+INFO 2025-11-24 18:33:31 basehttp 29856 5168 "GET /maps/ HTTP/1.1" 200 1045114
+INFO 2025-11-24 18:33:31 basehttp 29856 9292 "GET /static/css/ol.css HTTP/1.1" 200 6634
+INFO 2025-11-24 18:33:31 basehttp 29856 5168 "GET /static/js/ol.js HTTP/1.1" 200 857360
+INFO 2025-11-24 18:34:24 views 29856 5168 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-24 18:34:25 views 29856 5168 API returned - Rain: 0.0mm, Temp: 26.3°C, Humidity: 94%, Wind: 14.0km/h
+INFO 2025-11-24 18:34:25 views 29856 5168 Processed 7 days of weather forecast
+INFO 2025-11-24 18:34:25 basehttp 29856 5168 "GET /monitoring/ HTTP/1.1" 200 93253
+INFO 2025-11-24 18:34:25 basehttp 29856 5168 "GET /static/js/chart.js HTTP/1.1" 200 208536
+INFO 2025-11-24 22:43:19 basehttp 29856 8796 "GET /maps/ HTTP/1.1" 200 1045741
+INFO 2025-11-24 22:43:24 basehttp 29856 8796 "GET /approve/ HTTP/1.1" 200 43051
+INFO 2025-11-24 22:43:33 basehttp 29856 8796 "GET /home/ HTTP/1.1" 200 75280
+INFO 2025-11-24 22:43:33 basehttp 29856 8796 "GET /media/profile_images/Messenger_creation_A21C2DD6-547E-4873-875F-A03DD5C6EBDF.jpeg HTTP/1.1" 200 383435
+INFO 2025-11-24 22:43:34 basehttp 29856 8796 "GET /approve/ HTTP/1.1" 200 43051
+INFO 2025-11-24 22:43:37 basehttp 29856 8796 "GET /home/ HTTP/1.1" 200 75280
+INFO 2025-11-24 22:43:37 basehttp 29856 8796 "GET /home/ HTTP/1.1" 200 75280
+INFO 2025-11-24 22:56:00 basehttp 29856 27760 "GET /?fbclid=IwY2xjawORPzFleHRuA2FlbQIxMABicmlkETF6RHNzMDE5dkJyalY1elFzc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHszw73S1Lp5ONirq_s857EhltkVg924Gh44mpzXFk6Sd5iHg1AqaesZj-i-Y_aem_RhZQITjWpv_hoSyaUI_94w HTTP/1.1" 200 14056
+INFO 2025-11-24 22:56:00 basehttp 29856 27760 "GET /static/css/font-awesome.min.css HTTP/1.1" 200 89225
+INFO 2025-11-24 22:56:00 basehttp 29856 12848 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-24 22:56:00 basehttp 29856 18884 "GET /static/css/bootstrap.min.css HTTP/1.1" 200 232953
+INFO 2025-11-24 22:56:01 basehttp 29856 12848 "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 126828
+WARNING 2025-11-24 22:56:01 log 29856 12848 Not Found: /favicon.ico
+WARNING 2025-11-24 22:56:01 basehttp 29856 12848 "GET /favicon.ico HTTP/1.1" 404 4933
+INFO 2025-11-24 22:56:24 basehttp 29856 12848 "POST /?fbclid=IwY2xjawORPzFleHRuA2FlbQIxMABicmlkETF6RHNzMDE5dkJyalY1elFzc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHszw73S1Lp5ONirq_s857EhltkVg924Gh44mpzXFk6Sd5iHg1AqaesZj-i-Y_aem_RhZQITjWpv_hoSyaUI_94w HTTP/1.1" 302 0
+INFO 2025-11-24 22:56:26 basehttp 29856 12848 "GET /home/ HTTP/1.1" 200 60846
+INFO 2025-11-24 22:56:26 basehttp 29856 12848 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 200 80669
+INFO 2025-11-24 22:56:26 basehttp 29856 12848 "GET /static/webfonts/fa-brands-400.woff2 HTTP/1.1" 200 104544
+INFO 2025-11-24 22:56:35 basehttp 29856 12848 "GET /profile/ HTTP/1.1" 200 56332
+INFO 2025-11-24 22:56:35 basehttp 29856 12848 "GET /media/profile_images/Messenger_creation_A21C2DD6-547E-4873-875F-A03DD5C6EBDF.jpeg HTTP/1.1" 200 383435
+INFO 2025-11-24 22:57:18 basehttp 29856 12848 "GET /maps/my-activity/ HTTP/1.1" 200 50701
+INFO 2025-11-24 22:57:18 basehttp 29856 12848 "GET /static/webfonts/fa-regular-400.woff2 HTTP/1.1" 200 23900
+INFO 2025-11-24 22:57:25 basehttp 29856 12848 "GET /maps/my-activity/?tab=assessments&sort_order=oldest HTTP/1.1" 200 50700
+INFO 2025-11-25 00:42:09 basehttp 29856 15520 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-25 00:42:09 basehttp 29856 15520 "GET / HTTP/1.1" 200 14056
+INFO 2025-11-25 00:42:16 basehttp 29856 15520 "POST / HTTP/1.1" 302 0
+INFO 2025-11-25 00:42:16 basehttp 29856 15520 "GET /home/ HTTP/1.1" 200 60841
+INFO 2025-11-25 00:49:31 basehttp 29856 21176 "GET /maps/ HTTP/1.1" 200 1045114
+INFO 2025-11-25 00:54:50 basehttp 29856 29984 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-25 01:01:01 basehttp 29856 26384 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.812684&lon=123.025313&risk=LF HTTP/1.1" 200 12178
+INFO 2025-11-25 01:01:01 basehttp 29856 26384 "GET /static/images/drrmo_header.png HTTP/1.1" 304 0
+INFO 2025-11-25 01:04:10 views 29856 26384 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-25 01:04:11 views 29856 26384 API returned - Rain: 0.3mm, Temp: 26.2°C, Humidity: 94%, Wind: 17.3km/h
+INFO 2025-11-25 01:04:11 views 29856 26384 Processed 7 days of weather forecast
+INFO 2025-11-25 01:04:11 views 29856 26384 Created new rainfall record: 0.3mm
+INFO 2025-11-25 01:04:11 views 29856 26384 Created new weather record
+INFO 2025-11-25 01:04:11 views 29856 26384 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+INFO 2025-11-25 01:04:12 views 29856 26384 Created new tide record: 1.033m from WorldTides API
+INFO 2025-11-25 01:04:12 basehttp 29856 26384 "GET /monitoring/ HTTP/1.1" 200 93281
+INFO 2025-11-25 01:09:12 basehttp 29856 10372 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-25 01:14:12 basehttp 29856 10372 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-25 01:19:12 basehttp 29856 10372 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-25 01:24:12 basehttp 29856 10372 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-25 01:29:12 basehttp 29856 10372 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-25 01:34:12 basehttp 29856 10372 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-25 01:39:12 basehttp 29856 10372 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-25 01:44:12 basehttp 29856 10372 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-25 01:49:12 basehttp 29856 10372 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-25 01:54:12 basehttp 29856 10372 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-25 01:59:12 basehttp 29856 10372 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-25 02:04:12 basehttp 29856 10372 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-25 02:04:45 views 29856 10372 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-25 02:04:46 views 29856 10372 API returned - Rain: 0.0mm, Temp: 26.4°C, Humidity: 92%, Wind: 19.3km/h
+INFO 2025-11-25 02:04:46 views 29856 10372 Processed 7 days of weather forecast
+INFO 2025-11-25 02:04:46 basehttp 29856 10372 "GET /monitoring/ HTTP/1.1" 200 93281
+INFO 2025-11-25 02:07:32 basehttp 29856 10372 "GET /maps/my-activity/ HTTP/1.1" 200 71641
+INFO 2025-11-25 02:10:01 basehttp 29856 10372 "GET /profile/ HTTP/1.1" 200 56247
+INFO 2025-11-25 02:10:01 basehttp 29856 10372 "GET /media/profile_images/rooftop5.jpg HTTP/1.1" 304 0
+INFO 2025-11-25 02:11:56 basehttp 29856 10372 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-25 02:11:56 basehttp 29856 10372 "GET / HTTP/1.1" 200 14056
+INFO 2025-11-25 02:12:03 basehttp 29856 10372 "POST / HTTP/1.1" 302 0
+INFO 2025-11-25 02:12:03 basehttp 29856 10372 "GET /home/ HTTP/1.1" 200 75481
+INFO 2025-11-25 02:12:03 basehttp 29856 30288 "GET /media/profile_images/istockphoto-1192049556-612x612.webp HTTP/1.1" 304 0
+INFO 2025-11-25 02:12:03 basehttp 29856 10372 "GET /media/profile_images/Messenger_creation_A21C2DD6-547E-4873-875F-A03DD5C6EBDF.jpeg HTTP/1.1" 200 383435
+INFO 2025-11-25 02:12:27 basehttp 29856 10372 "GET /maps/ HTTP/1.1" 200 1045741
+INFO 2025-11-25 02:12:32 views 29856 10372 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-25 02:12:33 views 29856 10372 API returned - Rain: 0.0mm, Temp: 26.4°C, Humidity: 92%, Wind: 19.3km/h
+INFO 2025-11-25 02:12:33 views 29856 10372 Processed 7 days of weather forecast
+INFO 2025-11-25 02:12:33 basehttp 29856 10372 "GET /monitoring/ HTTP/1.1" 200 93908
+INFO 2025-11-25 02:12:52 basehttp 29856 10372 "GET /approve/ HTTP/1.1" 200 43051
+INFO 2025-11-25 02:12:58 basehttp 29856 10372 "GET /home/ HTTP/1.1" 200 75265
+INFO 2025-11-25 02:13:52 basehttp 29856 10372 "GET /approve/ HTTP/1.1" 200 43051
+INFO 2025-11-25 02:15:01 basehttp 29856 10372 "GET /maps/all-activities/ HTTP/1.1" 200 145999
+INFO 2025-11-25 02:16:29 basehttp 29856 10372 "GET /maps/all-activities/?date_range=7&tab=user-logs HTTP/1.1" 200 145982
+INFO 2025-11-25 02:16:30 basehttp 29856 10372 "GET /maps/all-activities/?date_range=90&tab=user-logs HTTP/1.1" 200 145997
+INFO 2025-11-25 02:16:31 basehttp 29856 10372 "GET /maps/all-activities/?tab=user-logs&show_all=1 HTTP/1.1" 200 145422
+INFO 2025-11-25 02:16:34 basehttp 29856 10372 "GET /maps/all-activities/?tab=user-logs&date_range=7 HTTP/1.1" 200 145982
+INFO 2025-11-25 02:16:34 basehttp 29856 10372 "GET /maps/all-activities/?tab=user-logs&show_all=1 HTTP/1.1" 200 145422
+INFO 2025-11-25 02:16:38 basehttp 29856 10372 "GET /maps/all-activities/?tab=user-logs&date_range=90 HTTP/1.1" 200 145997
+INFO 2025-11-25 02:16:40 basehttp 29856 10372 "GET /maps/all-activities/?tab=user-logs&date_range=30 HTTP/1.1" 200 145997
+INFO 2025-11-25 02:38:41 basehttp 29856 29656 "GET /home/ HTTP/1.1" 200 75265
+INFO 2025-11-25 23:43:54 basehttp 29856 20296 "GET /maps/ HTTP/1.1" 200 1045741
+INFO 2025-11-25 23:43:54 basehttp 29856 5784 "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+INFO 2025-11-25 23:43:54 basehttp 29856 20296 "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-11-25 23:43:54 basehttp 29856 13592 "GET /static/css/ol.css HTTP/1.1" 304 0
+INFO 2025-11-25 23:43:54 basehttp 29856 22700 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 304 0
+INFO 2025-11-25 23:43:54 basehttp 29856 30412 "GET /static/images/drrmo_logo.png HTTP/1.1" 304 0
+INFO 2025-11-25 23:43:54 basehttp 29856 27032 "GET /static/js/ol.js HTTP/1.1" 304 0
+INFO 2025-11-25 23:43:54 basehttp 29856 27032 "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+INFO 2025-11-25 23:43:54 basehttp 29856 27032 "GET /static/webfonts/fa-brands-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-25 23:45:15 views 29856 27032 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-25 23:45:16 views 29856 27032 API returned - Rain: 0.0mm, Temp: 24.8°C, Humidity: 97%, Wind: 2.9km/h
+INFO 2025-11-25 23:45:16 views 29856 27032 Processed 7 days of weather forecast
+INFO 2025-11-25 23:45:16 views 29856 27032 Created new rainfall record: 0.0mm
+INFO 2025-11-25 23:45:16 views 29856 27032 Created new weather record
+INFO 2025-11-25 23:45:16 views 29856 27032 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+INFO 2025-11-25 23:45:18 views 29856 27032 Created new tide record: 0.897m from WorldTides API
+INFO 2025-11-25 23:45:18 basehttp 29856 27032 "GET /monitoring/ HTTP/1.1" 200 93899
+INFO 2025-11-25 23:45:18 basehttp 29856 27032 "GET /static/js/chart.js HTTP/1.1" 304 0
+INFO 2025-11-25 23:50:19 basehttp 29856 15128 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-25 23:55:19 basehttp 29856 15128 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-26 00:03:50 basehttp 29856 376 "GET /monitoring/api/data/ HTTP/1.1" 200 53
+INFO 2025-11-26 02:31:26 basehttp 29856 29560 "GET /monitoring/api/data/ HTTP/1.1" 302 0
+INFO 2025-11-26 02:31:26 basehttp 29856 29560 "GET /?next=/monitoring/api/data/ HTTP/1.1" 200 14056
+INFO 2025-11-26 02:31:29 basehttp 29856 29560 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-26 02:31:29 basehttp 29856 29560 "GET / HTTP/1.1" 200 14056
+INFO 2025-11-26 02:31:47 basehttp 29856 29560 "GET /register/ HTTP/1.1" 200 26195
+INFO 2025-11-26 08:45:41 basehttp 29856 30460 "GET / HTTP/1.1" 200 14056
+INFO 2025-11-26 08:45:50 basehttp 29856 30460 "POST / HTTP/1.1" 302 0
+INFO 2025-11-26 08:45:51 basehttp 29856 30460 "GET /home/ HTTP/1.1" 200 60837
+INFO 2025-11-26 08:46:11 basehttp 29856 30460 "GET /home/ HTTP/1.1" 200 60615
+INFO 2025-11-26 08:46:15 basehttp 29856 30460 "GET /admin HTTP/1.1" 301 0
+INFO 2025-11-26 08:46:15 basehttp 29856 7032 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-11-26 08:46:15 basehttp 29856 7032 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 3699
+INFO 2025-11-26 08:46:15 basehttp 29856 3420 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2938
+INFO 2025-11-26 08:46:15 basehttp 29856 15248 "GET /static/admin/js/theme.js HTTP/1.1" 200 1704
+INFO 2025-11-26 08:46:15 basehttp 29856 7032 "GET /static/admin/css/base.css HTTP/1.1" 200 23300
+INFO 2025-11-26 08:46:15 basehttp 29856 16568 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2960
+INFO 2025-11-26 08:46:15 basehttp 29856 18176 "GET /static/admin/css/login.css HTTP/1.1" 200 1012
+INFO 2025-11-26 08:46:15 basehttp 29856 20188 "GET /static/admin/css/responsive.css HTTP/1.1" 200 17469
+INFO 2025-11-26 08:46:15 basehttp 29856 20188 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3142
+INFO 2025-11-26 08:46:19 basehttp 29856 20188 "POST /admin/login/?next=/admin/ HTTP/1.1" 200 3869
+INFO 2025-11-26 08:46:25 basehttp 29856 20188 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-11-26 08:46:25 basehttp 29856 20188 "GET /admin/ HTTP/1.1" 200 13982
+INFO 2025-11-26 08:46:25 basehttp 29856 20188 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 470
+INFO 2025-11-26 08:46:25 basehttp 29856 16568 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 383
+INFO 2025-11-26 08:46:25 basehttp 29856 20188 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 334
+INFO 2025-11-26 09:48:31 basehttp 29856 17308 "GET /maps/ HTTP/1.1" 200 1045741
+INFO 2025-11-26 09:49:57 basehttp 29856 17308 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-26 09:52:59 basehttp 29856 17308 "GET /maps/report/?barangay=Rizal&lat=10.793657&lon=122.997557&risk=LF HTTP/1.1" 200 12178
+INFO 2025-11-26 09:52:59 basehttp 29856 17308 "GET /static/images/drrmo_header.png HTTP/1.1" 304 0
+INFO 2025-11-26 09:53:22 basehttp 29856 17308 "GET /admin/maps/assessmentrecord/ HTTP/1.1" 200 21813
+INFO 2025-11-26 09:53:22 basehttp 29856 17308 "GET /static/admin/css/changelists.css HTTP/1.1" 200 7221
+INFO 2025-11-26 09:53:22 basehttp 29856 11404 "GET /static/admin/js/core.js HTTP/1.1" 200 6392
+INFO 2025-11-26 09:53:22 basehttp 29856 26128 "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 355
+INFO 2025-11-26 09:53:22 basehttp 29856 17308 "GET /static/admin/js/actions.js HTTP/1.1" 200 8280
+INFO 2025-11-26 09:53:22 basehttp 29856 20172 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 10029
+INFO 2025-11-26 09:53:22 basehttp 29856 26128 "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1574
+INFO 2025-11-26 09:53:22 basehttp 29856 11404 "GET /static/admin/js/urlify.js HTTP/1.1" 200 8056
+INFO 2025-11-26 09:53:22 basehttp 29856 20172 "GET /static/admin/img/search.svg HTTP/1.1" 200 461
+INFO 2025-11-26 09:53:22 basehttp 29856 16756 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 296030
+INFO 2025-11-26 09:53:22 basehttp 29856 17308 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 331297
+INFO 2025-11-26 09:53:22 basehttp 29856 17308 "GET /static/admin/js/filters.js HTTP/1.1" 200 1008
+INFO 2025-11-26 09:53:22 basehttp 29856 30280 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-26 09:53:22 basehttp 29856 17308 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1116
+INFO 2025-11-26 09:53:22 basehttp 29856 30280 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 334
+INFO 2025-11-26 09:53:22 basehttp 29856 16756 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 584
+INFO 2025-11-26 09:53:24 basehttp 29856 16756 "GET /admin/maps/assessmentrecord/45/change/ HTTP/1.1" 200 21085
+INFO 2025-11-26 09:53:24 basehttp 29856 11404 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 601
+INFO 2025-11-26 09:53:24 basehttp 29856 16756 "GET /static/admin/css/forms.css HTTP/1.1" 200 9023
+INFO 2025-11-26 09:53:24 basehttp 29856 17308 "GET /static/admin/js/calendar.js HTTP/1.1" 200 9380
+INFO 2025-11-26 09:53:24 basehttp 29856 20172 "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19727
+INFO 2025-11-26 09:53:24 basehttp 29856 20172 "GET /static/admin/css/widgets.css HTTP/1.1" 200 12586
+INFO 2025-11-26 09:53:24 basehttp 29856 20172 "GET /static/admin/js/change_form.js HTTP/1.1" 200 622
+INFO 2025-11-26 09:53:24 basehttp 29856 30280 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-11-26 09:53:24 basehttp 29856 20172 "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 686
+INFO 2025-11-26 09:53:24 basehttp 29856 30280 "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1095
+INFO 2025-11-26 09:57:54 basehttp 29856 30280 "GET /maps/certificate/form/?barangay=Rizal&lat=10.793657&lon=122.997557&risk=LF HTTP/1.1" 200 24398
+INFO 2025-11-26 10:11:43 views 29856 3124 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-26 10:11:44 views 29856 3124 API returned - Rain: 0.0mm, Temp: 29.5°C, Humidity: 79%, Wind: 3.9km/h
+INFO 2025-11-26 10:11:44 views 29856 3124 Processed 7 days of weather forecast
+INFO 2025-11-26 10:11:44 views 29856 3124 Created new rainfall record: 0.0mm
+INFO 2025-11-26 10:11:44 views 29856 3124 Created new weather record
+INFO 2025-11-26 10:11:44 views 29856 3124 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+INFO 2025-11-26 10:11:46 views 29856 3124 Created new tide record: -0.779m from WorldTides API
+INFO 2025-11-26 10:11:46 basehttp 29856 3124 "GET /monitoring/ HTTP/1.1" 200 92532
+INFO 2025-11-26 10:16:47 basehttp 29856 20012 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-11-26 10:21:47 basehttp 29856 20012 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-11-26 10:23:09 basehttp 29856 20012 "GET /maps/my-activity/ HTTP/1.1" 200 77277
+INFO 2025-11-26 10:23:09 basehttp 29856 20012 "GET /static/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-26 10:40:49 basehttp 29856 7732 "GET /approve/ HTTP/1.1" 200 43051
+INFO 2025-11-26 10:45:44 basehttp 29856 7732 "GET /maps/all-activities/ HTTP/1.1" 200 149386
+INFO 2025-11-26 12:08:02 basehttp 29856 20512 "GET /maps/ HTTP/1.1" 200 1045741
+INFO 2025-11-27 14:04:37 basehttp 29856 27036 "GET /home/ HTTP/1.1" 302 0
+INFO 2025-11-27 14:04:37 basehttp 29856 27036 "GET /?next=/home/ HTTP/1.1" 200 14056
+INFO 2025-11-27 14:04:37 basehttp 29856 18040 "GET /static/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-11-27 14:04:37 basehttp 29856 27036 "GET /static/images/drrmo_logo.png HTTP/1.1" 304 0
+INFO 2025-11-27 14:04:37 basehttp 29856 9716 "GET /static/css/font-awesome.min.css HTTP/1.1" 304 0
+INFO 2025-11-27 14:04:43 basehttp 29856 9716 "POST /?next=/home/ HTTP/1.1" 302 0
+INFO 2025-11-27 14:04:44 basehttp 29856 9716 "GET /home/ HTTP/1.1" 200 75209
+INFO 2025-11-27 14:04:44 basehttp 29856 27036 "GET /media/profile_images/rooftop5.jpg HTTP/1.1" 304 0
+INFO 2025-11-27 14:04:44 basehttp 29856 9716 "GET /media/profile_images/istockphoto-1192049556-612x612.webp HTTP/1.1" 304 0
+INFO 2025-11-27 14:04:44 basehttp 29856 18040 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 304 0
+INFO 2025-11-27 14:04:44 basehttp 29856 18040 "GET /media/profile_images/Messenger_creation_A21C2DD6-547E-4873-875F-A03DD5C6EBDF.jpeg HTTP/1.1" 200 383435
+WARNING 2025-11-27 14:04:47 log 29856 18040 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-27 14:04:47 basehttp 29856 18040 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5029
+WARNING 2025-11-27 14:04:47 basehttp 29856 18040 "GET /static/js/bootstrap.bundle.min.js.map HTTP/1.1" 404 2017
+INFO 2025-11-27 14:04:47 basehttp 29856 27036 "GET /static/css/bootstrap.min.css.map HTTP/1.1" 200 589892
+INFO 2025-11-27 14:05:04 basehttp 29856 27036 "GET /maps/ HTTP/1.1" 200 1045741
+INFO 2025-11-27 14:05:04 basehttp 29856 27036 "GET /static/css/ol.css HTTP/1.1" 304 0
+INFO 2025-11-27 14:05:04 basehttp 29856 27036 "GET /static/js/ol.js HTTP/1.1" 304 0
+WARNING 2025-11-27 14:05:04 log 29856 27036 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-27 14:05:04 basehttp 29856 27036 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5029
+WARNING 2025-11-27 14:05:04 basehttp 29856 27036 "GET /static/js/bootstrap.bundle.min.js.map HTTP/1.1" 404 2017
+INFO 2025-11-27 14:05:04 basehttp 29856 9716 "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 304 0
+INFO 2025-11-27 14:05:04 basehttp 29856 9716 "GET /static/js/ol.js.map HTTP/1.1" 200 4835285
+INFO 2025-11-27 14:05:04 basehttp 29856 9716 "GET /static/webfonts/fa-brands-400.woff2 HTTP/1.1" 304 0
+INFO 2025-11-27 14:05:08 basehttp 29856 9716 "GET /home/ HTTP/1.1" 200 74993
+WARNING 2025-11-27 14:05:08 log 29856 9716 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-27 14:05:08 basehttp 29856 9716 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5029
+WARNING 2025-11-27 14:05:08 basehttp 29856 9716 "GET /static/js/bootstrap.bundle.min.js.map HTTP/1.1" 404 2017
+INFO 2025-11-27 14:05:24 basehttp 29856 404 "GET /maps/ HTTP/1.1" 200 1045741
+WARNING 2025-11-27 14:05:24 log 29856 404 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-27 14:05:24 basehttp 29856 404 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5029
+WARNING 2025-11-27 14:05:24 basehttp 29856 404 "GET /static/js/bootstrap.bundle.min.js.map HTTP/1.1" 404 2017
+INFO 2025-11-27 14:05:26 basehttp 29856 27180 "GET /approve/ HTTP/1.1" 200 43051
+INFO 2025-11-27 14:05:26 basehttp 29856 27180 "GET /static/webfonts/fa-regular-400.woff2 HTTP/1.1" 304 0
+WARNING 2025-11-27 14:05:26 log 29856 27180 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-27 14:05:26 basehttp 29856 27180 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5029
+WARNING 2025-11-27 14:05:26 basehttp 29856 27180 "GET /static/js/bootstrap.bundle.min.js.map HTTP/1.1" 404 2017
+INFO 2025-11-27 14:05:29 basehttp 29856 18120 "GET /maps/all-activities/ HTTP/1.1" 200 149396
+WARNING 2025-11-27 14:05:29 log 29856 18120 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-11-27 14:05:29 basehttp 29856 18120 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5029
+WARNING 2025-11-27 14:05:29 basehttp 29856 18120 "GET /static/js/bootstrap.bundle.min.js.map HTTP/1.1" 404 2017
+INFO 2025-11-27 14:05:38 basehttp 29856 24588 "GET /home/ HTTP/1.1" 200 74993
+INFO 2025-11-27 14:06:22 basehttp 29856 24588 "GET /maps/ HTTP/1.1" 200 1045741
+INFO 2025-11-27 14:13:10 basehttp 29856 29952 "GET /home/ HTTP/1.1" 200 74993
+INFO 2025-11-27 15:15:18 basehttp 29856 6980 "GET /maps/ HTTP/1.1" 200 1045741
+INFO 2025-11-27 15:15:26 views 29856 6980 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-27 15:15:27 views 29856 6980 API returned - Rain: 0.0mm, Temp: 29.9°C, Humidity: 80%, Wind: 5.1km/h
+INFO 2025-11-27 15:15:27 views 29856 6980 Processed 7 days of weather forecast
+INFO 2025-11-27 15:15:27 views 29856 6980 Created new rainfall record: 0.0mm
+INFO 2025-11-27 15:15:27 views 29856 6980 Created new weather record
+INFO 2025-11-27 15:15:27 views 29856 6980 Requesting WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+INFO 2025-11-27 15:15:29 views 29856 6980 Created new tide record: -0.188m from WorldTides API
+INFO 2025-11-27 15:15:29 basehttp 29856 6980 "GET /monitoring/ HTTP/1.1" 200 92463
+INFO 2025-11-27 15:15:29 basehttp 29856 6980 "GET /static/js/chart.js HTTP/1.1" 304 0
+INFO 2025-11-27 15:16:01 basehttp 29856 6980 "GET /approve/ HTTP/1.1" 200 43051
+INFO 2025-11-27 15:16:08 basehttp 29856 6980 "GET /maps/my-activity/ HTTP/1.1" 200 78376
+INFO 2025-11-27 15:30:51 basehttp 29856 21360 "GET /maps/ HTTP/1.1" 200 1045741
+INFO 2025-11-27 15:32:55 views 29856 21360 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-27 15:32:56 views 29856 21360 API returned - Rain: 0.0mm, Temp: 29.6°C, Humidity: 81%, Wind: 4.5km/h
+INFO 2025-11-27 15:32:56 views 29856 21360 Processed 7 days of weather forecast
+INFO 2025-11-27 15:32:56 basehttp 29856 21360 "GET /monitoring/ HTTP/1.1" 200 92463
+INFO 2025-11-27 15:33:42 basehttp 29856 21360 "GET /home/ HTTP/1.1" 200 74993
+INFO 2025-11-27 15:34:38 basehttp 29856 21360 "GET /maps/ HTTP/1.1" 200 1045741
+INFO 2025-11-27 15:34:43 basehttp 29856 21360 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-27 15:34:45 basehttp 29856 21360 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.812684&lon=123.014880&risk=LF HTTP/1.1" 200 12178
+INFO 2025-11-27 15:34:45 basehttp 29856 21360 "GET /static/images/drrmo_header.png HTTP/1.1" 304 0
+INFO 2025-11-27 15:34:50 basehttp 29856 21360 "GET /maps/certificate/form/?barangay=Eustaquio%20Lopez&lat=10.812684&lon=123.014880&risk=LF HTTP/1.1" 200 24418
+INFO 2025-11-27 15:35:10 basehttp 29856 21360 "POST /maps/certificate/ HTTP/1.1" 200 11232
+INFO 2025-11-27 15:35:42 basehttp 29856 21360 "POST /maps/certificate/ HTTP/1.1" 200 10322
+INFO 2025-11-27 15:36:15 views 29856 21360 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-27 15:36:16 views 29856 21360 API returned - Rain: 0.0mm, Temp: 29.6°C, Humidity: 81%, Wind: 4.5km/h
+INFO 2025-11-27 15:36:16 views 29856 21360 Processed 7 days of weather forecast
+INFO 2025-11-27 15:36:16 basehttp 29856 21360 "GET /monitoring/ HTTP/1.1" 200 92463
+INFO 2025-11-27 15:36:18 basehttp 29856 21360 "GET /home/ HTTP/1.1" 200 74995
+INFO 2025-11-27 15:36:47 basehttp 29856 21360 "GET /approve/ HTTP/1.1" 200 43051
+INFO 2025-11-27 15:36:50 basehttp 29856 21360 "GET /maps/my-activity/ HTTP/1.1" 200 84461
+INFO 2025-11-27 15:36:51 basehttp 29856 21360 "GET /home/ HTTP/1.1" 200 74995
+INFO 2025-11-27 15:37:04 basehttp 29856 21360 "GET /home/ HTTP/1.1" 200 74995
+INFO 2025-11-27 15:38:33 views 29856 21360 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-27 15:38:34 views 29856 21360 API returned - Rain: 0.0mm, Temp: 29.6°C, Humidity: 81%, Wind: 4.5km/h
+INFO 2025-11-27 15:38:34 views 29856 21360 Processed 7 days of weather forecast
+INFO 2025-11-27 15:38:34 basehttp 29856 21360 "GET /monitoring/ HTTP/1.1" 200 92463
+INFO 2025-11-27 15:40:13 basehttp 29856 21360 "GET /home/ HTTP/1.1" 200 74995
+INFO 2025-11-27 15:40:23 views 29856 21360 Requesting Open-Meteo API for Silay City: https://api.open-meteo.com/v1/forecast
+INFO 2025-11-27 15:40:24 views 29856 21360 API returned - Rain: 0.0mm, Temp: 29.6°C, Humidity: 81%, Wind: 4.5km/h
+INFO 2025-11-27 15:40:24 views 29856 21360 Processed 7 days of weather forecast
+INFO 2025-11-27 15:40:24 basehttp 29856 21360 "GET /monitoring/ HTTP/1.1" 200 92463
+INFO 2025-11-27 15:40:29 basehttp 29856 21360 "GET /approve/ HTTP/1.1" 200 43051
+INFO 2025-11-27 15:40:59 basehttp 29856 21360 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-27 15:40:59 basehttp 29856 21360 "GET / HTTP/1.1" 200 14056
+INFO 2025-11-27 15:41:06 basehttp 29856 21360 "GET /register/ HTTP/1.1" 200 26195
+INFO 2025-11-27 15:41:09 basehttp 29856 21360 "GET / HTTP/1.1" 200 14056
+INFO 2025-11-27 15:41:19 basehttp 29856 21360 "POST / HTTP/1.1" 302 0
+INFO 2025-11-27 15:41:19 basehttp 29856 21360 "GET /home/ HTTP/1.1" 200 60605
+INFO 2025-11-27 15:41:30 basehttp 29856 21360 "GET /maps/ HTTP/1.1" 200 1045114
+INFO 2025-11-27 15:41:31 basehttp 29856 21360 "GET /home/ HTTP/1.1" 200 60383
+INFO 2025-11-27 15:41:35 basehttp 29856 21360 "GET /maps/ HTTP/1.1" 200 1045114
+INFO 2025-11-27 15:42:24 basehttp 29856 21360 "GET /home/ HTTP/1.1" 200 60383
+INFO 2025-11-27 15:42:40 basehttp 29856 21360 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-27 15:42:40 basehttp 29856 21360 "GET / HTTP/1.1" 200 14056
+INFO 2025-11-27 17:39:11 basehttp 29856 16424 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-11-27 17:50:13 basehttp 29856 25568 "POST / HTTP/1.1" 302 0
+INFO 2025-11-27 17:50:13 basehttp 29856 25568 "GET /home/ HTTP/1.1" 200 75195
+INFO 2025-11-27 17:50:27 basehttp 29856 25568 "GET /maps/ HTTP/1.1" 200 1045741
+INFO 2025-11-27 17:50:32 basehttp 29856 25568 "POST /maps/save-assessment/ HTTP/1.1" 200 82
+INFO 2025-11-27 17:50:34 basehttp 29856 25568 "GET /maps/report/?barangay=Eustaquio%20Lopez&lat=10.815381&lon=123.022293&risk=LF HTTP/1.1" 200 12178
+INFO 2025-11-27 17:53:15 basehttp 29856 25568 "GET /maps/certificate/form/?barangay=Eustaquio%20Lopez&lat=10.815381&lon=123.022293&risk=LF HTTP/1.1" 200 24418
+INFO 2025-11-27 17:59:35 basehttp 29856 13816 "GET / HTTP/1.1" 200 14056
+INFO 2025-11-27 17:59:36 basehttp 29856 2652 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716

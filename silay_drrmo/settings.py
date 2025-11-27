@@ -36,7 +36,8 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-ray+$42+3p@)$4w00ul5-eftyn
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
 # Allowed hosts - add your domain in production
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.ngrok-free.dev']
+CSRF_TRUSTED_ORIGINS = ['https://zoe-sonic-katy.ngrok-free.dev', 'http://zoe-sonic-katy.ngrok-free.dev']
 
 
 # Application definition
