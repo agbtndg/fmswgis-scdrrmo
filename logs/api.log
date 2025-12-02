@@ -1885,3 +1885,171 @@ INFO 2025-12-02 20:04:09 views 10868 31656 Requesting Open-Meteo API for current
 INFO 2025-12-02 20:04:10 views 10868 31656 Open-Meteo (Current) - Rain: 0.0mm, Temp: 29.0°C, Humidity: 81%, Wind: 13.8km/h
 INFO 2025-12-02 20:04:10 views 10868 31656 Using Open-Meteo for Silay City forecast
 INFO 2025-12-02 20:04:10 views 10868 31656 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 20:05:42 views 9496 23556 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 20:05:43 views 9496 23556 Open-Meteo (Current) - Rain: 0.0mm, Temp: 29.0°C, Humidity: 81%, Wind: 13.8km/h
+INFO 2025-12-02 20:05:43 views 9496 23556 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 20:05:43 views 9496 23556 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 20:06:23 views 9496 26776 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 20:06:24 views 9496 26776 Open-Meteo (Current) - Rain: 0.0mm, Temp: 29.0°C, Humidity: 81%, Wind: 13.8km/h
+INFO 2025-12-02 20:06:24 views 9496 26776 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 20:06:24 views 9496 26776 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 20:20:52 views 9496 13356 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 20:20:53 views 9496 13356 Open-Meteo (Current) - Rain: 0.0mm, Temp: 29.0°C, Humidity: 81%, Wind: 13.1km/h
+INFO 2025-12-02 20:20:53 views 9496 13356 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 20:20:53 views 9496 13356 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 20:22:02 views 9496 13356 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 20:22:03 views 9496 13356 Open-Meteo (Current) - Rain: 0.0mm, Temp: 29.0°C, Humidity: 81%, Wind: 13.1km/h
+INFO 2025-12-02 20:22:03 views 9496 13356 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 20:22:03 views 9496 13356 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 21:35:16 views 9496 27964 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 21:35:17 views 9496 27964 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.8°C, Humidity: 81%, Wind: 11.2km/h
+INFO 2025-12-02 21:35:17 views 9496 27964 Created new rainfall record: 0.0mm
+INFO 2025-12-02 21:35:17 views 9496 27964 Created new weather record
+INFO 2025-12-02 21:35:17 views 9496 27964 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 21:35:17 views 9496 27964 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 21:38:14 views 9496 22660 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 21:38:15 views 9496 22660 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.8°C, Humidity: 81%, Wind: 11.2km/h
+INFO 2025-12-02 21:38:15 views 9496 22660 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 21:38:15 views 9496 22660 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 21:38:24 views 9496 22660 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 21:38:25 views 9496 22660 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.8°C, Humidity: 81%, Wind: 11.2km/h
+INFO 2025-12-02 21:38:25 views 9496 22660 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 21:38:25 views 9496 22660 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 21:47:17 views 9496 11756 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 21:47:19 views 9496 11756 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.8°C, Humidity: 80%, Wind: 11.0km/h
+INFO 2025-12-02 21:47:19 views 9496 11756 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 21:47:19 views 9496 11756 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 21:47:19 views 9496 11756 Fetching WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+INFO 2025-12-02 21:47:20 views 9496 11756 Created tide record from WorldTides (Cebu City): 0.612m
+INFO 2025-12-02 21:47:59 views 9496 6556 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 21:48:00 views 9496 6556 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.8°C, Humidity: 80%, Wind: 11.0km/h
+INFO 2025-12-02 21:48:00 views 9496 6556 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 21:48:00 views 9496 6556 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 21:49:10 views 9496 29316 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 21:49:11 views 9496 29316 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.8°C, Humidity: 80%, Wind: 11.0km/h
+INFO 2025-12-02 21:49:11 views 9496 29316 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 21:49:11 views 9496 29316 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 21:49:26 views 9496 29316 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 21:49:27 views 9496 29316 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.8°C, Humidity: 80%, Wind: 11.0km/h
+INFO 2025-12-02 21:49:27 views 9496 29316 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 21:49:27 views 9496 29316 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 21:50:36 views 9496 29316 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 21:50:37 views 9496 29316 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.8°C, Humidity: 80%, Wind: 11.0km/h
+INFO 2025-12-02 21:50:37 views 9496 29316 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 21:50:37 views 9496 29316 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 21:54:05 views 9496 25420 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 21:54:06 views 9496 25420 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.8°C, Humidity: 80%, Wind: 11.0km/h
+INFO 2025-12-02 21:54:06 views 9496 25420 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 21:54:06 views 9496 25420 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 21:55:44 views 9496 2932 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 21:55:45 views 9496 2932 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.8°C, Humidity: 80%, Wind: 11.0km/h
+INFO 2025-12-02 21:55:45 views 9496 2932 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 21:55:45 views 9496 2932 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 21:56:43 views 9496 2932 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 21:56:44 views 9496 2932 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.8°C, Humidity: 80%, Wind: 11.0km/h
+INFO 2025-12-02 21:56:44 views 9496 2932 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 21:56:44 views 9496 2932 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 21:58:08 views 9496 2932 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 21:58:09 views 9496 2932 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.8°C, Humidity: 80%, Wind: 11.0km/h
+INFO 2025-12-02 21:58:09 views 9496 2932 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 21:58:09 views 9496 2932 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 22:01:54 views 9496 29392 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 22:01:55 views 9496 29392 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.7°C, Humidity: 80%, Wind: 10.9km/h
+INFO 2025-12-02 22:01:55 views 9496 29392 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 22:01:55 views 9496 29392 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 22:03:03 views 9496 29392 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 22:03:04 views 9496 29392 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.7°C, Humidity: 80%, Wind: 10.9km/h
+INFO 2025-12-02 22:03:04 views 9496 29392 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 22:03:04 views 9496 29392 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 22:03:10 views 9496 29392 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 22:03:11 views 9496 29392 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.7°C, Humidity: 80%, Wind: 10.9km/h
+INFO 2025-12-02 22:03:11 views 9496 29392 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 22:03:11 views 9496 29392 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 22:03:51 views 9496 25652 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 22:03:52 views 9496 25652 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.7°C, Humidity: 80%, Wind: 10.9km/h
+INFO 2025-12-02 22:03:52 views 9496 25652 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 22:03:52 views 9496 25652 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 22:04:52 views 9496 25652 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 22:04:53 views 9496 25652 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.7°C, Humidity: 80%, Wind: 10.9km/h
+INFO 2025-12-02 22:04:53 views 9496 25652 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 22:04:53 views 9496 25652 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 22:14:32 views 9496 24496 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 22:14:33 views 9496 24496 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.7°C, Humidity: 80%, Wind: 10.9km/h
+INFO 2025-12-02 22:14:33 views 9496 24496 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 22:14:33 views 9496 24496 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 22:19:27 views 9496 31320 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 22:19:28 views 9496 31320 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.6°C, Humidity: 80%, Wind: 10.8km/h
+INFO 2025-12-02 22:19:28 views 9496 31320 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 22:19:28 views 9496 31320 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 22:38:30 views 9496 29436 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 22:38:31 views 9496 29436 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.6°C, Humidity: 80%, Wind: 10.5km/h
+INFO 2025-12-02 22:38:31 views 9496 29436 Created new rainfall record: 0.0mm
+INFO 2025-12-02 22:38:31 views 9496 29436 Created new weather record
+INFO 2025-12-02 22:38:31 views 9496 29436 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 22:38:31 views 9496 29436 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 22:43:07 views 9496 16184 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 22:43:08 views 9496 16184 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.6°C, Humidity: 80%, Wind: 10.5km/h
+INFO 2025-12-02 22:43:08 views 9496 16184 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 22:43:08 views 9496 16184 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 22:44:28 views 9496 16184 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 22:44:28 views 9496 16184 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.6°C, Humidity: 80%, Wind: 10.5km/h
+INFO 2025-12-02 22:44:28 views 9496 16184 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 22:44:28 views 9496 16184 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 22:44:31 views 9496 16184 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 22:44:31 views 9496 16184 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.6°C, Humidity: 80%, Wind: 10.5km/h
+INFO 2025-12-02 22:44:31 views 9496 16184 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 22:44:31 views 9496 16184 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 22:47:11 views 9496 27224 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 22:47:12 views 9496 27224 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.5°C, Humidity: 81%, Wind: 10.1km/h
+INFO 2025-12-02 22:47:12 views 9496 27224 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 22:47:12 views 9496 27224 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 22:48:19 views 9496 16972 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 22:48:20 views 9496 16972 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.5°C, Humidity: 81%, Wind: 10.1km/h
+INFO 2025-12-02 22:48:20 views 9496 16972 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 22:48:20 views 9496 16972 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 22:49:10 views 9496 31460 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 22:49:11 views 9496 31460 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.5°C, Humidity: 81%, Wind: 10.1km/h
+INFO 2025-12-02 22:49:11 views 9496 31460 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 22:49:11 views 9496 31460 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 23:01:07 views 9496 10728 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 23:01:08 views 9496 10728 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.5°C, Humidity: 81%, Wind: 10.1km/h
+INFO 2025-12-02 23:01:08 views 9496 10728 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 23:01:08 views 9496 10728 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 23:01:57 views 9496 22656 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 23:01:58 views 9496 22656 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.5°C, Humidity: 81%, Wind: 10.1km/h
+INFO 2025-12-02 23:01:58 views 9496 22656 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 23:01:58 views 9496 22656 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 23:01:59 views 9496 10728 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 23:02:00 views 9496 10728 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.5°C, Humidity: 81%, Wind: 10.1km/h
+INFO 2025-12-02 23:02:00 views 9496 10728 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 23:02:00 views 9496 10728 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 23:03:19 views 9496 10728 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 23:03:19 views 9496 31668 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 23:03:19 views 9496 10728 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.5°C, Humidity: 81%, Wind: 10.1km/h
+INFO 2025-12-02 23:03:19 views 9496 10728 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 23:03:19 views 9496 10728 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 23:03:20 views 9496 31668 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.5°C, Humidity: 81%, Wind: 10.1km/h
+INFO 2025-12-02 23:03:20 views 9496 31668 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 23:03:20 views 9496 31668 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 23:06:25 views 9496 20852 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 23:06:26 views 9496 20852 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.5°C, Humidity: 81%, Wind: 10.1km/h
+INFO 2025-12-02 23:06:26 views 9496 20852 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 23:06:26 views 9496 20852 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 23:08:16 views 9496 17856 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 23:08:16 views 9496 17856 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.5°C, Humidity: 81%, Wind: 10.1km/h
+INFO 2025-12-02 23:08:16 views 9496 17856 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 23:08:16 views 9496 17856 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-02 23:49:39 views 9496 29380 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-02 23:49:40 views 9496 29380 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.4°C, Humidity: 81%, Wind: 9.7km/h
+INFO 2025-12-02 23:49:40 views 9496 29380 Created new rainfall record: 0.0mm
+INFO 2025-12-02 23:49:40 views 9496 29380 Created new weather record
+INFO 2025-12-02 23:49:40 views 9496 29380 Using Open-Meteo for Silay City forecast
+INFO 2025-12-02 23:49:40 views 9496 29380 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-03 00:20:48 views 9496 25532 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-03 00:20:48 views 9496 25532 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.4°C, Humidity: 83%, Wind: 10.0km/h
+INFO 2025-12-03 00:20:48 views 9496 25532 Using Open-Meteo for Silay City forecast
+INFO 2025-12-03 00:20:48 views 9496 25532 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-03 00:22:18 views 9496 25532 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-03 00:22:19 views 9496 25532 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.4°C, Humidity: 83%, Wind: 10.0km/h
+INFO 2025-12-03 00:22:19 views 9496 25532 Using Open-Meteo for Silay City forecast
+INFO 2025-12-03 00:22:19 views 9496 25532 Processed 7 days of Open-Meteo forecast for Silay City
