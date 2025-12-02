@@ -13,11 +13,17 @@
     }
 
     .page-header {
-        background: white;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
         padding: 32px 28px;
-        border-radius: 14px;
-        border: 1px solid var(--border-gray);
+        border-radius: 20px;
+        border: 2px solid transparent;
+        border-image: linear-gradient(135deg, #e0e7ff, #dbeafe) 1;
         margin-bottom: 28px;
+        box-shadow: 
+            0 6px 16px rgba(0, 0, 0, 0.08),
+            0 3px 8px rgba(0, 0, 0, 0.06),
+            inset 0 1px 0 rgba(255, 255, 255, 0.95),
+            inset 0 -2px 0 rgba(0, 0, 0, 0.03);
     }
 
     .header-top {
@@ -33,16 +39,21 @@
         font-size: 28px;
         font-weight: 800;
         color: var(--primary-blue);
-        margin-bottom: 6px;
+        margin-bottom: 8px;
         display: flex;
         align-items: center;
         gap: 12px;
-        letter-spacing: -0.01em;
+        letter-spacing: -0.02em;
     }
 
     .page-header h1 i {
         color: var(--secondary-blue);
         font-size: 32px;
+        transition: transform 0.3s ease;
+    }
+
+    .page-header:hover h1 i {
+        transform: scale(1.1) rotate(5deg);
     }
 
     .page-header p {
@@ -77,46 +88,61 @@
 
     .filters {
         display: flex;
-        gap: 20px;
+        gap: 16px;
         flex-wrap: wrap;
         padding: 20px;
-        background: white;
-        border-radius: 12px;
-        border: 1px solid #e2e8f0;
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        border-radius: 16px;
+        border: 2px solid #e0e7ff;
         margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     }
 
     .filter-group {
         display: flex;
         flex-direction: column;
         gap: 8px;
-        min-width: 220px;
-        flex: 1;
+        min-width: 200px;
+        max-width: 250px;
     }
 
     .filter-group label {
         font-size: 12px;
-        font-weight: 600;
+        font-weight: 700;
         color: var(--text-muted);
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.8px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .filter-group label i {
+        color: var(--secondary-blue);
     }
 
     .filter-group select,
     .filter-group input {
         padding: 12px 16px;
-        border: 2px solid var(--border-gray);
-        border-radius: 10px;
+        border: 2px solid #e0e7ff;
+        border-radius: 12px;
         font-size: 14px;
+        font-weight: 600;
         background: white;
-        transition: all 0.2s;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        cursor: pointer;
     }
 
     .filter-group select:focus,
     .filter-group input:focus {
-        border-color: var(--secondary-blue);
+        border-color: #3b82f6;
         outline: none;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .filter-group select:hover,
+    .filter-group input:hover {
+        border-color: #93c5fd;
     }
 
     .filter-btn {
@@ -172,11 +198,15 @@
 
     .stat-card {
         background: white;
-        padding: 24px;
-        border-radius: 12px;
-        border: 1px solid var(--border-gray);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-        transition: all 0.3s ease;
+        padding: 28px;
+        border-radius: 20px;
+        border: 2px solid transparent;
+        box-shadow: 
+            0 6px 16px rgba(0, 0, 0, 0.08),
+            0 3px 8px rgba(0, 0, 0, 0.06),
+            inset 0 1px 0 rgba(255, 255, 255, 0.95),
+            inset 0 -2px 0 rgba(0, 0, 0, 0.03);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
     }
@@ -185,50 +215,129 @@
         content: '';
         position: absolute;
         top: 0;
-        left: 0;
         right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, var(--secondary-blue), var(--primary-blue));
+        width: 80px;
+        height: 80px;
+        opacity: 0.08;
+        font-family: 'Font Awesome 5 Free';
+        font-size: 60px;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .stat-card:nth-child(1) {
+        border-image: linear-gradient(135deg, #93c5fd, #3b82f6) 1;
+        background: linear-gradient(135deg, #dbeafe 0%, #ffffff 100%);
+    }
+
+    .stat-card:nth-child(1)::before {
+        content: '\f3c5';
+        color: #3b82f6;
+    }
+
+    .stat-card:nth-child(2) {
+        border-image: linear-gradient(135deg, #a78bfa, #8b5cf6) 1;
+        background: linear-gradient(135deg, #ede9fe 0%, #ffffff 100%);
+    }
+
+    .stat-card:nth-child(2)::before {
+        content: '\f15c';
+        color: #8b5cf6;
+    }
+
+    .stat-card:nth-child(3) {
+        border-image: linear-gradient(135deg, #fcd34d, #f59e0b) 1;
+        background: linear-gradient(135deg, #fef3c7 0%, #ffffff 100%);
+    }
+
+    .stat-card:nth-child(3)::before {
+        content: '\f0a3';
+        color: #f59e0b;
+    }
+
+    .stat-card:nth-child(4) {
+        border-image: linear-gradient(135deg, #67e8f9, #06b6d4) 1;
+        background: linear-gradient(135deg, #cffafe 0%, #ffffff 100%);
+    }
+
+    .stat-card:nth-child(4)::before {
+        content: '\f043';
+        color: #06b6d4;
+    }
+
+    .stat-card:nth-child(5) {
+        border-image: linear-gradient(135deg, #a7f3d0, #10b981) 1;
+        background: linear-gradient(135deg, #d1fae5 0%, #ffffff 100%);
+    }
+
+    .stat-card:nth-child(5)::before {
+        content: '\f017';
+        color: #10b981;
     }
 
     .stat-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        border-color: var(--secondary-blue);
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 
+            0 16px 48px rgba(0, 0, 0, 0.12),
+            0 8px 16px rgba(0, 0, 0, 0.08),
+            inset 0 2px 0 rgba(255, 255, 255, 1),
+            inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+    }
+
+    .stat-card:hover::before {
+        opacity: 0.15;
+        transform: scale(1.1) rotate(10deg);
     }
 
     .stat-card h3 {
-        font-size: 14px;
+        font-size: 13px;
         color: var(--text-muted);
-        margin-bottom: 12px;
-        font-weight: 600;
+        margin-bottom: 14px;
+        font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.8px;
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: 8px;
     }
 
     .stat-card h3 i {
-        color: var(--secondary-blue);
+        font-size: 16px;
     }
 
+    .stat-card:nth-child(1) h3 { color: #1e40af; }
+    .stat-card:nth-child(2) h3 { color: #6d28d9; }
+    .stat-card:nth-child(3) h3 { color: #d97706; }
+    .stat-card:nth-child(4) h3 { color: #0e7490; }
+    .stat-card:nth-child(5) h3 { color: #047857; }
+
     .stat-card .value {
-        font-size: 36px;
-        font-weight: 700;
-        color: var(--secondary-blue);
+        font-size: 42px;
+        font-weight: 800;
         line-height: 1;
+        letter-spacing: -0.02em;
     }
+
+    .stat-card:nth-child(1) .value { color: #1e40af; text-shadow: 0 2px 4px rgba(59, 130, 246, 0.15); }
+    .stat-card:nth-child(2) .value { color: #6d28d9; text-shadow: 0 2px 4px rgba(139, 92, 246, 0.15); }
+    .stat-card:nth-child(3) .value { color: #d97706; text-shadow: 0 2px 4px rgba(245, 158, 11, 0.15); }
+    .stat-card:nth-child(4) .value { color: #0e7490; text-shadow: 0 2px 4px rgba(6, 182, 212, 0.15); }
+    .stat-card:nth-child(5) .value { color: #047857; text-shadow: 0 2px 4px rgba(16, 185, 129, 0.15); }
 
     .tabs {
         display: flex;
-        gap: 8px;
+        gap: 10px;
         margin-bottom: 24px;
-        background: white;
-        padding: 8px;
-        border-radius: 12px;
-        border: 1px solid var(--border-gray);
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        padding: 12px;
+        border-radius: 16px;
+        border: 2px solid #e0e7ff;
+        box-shadow: 
+            0 4px 12px rgba(0, 0, 0, 0.06),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
         flex-wrap: wrap;
     }
 
@@ -236,29 +345,65 @@
         flex: 1;
         min-width: 150px;
         padding: 14px 20px;
-        border: none;
+        border: 2px solid transparent;
         background: transparent;
         color: var(--text-muted);
         font-size: 14px;
-        font-weight: 600;
+        font-weight: 700;
         cursor: pointer;
-        border-radius: 8px;
-        transition: all 0.3s ease;
+        border-radius: 12px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .tab::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+
+    .tab:hover::before {
+        width: 300px;
+        height: 300px;
     }
 
     .tab.active {
-        background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
         color: white;
-        box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+        border-color: #2563eb;
+        box-shadow: 
+            0 4px 16px rgba(37, 99, 235, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
     }
 
     .tab:hover:not(.active) {
-        background: var(--light-gray);
-        color: var(--text-dark);
+        background: white;
+        color: var(--primary-blue);
+        border-color: #93c5fd;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .tab i {
+        font-size: 16px;
+        transition: transform 0.3s ease;
+    }
+
+    .tab.active i {
+        transform: scale(1.1);
     }
 
     .content-section {
@@ -272,17 +417,40 @@
     .activity-card {
         background: white;
         padding: 24px;
-        border-radius: 12px;
-        border: 1px solid var(--border-gray);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         margin-bottom: 16px;
-        transition: all 0.3s ease;
+        border-radius: 18px;
+        border: 2px solid #e0e7ff;
+        box-shadow: 
+            0 4px 12px rgba(0, 0, 0, 0.06),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+    }
+
+    .activity-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+        border-radius: 18px 18px 0 0;
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
 
     .activity-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        border-color: var(--secondary-blue);
+        transform: translateY(-4px) scale(1.01);
+        border-color: #93c5fd;
+        box-shadow: 
+            0 16px 40px rgba(59, 130, 246, 0.15),
+            0 8px 16px rgba(59, 130, 246, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 1);
+    }
+
+    .activity-card:hover::before {
+        opacity: 1;
     }
 
     .activity-header {
@@ -296,30 +464,42 @@
 
     .activity-title {
         font-size: 18px;
-        font-weight: 600;
+        font-weight: 800;
         color: var(--text-dark);
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
         flex-wrap: wrap;
+        letter-spacing: -0.01em;
     }
 
     .activity-title i {
         color: var(--secondary-blue);
-        font-size: 20px;
+        font-size: 22px;
+        transition: transform 0.3s ease;
+    }
+
+    .activity-card:hover .activity-title i {
+        transform: scale(1.15) rotate(5deg);
     }
 
     .staff-badge {
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        padding: 6px 12px;
-        background: var(--light-gray);
-        border-radius: 20px;
+        padding: 8px 14px;
+        background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+        border-radius: 12px;
         font-size: 12px;
-        font-weight: 600;
-        color: var(--text-dark);
-        border: 1px solid var(--border-gray);
+        font-weight: 700;
+        color: #1e40af;
+        border: 2px solid #93c5fd;
+        transition: all 0.3s ease;
+    }
+
+    .staff-badge:hover {
+        transform: scale(1.05);
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
     }
 
     .staff-badge i {
@@ -329,11 +509,25 @@
     .activity-timestamp {
         font-size: 12px;
         color: var(--text-muted);
-        background: var(--light-gray);
-        padding: 6px 12px;
-        border-radius: 20px;
-        border: 1px solid var(--border-gray);
-        font-weight: 500;
+        background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+        padding: 8px 14px;
+        border-radius: 12px;
+        border: 1px solid #cbd5e0;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.3s ease;
+    }
+
+    .activity-timestamp:hover {
+        background: linear-gradient(135deg, #dbeafe 0%, #93c5fd 100%);
+        border-color: #60a5fa;
+        color: #1e40af;
+    }
+
+    .activity-timestamp i {
+        font-size: 13px;
     }
 
     .activity-details {
@@ -345,72 +539,143 @@
 
     .detail-item {
         font-size: 14px;
+        padding: 12px 16px;
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+    }
+
+    .detail-item:hover {
+        background: linear-gradient(135deg, #dbeafe 0%, #ffffff 100%);
+        border-color: #93c5fd;
+        transform: translateY(-2px);
     }
 
     .detail-label {
         color: var(--text-muted);
-        margin-bottom: 6px;
-        font-weight: 500;
+        margin-bottom: 8px;
+        font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
-        font-size: 12px;
+        letter-spacing: 0.8px;
+        font-size: 11px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .detail-label::before {
+        content: '';
+        width: 3px;
+        height: 12px;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        border-radius: 2px;
     }
 
     .detail-value {
         color: var(--text-dark);
-        font-weight: 600;
-        line-height: 1.4;
+        font-weight: 700;
+        line-height: 1.5;
+        font-size: 14px;
     }
 
     .empty-state {
         text-align: center;
-        padding: 64px 24px;
-        background: white;
-        border-radius: 12px;
-        border: 1px solid var(--border-gray);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        padding: 80px 24px;
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        border-radius: 20px;
+        border: 3px dashed #cbd5e0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        transition: all 0.3s ease;
+    }
+
+    .empty-state:hover {
+        border-color: #93c5fd;
+        background: linear-gradient(135deg, #dbeafe 0%, #ffffff 100%);
     }
 
     .empty-state i {
-        font-size: 56px;
-        color: var(--border-gray);
-        margin-bottom: 20px;
-        opacity: 0.6;
+        font-size: 72px;
+        color: #93c5fd;
+        margin-bottom: 24px;
+        opacity: 0.8;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
     }
 
     .empty-state h3 {
-        color: var(--text-dark);
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 8px;
+        color: var(--primary-blue);
+        font-size: 22px;
+        font-weight: 800;
+        margin-bottom: 10px;
+        letter-spacing: -0.01em;
     }
 
     .empty-state p {
         color: var(--text-muted);
         font-size: 15px;
-        line-height: 1.5;
+        line-height: 1.6;
+        font-weight: 500;
     }
 
     .badge {
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        padding: 6px 12px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: 600;
+        padding: 6px 14px;
+        border-radius: 12px;
+        font-size: 11px;
+        font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.8px;
+        border: 2px solid;
+        transition: all 0.3s ease;
     }
 
-    .badge-low { background: #dcfce7; color: #166534; }
-    .badge-moderate { background: #fef3c7; color: #92400e; }
-    .badge-high { background: #fed7aa; color: #9a3412; }
-    .badge-very-high { background: #fee2e2; color: #991b1b; }
+    .badge:hover {
+        transform: scale(1.05);
+    }
 
-    .badge-create { background: #dbeafe; color: #1e40af; }
-    .badge-update { background: #fef3c7; color: #92400e; }
-    .badge-delete { background: #fee2e2; color: #991b1b; }
+    .badge-low { 
+        background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); 
+        color: #166534; 
+        border-color: #86efac;
+    }
+    .badge-moderate { 
+        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); 
+        color: #92400e; 
+        border-color: #fcd34d;
+    }
+    .badge-high { 
+        background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%); 
+        color: #9a3412; 
+        border-color: #fb923c;
+    }
+    .badge-very-high { 
+        background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); 
+        color: #991b1b; 
+        border-color: #f87171;
+    }
+
+    .badge-create { 
+        background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); 
+        color: #1e40af; 
+        border-color: #93c5fd;
+    }
+    .badge-update { 
+        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); 
+        color: #92400e; 
+        border-color: #fcd34d;
+    }
+    .badge-delete { 
+        background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); 
+        color: #991b1b; 
+        border-color: #f87171;
+    }
 
     /* Pagination Styles */
     .pagination {
@@ -514,46 +779,76 @@
     /* Quick Filter Buttons */
     .quick-filters {
         display: flex;
-        gap: 20px;
+        gap: 12px;
         flex-wrap: wrap;
         margin-bottom: 24px;
         align-items: center;
         padding: 20px 28px;
-        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-        border-radius: 12px;
-        border: 1px solid #e2e8f0;
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        border-radius: 16px;
+        border: 2px solid #e0e7ff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     }
 
     .quick-filter-btn {
         padding: 12px 24px;
         background: white;
         color: var(--text-dark);
-        border: 2px solid var(--border-gray);
-        border-radius: 10px;
+        border: 2px solid #e0e7ff;
+        border-radius: 12px;
         font-size: 14px;
-        font-weight: 600;
+        font-weight: 700;
         cursor: pointer;
-        transition: all 0.2s;
+        transition: all 0.3s ease;
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
         min-width: 140px;
         justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .quick-filter-btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(59, 130, 246, 0.1);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+
+    .quick-filter-btn:hover::before {
+        width: 300px;
+        height: 300px;
     }
 
     .quick-filter-btn:hover {
-        background: var(--light-gray);
-        border-color: var(--secondary-blue);
+        border-color: #93c5fd;
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+        box-shadow: 0 6px 16px rgba(37, 99, 235, 0.15);
     }
 
     .quick-filter-btn.active {
-        background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
         color: white;
-        border-color: var(--primary-blue);
+        border-color: #2563eb;
         box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+        transform: translateY(-2px);
+    }
+
+    .quick-filter-btn.active i {
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
     }
 
     .search-box {
@@ -562,26 +857,32 @@
         flex-wrap: wrap;
         margin-bottom: 20px;
         padding: 20px;
-        background: white;
-        border-radius: 12px;
-        border: 1px solid #e2e8f0;
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        border-radius: 16px;
+        border: 2px solid #e0e7ff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     }
 
     .search-input {
         flex: 1;
         min-width: 300px;
         padding: 12px 16px;
-        border: 2px solid var(--border-gray);
-        border-radius: 10px;
+        border: 2px solid #e0e7ff;
+        border-radius: 12px;
         font-size: 14px;
+        font-weight: 600;
         background: white;
-        transition: all 0.2s;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
     }
 
     .search-input:focus {
-        border-color: var(--secondary-blue);
+        border-color: #3b82f6;
         outline: none;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .search-input:hover {
+        border-color: #93c5fd;
     }
 
     .filter-badge {
@@ -952,9 +1253,6 @@
     <div id="assessments" class="content-section {% if active_tab == 'assessments' or not active_tab %}active{% endif %}">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
             <div class="export-buttons">
-                <a href="{% url 'export_activities' %}?type=csv&activity=assessments{% if filter_user %}&user={{ filter_user }}{% endif %}{% if filter_date %}&date={{ filter_date }}{% endif %}{% if date_from %}&date_from={{ date_from }}{% endif %}{% if date_to %}&date_to={{ date_to }}{% endif %}{% if date_range %}&date_range={{ date_range }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}&sort={{ sort_order }}" class="export-btn csv">
-                    <i class="fas fa-file-csv"></i> Export CSV
-                </a>
                 <a href="{% url 'export_activities' %}?type=pdf&activity=assessments{% if filter_user %}&user={{ filter_user }}{% endif %}{% if filter_date %}&date={{ filter_date }}{% endif %}{% if date_from %}&date_from={{ date_from }}{% endif %}{% if date_to %}&date_to={{ date_to }}{% endif %}{% if date_range %}&date_range={{ date_range }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}&sort={{ sort_order }}" class="export-btn pdf">
                     <i class="fas fa-file-pdf"></i> Export PDF
                 </a>
@@ -1050,9 +1348,6 @@
     <div id="reports" class="content-section {% if active_tab == 'reports' %}active{% endif %}">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
             <div class="export-buttons">
-                <a href="{% url 'export_activities' %}?type=csv&activity=reports{% if filter_user %}&user={{ filter_user }}{% endif %}{% if filter_date %}&date={{ filter_date }}{% endif %}{% if date_from %}&date_from={{ date_from }}{% endif %}{% if date_to %}&date_to={{ date_to }}{% endif %}{% if date_range %}&date_range={{ date_range }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}&sort={{ sort_order }}" class="export-btn csv">
-                    <i class="fas fa-file-csv"></i> Export CSV
-                </a>
                 <a href="{% url 'export_activities' %}?type=pdf&activity=reports{% if filter_user %}&user={{ filter_user }}{% endif %}{% if filter_date %}&date={{ filter_date }}{% endif %}{% if date_from %}&date_from={{ date_from }}{% endif %}{% if date_to %}&date_to={{ date_to }}{% endif %}{% if date_range %}&date_range={{ date_range }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}&sort={{ sort_order }}" class="export-btn pdf">
                     <i class="fas fa-file-pdf"></i> Export PDF
                 </a>
@@ -1148,9 +1443,6 @@
     <div id="certificates" class="content-section {% if active_tab == 'certificates' %}active{% endif %}">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
             <div class="export-buttons">
-                <a href="{% url 'export_activities' %}?type=csv&activity=certificates{% if filter_user %}&user={{ filter_user }}{% endif %}{% if filter_date %}&date={{ filter_date }}{% endif %}{% if date_from %}&date_from={{ date_from }}{% endif %}{% if date_to %}&date_to={{ date_to }}{% endif %}{% if date_range %}&date_range={{ date_range }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}&sort={{ sort_order }}" class="export-btn csv">
-                    <i class="fas fa-file-csv"></i> Export CSV
-                </a>
                 <a href="{% url 'export_activities' %}?type=pdf&activity=certificates{% if filter_user %}&user={{ filter_user }}{% endif %}{% if filter_date %}&date={{ filter_date }}{% endif %}{% if date_from %}&date_from={{ date_from }}{% endif %}{% if date_to %}&date_to={{ date_to }}{% endif %}{% if date_range %}&date_range={{ date_range }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}&sort={{ sort_order }}" class="export-btn pdf">
                     <i class="fas fa-file-pdf"></i> Export PDF
                 </a>
@@ -1242,9 +1534,6 @@
     <div id="flood-records" class="content-section {% if active_tab == 'flood-records' %}active{% endif %}">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
             <div class="export-buttons">
-                <a href="{% url 'export_activities' %}?type=csv&activity=flood-records{% if filter_user %}&user={{ filter_user }}{% endif %}{% if filter_date %}&date={{ filter_date }}{% endif %}{% if date_from %}&date_from={{ date_from }}{% endif %}{% if date_to %}&date_to={{ date_to }}{% endif %}{% if date_range %}&date_range={{ date_range }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}&sort={{ sort_order }}" class="export-btn csv">
-                    <i class="fas fa-file-csv"></i> Export CSV
-                </a>
                 <a href="{% url 'export_activities' %}?type=pdf&activity=flood-records{% if filter_user %}&user={{ filter_user }}{% endif %}{% if filter_date %}&date={{ filter_date }}{% endif %}{% if date_from %}&date_from={{ date_from }}{% endif %}{% if date_to %}&date_to={{ date_to }}{% endif %}{% if date_range %}&date_range={{ date_range }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}&sort={{ sort_order }}" class="export-btn pdf">
                     <i class="fas fa-file-pdf"></i> Export PDF
                 </a>
@@ -1346,9 +1635,6 @@
     <div id="user-logs" class="content-section {% if active_tab == 'user-logs' %}active{% endif %}">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
             <div class="export-buttons">
-                <a href="{% url 'export_activities' %}?type=csv&activity=user-logs{% if filter_user %}&user={{ filter_user }}{% endif %}{% if filter_date %}&date={{ filter_date }}{% endif %}{% if date_from %}&date_from={{ date_from }}{% endif %}{% if date_to %}&date_to={{ date_to }}{% endif %}{% if date_range %}&date_range={{ date_range }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}&sort={{ sort_order }}" class="export-btn csv">
-                    <i class="fas fa-file-csv"></i> Export CSV
-                </a>
                 <a href="{% url 'export_activities' %}?type=pdf&activity=user-logs{% if filter_user %}&user={{ filter_user }}{% endif %}{% if filter_date %}&date={{ filter_date }}{% endif %}{% if date_from %}&date_from={{ date_from }}{% endif %}{% if date_to %}&date_to={{ date_to }}{% endif %}{% if date_range %}&date_range={{ date_range }}{% endif %}{% if search_query %}&search={{ search_query }}{% endif %}&sort={{ sort_order }}" class="export-btn pdf">
                     <i class="fas fa-file-pdf"></i> Export PDF
                 </a>

@@ -17,7 +17,7 @@
 
         /* Override base template constraints for full-width content like other pages */
         .main-content {
-            padding: 100px 20px 24px 20px !important;
+            padding: 45px 20px 24px 20px !important;
             max-width: 1200px !important;
             margin: 0 auto !important;
             background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%) !important;
@@ -40,13 +40,16 @@
         .page-header {
             background: linear-gradient(135deg, var(--primary-blue) 0%, #1a2e4a 100%);
             padding: 28px 32px;
-            border-radius: 16px;
+            border-radius: 20px;
             text-align: center;
             color: white;
             margin-bottom: 24px;
-            box-shadow: 0 8px 32px rgba(30, 58, 95, 0.15);
+            box-shadow: 
+                0 8px 32px rgba(30, 58, 95, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
+            border: 2px solid rgba(147, 197, 253, 0.1);
         }
 
         .page-header::after {
@@ -66,15 +69,16 @@
             font-weight: 800;
             color: white;
             margin-bottom: 4px;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.02em;
             position: relative;
             z-index: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .page-header p {
             font-size: 14px;
             color: rgba(255, 255, 255, 0.9);
-            font-weight: 500;
+            font-weight: 600;
             margin: 6px 0 0 0;
             position: relative;
             z-index: 1;
@@ -91,9 +95,9 @@
             text-decoration: none;
             font-size: 14px;
             font-weight: 700;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
             position: relative;
             overflow: hidden;
             cursor: pointer;
@@ -102,24 +106,27 @@
         .back-btn::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
         }
 
         .back-btn:hover {
             background: linear-gradient(135deg, var(--primary-blue) 0%, #0f766e 100%);
             text-decoration: none;
             color: white;
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(37, 99, 235, 0.4);
         }
 
         .back-btn:hover::before {
-            left: 100%;
+            width: 300px;
+            height: 300px;
         }
 
         .back-btn:active {
@@ -138,8 +145,8 @@
             font-size: 14px;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
             position: relative;
             overflow: hidden;
             letter-spacing: 0.5px;
@@ -148,22 +155,25 @@
         .edit-profile-btn::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.6s ease;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
         }
 
         .edit-profile-btn:hover {
             background: linear-gradient(135deg, #059669 0%, #047857 100%);
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(16, 185, 129, 0.4);
         }
 
         .edit-profile-btn:hover::before {
-            left: 100%;
+            width: 300px;
+            height: 300px;
         }
 
         .edit-profile-btn:active {
@@ -178,11 +188,14 @@
             gap: 28px;
             position: relative;
             overflow: hidden;
-            border-radius: 16px;
+            border-radius: 20px;
             margin-bottom: 28px;
             color: white;
-            box-shadow: 0 8px 32px rgba(30, 58, 95, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(30, 58, 95, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
+            border: 2px solid rgba(147, 197, 253, 0.1);
         }
 
         .profile-header::before {
@@ -252,14 +265,14 @@
             font-weight: 800;
             margin-bottom: 6px;
             letter-spacing: -0.02em;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
 
         .profile-info p {
             font-size: 14px;
             opacity: 0.95;
             margin: 0 0 6px 0;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .profile-content {
@@ -288,18 +301,22 @@
 
         .info-group {
             background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
-            border: 2px solid var(--border-gray);
-            border-radius: 16px;
+            border: 2px solid #e0e7ff;
+            border-radius: 20px;
             padding: 28px;
-            box-shadow: 0 4px 16px rgba(30, 58, 95, 0.06);
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 
+                0 4px 16px rgba(30, 58, 95, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             backdrop-filter: blur(10px);
         }
 
         .info-group:hover {
-            border-color: var(--secondary-blue);
-            box-shadow: 0 12px 32px rgba(37, 99, 235, 0.12);
-            transform: translateY(-4px);
+            border-color: #93c5fd;
+            box-shadow: 
+                0 12px 32px rgba(37, 99, 235, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            transform: translateY(-6px);
         }
 
         .info-group h3 {
@@ -310,12 +327,21 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.02em;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e0e7ff;
         }
 
         .info-group h3 i {
             font-size: 20px;
             color: var(--secondary-blue);
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #dbeafe, #e0f2fe);
+            border-radius: 10px;
         }.info-list {
     list-style: none;
     padding: 0;
@@ -328,16 +354,18 @@
             gap: 14px;
             padding: 14px 18px;
             background: linear-gradient(135deg, #f8fafc 0%, #f0f4f8 100%);
-            border-radius: 10px;
+            border-radius: 12px;
             margin-bottom: 12px;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border-left: 3px solid var(--secondary-blue);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
         }
 
         .info-item:hover {
             background: linear-gradient(135deg, #eef2f7 0%, #e8ecf1 100%);
-            transform: translateX(4px);
-            box-shadow: 0 4px 12px rgba(30, 58, 95, 0.1);
+            transform: translateX(6px);
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.12);
+            border-left-color: #93c5fd;
         }
 
         .info-item i {
@@ -357,14 +385,14 @@
             color: var(--text-muted);
             margin-bottom: 3px;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
-            font-weight: 600;
+            letter-spacing: 0.5px;
+            font-weight: 700;
         }
 
         .info-item-value {
             font-size: 15px;
             color: var(--text-dark);
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: -0.01em;
         }.modal-body {
     padding: 24px;
@@ -372,11 +400,10 @@
 
         .form-label {
             font-size: 14px;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--primary-blue);
             margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
+            letter-spacing: 0.02em;
             display: flex;
             align-items: center;
             gap: 6px;
@@ -401,19 +428,22 @@
             font-size: 15px;
             padding: 12px 16px;
             border-radius: 12px;
-            border: 2px solid var(--border-gray);
-            background-color: var(--light-gray);
+            border: 2px solid #e0e7ff;
+            background: linear-gradient(135deg, #ffffff, #f9fafb);
             color: var(--text-dark);
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+            font-weight: 500;
         }
 
         .form-control:focus {
             border-color: var(--secondary-blue);
             background-color: white;
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15), inset 0 2px 4px rgba(0, 0, 0, 0.02);
+            box-shadow: 
+                0 0 0 4px rgba(37, 99, 235, 0.15),
+                0 4px 12px rgba(37, 99, 235, 0.1);
             color: var(--text-dark);
-            transform: scale(1.01);
+            transform: translateY(-1px);
         }
 
         .form-control::placeholder {
@@ -425,9 +455,12 @@
             background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--primary-blue) 100%);
             border-bottom: none;
             padding: 24px 28px;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+            box-shadow: 
+                0 4px 12px rgba(37, 99, 235, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
+            border-radius: 12px 12px 0 0;
         }
 
         .modal-header::before {
@@ -653,9 +686,9 @@
 
         <!-- Profile Details -->
         <div class="col-md-8">
-            <div class="card shadow-sm">
-                <div class="card-header bg-white">
-                    <h5 class="card-title mb-0">Profile Information</h5>
+            <div class="card shadow-sm" style="border-radius: 20px; border: 2px solid #e0e7ff; box-shadow: 0 4px 16px rgba(30, 58, 95, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);">
+                <div class="card-header bg-white" style="border-radius: 18px 18px 0 0; border-bottom: 2px solid #e0e7ff;">
+                    <h5 class="card-title mb-0" style="font-weight: 800; color: var(--primary-blue); letter-spacing: -0.02em;">Profile Information</h5>
                 </div>
                 <div class="card-body">
                     <div class="row g-4">
@@ -681,9 +714,9 @@
 
         <!-- Account Activity -->
         <div class="col-md-4">
-            <div class="card shadow-sm">
-                <div class="card-header bg-white">
-                    <h5 class="card-title mb-0">Account Details</h5>
+            <div class="card shadow-sm" style="border-radius: 20px; border: 2px solid #e0e7ff; box-shadow: 0 4px 16px rgba(30, 58, 95, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);">
+                <div class="card-header bg-white" style="border-radius: 18px 18px 0 0; border-bottom: 2px solid #e0e7ff;">
+                    <h5 class="card-title mb-0" style="font-weight: 800; color: var(--primary-blue); letter-spacing: -0.02em;">Account Details</h5>
                 </div>
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-2">

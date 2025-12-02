@@ -160,11 +160,12 @@ class UserLogModelTest(TestCase):
     
     def test_user_log_auto_timestamp(self):
         """Test timestamp is automatically set."""
-        before = date.today()
+        from django.utils import timezone
+        before = timezone.now()
         log = UserLog.objects.create(user=self.user, action='Test')
-        after = date.today()
-        self.assertGreaterEqual(log.timestamp.date(), before)
-        self.assertLessEqual(log.timestamp.date(), after)
+        after = timezone.now()
+        self.assertGreaterEqual(log.timestamp, before)
+        self.assertLessEqual(log.timestamp, after)
     
     def test_multiple_logs_for_user(self):
         """Test user can have multiple logs."""

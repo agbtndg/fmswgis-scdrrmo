@@ -37,29 +37,36 @@
             margin: 0 auto;
             background: white;
             padding: 40px;
-            border-radius: 16px;
-            border: 1px solid var(--border-gray);
-            box-shadow: 0 8px 32px rgba(30, 58, 95, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+            border-radius: 20px;
+            border: 2px solid #e0e7ff;
+            box-shadow: 
+                0 20px 60px rgba(30, 58, 95, 0.15),
+                0 10px 30px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
         }
 
         .form-header {
             margin-bottom: 32px;
             padding: 24px;
             background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
-            border-radius: 12px;
+            border-radius: 16px;
             color: white;
             text-align: center;
+            box-shadow: 
+                0 8px 24px rgba(37, 99, 235, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
 
         .form-header h1 {
             font-size: 24px;
-            font-weight: 700;
+            font-weight: 800;
             color: white;
             margin-bottom: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
+            letter-spacing: -0.01em;
         }
 
         .form-header h1 i {
@@ -90,7 +97,7 @@
             color: var(--text-dark);
             margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
         }
 
         .form-group label::after {
@@ -109,20 +116,21 @@
             width: 100%;
             padding: 13px 16px;
             border: 2px solid var(--border-gray);
-            border-radius: 10px;
+            border-radius: 12px;
             font-size: 14px;
             font-family: inherit;
             color: var(--text-dark);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             background-color: #ffffff;
+            font-weight: 500;
         }
 
         /* Editable fields styling */
         .form-group input:not([readonly]),
         .form-group select:not([readonly]),
         .form-group textarea:not([readonly]) {
-            border: 2px solid var(--secondary-blue);
-            background: linear-gradient(135deg, #ffffff 0%, #fafbff 100%);
+            border: 2px solid #93c5fd;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
         }
 
         .form-group input:not([readonly])::placeholder,
@@ -144,8 +152,11 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--secondary-blue);
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12), 0 0 0 1px var(--secondary-blue);
-            background-color: #fafbff;
+            box-shadow: 
+                0 0 0 4px rgba(37, 99, 235, 0.15),
+                0 4px 12px rgba(37, 99, 235, 0.1);
+            background-color: #f0f9ff;
+            transform: translateY(-1px);
         }
 
         .form-group input[readonly]:focus {
@@ -183,10 +194,12 @@
         .readonly-info {
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             padding: 24px;
-            border-radius: 12px;
+            border-radius: 16px;
             margin-bottom: 28px;
-            border: 2px solid #bae6fd;
-            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.08);
+            border: 2px solid #93c5fd;
+            box-shadow: 
+                0 4px 12px rgba(37, 99, 235, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
         }
 
         .readonly-info h3 {
@@ -195,7 +208,7 @@
             color: var(--secondary-blue);
             margin-bottom: 16px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -211,11 +224,12 @@
             color: var(--text-dark);
             margin-bottom: 10px;
             line-height: 1.6;
+            font-weight: 500;
         }
 
         .readonly-info strong {
             color: var(--primary-blue);
-            font-weight: 700;
+            font-weight: 800;
         }
 
         .button-group {
@@ -223,19 +237,19 @@
             gap: 16px;
             margin-top: 36px;
             padding-top: 28px;
-            border-top: 2px solid var(--border-gray);
+            border-top: 2px solid #e0e7ff;
         }
 
         .btn {
             flex: 1;
             padding: 14px 28px;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             font-family: inherit;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -243,17 +257,37 @@
             text-decoration: none;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             letter-spacing: 0.3px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: white;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25);
+            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 8px 32px rgba(16, 185, 129, 0.4);
         }
 
         .btn-primary:active {
@@ -264,13 +298,13 @@
             background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
             color: white;
             border: none;
-            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);
+            box-shadow: 0 4px 16px rgba(239, 68, 68, 0.3);
         }
 
         .btn-secondary:hover {
             background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
             transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(239, 68, 68, 0.4);
+            box-shadow: 0 8px 32px rgba(239, 68, 68, 0.4);
         }
 
         .btn-secondary:active {
@@ -279,15 +313,16 @@
 
         /* Error message styling */
         .error-message {
-            color: #dc2626;
+            color: #991b1b;
             font-size: 12px;
             margin-top: 8px;
             display: none;
-            font-weight: 600;
-            padding: 8px 12px;
-            background: #fee2e2;
-            border-radius: 6px;
+            font-weight: 700;
+            padding: 10px 14px;
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border-radius: 8px;
             border-left: 3px solid #dc2626;
+            box-shadow: 0 2px 6px rgba(220, 38, 38, 0.1);
         }
 
         .form-group input.error,
@@ -309,33 +344,29 @@
             top: 20px;
             right: 20px;
             padding: 16px 24px;
-            border-radius: 10px;
+            border-radius: 12px;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 700;
             color: white;
             background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3);
+            box-shadow: 
+                0 8px 24px rgba(220, 38, 38, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
             display: none;
             z-index: 1050;
             animation: slideIn 0.3s ease-out;
             border-left: 4px solid #fca5a5;
         }
 
-        .toast {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 16px 24px;
-            border-radius: 10px;
-            font-size: 14px;
-            font-weight: 600;
-            color: white;
-            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3);
-            display: none;
-            z-index: 1050;
-            animation: slideIn 0.3s ease-out;
-            border-left: 4px solid #fca5a5;
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
         /* Zone Status Tooltip */
@@ -350,16 +381,18 @@
             background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
             color: white;
             padding: 12px 16px;
-            border-radius: 10px;
+            border-radius: 12px;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 700;
             white-space: nowrap;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1000;
             margin-bottom: 8px;
-            box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3);
+            box-shadow: 
+                0 8px 24px rgba(30, 58, 95, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
@@ -375,19 +408,22 @@
         .zone-status-container:hover .zone-status-tooltip {
             opacity: 1;
             visibility: visible;
+            transform: translateY(-4px);
         }
+        @media (max-width: 768px) {
             .form-row {
                 grid-template-columns: 1fr;
             }
 
             .form-container {
                 padding: 28px;
-                border-radius: 12px;
+                border-radius: 16px;
             }
 
             .form-header {
                 padding: 20px;
                 margin-bottom: 28px;
+                border-radius: 14px;
             }
 
             .form-header h1 {
@@ -404,6 +440,7 @@
                 padding: 12px 20px;
                 font-size: 13px;
             }
+        }
 
         @media (max-width: 480px) {
             .form-container {

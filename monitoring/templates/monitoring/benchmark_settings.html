@@ -22,12 +22,15 @@
     .page-header {
         background: white;
         padding: 32px 28px;
-        border-radius: 14px;
-        border: 1px solid var(--border-gray);
+        border-radius: 20px;
+        border: 2px solid #e0e7ff;
         margin-bottom: 28px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        box-shadow: 
+            0 8px 24px rgba(0, 0, 0, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
     }
 
     .page-header h1 {
@@ -35,13 +38,13 @@
         font-weight: 800;
         color: var(--primary-blue);
         margin-bottom: 6px;
-        letter-spacing: -0.01em;
+        letter-spacing: -0.02em;
     }
 
     .page-header p {
         font-size: 14px;
         color: var(--text-muted);
-        font-weight: 500;
+        font-weight: 600;
     }
 
     .back-btn {
@@ -51,30 +54,41 @@
         padding: 12px 20px;
         background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
         color: white;
-        border-radius: 10px;
+        border-radius: 12px;
         text-decoration: none;
         font-size: 14px;
         font-weight: 700;
-        transition: all 0.2s;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         border: none;
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .back-btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+
+    .back-btn:hover::before {
+        width: 300px;
+        height: 300px;
     }
 
     .back-btn:hover {
         background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
         text-decoration: none;
         color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 28px rgba(37, 99, 235, 0.35);
-    }
-
-
-    .back-btn:hover {
-        background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-        text-decoration: none;
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 28px rgba(37, 99, 235, 0.35);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 32px rgba(37, 99, 235, 0.4);
     }
 
     .section-header {
@@ -83,7 +97,7 @@
         gap: 12px;
         margin-bottom: 24px;
         padding-bottom: 12px;
-        border-bottom: 2px solid var(--border-gray);
+        border-bottom: 2px solid #93c5fd;
     }
 
     .section-header i {
@@ -93,30 +107,35 @@
 
     .section-header h2 {
         font-size: 20px;
-        font-weight: 700;
+        font-weight: 800;
         color: var(--text-dark);
         margin: 0;
+        letter-spacing: -0.01em;
     }
 
     .card {
         background: white;
-        border-radius: 14px;
-        border: 1px solid var(--border-gray);
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+        border-radius: 20px;
+        border: 2px solid #e0e7ff;
+        box-shadow: 
+            0 4px 16px rgba(0, 0, 0, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
         overflow: hidden;
         margin-bottom: 24px;
-        transition: all 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .card:hover {
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        border-color: rgba(37, 99, 235, 0.2);
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 1);
+        border-color: #93c5fd;
     }
 
     .card-header {
-        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
         padding: 20px 24px;
-        border-bottom: 1px solid var(--border-gray);
+        border-bottom: 2px solid #93c5fd;
         display: flex;
         align-items: center;
         gap: 12px;
@@ -124,12 +143,13 @@
 
     .card-header h5 {
         font-size: 18px;
-        font-weight: 700;
+        font-weight: 800;
         color: var(--text-dark);
         margin: 0;
         display: flex;
         align-items: center;
         gap: 8px;
+        letter-spacing: -0.01em;
     }
 
     .card-header i {
@@ -143,42 +163,48 @@
 
     .form-label {
         font-size: 13px;
-        font-weight: 600;
+        font-weight: 700;
         color: var(--text-dark);
         margin-bottom: 8px;
         display: block;
+        letter-spacing: 0.02em;
     }
 
     .form-control {
-        border: 1px solid var(--border-gray);
-        border-radius: 8px;
+        border: 2px solid #e0e7ff;
+        border-radius: 10px;
         padding: 10px 12px;
         font-size: 14px;
-        transition: all 0.2s;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-weight: 500;
     }
 
     .form-control:focus {
         border-color: var(--secondary-blue);
-        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        box-shadow: 
+            0 0 0 4px rgba(37, 99, 235, 0.15),
+            0 4px 12px rgba(37, 99, 235, 0.1);
         outline: none;
+        transform: translateY(-1px);
     }
 
     .input-group-text {
-        border: 1px solid var(--border-gray);
+        border: 2px solid #e0e7ff;
         border-left: none;
-        border-radius: 0 8px 8px 0;
-        background-color: var(--light-gray);
+        border-radius: 0 10px 10px 0;
+        background: linear-gradient(135deg, #f8fafc, #f1f5f9);
         color: var(--text-muted);
-        font-weight: 600;
+        font-weight: 700;
         font-size: 13px;
     }
 
     .alert {
-        border-radius: 10px;
+        border-radius: 12px;
         padding: 14px 18px;
         font-size: 14px;
         border-left: 4px solid;
         margin-top: 16px;
+        font-weight: 600;
     }
 
     .alert-dismissible .btn-close {
@@ -197,9 +223,10 @@
         align-items: center;
         gap: 8px;
         padding: 10px 14px;
-        background: var(--light-gray);
-        border-radius: 8px;
+        background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+        border-radius: 10px;
         font-size: 13px;
+        font-weight: 600;
     }
 
     .threshold-row i {
@@ -208,30 +235,33 @@
 
     .risk-card {
         padding: 20px;
-        border-radius: 12px;
+        border-radius: 16px;
         border: 2px solid;
         height: 100%;
-        transition: all 0.2s;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
     .risk-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     }
 
     .risk-card h6 {
         font-size: 16px;
-        font-weight: 700;
+        font-weight: 800;
         margin-bottom: 12px;
         display: flex;
         align-items: center;
         gap: 8px;
+        letter-spacing: -0.01em;
     }
 
     .risk-card p {
         font-size: 13px;
         line-height: 1.6;
         margin: 0;
+        font-weight: 600;
     }
 
     .risk-card small {
@@ -243,35 +273,56 @@
 
     .btn {
         padding: 12px 24px;
-        border-radius: 10px;
+        border-radius: 12px;
         font-size: 14px;
         font-weight: 700;
-        transition: all 0.2s;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         border: none;
         cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
+
+    .btn:hover::before {
+        width: 300px;
+        height: 300px;
     }
 
     .btn-primary {
         background: linear-gradient(135deg, #10b981 0%, #059669 100%);
         color: white;
-        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+        box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
     }
 
     .btn-primary:hover {
         background: linear-gradient(135deg, #059669 0%, #047857 100%);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 28px rgba(16, 185, 129, 0.35);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 32px rgba(16, 185, 129, 0.4);
     }
 
     .btn-secondary {
-        background-color: #6b7280;
+        background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%);
         color: white;
+        box-shadow: 0 4px 16px rgba(107, 114, 128, 0.25);
     }
 
     .btn-secondary:hover {
-        background-color: #4b5563;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(107, 114, 128, 0.3);
+        background: linear-gradient(135deg, #4b5563 0%, #374151 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 32px rgba(107, 114, 128, 0.4);
     }
 
     @media (max-width: 768px) {

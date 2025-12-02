@@ -64,6 +64,7 @@ def get_combined_risk_level(rainfall_mm, tide_m):
     return "Low Risk", "yellow"
 
 
+
 def generate_flood_insights(weather_forecast, rainfall_data, tide_data, flood_records):
     """Generate intelligent flood prediction insights based on forecast data and historical patterns."""
     settings = BenchmarkSettings.get_settings()
@@ -239,13 +240,14 @@ def monitoring_view(request):
 
     # Initialize forecast data
     weather_forecast = []
-
-    # Fetch rainfall and weather data from Open-Meteo API
+    pagasa_data = None
+    # Fetch current conditions from Open-Meteo API (hourly updates)
+    # Location: Silay City, Negros Occidental
     try:
         api_url = "https://api.open-meteo.com/v1/forecast"
         params = {
-            'latitude': 10.753794,  # Silay City coordinates
-            'longitude': 123.084160,
+            'latitude': 10.7959,  # Silay City, Negros Occidental
+            'longitude': 122.9749,
             'current': 'temperature_2m,relative_humidity_2m,wind_speed_10m,rain',
             'hourly': 'temperature_2m,relative_humidity_2m,wind_speed_10m,rain',
             'daily': 'temperature_2m_max,temperature_2m_min,precipitation_sum,relative_humidity_2m_mean,wind_speed_10m_max',
@@ -253,7 +255,7 @@ def monitoring_view(request):
             'forecast_days': 7
         }
         
-        logger.info(f"Requesting Open-Meteo API for Silay City: {api_url}")
+        logger.info(f"Requesting Open-Meteo API for current conditions: {api_url}")
         response = requests.get(api_url, params=params, timeout=10)
         response.raise_for_status()
         data = response.json()
@@ -265,9 +267,24 @@ def monitoring_view(request):
         humidity = current.get('relative_humidity_2m', 75)
         wind_speed = current.get('wind_speed_10m', 10)
         
-        logger.info(f"API returned - Rain: {rainfall_value}mm, Temp: {temperature}Â°C, Humidity: {humidity}%, Wind: {wind_speed}km/h")
+        logger.info(f"Open-Meteo (Current) - Rain: {rainfall_value}mm, Temp: {temperature}°C, Humidity: {humidity}%, Wind: {wind_speed}km/h")
 
-        # Process 7-day forecast data
+        # Only create new records if data is older than 1 hour OR doesn't exist
+        if not rainfall_data or (timezone.now() - rainfall_data.timestamp).total_seconds() > 3600:
+            rainfall_data = RainfallData.objects.create(value_mm=rainfall_value, station_name='Open-Meteo (Silay City)')
+            logger.info(f"Created new rainfall record: {rainfall_value}mm")
+
+        if not weather_data or (timezone.now() - weather_data.timestamp).total_seconds() > 3600:
+            weather_data = WeatherData.objects.create(
+                temperature_c=temperature,
+                humidity_percent=humidity,
+                wind_speed_kph=wind_speed,
+                station_name='Open-Meteo (Silay City)'
+            )
+            logger.info(f"Created new weather record")
+
+        # Process 7-day forecast data from Open-Meteo (Silay City)
+        logger.info("Using Open-Meteo for Silay City forecast")
         daily_data = data.get('daily', {})
         if daily_data:
             dates = daily_data.get('time', [])
@@ -278,9 +295,8 @@ def monitoring_view(request):
             wind_max = daily_data.get('wind_speed_10m_max', [])
             
             weather_forecast = []
-            for i in range(min(len(dates), 7)):  # Ensure we don't exceed 7 days
+            for i in range(min(len(dates), 7)):
                 from datetime import datetime
-                # Format date for display
                 date_obj = datetime.strptime(dates[i], '%Y-%m-%d')
                 formatted_date = date_obj.strftime('%b %d')
                 
@@ -295,52 +311,38 @@ def monitoring_view(request):
                 }
                 weather_forecast.append(forecast_day)
             
-            logger.info(f"Processed {len(weather_forecast)} days of weather forecast")
-
-        # Only create new records if data is older than 3 hours OR doesn't exist
-        if not rainfall_data or (timezone.now() - rainfall_data.timestamp).total_seconds() > 10800:
-            rainfall_data = RainfallData.objects.create(value_mm=rainfall_value, station_name='Silay City')
-            logger.info(f"Created new rainfall record: {rainfall_value}mm")
-
-        if not weather_data or (timezone.now() - weather_data.timestamp).total_seconds() > 10800:
-            weather_data = WeatherData.objects.create(
-                temperature_c=temperature,
-                humidity_percent=humidity,
-                wind_speed_kph=wind_speed,
-                station_name='Silay City'
-            )
-            logger.info(f"Created new weather record")
+            logger.info(f"Processed {len(weather_forecast)} days of Open-Meteo forecast for Silay City")
             
     except requests.exceptions.RequestException as e:
         logger.error(f"Open-Meteo API Error: {e}")
         if not rainfall_data:
-            rainfall_data = RainfallData.objects.create(value_mm=0, station_name='Silay City')
+            rainfall_data = RainfallData.objects.create(value_mm=0, station_name='Open-Meteo (Silay City)')
             logger.warning("Created default rainfall record due to API error")
         if not weather_data:
             weather_data = WeatherData.objects.create(
                 temperature_c=28.5,
                 humidity_percent=75,
                 wind_speed_kph=10,
-                station_name='Silay City'
+                station_name='Open-Meteo (Silay City)'
             )
             logger.warning("Created default weather record due to API error")
     except Exception as e:
         logger.error(f"Unexpected error fetching weather data: {e}")
 
-    # Fetch tide data from WorldTides API
-    try:
-        if not tide_data or (timezone.now() - tide_data.timestamp).total_seconds() > 10800:
+    # Fetch tide data from WorldTides (Cebu City)
+    if not tide_data or (timezone.now() - tide_data.timestamp).total_seconds() > 10800:
+        try:
             tide_api_url = "https://www.worldtides.info/api/v3"
             params = {
                 'heights': '',
-                'lat': 10.3167200,  # Cebu City coordinates
-                'lon': 123.8907100,
+                'lat': 10.3157,  # Cebu City, Cebu
+                'lon': 123.8854,
                 'key': settings.WORLDTIDES_API_KEY,
                 'date': timezone.now().strftime('%Y-%m-%d'),
                 'days': 1
             }
             
-            logger.info(f"Requesting WorldTides API for Cebu City: {tide_api_url}")
+            logger.info(f"Fetching WorldTides API for Cebu City: {tide_api_url}")
             tide_response = requests.get(tide_api_url, params=params, timeout=10)
             
             if tide_response.status_code == 200:
@@ -352,26 +354,30 @@ def monitoring_view(request):
                     closest_height = min(heights, key=lambda x: abs(x['dt'] - now_timestamp))
                     tide_value = closest_height.get('height', 0.8)
                     
-                    tide_data = TideLevelData.objects.create(height_m=tide_value, station_name='Cebu City')
-                    logger.info(f"Created new tide record: {tide_value}m from WorldTides API")
+                    tide_data = TideLevelData.objects.create(
+                        height_m=tide_value,
+                        station_name='WorldTides - Cebu City'
+                    )
+                    logger.info(f"Created tide record from WorldTides (Cebu City): {tide_value}m")
                 else:
                     logger.warning("No tide heights in WorldTides API response")
                     
             elif tide_response.status_code == 402:
-                logger.error("WorldTides API quota exceeded (402) - Please purchase more credits")
+                logger.error("WorldTides API quota exceeded (402) - Using PAGASA only")
             elif tide_response.status_code == 401:
-                logger.error("WorldTides API authentication failed (401) - Check your API key")
+                logger.error("WorldTides API authentication failed (401) - Check API key")
             else:
                 logger.error(f"WorldTides API error: {tide_response.status_code} - {tide_response.text}")
                 
-    except requests.exceptions.RequestException as e:
-        logger.error(f"WorldTides API Error: {e}")
-    except Exception as e:
-        logger.error(f"Unexpected error fetching tide data: {e}")
-    
+        except requests.exceptions.RequestException as e:
+            logger.error(f"WorldTides API Error (backup): {e}")
+        except Exception as e:
+            logger.error(f"Unexpected error fetching WorldTides backup data: {e}")
+
+    # Create default tide data if WorldTides failed
     if not tide_data:
-        tide_data = TideLevelData.objects.create(height_m=0.8, station_name='Cebu City')
-        logger.warning("Created default tide record")
+        tide_data = TideLevelData.objects.create(height_m=0.8, station_name='Default')
+        logger.warning("Created default tide record (WorldTides API unavailable)")
 
     # Convert QuerySets to lists of dictionaries for JSON serialization
     rainfall_history = list(RainfallData.objects.filter(
@@ -471,6 +477,10 @@ def monitoring_view(request):
     min_date = min(earliest_dates).isoformat() if earliest_dates else None
     max_date = timezone.now().date().isoformat()  # Today's date
 
+    # Get available years from flood records for filter dropdown
+    available_years = FloodRecord.objects.dates('date', 'year', order='DESC')
+    years_list = [date.year for date in available_years]
+
     context = {
         'rainfall_data': rainfall_data,
         'weather_data': weather_data,
@@ -505,6 +515,7 @@ def monitoring_view(request):
         'range_label': range_label,
         'min_date': min_date,
         'max_date': max_date,
+        'available_years': years_list,
     }
     return render(request, 'monitoring/monitoring.html', context)
 
@@ -522,6 +533,7 @@ def fetch_data_api(request):
         logger.error(f"Error in fetch_data_api: {e}")
         return JsonResponse({'error': 'Unable to fetch data'}, status=500)
 
+@login_required
 @login_required
 def fetch_trends_api(request):
     """API endpoint for fetching trend data with time range filtering."""
@@ -875,3 +887,610 @@ def benchmark_settings_view(request):
     return render(request, 'monitoring/benchmark_settings.html', {
         'settings': settings
     })
+
+
+@login_required
+def export_trends(request):
+    """Export rainfall and tide trends data to CSV or PDF"""
+    import csv
+    from django.http import HttpResponse
+    from datetime import datetime
+    from reportlab.lib.pagesizes import letter, landscape
+    from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+    from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+    from reportlab.lib import colors
+    from reportlab.lib.units import inch
+    
+    export_type = request.GET.get('type', 'csv')
+    time_range = request.GET.get('time_range', '')
+    start_date_str = request.GET.get('start_date', '')
+    end_date_str = request.GET.get('end_date', '')
+    
+    # Determine filtering method
+    now = timezone.now()
+    
+    if start_date_str and end_date_str:
+        # Custom date range
+        try:
+            from datetime import date as date_module
+            start_date = datetime.strptime(start_date_str, '%Y-%m-%d').date()
+            end_date = datetime.strptime(end_date_str, '%Y-%m-%d').date()
+            
+            start_datetime = timezone.make_aware(datetime.combine(start_date, datetime.min.time()))
+            end_datetime = timezone.make_aware(datetime.combine(end_date, datetime.max.time()))
+            
+            time_filter = start_datetime
+            end_filter = end_datetime
+            range_label = f'Custom Range: {start_date.strftime("%b %d, %Y")} - {end_date.strftime("%b %d, %Y")}'
+            use_range = True
+        except ValueError:
+            # Fallback to default
+            time_filter = now - timedelta(hours=24)
+            end_filter = now
+            range_label = 'Last 24 Hours'
+            use_range = True
+    else:
+        # Predefined time range
+        use_range = False
+        if time_range == '24h':
+            time_filter = now - timedelta(hours=24)
+            range_label = 'Last 24 Hours'
+        elif time_range == '7d':
+            time_filter = now - timedelta(days=7)
+            range_label = 'Last 7 Days'
+        elif time_range == '30d':
+            time_filter = now - timedelta(days=30)
+            range_label = 'Last 30 Days'
+        elif time_range == '90d':
+            time_filter = now - timedelta(days=90)
+            range_label = 'Last 90 Days'
+        elif time_range == 'all':
+            time_filter = now - timedelta(days=365)
+            range_label = 'Last Year'
+        else:
+            time_filter = now - timedelta(hours=24)
+            range_label = 'Last 24 Hours'
+    
+    # Fetch data based on filter type
+    if use_range and 'end_filter' in locals():
+        rainfall_data = RainfallData.objects.filter(timestamp__gte=time_filter, timestamp__lte=end_filter).order_by('timestamp')
+        tide_data = TideLevelData.objects.filter(timestamp__gte=time_filter, timestamp__lte=end_filter).order_by('timestamp')
+    else:
+        rainfall_data = RainfallData.objects.filter(timestamp__gte=time_filter).order_by('timestamp')
+        tide_data = TideLevelData.objects.filter(timestamp__gte=time_filter).order_by('timestamp')
+    
+    # Create combined dataset
+    combined_data = []
+    rainfall_dict = {r.timestamp: r for r in rainfall_data}
+    tide_dict = {t.timestamp: t for t in tide_data}
+    all_timestamps = sorted(set(list(rainfall_dict.keys()) + list(tide_dict.keys())))
+    
+    for ts in all_timestamps:
+        combined_data.append({
+            'timestamp': ts,
+            'rainfall': rainfall_dict.get(ts),
+            'tide': tide_dict.get(ts)
+        })
+    
+    if export_type == 'csv':
+        response = HttpResponse(content_type='text/csv; charset=utf-8-sig')
+        filename = f'rainfall_tide_trends_{datetime.now().strftime("%Y%m%d_%H%M%S")}.csv'
+        response['Content-Disposition'] = f'attachment; filename="{filename}"'
+        
+        writer = csv.writer(response)
+        writer.writerow(['# Rainfall & Tide Trends Export'])
+        writer.writerow([f'# Generated: {datetime.now().strftime("%B %d, %Y at %I:%M %p")}'])
+        writer.writerow([f'# Time Range: {range_label}'])
+        writer.writerow([f'# Total Records: {len(combined_data)}'])
+        writer.writerow([])
+        
+        writer.writerow(['#', 'Timestamp', 'Rainfall (mm)', 'Tide Level (m)'])
+        
+        for idx, data in enumerate(combined_data, 1):
+            rainfall_value = data['rainfall'].value_mm if data['rainfall'] else '-'
+            tide_value = data['tide'].height_m if data['tide'] else '-'
+            writer.writerow([
+                idx,
+                data['timestamp'].strftime('%Y-%m-%d %H:%M'),
+                rainfall_value,
+                tide_value
+            ])
+        
+        return response
+    
+    elif export_type == 'pdf':
+        from reportlab.lib.utils import ImageReader
+        from reportlab.platypus import Image as RLImage
+        from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_RIGHT
+        import os
+        
+        response = HttpResponse(content_type='application/pdf')
+        filename = f'rainfall_tide_trends_{datetime.now().strftime("%Y%m%d_%H%M%S")}.pdf'
+        response['Content-Disposition'] = f'attachment; filename="{filename}"'
+        
+        # Custom page template with header and footer (PORTRAIT)
+        def add_header_footer(canvas, doc):
+            canvas.saveState()
+            
+            # Header - DRRMO logo/header
+            header_path = os.path.join(settings.STATIC_ROOT or settings.BASE_DIR / 'static', 'images', 'drrmo_header.png')
+            if os.path.exists(header_path):
+                try:
+                    page_width = letter[0]
+                    canvas.drawImage(header_path, 0, doc.height + doc.topMargin, 
+                                   width=page_width, height=0.9*inch, 
+                                   preserveAspectRatio=True, mask='auto')
+                except:
+                    pass
+            
+            # Footer line
+            page_width = letter[0]
+            canvas.setStrokeColor(colors.HexColor('#1e3a5f'))
+            canvas.setLineWidth(2)
+            canvas.line(0.5*inch, 0.45*inch, page_width - 0.5*inch, 0.45*inch)
+            
+            # Footer text
+            canvas.setFont('Helvetica-Bold', 8)
+            canvas.setFillColor(colors.HexColor('#1e3a5f'))
+            footer_text = "SILAY CITY DISASTER RISK REDUCTION & MANAGEMENT COUNCIL"
+            text_width = canvas.stringWidth(footer_text, 'Helvetica-Bold', 8)
+            canvas.drawString((page_width - text_width) / 2, 0.28*inch, footer_text)
+            
+            # Page number
+            canvas.setFont('Helvetica', 7)
+            canvas.setFillColor(colors.HexColor('#6b7280'))
+            page_text = f"Page {doc.page}"
+            canvas.drawRightString(page_width - 0.5*inch, 0.28*inch, page_text)
+            
+            canvas.restoreState()
+        
+        # Use PORTRAIT orientation
+        doc = SimpleDocTemplate(response, pagesize=letter, 
+                                rightMargin=0.5*inch, leftMargin=0.5*inch,
+                                topMargin=1*inch, bottomMargin=0.7*inch)
+        elements = []
+        styles = getSampleStyleSheet()
+        
+        # Custom title style
+        title_style = ParagraphStyle(
+            'CustomTitle',
+            parent=styles['Heading1'],
+            fontSize=16,
+            textColor=colors.HexColor('#1e3a5f'),
+            spaceAfter=6,
+            alignment=TA_CENTER,
+            fontName='Helvetica-Bold'
+        )
+        
+        # Title
+        title = Paragraph('RAINFALL & TIDE TRENDS REPORT', title_style)
+        elements.append(title)
+        elements.append(Spacer(1, 0.08*inch))
+        
+        # Metadata with professional styling
+        metadata_style = ParagraphStyle(
+            'Metadata',
+            parent=styles['Normal'],
+            fontSize=8,
+            textColor=colors.HexColor('#4a5568'),
+            leading=11,
+            alignment=TA_CENTER
+        )
+        
+        metadata_text = f'''
+        <b>Report Generated:</b> {datetime.now().strftime("%B %d, %Y at %I:%M %p")} | 
+        <b>Time Range:</b> {range_label} | 
+        <b>Total Data Points:</b> {len(combined_data):,} records | 
+        <b>Document Type:</b> Environmental Monitoring Data | 
+        <b>Prepared By:</b> Silay City DRRMO
+        '''
+        
+        metadata_para = Paragraph(metadata_text, metadata_style)
+        metadata_table = Table([[metadata_para]], colWidths=[7*inch])
+        metadata_table.setStyle(TableStyle([
+            ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor('#eff6ff')),
+            ('BOX', (0, 0), (-1, -1), 1.5, colors.HexColor('#3b82f6')),
+            ('TOPPADDING', (0, 0), (-1, -1), 8),
+            ('BOTTOMPADDING', (0, 0), (-1, -1), 8),
+            ('LEFTPADDING', (0, 0), (-1, -1), 15),
+            ('RIGHTPADDING', (0, 0), (-1, -1), 15),
+        ]))
+        elements.append(metadata_table)
+        elements.append(Spacer(1, 0.12*inch))
+        
+        # Table text styles
+        header_style = ParagraphStyle(
+            'HeaderStyle',
+            parent=styles['Normal'],
+            fontSize=9,
+            leading=11,
+            alignment=TA_CENTER,
+            fontName='Helvetica-Bold',
+            textColor=colors.white
+        )
+        
+        cell_style_center = ParagraphStyle(
+            'CellStyleCenter',
+            parent=styles['Normal'],
+            fontSize=8,
+            leading=10,
+            alignment=TA_CENTER
+        )
+        
+        cell_style_right = ParagraphStyle(
+            'CellStyleRight',
+            parent=styles['Normal'],
+            fontSize=8,
+            leading=10,
+            alignment=TA_RIGHT
+        )
+        
+        # Table headers
+        table_data = [[
+            Paragraph('#', header_style),
+            Paragraph('Date & Time', header_style),
+            Paragraph('Rainfall (mm)', header_style),
+            Paragraph('Tide Level (m)', header_style)
+        ]]
+        
+        # Add all records
+        for idx, data in enumerate(combined_data, 1):
+            rainfall_value = f"{data['rainfall'].value_mm:.2f}" if data['rainfall'] else '0.00'
+            tide_value = f"{data['tide'].height_m:.2f}" if data['tide'] else '0.00'
+            
+            table_data.append([
+                Paragraph(str(idx), cell_style_center),
+                Paragraph(data['timestamp'].strftime('%Y-%m-%d  %H:%M'), cell_style_center),
+                Paragraph(rainfall_value, cell_style_right),
+                Paragraph(tide_value, cell_style_right)
+            ])
+        
+        # Column widths for portrait
+        col_widths = [
+            0.5*inch,   # #
+            2.5*inch,   # Date & Time
+            2*inch,     # Rainfall
+            2*inch      # Tide Level
+        ]
+        
+        table = Table(table_data, colWidths=col_widths, repeatRows=1)
+        table.setStyle(TableStyle([
+            # Header styling
+            ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#1e3a5f')),
+            ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
+            ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+            ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+            ('FONTSIZE', (0, 0), (-1, 0), 9),
+            ('BOTTOMPADDING', (0, 0), (-1, 0), 10),
+            ('TOPPADDING', (0, 0), (-1, 0), 10),
+            
+            # Data rows styling
+            ('BACKGROUND', (0, 1), (-1, -1), colors.white),
+            ('GRID', (0, 0), (-1, -1), 0.75, colors.HexColor('#cbd5e0')),
+            ('FONTSIZE', (0, 1), (-1, -1), 8),
+            ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, colors.HexColor('#f7fafc')]),
+            ('TOPPADDING', (0, 1), (-1, -1), 8),
+            ('BOTTOMPADDING', (0, 1), (-1, -1), 8),
+            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+            
+            # Border styling
+            ('LINEBELOW', (0, 0), (-1, 0), 2, colors.HexColor('#1e3a5f')),
+            ('BOX', (0, 0), (-1, -1), 1.5, colors.HexColor('#cbd5e0')),
+        ]))
+        
+        elements.append(table)
+        doc.build(elements, onFirstPage=add_header_footer, onLaterPages=add_header_footer)
+        
+        return response
+
+
+@login_required
+def export_flood_records(request):
+    """Export flood records to CSV or PDF"""
+    import csv
+    from django.http import HttpResponse
+    from datetime import datetime
+    from reportlab.lib.pagesizes import letter, landscape
+    from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+    from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+    from reportlab.lib import colors
+    from reportlab.lib.units import inch
+    from reportlab.lib.enums import TA_LEFT
+    
+    export_type = request.GET.get('type', 'csv')
+    start_year = request.GET.get('start_year')
+    end_year = request.GET.get('end_year')
+    
+    # Fetch flood records with optional year filtering
+    flood_records = FloodRecord.objects.all().order_by('-date')
+    
+    # Apply year filters if provided
+    if start_year:
+        try:
+            flood_records = flood_records.filter(date__year__gte=int(start_year))
+        except ValueError:
+            pass
+    
+    if end_year:
+        try:
+            flood_records = flood_records.filter(date__year__lte=int(end_year))
+        except ValueError:
+            pass
+    
+    if export_type == 'csv':
+        response = HttpResponse(content_type='text/csv; charset=utf-8-sig')
+        filename = f'flood_records_{datetime.now().strftime("%Y%m%d_%H%M%S")}.csv'
+        response['Content-Disposition'] = f'attachment; filename="{filename}"'
+        
+        writer = csv.writer(response)
+        writer.writerow(['# Flood Records Export'])
+        writer.writerow([f'# Generated: {datetime.now().strftime("%B %d, %Y at %I:%M %p")}'])
+        writer.writerow([f'# Total Records: {flood_records.count()}'])
+        writer.writerow([])
+        
+        writer.writerow([
+            '#', 'Date', 'Event', 'Barangays', 'Dead', 'Injured', 'Missing',
+            'Affected Persons', 'Affected Families', 'Houses Damaged (Partial)',
+            'Houses Damaged (Total)', 'Infrastructure Damage (PHP)', 'Agriculture Damage (PHP)',
+            'Institutions Damage (PHP)', 'Private/Commercial Damage (PHP)', 'Total Damage (PHP)'
+        ])
+        
+        for idx, record in enumerate(flood_records, 1):
+            writer.writerow([
+                idx,
+                record.date.strftime('%Y-%m-%d'),
+                record.event,
+                record.affected_barangays,
+                record.casualties_dead,
+                record.casualties_injured,
+                record.casualties_missing,
+                record.affected_persons,
+                record.affected_families,
+                record.houses_damaged_partially,
+                record.houses_damaged_totally,
+                f'₱{record.damage_infrastructure_php:,.2f}',
+                f'₱{record.damage_agriculture_php:,.2f}',
+                f'₱{record.damage_institutions_php:,.2f}',
+                f'₱{record.damage_private_commercial_php:,.2f}',
+                f'₱{record.damage_total_php:,.2f}'
+            ])
+        
+        return response
+    
+    elif export_type == 'pdf':
+        from reportlab.lib.utils import ImageReader
+        from reportlab.platypus import Image as RLImage
+        from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_RIGHT
+        from reportlab.pdfbase import pdfmetrics
+        from reportlab.pdfbase.ttfonts import TTFont
+        import os
+        
+        response = HttpResponse(content_type='application/pdf')
+        filename = f'flood_records_{datetime.now().strftime("%Y%m%d_%H%M%S")}.pdf'
+        response['Content-Disposition'] = f'attachment; filename="{filename}"'
+        
+        # Custom page template with header and footer (LANDSCAPE)
+        def add_header_footer(canvas, doc):
+            canvas.saveState()
+            
+            # Header - DRRMO logo/header
+            header_path = os.path.join(settings.STATIC_ROOT or settings.BASE_DIR / 'static', 'images', 'drrmo_header.png')
+            if os.path.exists(header_path):
+                try:
+                    page_width = landscape(letter)[0]
+                    canvas.drawImage(header_path, 0, doc.height + doc.topMargin, 
+                                   width=page_width, height=0.9*inch, 
+                                   preserveAspectRatio=True, mask='auto')
+                except:
+                    pass
+            
+            # Footer line
+            page_width = landscape(letter)[0]
+            canvas.setStrokeColor(colors.HexColor('#1e3a5f'))
+            canvas.setLineWidth(2)
+            canvas.line(0.4*inch, 0.45*inch, page_width - 0.4*inch, 0.45*inch)
+            
+            # Footer text
+            canvas.setFont('Helvetica-Bold', 8)
+            canvas.setFillColor(colors.HexColor('#1e3a5f'))
+            footer_text = "SILAY CITY DISASTER RISK REDUCTION & MANAGEMENT COUNCIL"
+            text_width = canvas.stringWidth(footer_text, 'Helvetica-Bold', 8)
+            canvas.drawString((page_width - text_width) / 2, 0.28*inch, footer_text)
+            
+            # Page number
+            canvas.setFont('Helvetica', 7)
+            canvas.setFillColor(colors.HexColor('#6b7280'))
+            page_text = f"Page {doc.page}"
+            canvas.drawRightString(page_width - 0.4*inch, 0.28*inch, page_text)
+            
+            canvas.restoreState()
+        
+        # Use LANDSCAPE orientation
+        doc = SimpleDocTemplate(response, pagesize=landscape(letter), 
+                                rightMargin=0.4*inch, leftMargin=0.4*inch,
+                                topMargin=1*inch, bottomMargin=0.7*inch)
+        elements = []
+        styles = getSampleStyleSheet()
+        
+        # Custom title style
+        title_style = ParagraphStyle(
+            'CustomTitle',
+            parent=styles['Heading1'],
+            fontSize=16,
+            textColor=colors.HexColor('#1e3a5f'),
+            spaceAfter=6,
+            alignment=TA_CENTER,
+            fontName='Helvetica-Bold'
+        )
+        
+        # Title
+        title = Paragraph('FLOOD RECORDS & DAMAGE ASSESSMENT REPORT', title_style)
+        elements.append(title)
+        elements.append(Spacer(1, 0.08*inch))
+        
+        # Metadata with professional styling
+        metadata_style = ParagraphStyle(
+            'Metadata',
+            parent=styles['Normal'],
+            fontSize=8,
+            textColor=colors.HexColor('#4a5568'),
+            leading=11,
+            alignment=TA_CENTER
+        )
+        
+        # Build metadata text with optional filter info
+        filter_info = ""
+        if start_year or end_year:
+            if start_year and end_year:
+                filter_info = f" | <b>Filtered:</b> Years {start_year} - {end_year}"
+            elif start_year:
+                filter_info = f" | <b>Filtered:</b> From year {start_year}"
+            elif end_year:
+                filter_info = f" | <b>Filtered:</b> Up to year {end_year}"
+        
+        metadata_text = f'''
+        <b>Report Generated:</b> {datetime.now().strftime("%B %d, %Y at %I:%M %p")} | 
+        <b>Total Flood Events:</b> {flood_records.count():,} records{filter_info} | 
+        <b>Document Type:</b> Historical Flood Event Documentation | 
+        <b>Prepared By:</b> Silay City DRRMO
+        '''
+        
+        metadata_para = Paragraph(metadata_text, metadata_style)
+        metadata_table = Table([[metadata_para]], colWidths=[9.5*inch])
+        metadata_table.setStyle(TableStyle([
+            ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor('#eff6ff')),
+            ('BOX', (0, 0), (-1, -1), 1.5, colors.HexColor('#3b82f6')),
+            ('TOPPADDING', (0, 0), (-1, -1), 8),
+            ('BOTTOMPADDING', (0, 0), (-1, -1), 8),
+            ('LEFTPADDING', (0, 0), (-1, -1), 15),
+            ('RIGHTPADDING', (0, 0), (-1, -1), 15),
+        ]))
+        elements.append(metadata_table)
+        elements.append(Spacer(1, 0.12*inch))
+        
+        # Table text styles
+        header_style = ParagraphStyle(
+            'HeaderStyle',
+            parent=styles['Normal'],
+            fontSize=7,
+            leading=9,
+            alignment=TA_CENTER,
+            fontName='Helvetica-Bold',
+            textColor=colors.white
+        )
+        
+        cell_style = ParagraphStyle(
+            'CellStyle',
+            parent=styles['Normal'],
+            fontSize=7,
+            leading=9,
+            alignment=TA_LEFT,
+            wordWrap='CJK'
+        )
+        
+        cell_style_center = ParagraphStyle(
+            'CellStyleCenter',
+            parent=styles['Normal'],
+            fontSize=7,
+            leading=9,
+            alignment=TA_CENTER
+        )
+        
+        cell_style_right = ParagraphStyle(
+            'CellStyleRight',
+            parent=styles['Normal'],
+            fontSize=7,
+            leading=9,
+            alignment=TA_RIGHT
+        )
+        
+        # Table headers
+        table_data = [[
+            Paragraph('#', header_style),
+            Paragraph('Date', header_style),
+            Paragraph('Event', header_style),
+            Paragraph('Barangays', header_style),
+            Paragraph('Casualties<br/>(D/I/M)', header_style),
+            Paragraph('Affected<br/>Persons', header_style),
+            Paragraph('Affected<br/>Families', header_style),
+            Paragraph('Houses<br/>(P/T)', header_style),
+            Paragraph('Infrastructure<br/>Damage (PHP)', header_style),
+            Paragraph('Agriculture<br/>Damage (PHP)', header_style),
+            Paragraph('Total<br/>Damage (PHP)', header_style)
+        ]]
+        
+        # Add all records without truncating
+        for idx, record in enumerate(flood_records, 1):
+            # Format casualties as D/I/M
+            casualties = f"{record.casualties_dead}/{record.casualties_injured}/{record.casualties_missing}"
+            
+            # Format houses as P/T
+            houses = f"{record.houses_damaged_partially}/{record.houses_damaged_totally}"
+            
+            # Format currency values (use PHP instead of peso symbol)
+            infra_dmg = f"PHP {record.damage_infrastructure_php:,.0f}"
+            agri_dmg = f"PHP {record.damage_agriculture_php:,.0f}"
+            total_dmg = f"PHP {record.damage_total_php:,.0f}"
+            
+            table_data.append([
+                Paragraph(str(idx), cell_style_center),
+                Paragraph(record.date.strftime('%Y-%m-%d'), cell_style_center),
+                Paragraph(str(record.event), cell_style),  # No truncation
+                Paragraph(str(record.affected_barangays), cell_style),  # No truncation
+                Paragraph(casualties, cell_style_center),
+                Paragraph(f"{record.affected_persons:,}", cell_style_right),
+                Paragraph(f"{record.affected_families:,}", cell_style_right),
+                Paragraph(houses, cell_style_center),
+                Paragraph(infra_dmg, cell_style_right),
+                Paragraph(agri_dmg, cell_style_right),
+                Paragraph(total_dmg, cell_style_right)
+            ])
+        
+        # Optimized column widths for landscape
+        col_widths = [
+            0.3*inch,   # #
+            0.75*inch,  # Date
+            1.5*inch,   # Event (wider)
+            1.4*inch,   # Barangays (wider to prevent cutoff)
+            0.65*inch,  # Casualties
+            0.75*inch,  # Affected Persons
+            0.75*inch,  # Affected Families
+            0.6*inch,   # Houses
+            1.05*inch,  # Infrastructure
+            1.0*inch,   # Agriculture
+            1.05*inch   # Total Damage
+        ]
+        
+        table = Table(table_data, colWidths=col_widths, repeatRows=1)
+        table.setStyle(TableStyle([
+            # Header styling
+            ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#3b82f6')),
+            ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
+            ('ALIGN', (0, 0), (-1, 0), 'CENTER'),
+            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+            ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+            ('FONTSIZE', (0, 0), (-1, 0), 7),
+            ('TOPPADDING', (0, 0), (-1, 0), 6),
+            ('BOTTOMPADDING', (0, 0), (-1, 0), 6),
+            
+            # Data rows styling
+            ('BACKGROUND', (0, 1), (-1, -1), colors.white),
+            ('GRID', (0, 0), (-1, -1), 0.5, colors.HexColor('#e5e7eb')),
+            ('FONTSIZE', (0, 1), (-1, -1), 7),
+            ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, colors.HexColor('#f8fafc')]),
+            ('TOPPADDING', (0, 1), (-1, -1), 5),
+            ('BOTTOMPADDING', (0, 1), (-1, -1), 5),
+            ('LEFTPADDING', (0, 0), (-1, -1), 4),
+            ('RIGHTPADDING', (0, 0), (-1, -1), 4),
+            
+            # Vertical lines for better separation
+            ('LINEAFTER', (0, 0), (0, -1), 1, colors.HexColor('#d1d5db')),
+            ('LINEAFTER', (1, 0), (1, -1), 1, colors.HexColor('#d1d5db')),
+            ('LINEAFTER', (3, 0), (3, -1), 1, colors.HexColor('#d1d5db')),
+            ('LINEAFTER', (7, 0), (7, -1), 1, colors.HexColor('#d1d5db')),
+        ]))
+        
+        elements.append(table)
+        doc.build(elements, onFirstPage=add_header_footer, onLaterPages=add_header_footer)
+        
+        return response

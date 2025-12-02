@@ -8,22 +8,32 @@
         margin: 40px auto;
         padding: 40px;
         background: white;
-        border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        border: 2px solid #e0e7ff;
+        box-shadow: 
+            0 20px 60px rgba(30, 58, 95, 0.15),
+            0 10px 30px rgba(0, 0, 0, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
     }
     
     .legal-header {
         text-align: center;
         margin-bottom: 40px;
-        padding-bottom: 20px;
-        border-bottom: 3px solid #1e3a5f;
+        padding: 24px;
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        border-radius: 16px;
+        border: 2px solid #93c5fd;
+        box-shadow: 
+            0 4px 12px rgba(37, 99, 235, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
     }
     
     .legal-header h1 {
         color: #1e3a5f;
         font-size: 32px;
-        font-weight: 700;
+        font-weight: 800;
         margin-bottom: 10px;
+        letter-spacing: -0.02em;
     }
     
     .legal-header .last-updated {
@@ -39,18 +49,20 @@
     .legal-section h2 {
         color: #1e3a5f;
         font-size: 22px;
-        font-weight: 600;
+        font-weight: 800;
         margin-bottom: 16px;
         padding-bottom: 8px;
-        border-bottom: 2px solid #e2e8f0;
+        border-bottom: 2px solid #93c5fd;
+        letter-spacing: -0.01em;
     }
     
     .legal-section h3 {
         color: #1e3a5f;
         font-size: 18px;
-        font-weight: 600;
+        font-weight: 700;
         margin-top: 20px;
         margin-bottom: 12px;
+        letter-spacing: -0.01em;
     }
     
     .legal-section p {
@@ -59,6 +71,7 @@
         line-height: 1.8;
         margin-bottom: 12px;
         text-align: justify;
+        font-weight: 500;
     }
     
     .legal-section ul {
@@ -71,32 +84,54 @@
         font-size: 15px;
         line-height: 1.8;
         margin-bottom: 8px;
+        font-weight: 500;
+    }
+
+    .legal-section strong {
+        font-weight: 700;
+        color: #1e3a5f;
     }
     
     .contact-box {
-        background: #f8fafc;
-        border-left: 4px solid #1e3a5f;
-        padding: 20px;
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        border-left: 4px solid #2563eb;
+        padding: 24px;
         margin-top: 32px;
-        border-radius: 8px;
+        border-radius: 16px;
+        border: 2px solid #93c5fd;
+        box-shadow: 
+            0 4px 12px rgba(37, 99, 235, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
     }
     
     .contact-box h3 {
         color: #1e3a5f;
         font-size: 18px;
         margin-bottom: 12px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
     }
     
     .contact-box p {
         margin-bottom: 8px;
+        font-weight: 500;
+        color: #1e293b;
+    }
+
+    .contact-box strong {
+        font-weight: 700;
+        color: #1e3a5f;
     }
     
     .contact-box a {
         color: #2563eb;
         text-decoration: none;
+        font-weight: 600;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .contact-box a:hover {
+        color: #1e40af;
         text-decoration: underline;
     }
 </style>

@@ -5,12 +5,15 @@ import csv
 import io
 from datetime import datetime
 from django.http import HttpResponse, JsonResponse
-from reportlab.lib.pagesizes import letter, landscape
+from django.conf import settings
+from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer, PageBreak
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_RIGHT
+from reportlab.lib.utils import ImageReader
+import os
 
 # Maximum records per export to prevent memory/timeout issues
 MAX_EXPORT_RECORDS = 10000
@@ -368,86 +371,150 @@ def export_to_pdf(title, headers, data, filename_prefix, filter_info=None, summa
         filename = f'{filename_prefix}_{datetime.now().strftime("%Y%m%d_%H%M%S")}.pdf'
         response['Content-Disposition'] = f'attachment; filename="{filename}"'
         
-        # Create PDF with custom margins - wider for better table spacing
+        # Custom page template with header and footer
+        def add_header_footer(canvas, doc):
+            canvas.saveState()
+            
+            # Header - DRRMO logo/header (full width, edge to edge)
+            header_path = os.path.join(settings.STATIC_ROOT or settings.BASE_DIR / 'static', 'images', 'drrmo_header.png')
+            if os.path.exists(header_path):
+                try:
+                    # Draw header from edge to edge (0 to page width)
+                    page_width = letter[0]
+                    canvas.drawImage(header_path, 0, doc.height + doc.topMargin, 
+                                   width=page_width, height=1.2*inch, 
+                                   preserveAspectRatio=True, mask='auto')
+                except:
+                    pass
+            
+            # Footer line
+            page_width = letter[0]
+            canvas.setStrokeColor(colors.HexColor('#1e3a5f'))
+            canvas.setLineWidth(2)
+            canvas.line(0.5*inch, 0.65*inch, page_width - 0.5*inch, 0.65*inch)
+            
+            # Footer text
+            canvas.setFont('Helvetica-Bold', 10)
+            canvas.setFillColor(colors.HexColor('#1e3a5f'))
+            footer_text = "SILAY CITY DISASTER RISK REDUCTION & MANAGEMENT COUNCIL"
+            text_width = canvas.stringWidth(footer_text, 'Helvetica-Bold', 10)
+            canvas.drawString((page_width - text_width) / 2, 0.4*inch, footer_text)
+            
+            canvas.restoreState()
+        
+        # Create PDF with portrait orientation
         doc = SimpleDocTemplate(
             response,
-            pagesize=landscape(letter),
-            topMargin=0.5*inch,
-            bottomMargin=0.5*inch,
-            leftMargin=0.4*inch,
-            rightMargin=0.4*inch
+            pagesize=letter,
+            topMargin=1.3*inch,
+            bottomMargin=1*inch,
+            leftMargin=0.5*inch,
+            rightMargin=0.5*inch
         )
         elements = []
+        styles = getSampleStyleSheet()
         
-        # Modern color scheme
-        primary_color = colors.HexColor('#256BE4')
-        secondary_color = colors.HexColor('#1E3A5F')
-        light_bg = colors.HexColor('#F8FAFC')
-        border_color = colors.HexColor('#E2E8F0')
-        text_dark = colors.HexColor('#1A202C')
+        # Modern color scheme - matching monitoring exports
+        primary_color = colors.HexColor('#1e3a5f')
+        secondary_color = colors.HexColor('#2563eb')
+        light_bg = colors.HexColor('#f7fafc')
+        border_color = colors.HexColor('#cbd5e0')
+        text_dark = colors.HexColor('#4a5568')
         
-        # Title style - modern and clean
+        # Custom title style
         title_style = ParagraphStyle(
-            'ModernTitle',
-            parent=getSampleStyleSheet()['Heading1'],
-            fontSize=18,
+            'CustomTitle',
+            parent=styles['Heading1'],
+            fontSize=20,
             textColor=primary_color,
-            spaceAfter=6,
-            alignment=TA_LEFT,
+            spaceAfter=12,
+            alignment=TA_CENTER,
             fontName='Helvetica-Bold'
         )
         
         # Subtitle style
         subtitle_style = ParagraphStyle(
             'Subtitle',
-            parent=getSampleStyleSheet()['Normal'],
-            fontSize=10,
-            textColor=colors.HexColor('#64748B'),
+            parent=styles['Normal'],
+            fontSize=12,
+            textColor=primary_color,
             spaceAfter=12,
-            alignment=TA_LEFT,
-            fontName='Helvetica'
+            alignment=TA_CENTER,
+            fontName='Helvetica-Bold'
         )
         
-        # Add header section
-        elements.append(Paragraph(title, title_style))
-        elements.append(Paragraph(f'Generated on {datetime.now().strftime("%B %d, %Y at %I:%M %p")}', subtitle_style))
+        # Title
+        elements.append(Paragraph(title.upper(), title_style))
+        elements.append(Paragraph('System Activity Records', subtitle_style))
+        elements.append(Spacer(1, 0.15*inch))
         
-        # Add summary statistics
+        # Metadata box with professional styling
+        metadata_style = ParagraphStyle(
+            'Metadata',
+            parent=styles['Normal'],
+            fontSize=10,
+            textColor=text_dark,
+            leading=14,
+            leftIndent=10,
+            rightIndent=10
+        )
+        
+        # Build metadata content
+        metadata_lines = [f'<b>Report Generated:</b> {datetime.now().strftime("%B %d, %Y at %I:%M %p")}']
         if summary_stats:
-            summary_text = f"Total Records: {summary_stats.get('total', len(data))}" 
-            if 'filtered' in summary_stats and summary_stats['filtered']:
-                summary_text += " (Filtered)"
-            elements.append(Paragraph(summary_text, subtitle_style))
+            metadata_lines.append(f'<b>Total Records:</b> {summary_stats.get("total", len(data)):,} records')
         
         # Add filter information
         if filter_info:
-            filter_text = ' | '.join([f"{k}: {v}" for k, v in filter_info.items()])
-            filter_style = ParagraphStyle(
-                'FilterInfo',
-                parent=getSampleStyleSheet()['Normal'],
-                fontSize=9,
-                textColor=colors.HexColor('#475569'),
-                spaceAfter=12,
-                alignment=TA_LEFT,
-                fontName='Helvetica-Oblique'
-            )
-            elements.append(Paragraph(f"Filters Applied: {filter_text}", filter_style))
+            metadata_lines.append(f'<b>Filters Applied:</b> {len(filter_info)} active')
+            for k, v in filter_info.items():
+                metadata_lines.append(f'&nbsp;&nbsp;• <b>{k}:</b> {v}')
         
-        elements.append(Spacer(1, 0.15*inch))
+        metadata = '<para alignment="left">' + '<br/>'.join(metadata_lines) + '</para>'
         
-        # Add row numbers to data
-        numbered_data = [[idx] + row for idx, row in enumerate(data, 1)]
+        # Create a table for metadata with background
+        metadata_table = Table([[Paragraph(metadata, metadata_style)]], colWidths=[6.5*inch])
+        metadata_table.setStyle(TableStyle([
+            ('BACKGROUND', (0, 0), (-1, -1), light_bg),
+            ('BOX', (0, 0), (-1, -1), 1, border_color),
+            ('TOPPADDING', (0, 0), (-1, -1), 18),
+            ('BOTTOMPADDING', (0, 0), (-1, -1), 18),
+            ('LEFTPADDING', (0, 0), (-1, -1), 20),
+            ('RIGHTPADDING', (0, 0), (-1, -1), 20),
+        ]))
+        elements.append(metadata_table)
+        elements.append(Spacer(1, 0.3*inch))
+        
+        # Create paragraph style for table cells to enable text wrapping
+        cell_style = ParagraphStyle(
+            'CellText',
+            parent=styles['Normal'],
+            fontSize=8,
+            textColor=text_dark,
+            fontName='Helvetica',
+            leading=10,
+            wordWrap='CJK'
+        )
+        
+        # Wrap data in Paragraph objects for proper text wrapping
+        wrapped_data = []
+        for idx, row in enumerate(data, 1):
+            wrapped_row = [str(idx)]  # Row number as plain text
+            for cell in row:
+                # Wrap each cell content in a Paragraph for text wrapping
+                wrapped_row.append(Paragraph(str(cell), cell_style))
+            wrapped_data.append(wrapped_row)
         
         # Prepare table data with headers (add # column)
         table_headers = ['#'] + headers
-        table_data = [table_headers] + numbered_data
+        table_data = [table_headers] + wrapped_data
         
         # Dynamic column widths based on content type
-        # Landscape letter: 11" width - 0.8" margins = 10.2" available
-        available_width = 10.2 * inch
+        # Portrait letter: 8.5" width - 1.0" margins = 7.5" available
+        available_width = 7.5 * inch
         
-        # Allocate widths: row number column gets 0.4", distribute rest
-        row_num_width = 0.4 * inch
+        # Allocate widths: row number column gets 0.3", distribute rest
+        row_num_width = 0.3 * inch
         remaining_width = available_width - row_num_width
         
         # Smart column width allocation (can be customized per export type)
@@ -456,53 +523,41 @@ def export_to_pdf(title, headers, data, filename_prefix, filter_info=None, summa
         
         table = Table(table_data, colWidths=col_widths, repeatRows=1)
         
-        # Modern table styling with better text wrapping
+        # Professional table styling matching monitoring exports
         table.setStyle(TableStyle([
-            # Header styling
+            # Header styling - navy blue background
             ('BACKGROUND', (0, 0), (-1, 0), primary_color),
             ('TEXTCOLOR', (0, 0), (-1, 0), colors.white),
             ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
             ('FONTSIZE', (0, 0), (-1, 0), 9),
             ('ALIGNMENT', (0, 0), (-1, 0), 'CENTER'),
             ('VALIGN', (0, 0), (-1, 0), 'MIDDLE'),
-            ('PADDING', (0, 0), (-1, 0), 10),
+            ('TOPPADDING', (0, 0), (-1, 0), 10),
+            ('BOTTOMPADDING', (0, 0), (-1, 0), 10),
             
-            # Body styling - alternating rows with better spacing
+            # Body styling - alternating rows
             ('BACKGROUND', (0, 1), (-1, -1), colors.white),
             ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, light_bg]),
             
-            # Cell borders - subtle
-            ('GRID', (0, 0), (-1, -1), 0.5, border_color),
-            ('TOPPADDING', (0, 1), (-1, -1), 10),
-            ('BOTTOMPADDING', (0, 1), (-1, -1), 10),
-            ('LEFTPADDING', (0, 0), (-1, -1), 10),
-            ('RIGHTPADDING', (0, 0), (-1, -1), 10),
+            # Cell borders - subtle gray grid
+            ('GRID', (0, 0), (-1, -1), 0.75, colors.HexColor('#cbd5e0')),
+            ('TOPPADDING', (0, 1), (-1, -1), 8),
+            ('BOTTOMPADDING', (0, 1), (-1, -1), 8),
+            ('LEFTPADDING', (0, 0), (-1, -1), 8),
+            ('RIGHTPADDING', (0, 0), (-1, -1), 8),
             
-            # Text alignment and font with word wrapping
+            # Text alignment and font
             ('FONTNAME', (0, 1), (-1, -1), 'Helvetica'),
             ('FONTSIZE', (0, 1), (-1, -1), 8),
             ('TEXTCOLOR', (0, 1), (-1, -1), text_dark),
             ('ALIGNMENT', (0, 1), (-1, -1), 'LEFT'),
             ('VALIGN', (0, 1), (-1, -1), 'TOP'),
-            ('WORDWRAP', (0, 1), (-1, -1), 'CJK'),
         ]))
     
         elements.append(table)
         
-        # Footer
-        elements.append(Spacer(1, 0.2*inch))
-        footer_style = ParagraphStyle(
-            'Footer',
-            parent=getSampleStyleSheet()['Normal'],
-            fontSize=8,
-            textColor=colors.HexColor('#94A3B8'),
-            alignment=TA_CENTER,
-            fontName='Helvetica'
-        )
-        elements.append(Paragraph('SCDRRMO - Flood Monitoring System with GIS', footer_style))
-        
-        # Build PDF
-        doc.build(elements)
+        # Build PDF with header and footer
+        doc.build(elements, onFirstPage=add_header_footer, onLaterPages=add_header_footer)
         return response
     except Exception as e:
         return JsonResponse({
@@ -515,16 +570,11 @@ def prepare_assessments_data(queryset):
     headers = ['Barangay', 'Staff Member', 'Risk Code', 'Description', 'Coordinates', 'Date']
     data = []
     for obj in queryset:
-        # Smart truncation with word boundaries
-        desc = obj.flood_risk_description
-        if len(desc) > 50:
-            desc = desc[:47] + '...'
-        
         data.append([
             obj.barangay,
             obj.user.get_full_name(),
             obj.flood_risk_code,
-            desc,
+            obj.flood_risk_description,
             f'{obj.latitude:.4f}, {obj.longitude:.4f}',
             obj.timestamp.strftime('%b %d, %Y')
         ])
@@ -536,16 +586,11 @@ def prepare_reports_data(queryset):
     headers = ['Barangay', 'Staff Member', 'Risk Code', 'Risk Label', 'Coordinates', 'Date']
     data = []
     for obj in queryset:
-        # Smart truncation with word boundaries
-        label = obj.flood_risk_label
-        if len(label) > 50:
-            label = label[:47] + '...'
-        
         data.append([
             obj.barangay,
             obj.user.get_full_name(),
             obj.flood_risk_code,
-            label,
+            obj.flood_risk_label,
             f'{obj.latitude:.4f}, {obj.longitude:.4f}',
             obj.timestamp.strftime('%b %d, %Y')
         ])
@@ -557,26 +602,13 @@ def prepare_certificates_data(queryset):
     headers = ['Establishment', 'Owner', 'Location', 'Barangay', 'Susceptibility', 'Zone Status', 'Date']
     data = []
     for obj in queryset:
-        # Smart truncation
-        est_name = obj.establishment_name
-        if len(est_name) > 30:
-            est_name = est_name[:27] + '...'
-        
-        owner = obj.owner_name
-        if len(owner) > 25:
-            owner = owner[:22] + '...'
-        
-        loc = obj.location
-        if len(loc) > 25:
-            loc = loc[:22] + '...'
-        
         data.append([
-            est_name,
-            owner,
-            loc,
+            obj.establishment_name,
+            obj.owner_name,
+            obj.location,
             obj.barangay,
-            obj.flood_susceptibility[:25],
-            obj.zone_status[:25],
+            obj.flood_susceptibility,
+            obj.zone_status,
             obj.timestamp.strftime('%b %d, %Y')
         ])
     return headers, data
@@ -587,20 +619,11 @@ def prepare_flood_activities_data(queryset):
     headers = ['Event Type', 'Action', 'Staff Member', 'Affected Areas', 'Casualties', 'People', 'Damage (PHP)', 'Date']
     data = []
     for obj in queryset:
-        # Smart truncation
-        event = obj.event_type
-        if len(event) > 25:
-            event = event[:22] + '...'
-        
-        areas = obj.affected_barangays
-        if len(areas) > 30:
-            areas = areas[:27] + '...'
-        
         data.append([
-            event,
+            obj.event_type,
             obj.action,
             obj.user.get_full_name(),
-            areas,
+            obj.affected_barangays,
             f"{obj.total_casualties}",
             f"{obj.affected_persons} persons",
             f"₱{obj.damage_total_php:,.0f}",

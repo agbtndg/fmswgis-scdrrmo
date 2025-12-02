@@ -136,7 +136,6 @@ def user_login(request):
         )
         
         return render(request, 'users/login.html', {
-            'error': 'Invalid login or user not approved',
             'admin_exists': CustomUser.objects.filter(is_superuser=True).exists()
         })
     return render(request, 'users/login.html', {
@@ -146,6 +145,7 @@ def user_login(request):
 def user_logout(request):
     if request.user.is_authenticated:
         UserLog.objects.create(user=request.user, action="Logged out")
+        messages.success(request, "You have been successfully logged out. See you next time!")
     logout(request)
     return redirect('login')
 
