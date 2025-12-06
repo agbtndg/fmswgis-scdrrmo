@@ -640,13 +640,6 @@
                     <div class="user-details">
                         <span><i class="far fa-envelope"></i>{{ user.email }}</span>
                         <span><i class="fas fa-id-badge"></i>ID: {{ user.staff_id }}</span>
-                        <span><i class="fas fa-briefcase"></i>
-                            {% if user.position == "others" and user.custom_position %}
-                                {{ user.custom_position }}
-                            {% else %}
-                                {{ user.get_position_display }}
-                            {% endif %}
-                        </span>
                         <span><i class="far fa-calendar"></i>Joined {{ user.date_joined|date:"M d, Y" }}</span>
                     </div>
                     <div class="user-actions">
@@ -679,6 +672,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Confirm Approval</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
                 Are you sure you want to approve this user?
@@ -702,6 +696,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Confirm Deletion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
                 Are you sure you want to delete this user? This action cannot be undone.
@@ -720,11 +715,8 @@
 </div>
 
 <script>
-    let autoRefreshInterval;
-    let lastUserCount = {{ users|length }};
-
-    // Calculate stats
-    function updateStats() {
+    // Calculate stats on page load
+    document.addEventListener('DOMContentLoaded', function() {
         const badges = document.querySelectorAll('.badge');
         let pendingCount = 0;
         let approvedCount = 0;
@@ -739,97 +731,6 @@
         
         document.getElementById('pending-count').textContent = pendingCount;
         document.getElementById('approved-count').textContent = approvedCount;
-        document.getElementById('total-count').textContent = badges.length;
-    }
-
-    // Auto-refresh user list
-    function refreshUserList() {
-        fetch(window.location.href, {
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest'
-            }
-        })
-        .then(response => response.text())
-        .then(html => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            const newUserList = doc.querySelector('.user-list');
-            const newEmptyState = doc.querySelector('.empty-state');
-            const currentCardBody = document.querySelector('.card-body');
-            
-            if (newUserList) {
-                const currentUserList = document.querySelector('.user-list');
-                const newUserCount = newUserList.querySelectorAll('.user-item').length;
-                
-                // Only update if there's a change
-                if (currentUserList) {
-                    if (currentUserList.innerHTML !== newUserList.innerHTML) {
-                        currentUserList.innerHTML = newUserList.innerHTML;
-                        updateStats();
-                        
-                        // Show notification if new users added
-                        if (newUserCount > lastUserCount) {
-                            showNotification('New user registration detected!', 'info');
-                        }
-                        lastUserCount = newUserCount;
-                    }
-                } else if (newUserList && currentCardBody) {
-                    // Replace empty state with user list
-                    currentCardBody.innerHTML = '<ul class="user-list">' + newUserList.innerHTML + '</ul>';
-                    updateStats();
-                    showNotification('New user registration detected!', 'info');
-                    lastUserCount = newUserCount;
-                }
-            } else if (newEmptyState) {
-                const currentUserList = document.querySelector('.user-list');
-                if (currentUserList && currentCardBody) {
-                    currentCardBody.innerHTML = newEmptyState.outerHTML;
-                    updateStats();
-                    lastUserCount = 0;
-                }
-            }
-        })
-        .catch(error => {
-            console.error('Auto-refresh error:', error);
-        });
-    }
-
-    // Show notification
-    function showNotification(message, type) {
-        const toast = document.createElement('div');
-        toast.className = `alert alert-${type} alert-dismissible fade show`;
-        toast.style.position = 'fixed';
-        toast.style.top = '20px';
-        toast.style.right = '20px';
-        toast.style.zIndex = '9999';
-        toast.style.minWidth = '300px';
-        toast.innerHTML = `
-            <i class="fas fa-info-circle"></i> ${message}
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        `;
-        document.body.appendChild(toast);
-        
-        setTimeout(() => {
-            toast.remove();
-        }, 5000);
-    }
-
-    // Initialize on page load
-    document.addEventListener('DOMContentLoaded', function() {
-        updateStats();
-        
-        // Start auto-refresh every 5 seconds
-        autoRefreshInterval = setInterval(refreshUserList, 5000);
-    });
-
-    // Stop auto-refresh when page is hidden (user switches tabs)
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            clearInterval(autoRefreshInterval);
-        } else {
-            refreshUserList(); // Immediate refresh when returning
-            autoRefreshInterval = setInterval(refreshUserList, 5000);
-        }
     });
 
     function confirmApprove(userId, username) {

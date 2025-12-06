@@ -13560,3 +13560,5 @@ INFO 2025-12-06 18:43:01 autoreload 21760 13620 Watching for file changes with S
 INFO 2025-12-06 18:45:28 basehttp 21760 10772 "GET /monitoring/api/data/ HTTP/1.1" 200 54
 INFO 2025-12-06 18:46:24 autoreload 21760 13620 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
 INFO 2025-12-06 18:46:25 autoreload 15788 13908 Watching for file changes with StatReloader
+INFO 2025-12-06 18:49:23 autoreload 15788 13908 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\urls.py changed, reloading.
+INFO 2025-12-06 18:49:24 autoreload 9788 4136 Watching for file changes with StatReloader

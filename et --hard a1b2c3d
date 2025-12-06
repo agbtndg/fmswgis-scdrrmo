@@ -1,0 +1,53 @@
+[33mddb67d8[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m qwe
+[33mf161a71[m qwe
+[33m1dc34fa[m latest update
+[33mba43ba3[m latest update
+[33m13f5207[m latest update
+[33m85c4f24[m qweqwe
+[33m914a18d[m qwe
+[33mf261cf0[m qwe
+[33m4ffc5f9[m system finalization
+[33m450d184[m final local hosting system
+[33m089ef5e[m qw3e
+[33mff8e456[m latest
+[33md086862[m test
+[33mb2addd5[m testing
+[33m1e2f6c6[m system finalized
+[33m9fdaa3c[m system done!
+[33md11e7a1[m fixed the certificate padding
+[33m1a3972c[m alert benchmark fixed
+[33m976575f[m beta testing
+[33m2eea337[m modernize assessment design
+[33m70c6c7d[m modernize map view
+[33m34e2521[m modernized dashboard design
+[33mb0294cb[m problems fixed!
+[33me966675[m map view finalized
+[33m381d029[m finalized drrmo staff registration
+[33mc27f4ee[m finalized admin registration
+[33m2efdd70[m gqwe
+[33m1c31353[m monitoring app whitebox testing
+[33m30dc7d2[m maps app whitebox testing
+[33mb26cacd[m fixed editing of profile feature
+[33m8deffc5[m fixed sort order issue
+[33m241142c[m fixed the cancel button on deletion of flood record
+[33mc23da87[m fixed login, staff registration, and admin registration
+[33m1aaf57e[m first commit
+[33m00003b1[m update
+[33mdce47df[m update .gitignore
+[33m57b3be8[m qwe
+[33m43811d8[m updated
+[33m06c29a0[m save for future use
+[33mde62c56[m qwe
+[33m3c31d3d[m hello
+[33m2c9f524[m updated the header (system is done)(
+[33m33edc70[m latest update
+[33m591dfa7[m latest update (all are working)
+[33mb8ee01f[m Fix allowed hosts and CSRF trusted origins for Render
+[33mc37bbda[m Update ALLOWED_HOSTS for Render
+[33me2a6f1e[m Update ALLOWED_HOSTS for Render
+[33m2237b4e[m Fix ALLOWED_HOSTS for Render
+[33mdc3cd79[m Fix GDAL and GEOS paths for Render
+[33mb1bcdf0[m Add render build script to install GDAL
+[33ma44fbef[m Add gunicorn to requirements
+[33m94f90d9[m requirements
+[33m7ddef5f[m first commit

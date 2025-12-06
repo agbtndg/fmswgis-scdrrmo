@@ -321,93 +321,11 @@
             transform: translateY(0);
         }
 
-        .attempt-warning {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border: 2px solid #f59e0b;
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            animation: shake 0.5s ease-in-out;
-        }
-
-        .attempt-warning i {
-            color: #d97706;
-            font-size: 24px;
-        }
-
-        .attempt-warning-content {
-            flex: 1;
-        }
-
-        .attempt-warning-title {
-            font-weight: 700;
-            color: #92400e;
-            font-size: 15px;
-            margin-bottom: 4px;
-        }
-
-        .attempt-warning-message {
-            color: #78350f;
-            font-size: 13px;
-            margin: 0;
-        }
-
-        .lockout-banner {
-            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
-            border: 2px solid #ef4444;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-            animation: shake 0.5s ease-in-out;
-        }
-
-        .lockout-banner i {
-            color: #dc2626;
-            font-size: 48px;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .lockout-banner h3 {
-            color: #991b1b;
-            font-size: 18px;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-
-        .lockout-banner p {
-            color: #7f1d1d;
-            font-size: 14px;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        .lockout-banner .wait-time {
-            display: inline-block;
-            background: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-weight: 700;
-            color: #dc2626;
-            margin-top: 12px;
-            font-size: 16px;
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-            20%, 40%, 60%, 80% { transform: translateX(5px); }
-        }
-
         .footer-link {
             text-align: center;
-            margin-top: 32px;
-            padding-top: 24px;
-            border-top: 2px solid var(--border-gray);
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-gray);
         }
 
         .footer-link p {
@@ -460,28 +378,7 @@
 
         <!-- Toast notifications will appear here -->
 
-        {% if locked_out %}
-        <div class="lockout-banner">
-            <i class="fas fa-lock"></i>
-            <h3>Account Temporarily Locked</h3>
-            <p>Too many failed login attempts detected.</p>
-            <div class="wait-time">
-                <i class="far fa-clock"></i> Please wait {{ wait_minutes }} minute{{ wait_minutes|pluralize }}
-            </div>
-        </div>
-        {% elif attempts_remaining is not None and attempts_remaining < 5 %}
-        <div class="attempt-warning">
-            <i class="fas fa-exclamation-triangle"></i>
-            <div class="attempt-warning-content">
-                <div class="attempt-warning-title">Warning: Limited Attempts Remaining</div>
-                <p class="attempt-warning-message">
-                    You have <strong>{{ attempts_remaining }} attempt{{ attempts_remaining|pluralize }}</strong> remaining before your account is temporarily locked for 5 minutes.
-                </p>
-            </div>
-        </div>
-        {% endif %}
-
-        <form method="post" autocomplete="off" data-form-type="other" {% if locked_out %}style="pointer-events: none; opacity: 0.6;"{% endif %}>
+        <form method="post" autocomplete="off" data-form-type="other">
             {% csrf_token %}
             <div class="form-group">
                 <label for="username">Username</label>
@@ -499,8 +396,8 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn-primary" {% if locked_out %}disabled{% endif %}>
-                <i class="fas fa-sign-in-alt" style="margin-right: 8px;"></i>{% if locked_out %}Account Locked{% else %}Login to Dashboard{% endif %}
+            <button type="submit" class="btn-primary">
+                <i class="fas fa-sign-in-alt" style="margin-right: 8px;"></i>Login to Dashboard
             </button>
         </form>
 

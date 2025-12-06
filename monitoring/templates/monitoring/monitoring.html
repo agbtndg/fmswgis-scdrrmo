@@ -913,10 +913,6 @@
             border: 2px solid #e5e7eb;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
         }
-        
-        .graph-section canvas {
-            max-height: 350px;
-        }
 
         .graph-title {
             font-size: 18px;
@@ -1026,18 +1022,6 @@
 
         table tbody tr:nth-child(odd) {
             background-color: rgba(248, 250, 252, 0.5);
-        }
-
-        /* Year-over-year comparison styles */
-        table td span[class^="year-"] {
-            display: inline-block;
-            margin-right: 12px;
-            padding: 2px 0;
-            font-size: 13px;
-        }
-
-        table td span[class^="year-"]:last-child {
-            margin-right: 0;
         }
 
         .hidden {
@@ -3021,7 +3005,7 @@
                         <div style="margin-bottom: 8px;">
                             <div><strong>🔄 Data Source:</strong> Open-Meteo API</div>
                             <div><strong>⏱️ Last Updated:</strong> {{ rainfall_data.timestamp|date:"M d, Y H:i" }}</div>
-                            <div style="color: #9ca3af; font-size: 10px;">Updates every 3 hours</div>
+                            <div style="color: #9ca3af; font-size: 10px;">Updates every 1 hour</div>
                         </div>
                         <div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.15);">
                             <strong>Risk Assessment:</strong>
@@ -3048,7 +3032,7 @@
                         <div style="margin-bottom: 8px;">
                             <div><strong>🔄 Data Source:</strong> Open-Meteo API</div>
                             <div><strong>⏱️ Last Updated:</strong> {{ weather_data.timestamp|date:"M d, Y H:i" }}</div>
-                            <div style="color: #9ca3af; font-size: 10px;">Updates every 3 hours</div>
+                            <div style="color: #9ca3af; font-size: 10px;">Updates every 1 hour</div>
                         </div>
                         <div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.15);">
                             <strong>Flood Impact:</strong>
@@ -3075,7 +3059,7 @@
                         <div style="margin-bottom: 8px;">
                             <div><strong>🔄 Data Source:</strong> Open-Meteo API</div>
                             <div><strong>⏱️ Last Updated:</strong> {{ weather_data.timestamp|date:"M d, Y H:i" }}</div>
-                            <div style="color: #9ca3af; font-size: 10px;">Updates every 3 hours</div>
+                            <div style="color: #9ca3af; font-size: 10px;">Updates every 1 hour</div>
                         </div>
                         <div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.15);">
                             <strong>Flood Impact:</strong>
@@ -3102,7 +3086,7 @@
                         <div style="margin-bottom: 8px;">
                             <div><strong>🔄 Data Source:</strong> Open-Meteo API</div>
                             <div><strong>⏱️ Last Updated:</strong> {{ weather_data.timestamp|date:"M d, Y H:i" }}</div>
-                            <div style="color: #9ca3af; font-size: 10px;">Updates every 3 hours</div>
+                            <div style="color: #9ca3af; font-size: 10px;">Updates every 1 hour</div>
                         </div>
                         <div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.15);">
                             <strong>Weather Impact:</strong>
@@ -3411,10 +3395,6 @@
                 </div>
                 <div id="casualtiesChart-container">
                     <canvas id="casualtiesChart"></canvas>
-                    <div class="chart-insight" id="casualties-insight">
-                        <i class="fas fa-lightbulb"></i>
-                        <span>Analyzing casualties data...</span>
-                    </div>
                 </div>
                 <table id="casualtiesTable" class="hidden">
                     <thead><tr><th>Date</th><th>Dead</th><th>Injured</th><th>Missing</th></tr></thead>
@@ -3433,10 +3413,6 @@
                 </div>
                 <div id="affectedChart-container">
                     <canvas id="affectedChart"></canvas>
-                    <div class="chart-insight" id="affected-insight">
-                        <i class="fas fa-lightbulb"></i>
-                        <span>Analyzing affected population data...</span>
-                    </div>
                 </div>
                 <table id="affectedTable" class="hidden">
                     <thead><tr><th>Date</th><th>Persons</th><th>Families</th></tr></thead>
@@ -3455,10 +3431,6 @@
                 </div>
                 <div id="housesChart-container">
                     <canvas id="housesChart"></canvas>
-                    <div class="chart-insight" id="houses-insight">
-                        <i class="fas fa-lightbulb"></i>
-                        <span>Analyzing housing damage data...</span>
-                    </div>
                 </div>
                 <table id="housesTable" class="hidden">
                     <thead><tr><th>Date</th><th>Partially</th><th>Totally</th></tr></thead>
@@ -3477,10 +3449,6 @@
                 </div>
                 <div id="damageChart-container">
                     <canvas id="damageChart"></canvas>
-                    <div class="chart-insight" id="damage-insight">
-                        <i class="fas fa-lightbulb"></i>
-                        <span>Analyzing property damage data...</span>
-                    </div>
                 </div>
                 <table id="damageTable" class="hidden">
                     <thead><tr><th>Date</th><th>Infrastructure</th><th>Agriculture</th><th>Institutions</th><th>Private</th><th>Total</th></tr></thead>
@@ -3625,8 +3593,6 @@
     <i class="fas fa-chevron-up"></i>
 </button>
 
-
-
 <!-- Keyboard Shortcuts Hint -->
 <div class="keyboard-hint" id="keyboard-hint">
     <strong>Keyboard Shortcuts:</strong><br>
@@ -3689,8 +3655,11 @@
             }, 100);
         }
         
-        // Initialize rainfall trend chart with year-over-year comparison support
+        // Initialize rainfall trend chart
         const ctxRainfallTrend = document.getElementById('rainfallTrendChart').getContext('2d');
+        const gradientRainfall = ctxRainfallTrend.createLinearGradient(0, 0, 0, 400);
+        gradientRainfall.addColorStop(0, 'rgba(59, 130, 246, 0.3)');
+        gradientRainfall.addColorStop(1, 'rgba(59, 130, 246, 0.01)');
 
         rainfallTrendChart = new Chart(ctxRainfallTrend, {
             type: 'line',
@@ -3699,7 +3668,7 @@
                 datasets: [{
                     label: 'Rainfall (mm)',
                     data: {{ rainfall_values|safe }},
-                    backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                    backgroundColor: gradientRainfall,
                     borderColor: 'rgba(59, 130, 246, 1)',
                     borderWidth: 3,
                     tension: 0.4,
@@ -3783,8 +3752,11 @@
             }
         });
 
-        // Initialize tide trend chart with year-over-year comparison support
+        // Initialize tide trend chart
         const ctxTideTrend = document.getElementById('tideTrendChart').getContext('2d');
+        const gradientTide = ctxTideTrend.createLinearGradient(0, 0, 0, 400);
+        gradientTide.addColorStop(0, 'rgba(16, 185, 129, 0.3)');
+        gradientTide.addColorStop(1, 'rgba(16, 185, 129, 0.01)');
 
         tideTrendChart = new Chart(ctxTideTrend, {
             type: 'line',
@@ -3793,7 +3765,7 @@
                 datasets: [{
                     label: 'Tide Level (m)',
                     data: {{ tide_values|safe }},
-                    backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                    backgroundColor: gradientTide,
                     borderColor: 'rgba(16, 185, 129, 1)',
                     borderWidth: 3,
                     tension: 0.4,
@@ -3910,29 +3882,14 @@
             .then(response => response.json())
             .then(data => {
                 document.getElementById('range-label').innerHTML = `Showing data for: <strong>${data.range_label}</strong>`;
-                
-                // Update rainfall chart with year-over-year datasets
-                if (data.rainfall_datasets && data.rainfall_datasets.length > 0) {
-                    updateChartWithYearlyData(rainfallTrendChart, data.rainfall_datasets, 'mm');
-                } else {
-                    // Fallback to old format (single dataset)
-                    rainfallTrendChart.data.labels = data.rainfall_timestamps || [];
-                    rainfallTrendChart.data.datasets[0].data = data.rainfall_values || [];
-                    rainfallTrendChart.update();
-                }
-                
-                // Update tide chart with year-over-year datasets
-                if (data.tide_datasets && data.tide_datasets.length > 0) {
-                    updateChartWithYearlyData(tideTrendChart, data.tide_datasets, 'm');
-                } else {
-                    // Fallback to old format (single dataset)
-                    tideTrendChart.data.labels = data.tide_timestamps || [];
-                    tideTrendChart.data.datasets[0].data = data.tide_values || [];
-                    tideTrendChart.update();
-                }
-                
-                // Update the table view
-                updateTrendsTableWithYears(data);
+                rainfallTrendChart.data.labels = data.rainfall_timestamps;
+                rainfallTrendChart.data.datasets[0].data = data.rainfall_values;
+                rainfallTrendChart.update();
+                tideTrendChart.data.labels = data.tide_timestamps;
+                tideTrendChart.data.datasets[0].data = data.tide_values;
+                tideTrendChart.update();
+                // Update the table view as well
+                updateTrendsTable(data.rainfall_timestamps, data.rainfall_values, data.tide_values);
             });
     }
 
@@ -3994,29 +3951,14 @@
             .then(response => response.json())
             .then(data => {
                 document.getElementById('range-label').innerHTML = `Showing data for: <strong>${data.range_label}</strong>`;
-                
-                // Update rainfall chart with year-over-year datasets
-                if (data.rainfall_datasets && data.rainfall_datasets.length > 0) {
-                    updateChartWithYearlyData(rainfallTrendChart, data.rainfall_datasets, 'mm');
-                } else {
-                    // Fallback to old format (single dataset)
-                    rainfallTrendChart.data.labels = data.rainfall_timestamps || [];
-                    rainfallTrendChart.data.datasets[0].data = data.rainfall_values || [];
-                    rainfallTrendChart.update();
-                }
-                
-                // Update tide chart with year-over-year datasets
-                if (data.tide_datasets && data.tide_datasets.length > 0) {
-                    updateChartWithYearlyData(tideTrendChart, data.tide_datasets, 'm');
-                } else {
-                    // Fallback to old format (single dataset)
-                    tideTrendChart.data.labels = data.tide_timestamps || [];
-                    tideTrendChart.data.datasets[0].data = data.tide_values || [];
-                    tideTrendChart.update();
-                }
-                
-                // Update the table view
-                updateTrendsTableWithYears(data);
+                rainfallTrendChart.data.labels = data.rainfall_timestamps;
+                rainfallTrendChart.data.datasets[0].data = data.rainfall_values;
+                rainfallTrendChart.update();
+                tideTrendChart.data.labels = data.tide_timestamps;
+                tideTrendChart.data.datasets[0].data = data.tide_values;
+                tideTrendChart.update();
+                // Update the table view as well
+                updateTrendsTable(data.rainfall_timestamps, data.rainfall_values, data.tide_values);
             })
             .catch(error => {
                 alert('Error loading data. Please try again.');
@@ -4050,138 +3992,6 @@
         document.querySelector('[data-time-range="24h"]').classList.add('btn-primary');
         
         updateTimeRange('24h');
-    }
-
-    // Helper function to update charts with year-over-year data
-    function updateChartWithYearlyData(chart, datasets, unit) {
-        // Clear existing datasets
-        chart.data.datasets = [];
-        
-        // Find all unique timestamps across all years
-        let allTimestamps = [];
-        datasets.forEach(dataset => {
-            allTimestamps = allTimestamps.concat(dataset.timestamps);
-        });
-        allTimestamps = [...new Set(allTimestamps)].sort();
-        
-        // Update labels
-        chart.data.labels = allTimestamps;
-        
-        // Add a dataset for each year
-        datasets.forEach(yearDataset => {
-            // Create a map for quick lookup
-            const timestampValueMap = {};
-            yearDataset.timestamps.forEach((ts, idx) => {
-                timestampValueMap[ts] = yearDataset.data[idx];
-            });
-            
-            // Fill data array with values aligned to all timestamps
-            const alignedData = allTimestamps.map(ts => timestampValueMap[ts] || null);
-            
-            chart.data.datasets.push({
-                label: yearDataset.label,
-                data: alignedData,
-                backgroundColor: yearDataset.backgroundColor,
-                borderColor: yearDataset.borderColor,
-                borderWidth: 3,
-                tension: 0.4,
-                fill: false,  // Don't fill for year comparison (makes it clearer)
-                pointRadius: 4,
-                pointHoverRadius: 7,
-                pointBackgroundColor: '#ffffff',
-                pointBorderColor: yearDataset.borderColor,
-                pointBorderWidth: 2,
-                pointHoverBackgroundColor: yearDataset.borderColor,
-                pointHoverBorderColor: '#ffffff',
-                pointHoverBorderWidth: 3,
-                spanGaps: true  // Connect lines even if there are null values
-            });
-        });
-        
-        // Update tooltip to show year in the label
-        chart.options.plugins.tooltip.callbacks = {
-            label: function(context) {
-                const year = context.dataset.label;
-                const value = context.parsed.y;
-                if (value === null) return null;
-                return year + ': ' + value.toFixed(unit === 'm' ? 3 : 2) + ' ' + unit;
-            }
-        };
-        
-        chart.update();
-    }
-
-    // Helper function to update table with year-over-year data
-    function updateTrendsTableWithYears(data) {
-        const tableBody = document.getElementById('trendsTableBody');
-        tableBody.innerHTML = '';
-        
-        // Check if we have year-based datasets
-        if (data.rainfall_datasets && data.rainfall_datasets.length > 0) {
-            // Collect all unique timestamps
-            let allTimestamps = new Set();
-            data.rainfall_datasets.forEach(ds => {
-                ds.timestamps.forEach(ts => allTimestamps.add(ts));
-            });
-            data.tide_datasets.forEach(ds => {
-                ds.timestamps.forEach(ts => allTimestamps.add(ts));
-            });
-            
-            allTimestamps = Array.from(allTimestamps).sort().reverse(); // Most recent first
-            
-            if (allTimestamps.length === 0) {
-                tableBody.innerHTML = '<tr><td colspan="3">No data available</td></tr>';
-                return;
-            }
-            
-            // Create maps for quick lookup
-            const rainfallMap = {};
-            data.rainfall_datasets.forEach(ds => {
-                ds.timestamps.forEach((ts, idx) => {
-                    if (!rainfallMap[ts]) rainfallMap[ts] = {};
-                    rainfallMap[ts][ds.label] = ds.data[idx];
-                });
-            });
-            
-            const tideMap = {};
-            data.tide_datasets.forEach(ds => {
-                ds.timestamps.forEach((ts, idx) => {
-                    if (!tideMap[ts]) tideMap[ts] = {};
-                    tideMap[ts][ds.label] = ds.data[idx];
-                });
-            });
-            
-            // Get all years
-            const years = data.years || [];
-            
-            // Build table rows
-            allTimestamps.forEach(ts => {
-                const row = document.createElement('tr');
-                let rainfallCell = '';
-                let tideCell = '';
-                
-                // Show values for each year
-                years.forEach(year => {
-                    const rainfall = rainfallMap[ts] && rainfallMap[ts][year] !== undefined ? 
-                        rainfallMap[ts][year].toFixed(2) + ' mm' : '-';
-                    const tide = tideMap[ts] && tideMap[ts][year] !== undefined ? 
-                        tideMap[ts][year].toFixed(3) + ' m' : '-';
-                    
-                    rainfallCell += `<span class="year-${year}">${year}: ${rainfall}</span><br>`;
-                    tideCell += `<span class="year-${year}">${year}: ${tide}</span><br>`;
-                });
-                
-                row.innerHTML = `<td>${ts}</td><td>${rainfallCell}</td><td>${tideCell}</td>`;
-                tableBody.appendChild(row);
-            });
-        } else {
-            // Fallback to old format
-            updateTrendsTable(
-                data.rainfall_timestamps || [],
-                data.rainfall_values || [],
-                data.tide_values || []
-            );
-        }
     }
 
     function updateTrendsTable(timestamps, rainfallValues, tideValues) {
@@ -4298,7 +4108,7 @@
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false,
+            maintainAspectRatio: true,
             interaction: {
                 mode: 'index',
                 intersect: false
@@ -4390,7 +4200,7 @@
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false,
+            maintainAspectRatio: true,
             interaction: {
                 mode: 'index',
                 intersect: false
@@ -4484,7 +4294,7 @@
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false,
+            maintainAspectRatio: true,
             interaction: {
                 mode: 'index',
                 intersect: false
@@ -4594,7 +4404,7 @@
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false,
+            maintainAspectRatio: true,
             interaction: {
                 mode: 'index',
                 intersect: false
@@ -5133,164 +4943,6 @@
     // Call the function after DOM is ready
     generateWeatherInsights();
 
-    // Generate flood records analysis insights
-    function generateFloodAnalysisInsights() {
-        // Get data from Django template with safe defaults
-        const dates = {{ graph_dates|safe|default:"[]" }};
-        const deadData = {{ casualties_data.dead|safe|default:"[]" }};
-        const injuredData = {{ casualties_data.injured|safe|default:"[]" }};
-        const missingData = {{ casualties_data.missing|safe|default:"[]" }};
-        const personsData = {{ affected_data.persons|safe|default:"[]" }};
-        const familiesData = {{ affected_data.families|safe|default:"[]" }};
-        const partiallyData = {{ houses_data.partially|safe|default:"[]" }};
-        const totallyData = {{ houses_data.totally|safe|default:"[]" }};
-        const infraData = {{ damage_data.infrastructure|safe|default:"[]" }};
-        const agriData = {{ damage_data.agriculture|safe|default:"[]" }};
-        const instData = {{ damage_data.institutions|safe|default:"[]" }};
-        const privateData = {{ damage_data.private|safe|default:"[]" }};
-
-        // Safety check - exit if no data
-        if (!dates || dates.length === 0) {
-            console.log('No flood records data available for analysis');
-            return;
-        }
-
-        // Casualties Analysis
-        const totalDead = deadData.reduce((a, b) => a + b, 0);
-        const totalInjured = injuredData.reduce((a, b) => a + b, 0);
-        const totalMissing = missingData.reduce((a, b) => a + b, 0);
-        const totalCasualties = totalDead + totalInjured + totalMissing;
-        const eventsWithCasualties = deadData.filter((v, i) => deadData[i] > 0 || injuredData[i] > 0 || missingData[i] > 0).length;
-        const maxDeadIndex = deadData.indexOf(Math.max(...deadData));
-        const maxDead = deadData[maxDeadIndex];
-
-        let casualtiesInsight = `<strong>Total Records:</strong> ${dates.length} flood events analyzed. `;
-        if (totalCasualties === 0) {
-            casualtiesInsight += `✓ <strong>No casualties reported</strong> across all recorded events - excellent emergency response and preparedness.`;
-        } else {
-            casualtiesInsight += `<strong>${totalCasualties} total casualties</strong> (${totalDead} dead, ${totalInjured} injured, ${totalMissing} missing) across ${eventsWithCasualties} event(s). `;
-            if (maxDead > 0) {
-                casualtiesInsight += `⚠️ Most severe: <strong>${maxDead} death(s)</strong> on ${dates[maxDeadIndex]}. `;
-            }
-            if (totalDead > 5) {
-                casualtiesInsight += `<span style="color: #ef4444;">Critical impact on human life - enhanced evacuation protocols recommended.</span>`;
-            } else if (totalCasualties > 0) {
-                casualtiesInsight += `Monitor high-risk areas and strengthen early warning systems.`;
-            }
-        }
-
-        // Affected Individuals Analysis
-        const totalPersons = personsData.reduce((a, b) => a + b, 0);
-        const totalFamilies = familiesData.reduce((a, b) => a + b, 0);
-        const avgPersonsPerEvent = (totalPersons / dates.length).toFixed(0);
-        const avgFamiliesPerEvent = (totalFamilies / dates.length).toFixed(0);
-        const maxPersonsIndex = personsData.indexOf(Math.max(...personsData));
-        const maxPersons = personsData[maxPersonsIndex];
-
-        let affectedInsight = `<strong>Total Impact:</strong> ${totalPersons.toLocaleString()} persons and ${totalFamilies.toLocaleString()} families affected. `;
-        if (totalPersons === 0) {
-            affectedInsight += `No affected population recorded - limited flood impact on residential areas.`;
-        } else {
-            affectedInsight += `<strong>Average per event:</strong> ${avgPersonsPerEvent} persons, ${avgFamiliesPerEvent} families. `;
-            if (maxPersons > 0) {
-                affectedInsight += `Largest impact: <strong>${maxPersons.toLocaleString()} persons</strong> on ${dates[maxPersonsIndex]}. `;
-            }
-            if (maxPersons > 1000) {
-                affectedInsight += `<span style="color: #f97316;">⚠️ Major displacement event - evacuation center capacity critical.</span>`;
-            } else if (maxPersons > 500) {
-                affectedInsight += `Significant community impact - adequate relief supplies essential.`;
-            } else {
-                affectedInsight += `Localized impact - targeted assistance to affected barangays needed.`;
-            }
-        }
-
-        // Houses Damaged Analysis
-        const totalPartially = partiallyData.reduce((a, b) => a + b, 0);
-        const totalTotally = totallyData.reduce((a, b) => a + b, 0);
-        const totalHouses = totalPartially + totalTotally;
-        const partiallyPercent = totalHouses > 0 ? ((totalPartially / totalHouses) * 100).toFixed(1) : 0;
-        const totallyPercent = totalHouses > 0 ? ((totalTotally / totalHouses) * 100).toFixed(1) : 0;
-        const maxTotallyIndex = totallyData.indexOf(Math.max(...totallyData));
-        const maxTotally = totallyData[maxTotallyIndex];
-
-        let housesInsight = `<strong>Total Housing Damage:</strong> ${totalHouses.toLocaleString()} houses (${totalPartially.toLocaleString()} partially, ${totalTotally.toLocaleString()} totally damaged). `;
-        if (totalHouses === 0) {
-            housesInsight += `No structural damage to residences recorded.`;
-        } else {
-            housesInsight += `<strong>Damage ratio:</strong> ${partiallyPercent}% partially damaged, ${totallyPercent}% totally destroyed. `;
-            if (maxTotally > 0) {
-                housesInsight += `Worst event: <strong>${maxTotally} houses totally destroyed</strong> on ${dates[maxTotallyIndex]}. `;
-            }
-            if (totalTotally > 100) {
-                housesInsight += `<span style="color: #ef4444;">⚠️ Severe housing crisis - massive reconstruction needed. Priority: temporary shelters and housing assistance.</span>`;
-            } else if (totalTotally > 50) {
-                housesInsight += `<span style="color: #f97316;">Major reconstruction required - coordinate with housing agencies.</span>`;
-            } else if (totalPartially > totalTotally) {
-                housesInsight += `Majority repairable - focus on rehabilitation support and building materials assistance.`;
-            } else {
-                housesInsight += `Moderate impact - provide repair assistance to affected families.`;
-            }
-        }
-
-        // Property Damage Analysis
-        const totalInfra = infraData.reduce((a, b) => a + b, 0);
-        const totalAgri = agriData.reduce((a, b) => a + b, 0);
-        const totalInst = instData.reduce((a, b) => a + b, 0);
-        const totalPrivate = privateData.reduce((a, b) => a + b, 0);
-        const totalDamage = totalInfra + totalAgri + totalInst + totalPrivate;
-        const maxDamageIndex = infraData.map((v, i) => v + agriData[i] + instData[i] + privateData[i]).indexOf(Math.max(...infraData.map((v, i) => v + agriData[i] + instData[i] + privateData[i])));
-        const maxDamageValue = infraData[maxDamageIndex] + agriData[maxDamageIndex] + instData[maxDamageIndex] + privateData[maxDamageIndex];
-
-        let damageInsight = `<strong>Total Economic Impact:</strong> ₱${(totalDamage / 1000000).toFixed(2)}M. `;
-        if (totalDamage === 0) {
-            damageInsight += `No economic damage recorded.`;
-        } else {
-            damageInsight += `<strong>Breakdown:</strong> Infrastructure ₱${(totalInfra / 1000000).toFixed(2)}M (${((totalInfra / totalDamage) * 100).toFixed(0)}%), Agriculture ₱${(totalAgri / 1000000).toFixed(2)}M (${((totalAgri / totalDamage) * 100).toFixed(0)}%), Institutions ₱${(totalInst / 1000000).toFixed(2)}M (${((totalInst / totalDamage) * 100).toFixed(0)}%), Private ₱${(totalPrivate / 1000000).toFixed(2)}M (${((totalPrivate / totalDamage) * 100).toFixed(0)}%). `;
-            if (maxDamageValue > 0) {
-                damageInsight += `Costliest event: <strong>₱${(maxDamageValue / 1000000).toFixed(2)}M</strong> on ${dates[maxDamageIndex]}. `;
-            }
-            
-            // Identify primary damage sector
-            const sectors = [
-                { name: 'Infrastructure', value: totalInfra },
-                { name: 'Agriculture', value: totalAgri },
-                { name: 'Institutions', value: totalInst },
-                { name: 'Private/Commercial', value: totalPrivate }
-            ];
-            const primarySector = sectors.reduce((max, sector) => sector.value > max.value ? sector : max);
-            
-            if (totalDamage > 50000000) {
-                damageInsight += `<span style="color: #ef4444;">⚠️ Catastrophic economic impact. Primary sector affected: <strong>${primarySector.name}</strong>. Coordinate with national disaster relief and reconstruction funding.</span>`;
-            } else if (totalDamage > 10000000) {
-                damageInsight += `<span style="color: #f97316;">Significant economic burden. Primary sector: <strong>${primarySector.name}</strong>. Prioritize rehabilitation of critical infrastructure and livelihood support.</span>`;
-            } else {
-                damageInsight += `Moderate economic impact. Focus recovery efforts on <strong>${primarySector.name}</strong> sector.`;
-            }
-        }
-
-        // Update insight elements
-        const casualtiesInsightEl = document.getElementById('casualties-insight');
-        const affectedInsightEl = document.getElementById('affected-insight');
-        const housesInsightEl = document.getElementById('houses-insight');
-        const damageInsightEl = document.getElementById('damage-insight');
-
-        if (casualtiesInsightEl) {
-            casualtiesInsightEl.querySelector('span').innerHTML = casualtiesInsight;
-        }
-        if (affectedInsightEl) {
-            affectedInsightEl.querySelector('span').innerHTML = affectedInsight;
-        }
-        if (housesInsightEl) {
-            housesInsightEl.querySelector('span').innerHTML = housesInsight;
-        }
-        if (damageInsightEl) {
-            damageInsightEl.querySelector('span').innerHTML = damageInsight;
-        }
-    }
-
-    // Call flood analysis insights after DOM is ready
-    generateFloodAnalysisInsights();
-
     // Update metric card icons dynamically based on values
     function updateMetricIcons() {
         const metricItems = document.querySelectorAll('.metric-item');
@@ -5364,9 +5016,9 @@
     // Call the function after DOM is ready
     updateMetricIcons();
 
-    // Refresh countdown timer - 5 minute automatic refresh
-    const refreshTimerElement = document.getElementById('refresh-timer');
+    // Refresh countdown timer
     let refreshSeconds = 300; // 5 minutes = 300 seconds
+    const refreshTimerElement = document.getElementById('refresh-timer');
 
     function updateRefreshTimer() {
         const minutes = Math.floor(refreshSeconds / 60);
@@ -5376,8 +5028,7 @@
         if (refreshSeconds > 0) {
             refreshSeconds--;
         } else {
-            // Reload page when countdown reaches 0
-            window.location.reload();
+            refreshSeconds = 300; // Reset to 5 minutes
         }
     }
 
@@ -5387,11 +5038,11 @@
 
     // Store previous values for trend calculation (parse numbers only, removing units)
     let previousValues = {
-        rainfall: parseFloat(document.querySelector('[data-rainfall]')?.textContent?.replace(/[^0-9.-]/g, '') || '0') || 0,
-        temperature: parseFloat(document.querySelector('[data-temperature]')?.textContent?.replace(/[^0-9.-]/g, '') || '0') || 0,
-        humidity: parseFloat(document.querySelector('[data-humidity]')?.textContent?.replace(/[^0-9.-]/g, '') || '0') || 0,
-        wind: parseFloat(document.querySelector('[data-wind]')?.textContent?.replace(/[^0-9.-]/g, '') || '0') || 0,
-        tide: parseFloat(document.querySelector('[data-tide]')?.textContent?.replace(/[^0-9.-]/g, '') || '0') || 0
+        rainfall: parseFloat(document.querySelector('[data-rainfall]').textContent.replace(/[^0-9.-]/g, '')) || 0,
+        temperature: parseFloat(document.querySelector('[data-temperature]').textContent.replace(/[^0-9.-]/g, '')) || 0,
+        humidity: parseFloat(document.querySelector('[data-humidity]').textContent.replace(/[^0-9.-]/g, '')) || 0,
+        wind: parseFloat(document.querySelector('[data-wind]').textContent.replace(/[^0-9.-]/g, '')) || 0,
+        tide: parseFloat(document.querySelector('[data-tide]').textContent.replace(/[^0-9.-]/g, '')) || 0
     };
 
     // Function to update metric with trend
@@ -5425,18 +5076,12 @@
         fetch('{% url "fetch_data" %}')
             .then(response => response.json())
             .then(data => {
-                // Get current values with validation to prevent NaN
-                const currentRainfall = parseFloat(data.rainfall) || 0;
-                const currentTemperature = parseFloat(data.temperature) || 0;
-                const currentHumidity = parseFloat(data.humidity) || 0;
-                const currentWind = parseFloat(data.wind_speed) || 0;
-                const currentTide = parseFloat(data.tide) || 0;
-
-                // Skip update if values are invalid
-                if (isNaN(currentHumidity) || isNaN(currentWind)) {
-                    console.warn('Invalid data received, skipping update');
-                    return;
-                }
+                // Get current values
+                const currentRainfall = parseFloat(data.rainfall);
+                const currentTemperature = parseFloat(data.temperature);
+                const currentHumidity = parseFloat(data.humidity);
+                const currentWind = parseFloat(data.wind_speed);
+                const currentTide = parseFloat(data.tide);
 
                 // Update trends (true = increase is bad, false = increase is good)
                 updateMetricTrend('rainfall', currentRainfall, previousValues.rainfall, true);
@@ -5454,7 +5099,7 @@
 
                 // Helper function to update text node only
                 function updateMetricValue(element, value) {
-                    if (!element || isNaN(value)) return;
+                    if (!element) return;
                     // Get the first text node or create one
                     let textNode = null;
                     for (let node of element.childNodes) {
@@ -5487,9 +5132,6 @@
                 
                 // Reset countdown
                 refreshSeconds = 300;
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
             });
     }, 300000);
 
