@@ -488,6 +488,9 @@
         align-items: center;
         gap: 6px;
         padding: 8px 14px;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
         background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
         border-radius: 12px;
         font-size: 12px;
@@ -577,6 +580,8 @@
         font-weight: 700;
         line-height: 1.5;
         font-size: 14px;
+        word-break: break-word;
+        overflow-wrap: break-word;
     }
 
     .empty-state {
@@ -1679,10 +1684,10 @@
                     <div class="detail-item">
                         <div class="detail-label">Position</div>
                         <div class="detail-value">
-                            {% if log.user.position == 'others' and log.user.custom_position %}
+                            {% if log.user.position == "others" and log.user.custom_position %}
                                 {{ log.user.custom_position }}
                             {% else %}
-                                {{ log.user.get_position_display|default:log.user.position|default:"Not specified" }}
+                                {{ log.user.get_position_display }}
                             {% endif %}
                         </div>
                     </div>

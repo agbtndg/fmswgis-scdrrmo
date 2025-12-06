@@ -754,6 +754,44 @@
                 });
             });
         });
+        // Auto-calculate damage total PHP
+        function calculateDamageTotal() {
+            const infrastructure = parseFloat(document.getElementById('id_damage_infrastructure_php')?.value) || 0;
+            const agriculture = parseFloat(document.getElementById('id_damage_agriculture_php')?.value) || 0;
+            const institutions = parseFloat(document.getElementById('id_damage_institutions_php')?.value) || 0;
+            const privateCommercial = parseFloat(document.getElementById('id_damage_private_commercial_php')?.value) || 0;
+            
+            const total = infrastructure + agriculture + institutions + privateCommercial;
+            
+            const totalField = document.getElementById('id_damage_total_php');
+            if (totalField) {
+                totalField.value = total.toFixed(2);
+                totalField.readOnly = true;
+                totalField.style.backgroundColor = '#f0f9ff';
+                totalField.style.cursor = 'not-allowed';
+            }
+        }
+
+        // Initialize damage calculation listeners
+        (function() {
+            const damageFields = [
+                'id_damage_infrastructure_php',
+                'id_damage_agriculture_php',
+                'id_damage_institutions_php',
+                'id_damage_private_commercial_php'
+            ];
+
+            damageFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    field.addEventListener('input', calculateDamageTotal);
+                    field.addEventListener('change', calculateDamageTotal);
+                }
+            });
+
+            // Calculate on page load
+            calculateDamageTotal();
+        })();
     </script>
 </body>
 </html>

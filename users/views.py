@@ -109,9 +109,31 @@ def user_login(request):
         
         # Check for too many failed attempts
         failed_attempts = LoginAttempt.get_recent_failures(username, ip_address)
-        if failed_attempts >= 5:  # Limit to 5 attempts per 30 minutes
-            messages.error(request, "Too many failed login attempts. Please try again later.")
-            return render(request, 'users/login.html', {'error': 'Too many failed attempts'})
+        if failed_attempts >= 5:  # Limit to 5 attempts per 5 minutes
+            # Get the oldest failed attempt to calculate wait time
+            from django.utils import timezone
+            from datetime import timedelta
+            cutoff = timezone.now() - timedelta(minutes=5)
+            oldest_attempt = LoginAttempt.objects.filter(
+                username=username,
+                ip_address=ip_address,
+                timestamp__gte=cutoff,
+                success=False
+            ).order_by('timestamp').first()
+            
+            if oldest_attempt:
+                wait_until = oldest_attempt.timestamp + timedelta(minutes=5)
+                remaining_minutes = int((wait_until - timezone.now()).total_seconds() / 60) + 1
+                messages.error(request, f"Too many failed login attempts. Please try again in {remaining_minutes} minute(s).")
+            else:
+                messages.error(request, "Too many failed login attempts. Please try again later.")
+            
+            return render(request, 'users/login.html', {
+                'error': 'Too many failed attempts',
+                'locked_out': True,
+                'wait_minutes': remaining_minutes if oldest_attempt else 5,
+                'admin_exists': CustomUser.objects.filter(is_superuser=True).exists()
+            })
         
         user = authenticate(request, username=username, password=password)
         login_successful = False
@@ -126,7 +148,12 @@ def user_login(request):
             LoginAttempt.objects.filter(username=username, ip_address=ip_address).delete()
             return redirect('home')
         else:
-            messages.error(request, "Invalid login credentials or account not approved.")
+            # Calculate attempts remaining
+            attempts_remaining = 5 - failed_attempts - 1
+            if attempts_remaining > 0:
+                messages.error(request, f"Invalid login credentials or account not approved. {attempts_remaining} attempt(s) remaining before 5-minute lockout.")
+            else:
+                messages.error(request, "Invalid login credentials or account not approved.")
         
         # Log the attempt
         LoginAttempt.objects.create(
@@ -136,7 +163,9 @@ def user_login(request):
         )
         
         return render(request, 'users/login.html', {
-            'admin_exists': CustomUser.objects.filter(is_superuser=True).exists()
+            'admin_exists': CustomUser.objects.filter(is_superuser=True).exists(),
+            'failed_attempts': failed_attempts + 1,
+            'attempts_remaining': max(0, 4 - failed_attempts)
         })
     return render(request, 'users/login.html', {
         'admin_exists': CustomUser.objects.filter(is_superuser=True).exists()

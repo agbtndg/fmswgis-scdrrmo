@@ -89,7 +89,7 @@ class LoginAttempt(models.Model):
         ]
         
     @classmethod
-    def get_recent_failures(cls, username, ip_address, minutes=30):
+    def get_recent_failures(cls, username, ip_address, minutes=5):
         from django.utils import timezone
         from datetime import timedelta
         cutoff = timezone.now() - timedelta(minutes=minutes)

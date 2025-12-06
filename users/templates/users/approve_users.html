@@ -640,6 +640,13 @@
                     <div class="user-details">
                         <span><i class="far fa-envelope"></i>{{ user.email }}</span>
                         <span><i class="fas fa-id-badge"></i>ID: {{ user.staff_id }}</span>
+                        <span><i class="fas fa-briefcase"></i>
+                            {% if user.position == "others" and user.custom_position %}
+                                {{ user.custom_position }}
+                            {% else %}
+                                {{ user.get_position_display }}
+                            {% endif %}
+                        </span>
                         <span><i class="far fa-calendar"></i>Joined {{ user.date_joined|date:"M d, Y" }}</span>
                     </div>
                     <div class="user-actions">

@@ -3399,6 +3399,10 @@
                 </div>
                 <div id="casualtiesChart-container">
                     <canvas id="casualtiesChart"></canvas>
+                    <div class="chart-insight" id="casualties-insight">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Analyzing casualties data...</span>
+                    </div>
                 </div>
                 <table id="casualtiesTable" class="hidden">
                     <thead><tr><th>Date</th><th>Dead</th><th>Injured</th><th>Missing</th></tr></thead>
@@ -3417,6 +3421,10 @@
                 </div>
                 <div id="affectedChart-container">
                     <canvas id="affectedChart"></canvas>
+                    <div class="chart-insight" id="affected-insight">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Analyzing affected population data...</span>
+                    </div>
                 </div>
                 <table id="affectedTable" class="hidden">
                     <thead><tr><th>Date</th><th>Persons</th><th>Families</th></tr></thead>
@@ -3435,6 +3443,10 @@
                 </div>
                 <div id="housesChart-container">
                     <canvas id="housesChart"></canvas>
+                    <div class="chart-insight" id="houses-insight">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Analyzing housing damage data...</span>
+                    </div>
                 </div>
                 <table id="housesTable" class="hidden">
                     <thead><tr><th>Date</th><th>Partially</th><th>Totally</th></tr></thead>
@@ -3453,6 +3465,10 @@
                 </div>
                 <div id="damageChart-container">
                     <canvas id="damageChart"></canvas>
+                    <div class="chart-insight" id="damage-insight">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Analyzing property damage data...</span>
+                    </div>
                 </div>
                 <table id="damageTable" class="hidden">
                     <thead><tr><th>Date</th><th>Infrastructure</th><th>Agriculture</th><th>Institutions</th><th>Private</th><th>Total</th></tr></thead>
@@ -4947,6 +4963,164 @@
     // Call the function after DOM is ready
     generateWeatherInsights();
 
+    // Generate flood records analysis insights
+    function generateFloodAnalysisInsights() {
+        // Get data from Django template with safe defaults
+        const dates = {{ graph_dates|safe|default:"[]" }};
+        const deadData = {{ casualties_data.dead|safe|default:"[]" }};
+        const injuredData = {{ casualties_data.injured|safe|default:"[]" }};
+        const missingData = {{ casualties_data.missing|safe|default:"[]" }};
+        const personsData = {{ affected_data.persons|safe|default:"[]" }};
+        const familiesData = {{ affected_data.families|safe|default:"[]" }};
+        const partiallyData = {{ houses_data.partially|safe|default:"[]" }};
+        const totallyData = {{ houses_data.totally|safe|default:"[]" }};
+        const infraData = {{ damage_data.infrastructure|safe|default:"[]" }};
+        const agriData = {{ damage_data.agriculture|safe|default:"[]" }};
+        const instData = {{ damage_data.institutions|safe|default:"[]" }};
+        const privateData = {{ damage_data.private|safe|default:"[]" }};
+
+        // Safety check - exit if no data
+        if (!dates || dates.length === 0) {
+            console.log('No flood records data available for analysis');
+            return;
+        }
+
+        // Casualties Analysis
+        const totalDead = deadData.reduce((a, b) => a + b, 0);
+        const totalInjured = injuredData.reduce((a, b) => a + b, 0);
+        const totalMissing = missingData.reduce((a, b) => a + b, 0);
+        const totalCasualties = totalDead + totalInjured + totalMissing;
+        const eventsWithCasualties = deadData.filter((v, i) => deadData[i] > 0 || injuredData[i] > 0 || missingData[i] > 0).length;
+        const maxDeadIndex = deadData.indexOf(Math.max(...deadData));
+        const maxDead = deadData[maxDeadIndex];
+
+        let casualtiesInsight = `<strong>Total Records:</strong> ${dates.length} flood events analyzed. `;
+        if (totalCasualties === 0) {
+            casualtiesInsight += `✓ <strong>No casualties reported</strong> across all recorded events - excellent emergency response and preparedness.`;
+        } else {
+            casualtiesInsight += `<strong>${totalCasualties} total casualties</strong> (${totalDead} dead, ${totalInjured} injured, ${totalMissing} missing) across ${eventsWithCasualties} event(s). `;
+            if (maxDead > 0) {
+                casualtiesInsight += `⚠️ Most severe: <strong>${maxDead} death(s)</strong> on ${dates[maxDeadIndex]}. `;
+            }
+            if (totalDead > 5) {
+                casualtiesInsight += `<span style="color: #ef4444;">Critical impact on human life - enhanced evacuation protocols recommended.</span>`;
+            } else if (totalCasualties > 0) {
+                casualtiesInsight += `Monitor high-risk areas and strengthen early warning systems.`;
+            }
+        }
+
+        // Affected Individuals Analysis
+        const totalPersons = personsData.reduce((a, b) => a + b, 0);
+        const totalFamilies = familiesData.reduce((a, b) => a + b, 0);
+        const avgPersonsPerEvent = (totalPersons / dates.length).toFixed(0);
+        const avgFamiliesPerEvent = (totalFamilies / dates.length).toFixed(0);
+        const maxPersonsIndex = personsData.indexOf(Math.max(...personsData));
+        const maxPersons = personsData[maxPersonsIndex];
+
+        let affectedInsight = `<strong>Total Impact:</strong> ${totalPersons.toLocaleString()} persons and ${totalFamilies.toLocaleString()} families affected. `;
+        if (totalPersons === 0) {
+            affectedInsight += `No affected population recorded - limited flood impact on residential areas.`;
+        } else {
+            affectedInsight += `<strong>Average per event:</strong> ${avgPersonsPerEvent} persons, ${avgFamiliesPerEvent} families. `;
+            if (maxPersons > 0) {
+                affectedInsight += `Largest impact: <strong>${maxPersons.toLocaleString()} persons</strong> on ${dates[maxPersonsIndex]}. `;
+            }
+            if (maxPersons > 1000) {
+                affectedInsight += `<span style="color: #f97316;">⚠️ Major displacement event - evacuation center capacity critical.</span>`;
+            } else if (maxPersons > 500) {
+                affectedInsight += `Significant community impact - adequate relief supplies essential.`;
+            } else {
+                affectedInsight += `Localized impact - targeted assistance to affected barangays needed.`;
+            }
+        }
+
+        // Houses Damaged Analysis
+        const totalPartially = partiallyData.reduce((a, b) => a + b, 0);
+        const totalTotally = totallyData.reduce((a, b) => a + b, 0);
+        const totalHouses = totalPartially + totalTotally;
+        const partiallyPercent = totalHouses > 0 ? ((totalPartially / totalHouses) * 100).toFixed(1) : 0;
+        const totallyPercent = totalHouses > 0 ? ((totalTotally / totalHouses) * 100).toFixed(1) : 0;
+        const maxTotallyIndex = totallyData.indexOf(Math.max(...totallyData));
+        const maxTotally = totallyData[maxTotallyIndex];
+
+        let housesInsight = `<strong>Total Housing Damage:</strong> ${totalHouses.toLocaleString()} houses (${totalPartially.toLocaleString()} partially, ${totalTotally.toLocaleString()} totally damaged). `;
+        if (totalHouses === 0) {
+            housesInsight += `No structural damage to residences recorded.`;
+        } else {
+            housesInsight += `<strong>Damage ratio:</strong> ${partiallyPercent}% partially damaged, ${totallyPercent}% totally destroyed. `;
+            if (maxTotally > 0) {
+                housesInsight += `Worst event: <strong>${maxTotally} houses totally destroyed</strong> on ${dates[maxTotallyIndex]}. `;
+            }
+            if (totalTotally > 100) {
+                housesInsight += `<span style="color: #ef4444;">⚠️ Severe housing crisis - massive reconstruction needed. Priority: temporary shelters and housing assistance.</span>`;
+            } else if (totalTotally > 50) {
+                housesInsight += `<span style="color: #f97316;">Major reconstruction required - coordinate with housing agencies.</span>`;
+            } else if (totalPartially > totalTotally) {
+                housesInsight += `Majority repairable - focus on rehabilitation support and building materials assistance.`;
+            } else {
+                housesInsight += `Moderate impact - provide repair assistance to affected families.`;
+            }
+        }
+
+        // Property Damage Analysis
+        const totalInfra = infraData.reduce((a, b) => a + b, 0);
+        const totalAgri = agriData.reduce((a, b) => a + b, 0);
+        const totalInst = instData.reduce((a, b) => a + b, 0);
+        const totalPrivate = privateData.reduce((a, b) => a + b, 0);
+        const totalDamage = totalInfra + totalAgri + totalInst + totalPrivate;
+        const maxDamageIndex = infraData.map((v, i) => v + agriData[i] + instData[i] + privateData[i]).indexOf(Math.max(...infraData.map((v, i) => v + agriData[i] + instData[i] + privateData[i])));
+        const maxDamageValue = infraData[maxDamageIndex] + agriData[maxDamageIndex] + instData[maxDamageIndex] + privateData[maxDamageIndex];
+
+        let damageInsight = `<strong>Total Economic Impact:</strong> ₱${(totalDamage / 1000000).toFixed(2)}M. `;
+        if (totalDamage === 0) {
+            damageInsight += `No economic damage recorded.`;
+        } else {
+            damageInsight += `<strong>Breakdown:</strong> Infrastructure ₱${(totalInfra / 1000000).toFixed(2)}M (${((totalInfra / totalDamage) * 100).toFixed(0)}%), Agriculture ₱${(totalAgri / 1000000).toFixed(2)}M (${((totalAgri / totalDamage) * 100).toFixed(0)}%), Institutions ₱${(totalInst / 1000000).toFixed(2)}M (${((totalInst / totalDamage) * 100).toFixed(0)}%), Private ₱${(totalPrivate / 1000000).toFixed(2)}M (${((totalPrivate / totalDamage) * 100).toFixed(0)}%). `;
+            if (maxDamageValue > 0) {
+                damageInsight += `Costliest event: <strong>₱${(maxDamageValue / 1000000).toFixed(2)}M</strong> on ${dates[maxDamageIndex]}. `;
+            }
+            
+            // Identify primary damage sector
+            const sectors = [
+                { name: 'Infrastructure', value: totalInfra },
+                { name: 'Agriculture', value: totalAgri },
+                { name: 'Institutions', value: totalInst },
+                { name: 'Private/Commercial', value: totalPrivate }
+            ];
+            const primarySector = sectors.reduce((max, sector) => sector.value > max.value ? sector : max);
+            
+            if (totalDamage > 50000000) {
+                damageInsight += `<span style="color: #ef4444;">⚠️ Catastrophic economic impact. Primary sector affected: <strong>${primarySector.name}</strong>. Coordinate with national disaster relief and reconstruction funding.</span>`;
+            } else if (totalDamage > 10000000) {
+                damageInsight += `<span style="color: #f97316;">Significant economic burden. Primary sector: <strong>${primarySector.name}</strong>. Prioritize rehabilitation of critical infrastructure and livelihood support.</span>`;
+            } else {
+                damageInsight += `Moderate economic impact. Focus recovery efforts on <strong>${primarySector.name}</strong> sector.`;
+            }
+        }
+
+        // Update insight elements
+        const casualtiesInsightEl = document.getElementById('casualties-insight');
+        const affectedInsightEl = document.getElementById('affected-insight');
+        const housesInsightEl = document.getElementById('houses-insight');
+        const damageInsightEl = document.getElementById('damage-insight');
+
+        if (casualtiesInsightEl) {
+            casualtiesInsightEl.querySelector('span').innerHTML = casualtiesInsight;
+        }
+        if (affectedInsightEl) {
+            affectedInsightEl.querySelector('span').innerHTML = affectedInsight;
+        }
+        if (housesInsightEl) {
+            housesInsightEl.querySelector('span').innerHTML = housesInsight;
+        }
+        if (damageInsightEl) {
+            damageInsightEl.querySelector('span').innerHTML = damageInsight;
+        }
+    }
+
+    // Call flood analysis insights after DOM is ready
+    generateFloodAnalysisInsights();
+
     // Update metric card icons dynamically based on values
     function updateMetricIcons() {
         const metricItems = document.querySelectorAll('.metric-item');
@@ -5020,9 +5194,9 @@
     // Call the function after DOM is ready
     updateMetricIcons();
 
-    // Refresh countdown timer
-    let refreshSeconds = 300; // 5 minutes = 300 seconds
+    // Refresh countdown timer - 5 minute automatic refresh
     const refreshTimerElement = document.getElementById('refresh-timer');
+    let refreshSeconds = 300; // 5 minutes = 300 seconds
 
     function updateRefreshTimer() {
         const minutes = Math.floor(refreshSeconds / 60);
@@ -5032,7 +5206,8 @@
         if (refreshSeconds > 0) {
             refreshSeconds--;
         } else {
-            refreshSeconds = 300; // Reset to 5 minutes
+            // Reload page when countdown reaches 0
+            window.location.reload();
         }
     }
 
@@ -5042,11 +5217,11 @@
 
     // Store previous values for trend calculation (parse numbers only, removing units)
     let previousValues = {
-        rainfall: parseFloat(document.querySelector('[data-rainfall]').textContent.replace(/[^0-9.-]/g, '')) || 0,
-        temperature: parseFloat(document.querySelector('[data-temperature]').textContent.replace(/[^0-9.-]/g, '')) || 0,
-        humidity: parseFloat(document.querySelector('[data-humidity]').textContent.replace(/[^0-9.-]/g, '')) || 0,
-        wind: parseFloat(document.querySelector('[data-wind]').textContent.replace(/[^0-9.-]/g, '')) || 0,
-        tide: parseFloat(document.querySelector('[data-tide]').textContent.replace(/[^0-9.-]/g, '')) || 0
+        rainfall: parseFloat(document.querySelector('[data-rainfall]')?.textContent?.replace(/[^0-9.-]/g, '') || '0') || 0,
+        temperature: parseFloat(document.querySelector('[data-temperature]')?.textContent?.replace(/[^0-9.-]/g, '') || '0') || 0,
+        humidity: parseFloat(document.querySelector('[data-humidity]')?.textContent?.replace(/[^0-9.-]/g, '') || '0') || 0,
+        wind: parseFloat(document.querySelector('[data-wind]')?.textContent?.replace(/[^0-9.-]/g, '') || '0') || 0,
+        tide: parseFloat(document.querySelector('[data-tide]')?.textContent?.replace(/[^0-9.-]/g, '') || '0') || 0
     };
 
     // Function to update metric with trend
@@ -5080,12 +5255,18 @@
         fetch('{% url "fetch_data" %}')
             .then(response => response.json())
             .then(data => {
-                // Get current values
-                const currentRainfall = parseFloat(data.rainfall);
-                const currentTemperature = parseFloat(data.temperature);
-                const currentHumidity = parseFloat(data.humidity);
-                const currentWind = parseFloat(data.wind_speed);
-                const currentTide = parseFloat(data.tide);
+                // Get current values with validation to prevent NaN
+                const currentRainfall = parseFloat(data.rainfall) || 0;
+                const currentTemperature = parseFloat(data.temperature) || 0;
+                const currentHumidity = parseFloat(data.humidity) || 0;
+                const currentWind = parseFloat(data.wind_speed) || 0;
+                const currentTide = parseFloat(data.tide) || 0;
+
+                // Skip update if values are invalid
+                if (isNaN(currentHumidity) || isNaN(currentWind)) {
+                    console.warn('Invalid data received, skipping update');
+                    return;
+                }
 
                 // Update trends (true = increase is bad, false = increase is good)
                 updateMetricTrend('rainfall', currentRainfall, previousValues.rainfall, true);
@@ -5103,7 +5284,7 @@
 
                 // Helper function to update text node only
                 function updateMetricValue(element, value) {
-                    if (!element) return;
+                    if (!element || isNaN(value)) return;
                     // Get the first text node or create one
                     let textNode = null;
                     for (let node of element.childNodes) {
@@ -5136,6 +5317,9 @@
                 
                 // Reset countdown
                 refreshSeconds = 300;
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
             });
     }, 300000);
 
