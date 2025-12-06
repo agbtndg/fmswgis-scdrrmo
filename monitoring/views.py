@@ -22,15 +22,22 @@ def should_update_trend_data(last_timestamp):
     """
     Check if we should update trend data based on 3-hour intervals.
     Data should be collected at: 00:00, 03:00, 06:00, 09:00, 12:00, 15:00, 18:00, 21:00
+    Only create new record if we've entered a NEW 3-hour interval.
     """
     if not last_timestamp:
         return True
     
     now = timezone.now()
-    time_diff = (now - last_timestamp).total_seconds()
+    current_interval = (now.hour // 3) * 3
+    last_interval = (last_timestamp.hour // 3) * 3
     
-    # Update if more than 3 hours (10800 seconds) have passed
-    if time_diff >= 10800:
+    # Check if we've moved to a different 3-hour interval on the same day
+    if now.date() == last_timestamp.date():
+        # Same day - only update if we've entered a new 3-hour block
+        if current_interval > last_interval:
+            return True
+    else:
+        # Different day - always update (new day, new interval)
         return True
     
     return False
@@ -308,14 +315,18 @@ def monitoring_view(request):
             rainfall_data.save()
             logger.info(f"Created new rainfall record: {rainfall_value}mm at {sync_timestamp}")
 
-        if not weather_data or (timezone.now() - weather_data.timestamp).total_seconds() > 3600:
+        if should_update_trend_data(weather_data.timestamp if weather_data else None):
+            sync_timestamp = get_synchronized_timestamp()
             weather_data = WeatherData.objects.create(
                 temperature_c=temperature,
                 humidity_percent=humidity,
                 wind_speed_kph=wind_speed,
                 station_name='Open-Meteo (Silay City)'
             )
-            logger.info(f"Created new weather record")
+            # Update the timestamp to synchronized time
+            weather_data.timestamp = sync_timestamp
+            weather_data.save()
+            logger.info(f"Created new weather record at {sync_timestamp}")
 
         # Process 7-day forecast data from Open-Meteo (Silay City)
         logger.info("Using Open-Meteo for Silay City forecast")
