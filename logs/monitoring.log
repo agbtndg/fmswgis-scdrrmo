@@ -13562,3 +13562,21 @@ INFO 2025-12-06 18:46:24 autoreload 21760 13620 C:\Users\aldri\Flood-Monitoring-
 INFO 2025-12-06 18:46:25 autoreload 15788 13908 Watching for file changes with StatReloader
 INFO 2025-12-06 18:49:23 autoreload 15788 13908 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\urls.py changed, reloading.
 INFO 2025-12-06 18:49:24 autoreload 9788 4136 Watching for file changes with StatReloader
+INFO 2025-12-06 18:50:28 basehttp 9788 12188 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-12-06 18:55:59 autoreload 7784 20168 Watching for file changes with StatReloader
+INFO 2025-12-06 18:56:22 basehttp 7784 11080 "GET / HTTP/1.1" 302 0
+INFO 2025-12-06 18:56:22 basehttp 7784 11080 "GET /home/ HTTP/1.1" 200 77596
+INFO 2025-12-06 18:56:22 basehttp 7784 11080 "GET /media/profile_images/rooftop5.jpg HTTP/1.1" 200 44647
+INFO 2025-12-06 18:56:22 basehttp 7784 192 "GET /media/profile_images/Messenger_creation_A21C2DD6-547E-4873-875F-A03DD5C6EBDF.jpeg HTTP/1.1" 200 383435
+WARNING 2025-12-06 18:56:22 log 7784 192 Not Found: /favicon.ico
+WARNING 2025-12-06 18:56:22 basehttp 7784 192 "GET /favicon.ico HTTP/1.1" 404 4918
+INFO 2025-12-06 18:56:24 basehttp 7784 192 "GET /maps/ HTTP/1.1" 200 1049957
+INFO 2025-12-06 18:56:24 basehttp 7784 192 "GET /static/css/ol.css HTTP/1.1" 200 6634
+INFO 2025-12-06 18:56:24 basehttp 7784 11080 "GET /static/js/ol.js HTTP/1.1" 200 857360
+INFO 2025-12-06 18:56:26 views 7784 11080 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-06 18:56:27 views 7784 11080 Open-Meteo (Current) - Rain: 0.0mm, Temp: 26.9°C, Humidity: 87%, Wind: 19.1km/h
+INFO 2025-12-06 18:56:27 views 7784 11080 Created new rainfall record: 0.0mm
+INFO 2025-12-06 18:56:27 views 7784 11080 Created new weather record
+INFO 2025-12-06 18:56:27 views 7784 11080 Using Open-Meteo for Silay City forecast
+INFO 2025-12-06 18:56:27 views 7784 11080 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-06 18:56:27 basehttp 7784 11080 "GET /monitoring/ HTTP/1.1" 200 232144
