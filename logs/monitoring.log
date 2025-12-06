@@ -13554,3 +13554,9 @@ INFO 2025-12-06 18:35:26 views 14436 11180 Open-Meteo (Current) - Rain: 0.0mm, T
 INFO 2025-12-06 18:35:26 views 14436 11180 Using Open-Meteo for Silay City forecast
 INFO 2025-12-06 18:35:26 views 14436 11180 Processed 7 days of Open-Meteo forecast for Silay City
 INFO 2025-12-06 18:35:26 basehttp 14436 11180 "GET /monitoring/ HTTP/1.1" 200 250632
+INFO 2025-12-06 18:40:28 basehttp 14436 15444 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-12-06 18:43:00 autoreload 14436 13412 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-12-06 18:43:01 autoreload 21760 13620 Watching for file changes with StatReloader
+INFO 2025-12-06 18:45:28 basehttp 21760 10772 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-12-06 18:46:24 autoreload 21760 13620 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-12-06 18:46:25 autoreload 15788 13908 Watching for file changes with StatReloader
