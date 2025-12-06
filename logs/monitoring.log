@@ -13268,3 +13268,158 @@ INFO 2025-12-06 12:43:25 views 11156 17368 Open-Meteo (Current) - Rain: 0.0mm, T
 INFO 2025-12-06 12:43:25 views 11156 17368 Using Open-Meteo for Silay City forecast
 INFO 2025-12-06 12:43:25 views 11156 17368 Processed 7 days of Open-Meteo forecast for Silay City
 INFO 2025-12-06 12:43:25 basehttp 11156 17368 "GET /monitoring/ HTTP/1.1" 200 339323
+INFO 2025-12-06 12:44:40 views 11156 17368 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-06 12:44:41 views 11156 17368 Open-Meteo (Current) - Rain: 0.0mm, Temp: 27.1°C, Humidity: 84%, Wind: 21.8km/h
+INFO 2025-12-06 12:44:41 views 11156 17368 Using Open-Meteo for Silay City forecast
+INFO 2025-12-06 12:44:41 views 11156 17368 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-06 12:44:41 basehttp 11156 17368 "GET /monitoring/ HTTP/1.1" 200 339323
+INFO 2025-12-06 12:45:00 views 11156 17368 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-06 12:45:01 views 11156 17368 Open-Meteo (Current) - Rain: 0.0mm, Temp: 27.1°C, Humidity: 84%, Wind: 22.0km/h
+INFO 2025-12-06 12:45:01 views 11156 17368 Using Open-Meteo for Silay City forecast
+INFO 2025-12-06 12:45:01 views 11156 17368 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-06 12:45:01 basehttp 11156 17368 "GET /monitoring/ HTTP/1.1" 200 346144
+INFO 2025-12-06 12:50:05 basehttp 11156 19404 "GET /monitoring/api/data/ HTTP/1.1" 200 55
+INFO 2025-12-06 12:55:04 basehttp 11156 10796 "GET /monitoring/api/data/ HTTP/1.1" 200 55
+INFO 2025-12-06 13:00:04 basehttp 11156 10592 "GET /monitoring/api/data/ HTTP/1.1" 200 55
+INFO 2025-12-06 13:10:38 basehttp 11156 2520 "GET /monitoring/api/data/ HTTP/1.1" 200 55
+INFO 2025-12-06 13:11:44 autoreload 11156 11980 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-12-06 13:11:45 autoreload 24504 24508 Watching for file changes with StatReloader
+INFO 2025-12-06 13:14:08 views 24504 24056 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-06 13:14:09 views 24504 24056 Open-Meteo (Current) - Rain: 0.0mm, Temp: 27.2°C, Humidity: 84%, Wind: 24.1km/h
+INFO 2025-12-06 13:14:09 views 24504 24056 Created new rainfall record: 0.0mm at 2025-12-06 03:00:00+00:00
+INFO 2025-12-06 13:14:09 views 24504 24056 Created new weather record
+INFO 2025-12-06 13:14:09 views 24504 24056 Using Open-Meteo for Silay City forecast
+INFO 2025-12-06 13:14:10 views 24504 24056 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-06 13:14:10 views 24504 24056 Fetching WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+INFO 2025-12-06 13:14:11 views 24504 24056 Created tide record from WorldTides (Cebu City): -0.003m at 2025-12-06 03:00:00+00:00
+INFO 2025-12-06 13:14:11 basehttp 24504 24056 "GET /monitoring/ HTTP/1.1" 200 250404
+INFO 2025-12-06 13:14:18 basehttp 24504 24056 "GET /monitoring/api/trends/?time_range=7d HTTP/1.1" 200 187
+INFO 2025-12-06 13:14:19 basehttp 24504 24056 "GET /monitoring/api/trends/?time_range=30d HTTP/1.1" 200 189
+INFO 2025-12-06 13:14:19 basehttp 24504 24056 "GET /monitoring/api/trends/?time_range=90d HTTP/1.1" 200 189
+INFO 2025-12-06 13:14:20 basehttp 24504 24056 "GET /monitoring/api/trends/?time_range=all HTTP/1.1" 200 186
+INFO 2025-12-06 13:14:21 basehttp 24504 24056 "GET /monitoring/api/trends/?time_range=24h HTTP/1.1" 200 190
+INFO 2025-12-06 13:14:21 views 24504 24056 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-06 13:14:22 views 24504 24056 Open-Meteo (Current) - Rain: 0.0mm, Temp: 27.2°C, Humidity: 84%, Wind: 24.1km/h
+INFO 2025-12-06 13:14:22 views 24504 24056 Using Open-Meteo for Silay City forecast
+INFO 2025-12-06 13:14:22 views 24504 24056 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-06 13:14:22 basehttp 24504 24056 "GET /monitoring/ HTTP/1.1" 200 250404
+INFO 2025-12-06 13:14:44 autoreload 24504 24508 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-12-06 13:14:45 autoreload 22048 4512 Watching for file changes with StatReloader
+INFO 2025-12-06 13:15:59 views 22048 5312 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-06 13:16:00 views 22048 5312 Open-Meteo (Current) - Rain: 0.0mm, Temp: 27.2°C, Humidity: 84%, Wind: 23.6km/h
+INFO 2025-12-06 13:16:00 views 22048 5312 Using Open-Meteo for Silay City forecast
+INFO 2025-12-06 13:16:00 views 22048 5312 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-06 13:16:01 basehttp 22048 5312 "GET /monitoring/ HTTP/1.1" 200 250404
+INFO 2025-12-06 13:21:02 basehttp 22048 7616 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-12-06 13:23:14 views 22048 2628 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-06 13:23:16 views 22048 2628 Open-Meteo (Current) - Rain: 0.0mm, Temp: 27.2°C, Humidity: 84%, Wind: 23.6km/h
+INFO 2025-12-06 13:23:16 views 22048 2628 Using Open-Meteo for Silay City forecast
+INFO 2025-12-06 13:23:16 views 22048 2628 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-06 13:23:16 basehttp 22048 2628 "GET /monitoring/ HTTP/1.1" 200 250404
+INFO 2025-12-06 13:28:17 basehttp 22048 7760 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-12-06 13:33:17 basehttp 22048 1684 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-12-06 13:38:17 basehttp 22048 19772 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-12-06 13:43:16 basehttp 22048 8576 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-12-06 13:46:41 autoreload 22048 4512 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-12-06 13:46:42 autoreload 3628 24368 Watching for file changes with StatReloader
+INFO 2025-12-06 13:46:46 autoreload 3628 24368 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-12-06 13:46:47 autoreload 4240 19568 Watching for file changes with StatReloader
+INFO 2025-12-06 13:48:16 basehttp 4240 11428 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-12-06 13:49:21 views 4240 11428 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-06 13:49:22 views 4240 11428 Open-Meteo (Current) - Rain: 0.0mm, Temp: 27.2°C, Humidity: 84%, Wind: 23.1km/h
+INFO 2025-12-06 13:49:22 views 4240 11428 Using Open-Meteo for Silay City forecast
+INFO 2025-12-06 13:49:22 views 4240 11428 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-06 13:49:22 basehttp 4240 11428 "GET /monitoring/ HTTP/1.1" 200 259600
+INFO 2025-12-06 13:52:33 views 4240 7764 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-06 13:52:33 views 4240 7764 Open-Meteo (Current) - Rain: 0.0mm, Temp: 27.2°C, Humidity: 84%, Wind: 23.1km/h
+INFO 2025-12-06 13:52:33 views 4240 7764 Using Open-Meteo for Silay City forecast
+INFO 2025-12-06 13:52:33 views 4240 7764 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-06 13:52:33 basehttp 4240 7764 "GET /monitoring/ HTTP/1.1" 200 259600
+INFO 2025-12-06 13:53:16 basehttp 4240 7764 "GET /monitoring/api/trends/?time_range=all HTTP/1.1" 200 186
+INFO 2025-12-06 13:53:17 basehttp 4240 7764 "GET /monitoring/api/trends/?time_range=90d HTTP/1.1" 200 189
+INFO 2025-12-06 13:53:17 basehttp 4240 7764 "GET /monitoring/api/trends/?time_range=30d HTTP/1.1" 200 189
+INFO 2025-12-06 13:53:18 basehttp 4240 7764 "GET /monitoring/api/trends/?time_range=7d HTTP/1.1" 200 187
+INFO 2025-12-06 13:53:18 basehttp 4240 7764 "GET /monitoring/api/trends/?time_range=24h HTTP/1.1" 200 190
+INFO 2025-12-06 13:53:19 basehttp 4240 7764 "GET /monitoring/api/trends/?time_range=24h HTTP/1.1" 200 190
+WARNING 2025-12-06 13:53:23 basehttp 4240 7764 "GET /static/js/bootstrap.bundle.min.js.map HTTP/1.1" 404 2032
+WARNING 2025-12-06 13:53:23 basehttp 4240 22300 "GET /static/js/chart.umd.min.js.map HTTP/1.1" 404 2011
+INFO 2025-12-06 13:54:43 autoreload 10592 13536 Watching for file changes with StatReloader
+INFO 2025-12-06 13:54:48 views 4240 11592 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-06 13:54:49 views 4240 11592 Open-Meteo (Current) - Rain: 0.0mm, Temp: 27.2°C, Humidity: 84%, Wind: 23.1km/h
+INFO 2025-12-06 13:54:49 views 4240 11592 Using Open-Meteo for Silay City forecast
+INFO 2025-12-06 13:54:49 views 4240 11592 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-06 13:54:49 basehttp 4240 11592 "GET /monitoring/ HTTP/1.1" 200 259600
+INFO 2025-12-06 13:55:24 basehttp 4240 24012 "GET / HTTP/1.1" 200 16199
+INFO 2025-12-06 13:55:24 basehttp 4240 7300 "GET /static/css/font-awesome.min.css HTTP/1.1" 200 89225
+INFO 2025-12-06 13:55:24 basehttp 4240 7188 "GET /static/images/drrmo_logo.png HTTP/1.1" 200 96716
+INFO 2025-12-06 13:55:24 basehttp 4240 24012 "GET /static/css/bootstrap.min.css HTTP/1.1" 200 232953
+INFO 2025-12-06 13:55:24 basehttp 4240 24012 "GET /static/webfonts/fa-solid-900.woff2 HTTP/1.1" 200 126828
+WARNING 2025-12-06 13:55:24 log 4240 24012 Not Found: /favicon.ico
+WARNING 2025-12-06 13:55:24 basehttp 4240 24012 "GET /favicon.ico HTTP/1.1" 404 4918
+INFO 2025-12-06 13:55:29 basehttp 4240 24012 "POST / HTTP/1.1" 302 0
+INFO 2025-12-06 13:55:29 basehttp 4240 24012 "GET /home/ HTTP/1.1" 200 77652
+INFO 2025-12-06 13:55:29 basehttp 4240 7188 "GET /media/profile_images/rooftop5.jpg HTTP/1.1" 200 44647
+INFO 2025-12-06 13:55:29 basehttp 4240 24012 "GET /static/js/bootstrap.bundle.min.js HTTP/1.1" 200 80669
+INFO 2025-12-06 13:55:29 basehttp 4240 7300 "GET /media/profile_images/Messenger_creation_A21C2DD6-547E-4873-875F-A03DD5C6EBDF.jpeg HTTP/1.1" 200 383435
+INFO 2025-12-06 13:55:29 basehttp 4240 7300 "GET /static/webfonts/fa-brands-400.woff2 HTTP/1.1" 200 104544
+INFO 2025-12-06 13:55:32 views 4240 7300 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-06 13:55:33 views 4240 7300 Open-Meteo (Current) - Rain: 0.0mm, Temp: 27.2°C, Humidity: 84%, Wind: 23.1km/h
+INFO 2025-12-06 13:55:33 views 4240 7300 Using Open-Meteo for Silay City forecast
+INFO 2025-12-06 13:55:33 views 4240 7300 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-06 13:55:33 basehttp 4240 7300 "GET /monitoring/ HTTP/1.1" 200 259600
+INFO 2025-12-06 13:55:33 basehttp 4240 7300 "GET /static/js/chart.js HTTP/1.1" 200 208536
+INFO 2025-12-06 14:00:34 basehttp 4240 14668 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-12-06 14:01:26 autoreload 10592 13536 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-12-06 14:01:27 autoreload 4240 19568 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-12-06 14:01:27 autoreload 8036 18336 Watching for file changes with StatReloader
+INFO 2025-12-06 14:01:27 autoreload 24172 8060 Watching for file changes with StatReloader
+INFO 2025-12-06 14:01:41 autoreload 8036 18336 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\urls.py changed, reloading.
+INFO 2025-12-06 14:01:42 autoreload 24172 8060 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\urls.py changed, reloading.
+INFO 2025-12-06 14:01:42 autoreload 18084 24396 Watching for file changes with StatReloader
+INFO 2025-12-06 14:01:42 autoreload 13952 8320 Watching for file changes with StatReloader
+INFO 2025-12-06 14:02:36 views 18084 22784 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-06 14:02:37 views 18084 22784 Open-Meteo (Current) - Rain: 0.0mm, Temp: 27.2°C, Humidity: 84%, Wind: 23.0km/h
+INFO 2025-12-06 14:02:37 views 18084 22784 Created new rainfall record: 0.0mm at 2025-12-06 06:00:00+00:00
+INFO 2025-12-06 14:02:37 views 18084 22784 Using Open-Meteo for Silay City forecast
+INFO 2025-12-06 14:02:37 views 18084 22784 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-06 14:02:37 views 18084 22784 Fetching WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+INFO 2025-12-06 14:02:38 views 18084 22784 Created tide record from WorldTides (Cebu City): -0.078m at 2025-12-06 06:00:00+00:00
+INFO 2025-12-06 14:02:38 basehttp 18084 22784 "GET /monitoring/ HTTP/1.1" 200 283338
+INFO 2025-12-06 14:02:46 basehttp 18084 22784 "GET /monitoring/api/trends-comparison/?month=12&day=6 HTTP/1.1" 200 69
+INFO 2025-12-06 14:03:17 basehttp 18084 22784 "GET /monitoring/api/trends-comparison/?month=12&day=6 HTTP/1.1" 200 69
+INFO 2025-12-06 14:04:03 basehttp 18084 22784 "GET /monitoring/flood-record/ HTTP/1.1" 200 53879
+INFO 2025-12-06 14:04:22 views 18084 22784 Flood record created: 16 - Flood
+INFO 2025-12-06 14:04:22 basehttp 18084 22784 "POST /monitoring/flood-record/ HTTP/1.1" 200 136
+INFO 2025-12-06 14:04:24 views 18084 22784 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-06 14:04:25 views 18084 22784 Open-Meteo (Current) - Rain: 0.0mm, Temp: 27.2°C, Humidity: 84%, Wind: 23.0km/h
+INFO 2025-12-06 14:04:25 views 18084 22784 Using Open-Meteo for Silay City forecast
+INFO 2025-12-06 14:04:25 views 18084 22784 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-06 14:04:25 basehttp 18084 22784 "GET /monitoring/ HTTP/1.1" 200 285199
+INFO 2025-12-06 14:04:30 basehttp 18084 22784 "GET /monitoring/flood-record/ HTTP/1.1" 200 53879
+INFO 2025-12-06 14:04:50 views 18084 22784 Flood record created: 17 - Flash Flood
+INFO 2025-12-06 14:04:50 basehttp 18084 22784 "POST /monitoring/flood-record/ HTTP/1.1" 200 142
+INFO 2025-12-06 14:04:52 views 18084 22784 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-06 14:04:52 views 18084 22784 Open-Meteo (Current) - Rain: 0.0mm, Temp: 27.2°C, Humidity: 84%, Wind: 23.0km/h
+INFO 2025-12-06 14:04:52 views 18084 22784 Using Open-Meteo for Silay City forecast
+INFO 2025-12-06 14:04:52 views 18084 22784 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-06 14:04:53 basehttp 18084 22784 "GET /monitoring/ HTTP/1.1" 200 299253
+INFO 2025-12-06 14:05:20 basehttp 18084 22784 "GET /monitoring/flood-record/ HTTP/1.1" 200 53879
+INFO 2025-12-06 14:05:37 views 18084 22784 Flood record created: 18 - Flood
+INFO 2025-12-06 14:05:37 basehttp 18084 22784 "POST /monitoring/flood-record/ HTTP/1.1" 200 136
+INFO 2025-12-06 14:05:39 views 18084 22784 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-06 14:05:40 views 18084 22784 Open-Meteo (Current) - Rain: 0.0mm, Temp: 27.2°C, Humidity: 84%, Wind: 23.0km/h
+INFO 2025-12-06 14:05:40 views 18084 22784 Using Open-Meteo for Silay City forecast
+INFO 2025-12-06 14:05:40 views 18084 22784 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-06 14:05:40 basehttp 18084 22784 "GET /monitoring/ HTTP/1.1" 200 306185
+INFO 2025-12-06 14:05:48 basehttp 18084 22784 "GET /monitoring/flood-record/edit/18/ HTTP/1.1" 200 35231
+INFO 2025-12-06 14:05:50 views 18084 22784 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-06 14:05:51 views 18084 22784 Open-Meteo (Current) - Rain: 0.0mm, Temp: 27.2°C, Humidity: 84%, Wind: 23.0km/h
+INFO 2025-12-06 14:05:51 views 18084 22784 Using Open-Meteo for Silay City forecast
+INFO 2025-12-06 14:05:51 views 18084 22784 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-06 14:05:51 basehttp 18084 22784 "GET /monitoring/ HTTP/1.1" 200 306185
+INFO 2025-12-06 14:06:38 autoreload 13952 8320 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\views.py changed, reloading.
+INFO 2025-12-06 14:06:38 autoreload 18084 24396 C:\Users\aldri\Flood-Monitoring-System-with-GIS\monitoring\urls.py changed, reloading.
+INFO 2025-12-06 14:06:39 autoreload 13968 17300 Watching for file changes with StatReloader
+INFO 2025-12-06 14:06:39 autoreload 436 24468 Watching for file changes with StatReloader
+INFO 2025-12-06 14:10:52 basehttp 13968 12696 "GET /monitoring/api/data/ HTTP/1.1" 200 54
+INFO 2025-12-06 14:15:52 basehttp 13968 12696 "GET /monitoring/api/data/ HTTP/1.1" 200 54

@@ -18,6 +18,35 @@ from django.contrib.auth.decorators import login_required
 logger = logging.getLogger(__name__)
 
 
+def should_update_trend_data(last_timestamp):
+    """
+    Check if we should update trend data based on 3-hour intervals.
+    Data should be collected at: 00:00, 03:00, 06:00, 09:00, 12:00, 15:00, 18:00, 21:00
+    """
+    if not last_timestamp:
+        return True
+    
+    now = timezone.now()
+    time_diff = (now - last_timestamp).total_seconds()
+    
+    # Update if more than 3 hours (10800 seconds) have passed
+    if time_diff >= 10800:
+        return True
+    
+    return False
+
+
+def get_synchronized_timestamp():
+    """
+    Get a timestamp rounded to the nearest 3-hour interval.
+    This ensures both rainfall and tide data use the same timestamps.
+    Returns timezone-aware datetime.
+    """
+    now = timezone.now()
+    hour = (now.hour // 3) * 3  # Round down to nearest 3-hour mark
+    return now.replace(hour=hour, minute=0, second=0, microsecond=0)
+
+
 def get_flood_risk_level(rainfall_mm):
     """Determine flood risk level based on rainfall."""
     settings = BenchmarkSettings.get_settings()
@@ -269,10 +298,15 @@ def monitoring_view(request):
         
         logger.info(f"Open-Meteo (Current) - Rain: {rainfall_value}mm, Temp: {temperature}°C, Humidity: {humidity}%, Wind: {wind_speed}km/h")
 
-        # Only create new records if data is older than 1 hour OR doesn't exist
-        if not rainfall_data or (timezone.now() - rainfall_data.timestamp).total_seconds() > 3600:
+        # Only create new records on 3-hour intervals (synchronized with tide data)
+        # Updates at: 00:00, 03:00, 06:00, 09:00, 12:00, 15:00, 18:00, 21:00
+        if should_update_trend_data(rainfall_data.timestamp if rainfall_data else None):
+            sync_timestamp = get_synchronized_timestamp()
             rainfall_data = RainfallData.objects.create(value_mm=rainfall_value, station_name='Open-Meteo (Silay City)')
-            logger.info(f"Created new rainfall record: {rainfall_value}mm")
+            # Update the timestamp to synchronized time
+            rainfall_data.timestamp = sync_timestamp
+            rainfall_data.save()
+            logger.info(f"Created new rainfall record: {rainfall_value}mm at {sync_timestamp}")
 
         if not weather_data or (timezone.now() - weather_data.timestamp).total_seconds() > 3600:
             weather_data = WeatherData.objects.create(
@@ -329,8 +363,8 @@ def monitoring_view(request):
     except Exception as e:
         logger.error(f"Unexpected error fetching weather data: {e}")
 
-    # Fetch tide data from WorldTides (Cebu City)
-    if not tide_data or (timezone.now() - tide_data.timestamp).total_seconds() > 10800:
+    # Fetch tide data from WorldTides (Cebu City) on 3-hour intervals (synchronized with rainfall)
+    if should_update_trend_data(tide_data.timestamp if tide_data else None):
         try:
             tide_api_url = "https://www.worldtides.info/api/v3"
             params = {
@@ -354,11 +388,15 @@ def monitoring_view(request):
                     closest_height = min(heights, key=lambda x: abs(x['dt'] - now_timestamp))
                     tide_value = closest_height.get('height', 0.8)
                     
+                    sync_timestamp = get_synchronized_timestamp()
                     tide_data = TideLevelData.objects.create(
                         height_m=tide_value,
                         station_name='WorldTides - Cebu City'
                     )
-                    logger.info(f"Created tide record from WorldTides (Cebu City): {tide_value}m")
+                    # Update the timestamp to synchronized time
+                    tide_data.timestamp = sync_timestamp
+                    tide_data.save()
+                    logger.info(f"Created tide record from WorldTides (Cebu City): {tide_value}m at {sync_timestamp}")
                 else:
                     logger.warning("No tide heights in WorldTides API response")
                     
@@ -376,8 +414,11 @@ def monitoring_view(request):
 
     # Create default tide data if WorldTides failed
     if not tide_data:
+        sync_timestamp = get_synchronized_timestamp()
         tide_data = TideLevelData.objects.create(height_m=0.8, station_name='Default')
-        logger.warning("Created default tide record (WorldTides API unavailable)")
+        tide_data.timestamp = sync_timestamp
+        tide_data.save()
+        logger.warning(f"Created default tide record at {sync_timestamp} (WorldTides API unavailable)")
 
     # Convert QuerySets to lists of dictionaries for JSON serialization
     rainfall_history = list(RainfallData.objects.filter(
@@ -481,6 +522,39 @@ def monitoring_view(request):
     available_years = FloodRecord.objects.dates('date', 'year', order='DESC')
     years_list = [date.year for date in available_years]
 
+    # Get "On This Day" flood records (same month and day from previous years)
+    today = timezone.now().date()
+    on_this_day_records = FloodRecord.objects.filter(
+        date__month=today.month,
+        date__day=today.day
+    ).exclude(
+        date__year=today.year  # Exclude current year
+    ).order_by('-date').values(
+        'id', 'event', 'date', 'affected_barangays', 'casualties_dead', 'casualties_injured', 'casualties_missing',
+        'affected_persons', 'affected_families', 'houses_damaged_partially', 'houses_damaged_totally',
+        'damage_infrastructure_php', 'damage_agriculture_php', 'damage_institutions_php',
+        'damage_private_commercial_php', 'damage_total_php'
+    )
+    
+    # Format "On This Day" records and calculate years ago
+    on_this_day_list = []
+    for record in on_this_day_records:
+        years_ago = today.year - record['date'].year
+        record['years_ago'] = years_ago
+        record['casualties_dead_fmt'] = "{:,.0f}".format(record['casualties_dead'])
+        record['casualties_injured_fmt'] = "{:,.0f}".format(record['casualties_injured'])
+        record['casualties_missing_fmt'] = "{:,.0f}".format(record['casualties_missing'])
+        record['affected_persons_fmt'] = "{:,.0f}".format(record['affected_persons'])
+        record['affected_families_fmt'] = "{:,.0f}".format(record['affected_families'])
+        record['houses_damaged_partially_fmt'] = "{:,.0f}".format(record['houses_damaged_partially'])
+        record['houses_damaged_totally_fmt'] = "{:,.0f}".format(record['houses_damaged_totally'])
+        record['damage_infrastructure_php_fmt'] = "{:,.2f}".format(record['damage_infrastructure_php'])
+        record['damage_agriculture_php_fmt'] = "{:,.2f}".format(record['damage_agriculture_php'])
+        record['damage_institutions_php_fmt'] = "{:,.2f}".format(record['damage_institutions_php'])
+        record['damage_private_commercial_php_fmt'] = "{:,.2f}".format(record['damage_private_commercial_php'])
+        record['damage_total_php_fmt'] = "{:,.2f}".format(record['damage_total_php'])
+        on_this_day_list.append(record)
+
     context = {
         'rainfall_data': rainfall_data,
         'weather_data': weather_data,
@@ -516,8 +590,83 @@ def monitoring_view(request):
         'min_date': min_date,
         'max_date': max_date,
         'available_years': years_list,
+        'on_this_day_records': on_this_day_list,
+        'today': today,
     }
     return render(request, 'monitoring/monitoring.html', context)
+
+@login_required
+def trends_comparison_api(request):
+    """API endpoint for yearly trends comparison on the same date."""
+    month = request.GET.get('month')
+    day = request.GET.get('day')
+    
+    if not month or not day:
+        return JsonResponse({'error': 'Month and day parameters required'}, status=400)
+    
+    try:
+        month = int(month)
+        day = int(day)
+    except ValueError:
+        return JsonResponse({'error': 'Invalid month or day'}, status=400)
+    
+    # Get all years that have data for this date
+    rainfall_by_year = {}
+    tide_by_year = {}
+    
+    # Query rainfall data for this date across all years
+    rainfall_records = RainfallData.objects.filter(
+        timestamp__month=month,
+        timestamp__day=day
+    ).values('timestamp', 'value_mm').order_by('timestamp')
+    
+    for record in rainfall_records:
+        year = record['timestamp'].year
+        if year not in rainfall_by_year:
+            rainfall_by_year[year] = []
+        rainfall_by_year[year].append(record['value_mm'])
+    
+    # Query tide data for this date across all years
+    tide_records = TideLevelData.objects.filter(
+        timestamp__month=month,
+        timestamp__day=day
+    ).values('timestamp', 'height_m').order_by('timestamp')
+    
+    for record in tide_records:
+        year = record['timestamp'].year
+        if year not in tide_by_year:
+            tide_by_year[year] = []
+        tide_by_year[year].append(record['height_m'])
+    
+    # Get common years and calculate averages
+    all_years = sorted(set(list(rainfall_by_year.keys()) + list(tide_by_year.keys())))
+    
+    years = []
+    rainfall_values = []
+    tide_values = []
+    
+    for year in all_years:
+        years.append(year)
+        
+        # Calculate average rainfall for this year
+        if year in rainfall_by_year and rainfall_by_year[year]:
+            avg_rainfall = sum(rainfall_by_year[year]) / len(rainfall_by_year[year])
+            rainfall_values.append(avg_rainfall)
+        else:
+            rainfall_values.append(0)
+        
+        # Calculate average tide for this year
+        if year in tide_by_year and tide_by_year[year]:
+            avg_tide = sum(tide_by_year[year]) / len(tide_by_year[year])
+            tide_values.append(avg_tide)
+        else:
+            tide_values.append(0)
+    
+    return JsonResponse({
+        'years': years,
+        'rainfall_values': rainfall_values,
+        'tide_values': tide_values
+    })
 
 @login_required
 def fetch_data_api(request):
