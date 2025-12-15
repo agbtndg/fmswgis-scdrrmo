@@ -19020,3 +19020,20 @@ INFO 2025-12-15 14:51:00 autoreload 5020 22188 C:\Users\aldri\capstone project\f
 INFO 2025-12-15 14:51:01 autoreload 16820 6196 Watching for file changes with StatReloader
 INFO 2025-12-15 14:51:28 autoreload 16820 6196 C:\Users\aldri\capstone project\fmswgis-scdrrmo\silay_drrmo\settings.py changed, reloading.
 INFO 2025-12-15 14:51:28 autoreload 10480 19636 Watching for file changes with StatReloader
+ERROR 2025-12-15 14:52:22 log 10480 10404 Invalid HTTP_HOST header: 'zoe-sonic-katy.ngrok-free.dev'. You may need to add 'zoe-sonic-katy.ngrok-free.dev' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\aldri\capstone project\fmswgis-scdrrmo\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\capstone project\fmswgis-scdrrmo\venv\Lib\site-packages\django\utils\deprecation.py", line 119, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\capstone project\fmswgis-scdrrmo\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\capstone project\fmswgis-scdrrmo\venv\Lib\site-packages\django\http\request.py", line 202, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'zoe-sonic-katy.ngrok-free.dev'. You may need to add 'zoe-sonic-katy.ngrok-free.dev' to ALLOWED_HOSTS.
+WARNING 2025-12-15 14:52:22 basehttp 10480 10404 "GET /monitoring/api/data/ HTTP/1.1" 400 83993
+INFO 2025-12-15 15:03:29 autoreload 10480 19636 C:\Users\aldri\capstone project\fmswgis-scdrrmo\silay_drrmo\settings.py changed, reloading.
+INFO 2025-12-15 15:03:30 autoreload 21404 10332 Watching for file changes with StatReloader
