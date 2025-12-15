@@ -12,8 +12,8 @@ class BenchmarkSettingsAdmin(admin.ModelAdmin):
         ('Tide Level Benchmarks (m)', {
             'fields': ('tide_moderate_threshold', 'tide_high_threshold')
         }),
-        ('Alert Benchmarks', {
-            'fields': ('alert_heavy_rain_threshold', 'alert_total_precipitation_threshold')
+        ('Risk Calculation Method', {
+            'fields': ('combined_risk_method',)
         }),
         ('Metadata', {
             'fields': ('created_at', 'updated_at', 'updated_by'),

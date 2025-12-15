@@ -1089,3 +1089,171 @@ class BenchmarkSettingsViewTest(TestCase):
         settings = BenchmarkSettings.get_settings()
         self.assertIsNotNone(settings.updated_by)
         self.assertIsNotNone(settings.updated_at)
+
+
+class BarangayJSONValidationTest(TestCase):
+    """Test barangay JSON validation and sanitization"""
+    
+    def test_valid_json(self):
+        """Test validation of valid barangay JSON data"""
+        from .views import validate_barangay_json
+        import json
+        
+        valid_data = {
+            "Balaring": {
+                "casualties_dead": 0,
+                "casualties_injured": 2,
+                "affected_persons": 100,
+                "damage_infrastructure_php": 50000
+            }
+        }
+        json_string = json.dumps(valid_data)
+        
+        is_valid, data, error = validate_barangay_json(json_string)
+        
+        self.assertTrue(is_valid)
+        self.assertIsNotNone(data)
+        self.assertIsNone(error)
+        self.assertEqual(data["Balaring"]["casualties_injured"], 2)
+    
+    def test_invalid_json_format(self):
+        """Test validation rejects malformed JSON"""
+        from .views import validate_barangay_json
+        
+        invalid_json = "{invalid json}"
+        
+        is_valid, data, error = validate_barangay_json(invalid_json)
+        
+        self.assertFalse(is_valid)
+        self.assertIsNone(data)
+        self.assertIn("Invalid JSON format", error)
+    
+    def test_negative_values_rejected(self):
+        """Test validation rejects negative values"""
+        from .views import validate_barangay_json
+        import json
+        
+        invalid_data = {
+            "Balaring": {
+                "casualties_dead": -5,
+                "affected_persons": 100
+            }
+        }
+        json_string = json.dumps(invalid_data)
+        
+        is_valid, data, error = validate_barangay_json(json_string)
+        
+        self.assertFalse(is_valid)
+        self.assertIn("Negative value not allowed", error)
+    
+    def test_invalid_field_rejected(self):
+        """Test validation rejects unexpected fields"""
+        from .views import validate_barangay_json
+        import json
+        
+        invalid_data = {
+            "Balaring": {
+                "casualties_dead": 0,
+                "invalid_field": 123,
+                "affected_persons": 100
+            }
+        }
+        json_string = json.dumps(invalid_data)
+        
+        is_valid, data, error = validate_barangay_json(json_string)
+        
+        self.assertFalse(is_valid)
+        self.assertIn("Invalid field", error)
+    
+    def test_non_numeric_values_rejected(self):
+        """Test validation rejects non-numeric values"""
+        from .views import validate_barangay_json
+        import json
+        
+        invalid_data = {
+            "Balaring": {
+                "casualties_dead": "abc",
+                "affected_persons": 100
+            }
+        }
+        json_string = json.dumps(invalid_data)
+        
+        is_valid, data, error = validate_barangay_json(json_string)
+        
+        self.assertFalse(is_valid)
+        self.assertIn("Invalid numeric value", error)
+    
+    def test_oversized_json_rejected(self):
+        """Test validation rejects JSON larger than 1MB"""
+        from .views import validate_barangay_json
+        
+        large_json = "a" * (1024 * 1024 + 1)
+        
+        is_valid, data, error = validate_barangay_json(large_json)
+        
+        self.assertFalse(is_valid)
+        self.assertIn("too large", error)
+
+
+class PaginationTest(TestCase):
+    """Test pagination functionality"""
+    
+    def setUp(self):
+        """Create test flood records and user"""
+        self.user = User.objects.create_user(username='testuser', password='12345')
+        
+        # Create 25 test records
+        from datetime import date
+        for i in range(25):
+            day = (i % 28) + 1
+            FloodRecord.objects.create(
+                event=f"Flood Event {i}",
+                date=date(2025, 11, day),
+                affected_barangays="Test Barangay"
+            )
+    
+    def test_default_pagination(self):
+        """Test default pagination shows 20 records"""
+        self.client.login(username='testuser', password='12345')
+        
+        from django.urls import reverse
+        response = self.client.get(reverse('monitoring_view'))
+        
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('paginator', response.context)
+        self.assertIn('flood_records_page', response.context)
+        self.assertEqual(len(response.context['flood_records']), 20)
+    
+    def test_pagination_page_2(self):
+        """Test accessing page 2 of pagination"""
+        self.client.login(username='testuser', password='12345')
+        
+        from django.urls import reverse
+        response = self.client.get(reverse('monitoring_view') + '?page=2')
+        
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.context['flood_records']), 5)
+    
+    def test_custom_records_per_page(self):
+        """Test custom records per page parameter"""
+        self.client.login(username='testuser', password='12345')
+        
+        from django.urls import reverse
+        response = self.client.get(reverse('monitoring_view') + '?per_page=10')
+        
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.context['flood_records']), 10)
+    
+    def test_max_records_per_page_limit(self):
+        """Test that per_page is capped at 100"""
+        self.client.login(username='testuser', password='12345')
+        
+        from django.urls import reverse
+        response = self.client.get(reverse('monitoring_view') + '?per_page=500')
+        
+        self.assertEqual(response.status_code, 200)
+        # Should be capped at 100, but we only have 25 records
+        self.assertEqual(len(response.context['flood_records']), 25)
+
+
+# Run tests with: python manage.py test monitoring

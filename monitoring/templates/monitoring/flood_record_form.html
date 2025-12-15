@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,20 +13,474 @@
             --border-gray: #e2e8f0;
             --text-dark: #1e293b;
             --text-muted: #64748b;
-            --success-bg: #dcfce7;
-            --success-text: #166534;
-            --error-bg: #fee2e2;
-            --error-text: #991b1b;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);
         }
 
-        /* Toast positioning */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
+            background-color: white;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .content-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+            padding: 36px 40px;
+            border-radius: 12px;
+            border: none;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .page-header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .page-header p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+            margin: 0;
+        }
+
+        /* Card Design */
+        .form-container {
+            background: white;
+            border: 2px solid #e0e7ff;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #10b981, #06b6d4);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .form-group label i {
+            margin-right: 6px;
+            color: var(--secondary-blue);
+        }
+
+        .form-control, select, input[type="date"], input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            font-family: inherit;
+            background-color: white;
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 40px;
+        }
+
+        select:hover {
+            border-color: var(--secondary-blue);
+        }
+
+        input[type="date"] {
+            cursor: pointer;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .form-control:focus, select:focus, input[type="date"]:focus, input[type="text"]:focus, input[type="number"]:focus {
+            outline: none;
+            border-color: var(--secondary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-control:read-only {
+            background-color: #f8f9fa;
+            cursor: not-allowed;
+        }
+
+        small {
+            display: block;
+            margin-top: 6px;
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .errorlist {
+            list-style: none;
+            padding: 0;
+            margin: 8px 0 0 0;
+            color: #ef4444;
+            font-size: 13px;
+        }
+
+        .errorlist li {
+            padding: 4px 0;
+        }
+
+        .required-field::after {
+            content: '*';
+            color: #ef4444;
+            margin-left: 4px;
+        }
+
+        .is-invalid {
+            border-color: #ef4444 !important;
+        }
+
+        .invalid-feedback {
+            display: block;
+            width: 100%;
+            margin-top: .25rem;
+            font-size: 80%;
+            color: #ef4444;
+        }
+
+        /* Barangay Dropdown */
+        .barangay-dropdown-wrapper {
+            position: relative;
+        }
+
+        .barangay-dropdown-toggle {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .barangay-dropdown-toggle::after {
+            content: '▼';
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        .barangay-dropdown-toggle.active {
+            border-color: var(--secondary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .barangay-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            margin-top: 4px;
+            background: white;
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 100;
+            display: none;
+        }
+
+        .barangay-dropdown-menu.show {
+            display: block;
+        }
+
+        .barangay-dropdown-item {
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .barangay-dropdown-item:hover {
+            background: #f0f9ff;
+        }
+
+        .barangay-dropdown-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .barangay-dropdown-item label {
+            flex: 1;
+            cursor: pointer;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* Barangay Input Container */
+        .barangay-input-container {
+            position: relative;
+        }
+
+        #id_affected_barangays {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .barangay-tags {
+            min-height: 48px;
+            padding: 8px;
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            background: white;
+        }
+
+        .barangay-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .remove-barangay {
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .remove-barangay:hover {
+            opacity: 1;
+        }
+
+        /* Barangay Panels */
+        .barangay-panel {
+            margin-bottom: 15px;
+            border: 2px solid var(--border-gray);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .barangay-panel:hover {
+            border-color: var(--secondary-blue);
+            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+        }
+
+        .barangay-panel-header {
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-blue);
+            transition: all 0.2s ease;
+        }
+
+        .barangay-panel-header:hover {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .barangay-panel-header.active {
+            background: linear-gradient(135deg, var(--secondary-blue) 0%, #1d4ed8 100%);
+            color: white;
+        }
+
+        .barangay-panel-header i {
+            transition: transform 0.3s ease;
+        }
+
+        .barangay-panel-header.active i {
+            transform: rotate(180deg);
+        }
+
+        .barangay-panel-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: white;
+        }
+
+        .barangay-panel-body.show {
+            max-height: 2000px;
+            padding: 20px;
+        }
+
+        .barangay-data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .barangay-data-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .barangay-data-field label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .barangay-data-field input {
+            padding: 10px 12px;
+            border: 1px solid var(--border-gray);
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .barangay-data-field input:focus {
+            outline: none;
+            border-color: var(--secondary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .data-section-title {
+            grid-column: 1 / -1;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--secondary-blue);
+            margin-top: 15px;
+            margin-bottom: 5px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-gray);
+        }
+
+        .data-section-title:first-child {
+            margin-top: 0;
+        }
+
+        /* Buttons */
+        .btn-wrapper {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--text-dark);
+            border: 2px solid var(--border-gray);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-gray);
+            border-color: var(--text-muted);
+        }
+
+        /* Toast */
         .toast-container {
             position: fixed;
             top: 20px;
             right: 20px;
             z-index: 1050;
         }
-        
+
         .toast {
             background: white;
             border-radius: 8px;
@@ -40,7 +495,7 @@
 
         .toast-success .toast-header {
             color: #10b981;
-            background-color: var(--success-bg);
+            background-color: #f0fdf4;
         }
 
         .toast-success .success-icon {
@@ -54,7 +509,7 @@
 
         .toast-error .toast-header {
             color: #ef4444;
-            background-color: var(--error-bg);
+            background-color: #fef2f2;
         }
 
         .toast-error .error-icon {
@@ -62,763 +517,158 @@
             margin-right: 8px;
         }
 
-        /* Required field indicator */
-        .required-field::after {
-            content: '*';
-            color: #ef4444;
-            margin-left: 4px;
-        }
-
-        /* Field validation styles */
-        .form-control.is-invalid,
-        .form-select.is-invalid {
-            border-color: #ef4444;
-            padding-right: calc(1.5em + .75rem);
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23ef4444'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23ef4444' stroke='none'/%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right calc(.375em + .1875rem) center;
-            background-size: calc(.75em + .375rem) calc(.75em + .375rem);
-        }
-
-        .invalid-feedback {
-            display: block;
-            width: 100%;
-            margin-top: .25rem;
-            font-size: 80%;
-            color: #ef4444;
-        }
-
-        body {
-            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
-            padding: 104px 20px 40px 20px;
-            min-height: 100vh;
-        }
-
-        /* Clean form container styling with professional appearance */
-        .form-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: white;
-            padding: 48px 44px;
-            border-radius: 20px;
-            border: 2px solid #e0e7ff;
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9);
-        }
-
-        .form-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
-            border-radius: 14px 14px 0 0;
-        }
-
-        .form-container {
-            position: relative;
-            max-width: 700px;
-            margin: 0 auto;
-            background: white;
-            padding: 48px 44px;
-            border-radius: 20px;
-            border: 2px solid #e0e7ff;
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9);
-        }
-
-        .form-container h2 {
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--primary-blue);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            letter-spacing: -0.02em;
-        }
-
-        .form-container h2 i {
-            color: var(--secondary-blue);
-            font-size: 32px;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        .form-container > p {
-            color: var(--text-muted);
-            font-size: 14px;
-            margin-bottom: 32px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-gray);
-            line-height: 1.6;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-4px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Form sections with visual grouping */
-        .form-section {
-            margin-bottom: 36px;
-            padding-bottom: 28px;
-            border-bottom: 1px solid var(--border-gray);
-        }
-
-        .form-section:last-of-type {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .form-section-title {
-            font-size: 16px;
-            font-weight: 800;
-            color: var(--primary-blue);
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            letter-spacing: 0.3px;
-            line-height: 1.5;
-        }
-
-        .form-section-title i {
-            width: 28px;
-            height: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
-            color: white;
-            border-radius: 10px;
-            font-size: 14px;
-            flex-shrink: 0;
-            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
-        }
-
-        .form-fields-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 24px;
-        }
-
-        .form-fields-row.full {
-            grid-template-columns: 1fr;
-        }
-
         @media (max-width: 768px) {
-            .form-fields-row {
-                grid-template-columns: 1fr;
+            body {
+                padding: 30px 15px;
             }
-        }
 
-        .form-group {
-            margin-bottom: 28px;
-        }
-
-        .form-group:last-of-type {
-            margin-bottom: 0;
-        }
-
-        .form-group label {
-            color: var(--text-dark);
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 0.02em;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            line-height: 1.5;
-        }
-
-        .form-group label i {
-            font-size: 13px;
-            color: var(--secondary-blue);
-            opacity: 0.8;
-        }
-
-        .form-group select,
-        .form-group input[type="date"],
-        .form-group input[type="datetime-local"],
-        .form-group input[type="number"],
-        .form-group input[type="text"] {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #e0e7ff;
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
-            font-family: inherit;
-            position: relative;
-            background-attachment: fixed;
-            line-height: 1.5;
-        }
-
-        .form-group select:hover,
-        .form-group input[type="date"]:hover,
-        .form-group input[type="datetime-local"]:hover,
-        .form-group input[type="number"]:hover,
-        .form-group input[type="text"]:hover {
-            border-color: var(--secondary-blue);
-            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
-            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
-        }
-
-        .form-group select:focus,
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--secondary-blue);
-            box-shadow: 
-                0 0 0 4px rgba(37, 99, 235, 0.15),
-                0 4px 12px rgba(37, 99, 235, 0.1);
-            background: #ffffff;
-            transform: translateY(-1px);
-        }
-
-        /* Fixed barangay input container with proper tag overlay */
-        .barangay-input-container {
-            position: relative;
-            display: inline-block;
-            width: 100%;
-            min-height: 48px;
-        }
-
-        .barangay-input-container input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid #e0e7ff;
-            border-radius: 12px;
-            font-size: 15px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
-            font-family: inherit;
-            cursor: default;
-            color: transparent;
-            min-height: 48px;
-            height: auto;
-            resize: none;
-            overflow: hidden;
-        }
-
-        .barangay-input-container input:hover {
-            border-color: var(--secondary-blue);
-            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
-        }
-
-        .barangay-input-container input:focus {
-            outline: none;
-            border-color: var(--secondary-blue);
-            box-shadow: 
-                0 0 0 4px rgba(37, 99, 235, 0.15),
-                0 4px 12px rgba(37, 99, 235, 0.1);
-            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
-        }
-
-        /* Tags positioned absolutely inside the input area */
-        .barangay-input-container .barangay-tags {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: auto;
-            padding: 12px 16px;
-            pointer-events: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            align-items: center;
-            border-radius: 8px;
-            min-height: 48px;
-            z-index: 2;
-            max-height: none;
-            overflow: visible;
-        }
-
-        .barangay-input-container .barangay-tags .barangay-tag {
-            pointer-events: auto;
-            background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
-            color: white;
-            padding: 8px 14px;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
-            white-space: nowrap;
-            animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-8px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .barangay-input-container .barangay-tags .barangay-tag:hover {
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
-            transform: translateY(-2px);
-        }
-
-        .barangay-input-container .barangay-tags .remove-barangay {
-            cursor: pointer;
-            opacity: 0.85;
-            transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            font-weight: 700;
-            font-size: 18px;
-            line-height: 1;
-            margin-left: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 16px;
-            height: 16px;
-        }
-
-        .barangay-input-container .barangay-tags .remove-barangay:hover {
-            opacity: 1;
-            transform: scale(1.2);
-        }
-
-        .errorlist {
-            color: #ef4444;
-            list-style-type: none;
-            padding: 0;
-            font-size: 13px;
-            margin-top: 6px;
-        }
-
-        .btn-wrapper {
-            display: flex;
-            gap: 14px;
-            margin-top: 40px;
-            padding-top: 28px;
-            border-top: 1px solid var(--border-gray);
-        }
-
-        .btn-primary {
-            flex: 1;
-            padding: 13px 24px;
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 14px;
-            letter-spacing: 0.3px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            text-decoration: none;
-            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #059669 0%, #047857 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 32px rgba(16, 185, 129, 0.4);
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-
-        .btn-primary:active {
-            transform: translateY(0);
-            box-shadow: 0 1px 4px rgba(16, 185, 129, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-secondary {
-            flex: 1;
-            padding: 13px 24px;
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 14px;
-            letter-spacing: 0.3px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            text-align: center;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            box-shadow: 0 4px 16px rgba(239, 68, 68, 0.25);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-secondary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn-secondary:hover {
-            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 32px rgba(239, 68, 68, 0.4);
-            text-decoration: none;
-        }
-
-        .btn-secondary:hover::before {
-            left: 100%;
-        }
-
-        .btn-secondary:active {
-            transform: translateY(0);
-            box-shadow: 0 1px 4px rgba(239, 68, 68, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Date input styling */
-        .form-group input[type="date"] {
-            cursor: pointer;
-            caret-color: transparent;
-        }
-        
-        .form-group input[type="date"]::-webkit-calendar-picker-indicator {
-            cursor: pointer;
-        }
-        }
-
-        .form-group input[type="date"]::-webkit-calendar-picker-indicator {
-            cursor: pointer;
-            padding-right: 8px;
-            opacity: 0.7;
-            transition: opacity 0.2s ease;
-        }
-
-        .form-group input[type="date"]:hover::-webkit-calendar-picker-indicator {
-            opacity: 1;
-        }
-
-        small {
-            color: var(--text-muted);
-            font-size: 12px;
-            display: block;
-            margin-top: 10px;
-            line-height: 1.6;
-            opacity: 0.9;
-        }
-
-        /* Multi-select dropdown with checkboxes */
-        .barangay-dropdown-wrapper {
-            position: relative;
-            display: inline-block;
-            width: 100%;
-        }
-
-        .barangay-dropdown-toggle {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid var(--border-gray);
-            border-radius: 10px;
-            font-size: 15px;
-            font-weight: 500;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            color: var(--text-dark);
-        }
-
-        .barangay-dropdown-toggle:hover {
-            border-color: var(--secondary-blue);
-            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
-            box-shadow: 0 2px 8px rgba(37, 99, 235, 0.08);
-        }
-
-        .barangay-dropdown-toggle.active {
-            border-color: var(--secondary-blue);
-            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15), inset 0 0 0 1px rgba(37, 99, 235, 0.05);
-            background: #ffffff;
-        }
-
-        .barangay-dropdown-toggle::after {
-            content: '▼';
-            font-size: 12px;
-            color: var(--secondary-blue);
-            transition: transform 0.2s ease;
-        }
-
-        .barangay-dropdown-toggle.active::after {
-            transform: rotate(180deg);
-        }
-
-        .barangay-dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            border: 2px solid var(--secondary-blue);
-            border-radius: 10px;
-            margin-top: 6px;
-            display: none;
-            max-height: 300px;
-            overflow-y: auto;
-            z-index: 1000;
-            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
-        }
-
-        .barangay-dropdown-menu.show {
-            display: block;
-            animation: dropdownSlideIn 0.2s ease-out;
-        }
-
-        @keyframes dropdownSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-8px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .barangay-dropdown-item {
-            display: flex;
-            align-items: center;
-            padding: 12px 16px;
-            cursor: pointer;
-            transition: background 0.15s ease;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .barangay-dropdown-item:last-child {
-            border-bottom: none;
-        }
-
-        .barangay-dropdown-item:hover {
-            background: #f9fafb;
-        }
-
-        .barangay-dropdown-item input[type="checkbox"] {
-            margin-right: 12px;
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
-            accent-color: var(--secondary-blue);
-        }
-
-        .barangay-dropdown-item label {
-            cursor: pointer;
-            flex: 1;
-            margin: 0;
-            font-size: 14px;
-            color: var(--text-dark);
-            font-weight: 500;
-        }
-
-        .invalid-feedback {
-            display: block;
-            width: 100%;
-            margin-top: 8px;
-            font-size: 12px;
-            color: #ef4444;
-            font-weight: 500;
-            animation: slideIn 0.2s ease-out;
-        }
             .form-container {
                 padding: 24px;
             }
 
             .btn-wrapper {
-                flex-direction: column-reverse;
-                gap: 8px;
+                flex-direction: column;
             }
 
-            .form-container h2 {
-                font-size: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .form-container {
-                padding: 20px;
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                justify-content: center;
             }
 
-            .form-container h2 {
-                font-size: 18px;
-            }
-
-            .form-group select,
-            .form-group input {
-                font-size: 14px;
-                padding: 10px 12px;
-            }
-
-            .btn-primary,
-            .btn-secondary {
-                padding: 10px 16px;
-                font-size: 13px;
+            .barangay-data-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="form-container">
-        <h2>
-            <i class="fas fa-plus-circle"></i>
-            Add Flood Record
-        </h2>
-        <p>Record flood event details and affected areas</p>
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h1>
+                <i class="fas fa-plus-circle"></i>
+                Add New Flood Record
+            </h1>
+            <p>Record a new flood event and affected areas</p>
+        </div>
 
-        <form method="post">
-            {% csrf_token %}
-            <!-- Event field first -->
-            <div class="form-group">
-                <label for="{{ form.event.id_for_label }}">
-                    <i class="fas fa-fire"></i>
-                    {{ form.event.label }}
-                </label>
-                {{ form.event }}
-                {% if form.event.errors %}
-                    <ul class="errorlist">
-                        {% for error in form.event.errors %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-                {% if form.event.help_text %}
-                    <small>{{ form.event.help_text }}</small>
-                {% endif %}
-            </div>
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                
+                <!-- Date field -->
+                <div class="form-group">
+                    <label for="id_date">
+                        <i class="fas fa-calendar"></i>
+                        Date
+                    </label>
+                    {{ form.date }}
+                    {% if form.date.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.date.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
 
-            <!-- Barangay selection dropdown -->
-            <div class="form-group">
-                <label>
-                    <i class="fas fa-list"></i>
-                    Select Affected Barangay
-                </label>
-                <div class="barangay-dropdown-wrapper">
-                    <div class="barangay-dropdown-toggle" id="barangay-dropdown-toggle">
-                        -- Select Barangays --
-                    </div>
-                    <div class="barangay-dropdown-menu" id="barangay-dropdown-menu">
-                        <div class="barangay-dropdown-item" style="background: #f0f9ff; border-bottom: 2px solid var(--secondary-blue);">
-                            <input type="checkbox" id="checkbox-select-all" name="barangay-checkbox-select-all" value="select-all">
-                            <label for="checkbox-select-all" style="font-weight: 700; color: var(--secondary-blue);">✓ Select All Barangays</label>
+                <!-- Event field -->
+                <div class="form-group">
+                    <label for="id_event">
+                        <i class="fas fa-fire"></i>
+                        Event
+                    </label>
+                    {{ form.event }}
+                    {% if form.event.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.event.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+
+                <!-- Barangay selection dropdown -->
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-list"></i>
+                        Select Affected Barangay
+                    </label>
+                    <div class="barangay-dropdown-wrapper">
+                        <div class="barangay-dropdown-toggle" id="barangay-dropdown-toggle">
+                            -- Select Barangays --
                         </div>
-                        {% for barangay_value, barangay_name in BARANGAYS %}
-                            <div class="barangay-dropdown-item">
-                                <input type="checkbox" id="checkbox-{{ barangay_value }}" name="barangay-checkbox" value="{{ barangay_value }}" data-barangay-name="{{ barangay_name }}">
-                                <label for="checkbox-{{ barangay_value }}">{{ barangay_name }}</label>
+                        <div class="barangay-dropdown-menu" id="barangay-dropdown-menu">
+                            <div class="barangay-dropdown-item" style="background: #f0f9ff; border-bottom: 2px solid var(--secondary-blue);">
+                                <input type="checkbox" id="checkbox-select-all" name="barangay-checkbox-select-all" value="select-all">
+                                <label for="checkbox-select-all" style="font-weight: 700; color: var(--secondary-blue);">✓ Select All Barangays</label>
                             </div>
-                        {% endfor %}
+                            {% for barangay_value, barangay_name in BARANGAYS %}
+                                <div class="barangay-dropdown-item">
+                                    <input type="checkbox" id="checkbox-{{ barangay_value }}" name="barangay-checkbox" value="{{ barangay_value }}" data-barangay-name="{{ barangay_name }}">
+                                    <label for="checkbox-{{ barangay_value }}">{{ barangay_name }}</label>
+                                </div>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Barangay selection after event -->
-            <div class="form-group">
-                <label for="{{ form.affected_barangays.id_for_label }}">
-                    <i class="fas fa-location-dot"></i>
-                    {{ form.affected_barangays.label }}
-                </label>
-                <div class="barangay-input-container">
-                    <input type="text" id="id_affected_barangays" name="affected_barangays" readonly value="{{ form.affected_barangays.value|default:'' }}" />
-                    <div id="barangay-tags" class="barangay-tags"></div>
-                </div>
-                {% if form.affected_barangays.errors %}
-                    <ul class="errorlist">
-                        {% for error in form.affected_barangays.errors %}
-                            <li>{{ error }}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-                <small>{{ form.affected_barangays.help_text }}</small>
-            </div>
-
-            <!-- Render remaining fields except event and affected_barangays -->
-            {% for field in form %}
-                {% if field.name != 'affected_barangays' and field.name != 'event' %}
-                    <div class="form-group">
-                        <label for="{{ field.id_for_label }}">
-                            <i class="fas fa-check"></i>
-                            {{ field.label }}
-                        </label>
-                        {{ field }}
-                        {% if field.errors %}
-                            <ul class="errorlist">
-                                {% for error in field.errors %}
-                                    <li>{{ error }}</li>
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
-                        {% if field.help_text %}
-                            <small>{{ field.help_text }}</small>
-                        {% endif %}
+                <!-- Affected Barangays (hidden input + tags display) -->
+                <div class="form-group">
+                    <label for="id_affected_barangays">
+                        <i class="fas fa-location-dot"></i>
+                        Affected Barangays
+                    </label>
+                    <div class="barangay-input-container">
+                        <input type="text" id="id_affected_barangays" name="affected_barangays" readonly value="{{ form.affected_barangays.value|default:'' }}" />
+                        <div id="barangay-tags" class="barangay-tags"></div>
                     </div>
-                {% endif %}
-            {% endfor %}
-        
-            <div class="btn-wrapper">
-                <a href="{% url 'monitoring_view' %}" class="btn-secondary">
-                    <i class="fas fa-times"></i>
-                    Cancel
-                </a>
-                <button type="submit" class="btn-primary">
-                    <i class="fas fa-save"></i>
-                    Submit Record
-                </button>
-            </div>
-        </form>
+                    {% if form.affected_barangays.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.affected_barangays.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <small>Select barangays from the dropdown above</small>
+                </div>
+
+                <!-- Barangay-specific data collection section -->
+                <div id="barangay-data-section" style="display: none; margin-top: 30px;">
+                    <h3 style="color: var(--primary-blue); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--secondary-blue);">
+                        <i class="fas fa-table"></i> Barangay-Specific Data
+                    </h3>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">Enter details for each affected barangay. Click on a barangay to expand and fill in the data.</p>
+                    <div id="barangay-panels"></div>
+                    <input type="hidden" id="barangay_data_json" name="barangay_data_json" value="">
+                </div>
+
+                <!-- Damage Total PHP (Read-only, auto-calculated) -->
+                <div class="form-group">
+                    <label for="damage_total_php_display">
+                        <i class="fas fa-money-bill-wave"></i>
+                        Total Damage (PHP)
+                    </label>
+                    <input type="text" id="damage_total_php_display" class="form-control" readonly value="₱0.00" style="background-color: #f8f9fa; font-weight: 600; color: #059669;">
+                    <small>Auto-calculated from all barangay damage entries</small>
+                </div>
+            
+                <div class="btn-wrapper">
+                    <button type="button" onclick="history.back()" class="btn-secondary">
+                        <i class="fas fa-times"></i>
+                        Cancel
+                    </button>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-save"></i>
+                        Save Record
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 
-    <!-- Toast container for notifications -->
+    <!-- Toast container -->
     <div class="toast-container"></div>
     
-    <!-- Add success and error toast templates -->
     <template id="successToastTemplate">
         <div class="toast toast-success" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
@@ -841,10 +691,8 @@
         </div>
     </template>
 
-    <!-- Include Bootstrap JS for toasts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Function to show toast notification
         function showToast(message, type = 'success') {
             const toastContainer = document.querySelector('.toast-container');
             const template = document.getElementById(type === 'success' ? 'successToastTemplate' : 'errorToastTemplate');
@@ -860,7 +708,6 @@
             });
         }
 
-        // Function to mark required fields
         function markRequiredFields() {
             document.querySelectorAll('input, select, textarea').forEach(field => {
                 if (field.required || field.getAttribute('aria-required') === 'true') {
@@ -872,7 +719,6 @@
             });
         }
 
-        // Function to validate form fields
         function validateField(field) {
             field.classList.remove('is-invalid');
             const existingFeedback = field.parentNode.querySelector('.invalid-feedback');
@@ -901,23 +747,6 @@
                 }
             }
 
-            if (field.type === 'number') {
-                const value = parseFloat(field.value);
-                if (field.required && (isNaN(value) || field.value === '')) {
-                    isValid = false;
-                    errorMessage = 'Please enter a valid number';
-                } else if (!isNaN(value)) {
-                    if (field.min && value < parseFloat(field.min)) {
-                        isValid = false;
-                        errorMessage = `Value must be at least ${field.min}`;
-                    }
-                    if (field.max && value > parseFloat(field.max)) {
-                        isValid = false;
-                        errorMessage = `Value must be no more than ${field.max}`;
-                    }
-                }
-            }
-
             if (!isValid) {
                 field.classList.add('is-invalid');
                 const feedbackDiv = document.createElement('div');
@@ -932,58 +761,20 @@
         document.addEventListener('DOMContentLoaded', function() {
             markRequiredFields();
 
-            // Handle date input formatting (mm/dd/yyyy)
-            // Allow manual typing with automatic formatting
-            const dateInputs = document.querySelectorAll('input[type="date"]');
-            dateInputs.forEach(dateInput => {
-                // Listen for input changes (both typed and calendar picker)
-                dateInput.addEventListener('input', function(e) {
-                    let value = this.value;
-                    
-                    // If user is typing (not from calendar picker), format the input
-                    if (value && !value.includes('-')) {
-                        // User typed something without dashes, try to parse mm/dd/yyyy or mmddyyyy
-                        let cleaned = value.replace(/\D/g, ''); // Remove all non-digits
-                        
-                        if (cleaned.length >= 8) {
-                            let month = cleaned.substring(0, 2);
-                            let day = cleaned.substring(2, 4);
-                            let year = cleaned.substring(4, 8);
-                            
-                            // Validate month and day
-                            if (parseInt(month) >= 1 && parseInt(month) <= 12 &&
-                                parseInt(day) >= 1 && parseInt(day) <= 31) {
-                                // Convert to YYYY-MM-DD format for the input
-                                this.value = `${year}-${month}-${day}`;
-                            }
-                        }
-                    }
-                });
-                
-                // Format display as mm/dd/yyyy when showing, but keep internal value as YYYY-MM-DD
-                dateInput.addEventListener('focus', function() {
-                    // Show the date in calendar picker format when focused
-                });
-                
-                dateInput.addEventListener('blur', function() {
-                    // Could format display here if needed
-                });
-            });
-                        const dropdownToggle = document.getElementById('barangay-dropdown-toggle');
+            const dropdownToggle = document.getElementById('barangay-dropdown-toggle');
             const dropdownMenu = document.getElementById('barangay-dropdown-menu');
             const checkboxes = document.querySelectorAll('input[name="barangay-checkbox"]');
             const selectAllCheckbox = document.getElementById('checkbox-select-all');
             const affectedInput = document.getElementById('id_affected_barangays');
             const barangayTags = document.getElementById('barangay-tags');
 
-            // Toggle dropdown visibility
+            // Toggle dropdown
             dropdownToggle.addEventListener('click', function(e) {
                 e.stopPropagation();
                 dropdownMenu.classList.toggle('show');
                 dropdownToggle.classList.toggle('active');
             });
 
-            // Close dropdown when clicking outside
             document.addEventListener('click', function(e) {
                 if (!e.target.closest('.barangay-dropdown-wrapper')) {
                     dropdownMenu.classList.remove('show');
@@ -991,38 +782,32 @@
                 }
             });
 
-            // Handle "Select All" checkbox
+            // Select All
             selectAllCheckbox.addEventListener('change', function() {
                 checkboxes.forEach(checkbox => {
                     checkbox.checked = this.checked;
                 });
-                
-                // Trigger change event on first checkbox to update display
                 if (checkboxes.length > 0) {
                     checkboxes[0].dispatchEvent(new Event('change', { bubbles: true }));
                 }
             });
 
-            // Handle individual checkbox changes
+            // Individual checkboxes
             checkboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', function() {
                     const selectedBarangays = Array.from(checkboxes)
                         .filter(cb => cb.checked)
                         .map(cb => cb.value);
                     
-                    // Update the hidden input
                     affectedInput.value = selectedBarangays.join(', ');
-                    
-                    // Update tags display
                     updateBarangayTags(selectedBarangays);
+                    updateBarangayDataPanels(selectedBarangays);
                     
-                    // Update "Select All" checkbox state
                     const allChecked = checkboxes.length > 0 && Array.from(checkboxes).every(cb => cb.checked);
                     const someChecked = Array.from(checkboxes).some(cb => cb.checked);
                     selectAllCheckbox.checked = allChecked;
                     selectAllCheckbox.indeterminate = someChecked && !allChecked;
                     
-                    // Clear validation error if any
                     affectedInput.classList.remove('is-invalid');
                     const errorFeedback = affectedInput.parentNode.querySelector('.invalid-feedback');
                     if (errorFeedback) {
@@ -1031,7 +816,6 @@
                 });
             });
 
-            // Update tags based on selected barangays
             function updateBarangayTags(selectedBarangays) {
                 barangayTags.innerHTML = '';
                 selectedBarangays.forEach(barangayValue => {
@@ -1041,7 +825,6 @@
                         addBarangayTag(barangayValue, barangayName);
                     }
                 });
-                resizeInput();
             }
 
             function addBarangayTag(barangayValue, barangayName) {
@@ -1057,9 +840,6 @@
                 removeButton.textContent = '×';
                 removeButton.addEventListener('click', function(e) {
                     e.stopPropagation();
-                    tag.remove();
-                    
-                    // Uncheck the corresponding checkbox
                     const checkbox = document.querySelector(`input[value="${barangayValue}"]`);
                     if (checkbox) {
                         checkbox.checked = false;
@@ -1067,31 +847,230 @@
                     }
                 });
                 tag.appendChild(removeButton);
-                
                 barangayTags.appendChild(tag);
-                resizeInput();
             }
 
-            function resizeInput() {
-                // Get the height of the tags container
-                const tagsHeight = barangayTags.scrollHeight;
-                affectedInput.style.height = Math.max(48, tagsHeight) + 'px';
-            }
-
-            if (affectedInput.value) {
-                const initialBarangays = affectedInput.value.split(', ').filter(b => b.trim());
-                initialBarangays.forEach(barangay => {
-                    const checkbox = document.querySelector(`input[value="${barangay}"]`);
-                    if (checkbox) {
-                        checkbox.checked = true;
-                    }
+            function updateBarangayDataPanels(selectedBarangays) {
+                const section = document.getElementById('barangay-data-section');
+                const panelsContainer = document.getElementById('barangay-panels');
+                
+                if (selectedBarangays.length === 0) {
+                    section.style.display = 'none';
+                    panelsContainer.innerHTML = '';
+                    return;
+                }
+                
+                section.style.display = 'block';
+                panelsContainer.innerHTML = '';
+                
+                selectedBarangays.forEach(barangayValue => {
+                    const checkbox = document.querySelector(`input[value="${barangayValue}"]`);
+                    const barangayName = checkbox ? checkbox.getAttribute('data-barangay-name') : barangayValue;
+                    const panel = createBarangayPanel(barangayValue, barangayName);
+                    panelsContainer.appendChild(panel);
                 });
-                updateBarangayTags(initialBarangays);
+
+                calculateTotalDamage();
             }
 
+            function createBarangayPanel(barangayValue, barangayName) {
+                const panel = document.createElement('div');
+                panel.className = 'barangay-panel';
+                panel.setAttribute('data-barangay', barangayValue);
+                
+                const header = document.createElement('div');
+                header.className = 'barangay-panel-header';
+                header.innerHTML = `
+                    <span><i class="fas fa-map-marker-alt"></i> ${barangayName}</span>
+                    <i class="fas fa-chevron-down"></i>
+                `;
+                
+                const body = document.createElement('div');
+                body.className = 'barangay-panel-body';
+                
+                body.innerHTML = `
+                    <div class="barangay-data-grid">
+                        <div class="data-section-title">👥 Casualties</div>
+                        <div class="barangay-data-field">
+                            <label>Dead</label>
+                            <input type="number" min="0" value="0" data-field="casualties_dead" data-barangay="${barangayValue}">
+                        </div>
+                        <div class="barangay-data-field">
+                            <label>Injured</label>
+                            <input type="number" min="0" value="0" data-field="casualties_injured" data-barangay="${barangayValue}">
+                        </div>
+                        <div class="barangay-data-field">
+                            <label>Missing</label>
+                            <input type="number" min="0" value="0" data-field="casualties_missing" data-barangay="${barangayValue}">
+                        </div>
+                        
+                        <div class="data-section-title">🏠 Affected Population</div>
+                        <div class="barangay-data-field">
+                            <label>Affected Persons</label>
+                            <input type="number" min="0" value="0" data-field="affected_persons" data-barangay="${barangayValue}">
+                        </div>
+                        <div class="barangay-data-field">
+                            <label>Affected Families</label>
+                            <input type="number" min="0" value="0" data-field="affected_families" data-barangay="${barangayValue}">
+                        </div>
+                        
+                        <div class="data-section-title">🏚️ Houses Damaged</div>
+                        <div class="barangay-data-field">
+                            <label>Partially Damaged</label>
+                            <input type="number" min="0" value="0" data-field="houses_damaged_partially" data-barangay="${barangayValue}">
+                        </div>
+                        <div class="barangay-data-field">
+                            <label>Totally Damaged</label>
+                            <input type="number" min="0" value="0" data-field="houses_damaged_totally" data-barangay="${barangayValue}">
+                        </div>
+                        
+                        <div class="data-section-title">💰 Financial Damage (PHP)</div>
+                        <div class="barangay-data-field">
+                            <label>Infrastructure</label>
+                            <input type="number" min="0" step="0.01" value="0" data-field="damage_infrastructure_php" data-barangay="${barangayValue}">
+                        </div>
+                        <div class="barangay-data-field">
+                            <label>Agriculture</label>
+                            <input type="number" min="0" step="0.01" value="0" data-field="damage_agriculture_php" data-barangay="${barangayValue}">
+                        </div>
+                        <div class="barangay-data-field">
+                            <label>Institutions</label>
+                            <input type="number" min="0" step="0.01" value="0" data-field="damage_institutions_php" data-barangay="${barangayValue}">
+                        </div>
+                        <div class="barangay-data-field">
+                            <label>Private/Commercial</label>
+                            <input type="number" min="0" step="0.01" value="0" data-field="damage_private_commercial_php" data-barangay="${barangayValue}">
+                        </div>
+                    </div>
+                `;
+                
+                header.addEventListener('click', function() {
+                    header.classList.toggle('active');
+                    body.classList.toggle('show');
+                });
+                
+                const damageInputs = body.querySelectorAll('input[data-field^="damage_"]');
+                damageInputs.forEach(input => {
+                    input.addEventListener('input', calculateTotalDamage);
+                });
+                
+                panel.appendChild(header);
+                panel.appendChild(body);
+                return panel;
+            }
+
+            function collectBarangayData() {
+                const barangayData = {};
+                const panels = document.querySelectorAll('.barangay-panel');
+                
+                panels.forEach(panel => {
+                    const barangay = panel.getAttribute('data-barangay');
+                    const inputs = panel.querySelectorAll('input[data-field]');
+                    
+                    if (!barangayData[barangay]) {
+                        barangayData[barangay] = {};
+                    }
+                    
+                    inputs.forEach(input => {
+                        const field = input.getAttribute('data-field');
+                        const value = parseFloat(input.value) || 0;
+                        barangayData[barangay][field] = value;
+                    });
+                });
+                
+                return barangayData;
+            }
+            
+            function validateBarangayData(barangayData) {
+                const emptyBarangays = [];
+                
+                for (const [barangay, data] of Object.entries(barangayData)) {
+                    let hasData = false;
+                    
+                    // Check if any field has non-zero value
+                    for (const value of Object.values(data)) {
+                        if (value > 0) {
+                            hasData = true;
+                            break;
+                        }
+                    }
+                    
+                    if (!hasData) {
+                        const checkbox = document.querySelector(`input[value="${barangay}"]`);
+                        const barangayName = checkbox ? checkbox.getAttribute('data-barangay-name') : barangay;
+                        emptyBarangays.push(barangayName);
+                    }
+                }
+                
+                return emptyBarangays;
+            }
+
+            function calculateTotalDamage() {
+                const damageFields = [
+                    'damage_infrastructure_php',
+                    'damage_agriculture_php',
+                    'damage_institutions_php',
+                    'damage_private_commercial_php'
+                ];
+                
+                let total = 0;
+                const panels = document.querySelectorAll('.barangay-panel');
+                panels.forEach(panel => {
+                    damageFields.forEach(field => {
+                        const input = panel.querySelector(`input[data-field="${field}"]`);
+                        if (input) {
+                            total += parseFloat(input.value) || 0;
+                        }
+                    });
+                });
+                
+                const displayField = document.getElementById('damage_total_php_display');
+                if (displayField) {
+                    displayField.value = `₱${total.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+                }
+                
+                return total;
+            }
+
+            // Form submit
             const form = document.querySelector('form');
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
+
+                const barangayData = collectBarangayData();
+                
+                // Check if at least one barangay is selected
+                if (Object.keys(barangayData).length === 0) {
+                    showToast('Please select at least one affected barangay', 'error');
+                    return;
+                }
+                
+                // Validate that all selected barangays have data
+                const emptyBarangays = validateBarangayData(barangayData);
+                if (emptyBarangays.length > 0) {
+                    const barangayList = emptyBarangays.join(', ');
+                    showToast(`The following barangays have no data entered. Please enter data or remove them from the selection:\n\n${barangayList}`, 'error');
+                    return;
+                }
+                
+                document.getElementById('barangay_data_json').value = JSON.stringify(barangayData);
+
+                // Validation
+                let validationErrors = [];
+                for (const [barangay, data] of Object.entries(barangayData)) {
+                    const persons = data.affected_persons || 0;
+                    const families = data.affected_families || 0;
+                    
+                    if (families > 0 && persons < families) {
+                        const barangayName = document.querySelector(`input[value="${barangay}"]`)?.getAttribute('data-barangay-name') || barangay;
+                        validationErrors.push(`${barangayName}: Affected persons (${persons}) must be at least equal to affected families (${families})`);
+                    }
+                }
+
+                if (validationErrors.length > 0) {
+                    showToast('Validation Error:\n' + validationErrors.join('\n'), 'error');
+                    return;
+                }
 
                 form.querySelectorAll('.is-invalid').forEach(field => field.classList.remove('is-invalid'));
                 form.querySelectorAll('.invalid-feedback').forEach(feedback => feedback.remove());
@@ -1119,12 +1098,12 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        showToast(data.message || 'Record added successfully', 'success');
+                        showToast(data.message || 'Record saved successfully', 'success');
                         setTimeout(() => {
                             window.location.href = data.redirect_url;
                         }, 2000);
                     } else {
-                        showToast(data.message || 'Error submitting form', 'error');
+                        showToast(data.message || 'Error saving form', 'error');
                         if (data.errors) {
                             Object.entries(data.errors).forEach(([field, errors]) => {
                                 const input = document.getElementById(`id_${field}`);

@@ -287,12 +287,12 @@
 
     .activity-card {
         background: white;
-        padding: 24px;
+        padding: 26px;
         margin-bottom: 16px;
-        border-radius: 18px;
+        border-radius: 20px;
         border: 2px solid #e0e7ff;
         box-shadow: 
-            0 4px 12px rgba(0, 0, 0, 0.06),
+            0 4px 12px rgba(0, 0, 0, 0.08),
             inset 0 1px 0 rgba(255, 255, 255, 0.9);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
@@ -306,17 +306,17 @@
         right: 0;
         height: 3px;
         background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
-        border-radius: 18px 18px 0 0;
+        border-radius: 20px 20px 0 0;
         opacity: 0;
-        transition: opacity 0.3s ease;
+        transition: opacity 0.4s ease;
     }
 
     .activity-card:hover {
-        transform: translateY(-4px) scale(1.01);
+        transform: translateY(-6px) perspective(1000px) rotateX(1deg) scale(1.01);
         border-color: #93c5fd;
         box-shadow: 
-            0 16px 40px rgba(59, 130, 246, 0.15),
-            0 8px 16px rgba(59, 130, 246, 0.1),
+            0 20px 50px rgba(59, 130, 246, 0.18),
+            0 10px 25px rgba(59, 130, 246, 0.12),
             inset 0 1px 0 rgba(255, 255, 255, 1);
     }
 
@@ -346,11 +346,15 @@
     .activity-title i {
         color: var(--secondary-blue);
         font-size: 22px;
-        transition: transform 0.3s ease;
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     .activity-card:hover .activity-title i {
-        transform: scale(1.15) rotate(5deg);
+        transform: scale(1.2) rotate(10deg);
+    }
+
+    .activity-card:hover .activity-title i {
+        transform: scale(1.2) rotate(10deg);
     }
 
     .activity-timestamp {
@@ -473,18 +477,19 @@
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        padding: 6px 14px;
-        border-radius: 12px;
+        padding: 7px 16px;
+        border-radius: 14px;
         font-size: 11px;
-        font-weight: 700;
+        font-weight: 800;
         text-transform: uppercase;
         letter-spacing: 0.8px;
         border: 2px solid;
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     .badge:hover {
-        transform: scale(1.05);
+        transform: scale(1.08) translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     .badge-low { 

@@ -36,27 +36,30 @@
 
     .map-container {
         display: flex;
-        height: 90vh;
+        height: calc(100vh - 64px);
         background: var(--light-gray);
-        margin-bottom: 20px;
+        margin-bottom: 0;
     }
 
     .sidebar {
         width: 340px;
-        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.98) 100%);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         color: var(--text-dark);
         padding: 0;
         overflow-y: auto;
         box-shadow: 
-            2px 0 16px rgba(0,0,0,0.08),
+            2px 0 24px rgba(0,0,0,0.1),
             inset -1px 0 0 rgba(0,0,0,0.05);
-        border-right: 2px solid #e0e7ff;
+        border-right: 2px solid rgba(224, 231, 255, 0.8);
         display: flex;
         flex-direction: column;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .sidebar-header {
-        padding: 28px 24px 24px;
+        padding: 24px 24px 20px;
         border-bottom: 2px solid #e0e7ff;
         background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
         position: sticky;
@@ -71,14 +74,6 @@
         margin-bottom: 10px;
         color: var(--primary-blue);
         letter-spacing: -0.02em;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .sidebar-header h2::before {
-        content: '🗺️';
-        font-size: 28px;
     }
 
     .back-to-dashboard {
@@ -93,8 +88,8 @@
         border-radius: 12px;
         background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
         border: none;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
         cursor: pointer;
         margin-top: -8px;
         margin-bottom: 16px;
@@ -110,26 +105,31 @@
         width: 0;
         height: 0;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.3);
         transform: translate(-50%, -50%);
-        transition: width 0.6s, height 0.6s;
+        transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     .back-to-dashboard:hover::before {
-        width: 300px;
-        height: 300px;
+        width: 400px;
+        height: 400px;
     }
 
     .back-to-dashboard:hover {
         background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
         color: white;
         text-decoration: none;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 28px rgba(37, 99, 235, 0.35);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 28px rgba(37, 99, 235, 0.4);
     }
 
     .back-to-dashboard i {
         font-size: 12px;
+        transition: transform 0.3s ease;
+    }
+
+    .back-to-dashboard:hover i {
+        transform: translateX(-3px);
     }
 
     .sidebar-subtitle {
@@ -145,7 +145,7 @@
     }
 
     .section {
-        margin-bottom: 32px;
+        margin-bottom: 20px;
     }
 
     .section:last-child {
@@ -153,7 +153,7 @@
     }
 
     .section-title {
-        font-size: 12px;
+        font-size: 13px;
         font-weight: 700;
         margin-bottom: 14px;
         text-transform: uppercase;
@@ -174,17 +174,23 @@
 
     #barangay-select {
         width: 100%;
-        padding: 12px 16px;
+        padding: 14px 18px;
         border: 2px solid #e0e7ff;
         border-radius: 12px;
         font-size: 14px;
-        background: #ffffff;
+        background: white;
         color: var(--text-dark);
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         font-family: inherit;
         font-weight: 600;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        appearance: none;
+        background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%232563eb%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 12px;
+        padding-right: 40px;
     }
 
     #barangay-select:hover {
@@ -196,12 +202,13 @@
     #barangay-select:focus {
         outline: none;
         border-color: var(--secondary-blue);
-        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12), 0 4px 12px rgba(37, 99, 235, 0.15);
+        transform: translateY(-1px);
     }
 
     .legend {
         background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-        padding: 24px;
+        padding: 18px;
         border-radius: 16px;
         border: 2px solid #e0e7ff;
         margin-top: 8px;
@@ -211,37 +218,48 @@
     }
 
     .legend-title {
-        font-size: 12px;
+        font-size: 13px;
         font-weight: 700;
-        margin-bottom: 18px;
+        margin-bottom: 14px;
         text-transform: uppercase;
         letter-spacing: 0.8px;
         color: var(--primary-blue);
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .legend-title::before {
-        content: '📊';
-        font-size: 16px;
     }
 
     .legend-item {
         display: flex;
         align-items: center;
-        margin-bottom: 14px;
+        margin-bottom: 10px;
         font-size: 14px;
         color: var(--text-dark);
         font-weight: 600;
-        padding: 8px;
-        border-radius: 8px;
-        transition: all 0.3s ease;
+        padding: 10px 12px;
+        border-radius: 10px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .legend-item::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        transform: scaleY(0);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .legend-item:hover {
-        background: rgba(59, 130, 246, 0.05);
-        transform: translateX(4px);
+        background: rgba(59, 130, 246, 0.08);
+        padding-left: 20px;
+        box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+    }
+
+    .legend-item:hover::before {
+        transform: scaleY(1);
     }
 
     .legend-item:last-child {
@@ -256,6 +274,12 @@
         border-radius: 8px;
         flex-shrink: 0;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .legend-item:hover .legend-color {
+        transform: scale(1.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     }
 
     .switch-group {
@@ -276,14 +300,14 @@
 
     .switch-btn {
         flex: 1;
-        padding: 10px 16px;
+        padding: 12px 18px;
         border: none;
         border-radius: 10px;
         background: transparent;
         color: var(--text-muted);
         cursor: pointer;
-        font-size: 13px;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-size: 14px;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         font-weight: 700;
         font-family: inherit;
         position: relative;
@@ -298,26 +322,33 @@
         width: 0;
         height: 0;
         border-radius: 50%;
-        background: rgba(59, 130, 246, 0.1);
+        background: rgba(59, 130, 246, 0.15);
         transform: translate(-50%, -50%);
-        transition: width 0.6s, height 0.6s;
+        transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     .switch-btn:hover::before {
-        width: 200px;
-        height: 200px;
+        width: 250px;
+        height: 250px;
     }
 
     .switch-btn:hover {
         background: var(--light-gray);
         color: var(--text-dark);
+        transform: scale(1.02);
     }
 
     .switch-btn.active {
         background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
         color: white;
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
-        transform: scale(1.02);
+        box-shadow: 
+            0 4px 12px rgba(37, 99, 235, 0.35),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transform: scale(1.05);
+    }
+
+    .switch-btn:active {
+        transform: scale(0.97);
     }
 
     .toggle-switch {
@@ -328,7 +359,7 @@
         background: white;
         border-radius: 12px;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         margin-bottom: 10px;
         border: 2px solid #e0e7ff;
         box-shadow: 
@@ -337,10 +368,10 @@
     }
 
     .toggle-switch:hover {
-        background: linear-gradient(135deg, #dbeafe 0%, #ffffff 100%);
+        background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
         border-color: #93c5fd;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        transform: translateX(4px);
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+        transform: translateX(6px);
     }
 
     .toggle-switch:last-child {
@@ -354,12 +385,17 @@
         display: flex;
         align-items: center;
         gap: 8px;
+        transition: color 0.3s ease;
+    }
+
+    .toggle-switch:hover .toggle-label {
+        color: var(--secondary-blue);
     }
 
     .toggle-input {
         position: relative;
-        width: 44px;
-        height: 24px;
+        width: 48px;
+        height: 26px;
         flex-shrink: 0;
     }
 
@@ -376,30 +412,35 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(90deg, #e5e7eb, #d1d5db);
-        transition: 0.3s;
+        background: linear-gradient(135deg, #e5e7eb, #d1d5db);
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         border-radius: 34px;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .slider:before {
         position: absolute;
         content: "";
-        height: 18px;
-        width: 18px;
+        height: 20px;
+        width: 20px;
         left: 3px;
         bottom: 3px;
         background-color: white;
-        transition: 0.3s;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         border-radius: 50%;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     input:checked + .slider {
-        background: linear-gradient(90deg, var(--secondary-blue), var(--primary-blue));
+        background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+        box-shadow: 
+            inset 0 2px 4px rgba(0, 0, 0, 0.1),
+            0 0 12px rgba(37, 99, 235, 0.3);
     }
 
     input:checked + .slider:before {
-        transform: translateX(20px);
+        transform: translateX(22px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     }
 
     #map {
@@ -415,22 +456,40 @@
         position: absolute;
         background: white;
         border: none;
-        padding: 14px 18px;
-        border-radius: 10px;
+        padding: 16px 20px;
+        border-radius: 12px;
         pointer-events: none;
         font-size: 14px;
         z-index: 1000;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        box-shadow: 
+            0 12px 32px rgba(0,0,0,0.18),
+            0 4px 12px rgba(0,0,0,0.08);
         color: var(--text-dark);
         line-height: 1.6;
-        border: 1px solid var(--border-gray);
+        border: 2px solid #e0e7ff;
         font-family: inherit;
         opacity: 0;
-        transition: opacity 0.5s ease-out;
+        transition: opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transform-origin: bottom;
     }
 
     #popup.show {
         opacity: 1;
+        animation: popupSpring 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes popupSpring {
+        0% {
+            opacity: 0;
+            transform: scale(0.8) translateY(10px);
+        }
+        50% {
+            transform: scale(1.05) translateY(-2px);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
     }
 
     #risk-graph, #risk-table {
@@ -498,19 +557,43 @@
         text-align: center;
         color: white;
         background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-        padding: 36px 40px;
-        border-radius: 20px;
+        padding: 40px 44px;
+        border-radius: 24px;
         box-shadow: 
-            0 20px 60px rgba(0,0,0,0.3),
+            0 24px 72px rgba(0,0,0,0.35),
             inset 0 1px 0 rgba(255, 255, 255, 0.95);
         border: 2px solid #e0e7ff;
-        max-width: 340px;
-        animation: slideUp 0.3s ease;
+        max-width: 360px;
+        animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        position: relative;
+    }
+
+    #loading-content::before {
+        content: '';
+        display: block;
+        width: 56px;
+        height: 56px;
+        margin: 0 auto 24px auto;
+        border: 4px solid #e0e7ff;
+        border-top-color: var(--secondary-blue);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
     }
 
     @keyframes slideUp {
-        from { transform: translateY(20px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
+        from { 
+            transform: translateY(30px) scale(0.9); 
+            opacity: 0; 
+        }
+        to { 
+            transform: translateY(0) scale(1); 
+            opacity: 1; 
+        }
     }
 
     #loading-content h3 {
@@ -519,16 +602,6 @@
         font-weight: 800;
         margin-bottom: 12px;
         letter-spacing: -0.02em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    #loading-content h3::before {
-        content: '⚡';
-        font-size: 28px;
-        animation: pulse 1.5s ease-in-out infinite;
     }
 
     @keyframes pulse {
@@ -634,14 +707,6 @@
         font-weight: 800;
         color: var(--primary-blue);
         letter-spacing: -0.02em;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .assessment-header h2::before {
-        content: '📋';
-        font-size: 24px;
     }
 
     #close-assessment {
@@ -703,6 +768,9 @@
         .sidebar {
             width: 300px;
         }
+        .stat-card {
+            padding: 20px;
+        }
     }
 
     @media (max-width: 768px) {
@@ -713,22 +781,80 @@
         }
         .sidebar {
             width: 100%;
-            height: 300px;
+            height: 320px;
             border-right: none;
-            border-bottom: 1px solid var(--border-gray);
+            border-bottom: 2px solid #e0e7ff;
+            max-height: 40vh;
+        }
+        .sidebar-header h2 {
+            font-size: 20px;
+        }
+        .back-to-dashboard {
+            font-size: 13px;
+            padding: 10px 16px;
+        }
+        .legend-item {
+            font-size: 13px;
+            padding: 8px 10px;
+        }
+        .switch-btn {
+            font-size: 13px;
+            padding: 10px 14px;
         }
         #assessment-panel {
             width: 100%;
-            height: calc(100vh - 300px);
+            height: calc(100vh - 320px);
             right: -100%;
             top: auto;
             bottom: 0;
             border-left: none;
-            border-top: 1px solid var(--border-gray);
+            border-top: 2px solid #e0e7ff;
         }
         #loading-screen {
             height: calc(100vh - 60px);
             top: 60px;
+        }
+        #loading-content {
+            max-width: calc(100vw - 32px);
+            padding: 32px 24px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .sidebar-header h2 {
+            font-size: 18px;
+        }
+        .section-title {
+            font-size: 12px;
+        }
+        .legend-item {
+            font-size: 12px;
+        }
+        #barangay-select {
+            font-size: 13px;
+            padding: 12px 16px;
+        }
+    }
+
+    /* Improve touch targets for mobile */
+    @media (max-width: 768px) {
+        .switch-btn,
+        .toggle-switch,
+        .back-to-dashboard,
+        #barangay-select {
+            min-height: 44px;
+            touch-action: manipulation;
+        }
+    }
+
+    /* Reduce motion for accessibility */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
         }
     }
 </style>
@@ -774,13 +900,6 @@
                     <span class="toggle-label">Flood Risk Layer</span>
                     <div class="toggle-input">
                         <input type="checkbox" id="flood-layer-toggle" checked>
-                        <span class="slider"></span>
-                    </div>
-                </label>
-                <label class="toggle-switch">
-                    <span class="toggle-label">Barangay Boundaries</span>
-                    <div class="toggle-input">
-                        <input type="checkbox" id="barangay-layer-toggle" checked>
                         <span class="slider"></span>
                     </div>
                 </label>
@@ -841,6 +960,22 @@
     <!-- Map Container -->
     <div id="map" data-barangays='{{ barangays_json|safe }}' data-floods='{{ flood_areas_json|safe }}'>
         <div id="popup"></div>
+        
+        <!-- Real-time Flood Risk Alert Banner -->
+        <div id="risk-alert-banner" style="display: none;">
+            <div class="risk-banner-content">
+                <div class="risk-banner-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="risk-banner-text">
+                    <div class="risk-banner-title" id="risk-banner-title">Loading...</div>
+                    <div class="risk-banner-details" id="risk-banner-details">Fetching current conditions...</div>
+                </div>
+                <div class="risk-banner-close" onclick="hideRiskBanner()">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Loading Screen -->
@@ -874,6 +1009,113 @@
     html, body {
         overflow-x: hidden !important;
         width: 100% !important;
+    }
+
+    /* Real-time Risk Alert Banner Styles */
+    #risk-alert-banner {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        min-width: 400px;
+        max-width: 600px;
+        animation: slideDown 0.5s ease-out;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+
+    .risk-banner-content {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 20px;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        border: 2px solid;
+    }
+
+    .risk-banner-content.risk-low {
+        background: rgba(251, 191, 36, 0.95);
+        border-color: #fbbf24;
+        color: #78350f;
+    }
+
+    .risk-banner-content.risk-moderate {
+        background: rgba(249, 115, 22, 0.95);
+        border-color: #f97316;
+        color: white;
+    }
+
+    .risk-banner-content.risk-high {
+        background: rgba(220, 38, 38, 0.95);
+        border-color: #dc2626;
+        color: white;
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            box-shadow: 0 8px 24px rgba(239, 68, 68, 0.4);
+        }
+        50% {
+            box-shadow: 0 8px 32px rgba(239, 68, 68, 0.7);
+        }
+    }
+
+    .risk-banner-icon {
+        font-size: 28px;
+        flex-shrink: 0;
+    }
+
+    .risk-banner-text {
+        flex: 1;
+    }
+
+    .risk-banner-title {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 4px;
+        letter-spacing: 0.02em;
+    }
+
+    .risk-banner-details {
+        font-size: 13px;
+        opacity: 0.95;
+        line-height: 1.4;
+    }
+
+    .risk-banner-close {
+        cursor: pointer;
+        font-size: 20px;
+        padding: 4px 8px;
+        border-radius: 6px;
+        transition: background 0.2s;
+        flex-shrink: 0;
+    }
+
+    .risk-banner-close:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Highlighted zones pulsing animation */
+    @keyframes highlightPulse {
+        0%, 100% {
+            opacity: 0.7;
+        }
+        50% {
+            opacity: 0.9;
+        }
     }
 </style>
 
@@ -1026,7 +1268,8 @@
 
     var barangayLayer = new ol.layer.Vector({
         source: barangayVectorSource,
-        zIndex: 2
+        zIndex: 2,
+        visible: false
     });
 
     var pinLayer = new ol.layer.Vector({
@@ -1266,6 +1509,9 @@
                 feature.setStyle(highlightStyle);
                 barangayVectorSource.addFeature(feature);
                 
+                // Show the barangay layer when a barangay is selected
+                barangayLayer.setVisible(true);
+                
                 var extent = feature.getGeometry().getExtent();
                 map.getView().fit(extent, { 
                     padding: [50, 50, 50, 50], 
@@ -1275,6 +1521,9 @@
         } else {
             map.getView().setCenter(ol.proj.fromLonLat([122.975, 10.787]));
             map.getView().setZoom(12);
+            
+            // Hide the barangay layer when viewing all barangays
+            barangayLayer.setVisible(false);
             
             barangaysData.features.forEach(function(feature) {
                 var barangayFeature = new ol.format.GeoJSON().readFeature(feature, {
@@ -1313,10 +1562,6 @@
     // Layer toggles
     document.getElementById('flood-layer-toggle').addEventListener('change', function() {
         floodLayer.setVisible(this.checked);
-    });
-
-    document.getElementById('barangay-layer-toggle').addEventListener('change', function() {
-        barangayLayer.setVisible(this.checked);
     });
 
     // Assessment logic
@@ -1522,6 +1767,148 @@
         assessmentPanel.classList.remove('active');
         pinVectorSource.clear();
     });
+
+    // ========================================
+    // REAL-TIME FLOOD RISK HIGHLIGHTING SYSTEM
+    // ========================================
+
+    var currentRiskData = null;
+    var originalFloodStyles = new Map(); // Store original styles for restoration
+
+    // Function to get highlighted style based on risk level
+    function getHighlightedStyle(hazCode, riskColor) {
+        var colorMap = {
+            'yellow': '#fbbf24',  // Low risk - yellow/amber
+            'orange': '#f97316',  // Moderate risk - orange
+            'red': '#dc2626'      // High risk - red
+        };
+        
+        var highlightColor = colorMap[riskColor] || '#fbbf24';
+        var rgb = hexToRgb(highlightColor);
+        
+        return new ol.style.Style({
+            stroke: new ol.style.Stroke({
+                color: highlightColor,
+                width: 3
+            }),
+            fill: new ol.style.Fill({
+                color: 'rgba(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ', 0.75)'
+            })
+        });
+    }
+
+    // Function to update map highlighting based on current risk
+    function updateMapRiskHighlighting() {
+        fetch('/monitoring/api/current-risk/')
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    console.error('Error fetching risk status:', data.error);
+                    return;
+                }
+
+                currentRiskData = data;
+                
+                // Apply highlighting to flood zones
+                floodVectorSource.getFeatures().forEach(feature => {
+                    var hazCode = feature.get('haz_code');
+                    
+                    // Check if this zone should be highlighted
+                    if (data.zones_to_highlight.includes(hazCode)) {
+                        // Save original style if not already saved
+                        if (!originalFloodStyles.has(feature.ol_uid)) {
+                            originalFloodStyles.set(feature.ol_uid, feature.getStyle());
+                        }
+                        
+                        // Apply highlighted style with animation
+                        feature.setStyle(getHighlightedStyle(hazCode, data.risk_color));
+                    } else {
+                        // Restore original style if it was highlighted before
+                        if (originalFloodStyles.has(feature.ol_uid)) {
+                            feature.setStyle(originalFloodStyles.get(feature.ol_uid));
+                        }
+                    }
+                });
+                
+                // Update risk banner
+                showRiskBanner(data);
+                
+                console.log('Map highlighting updated:', data.risk_level);
+            })
+            .catch(error => {
+                console.error('Error updating map highlighting:', error);
+            });
+    }
+
+    // Function to show/update the risk banner
+    function showRiskBanner(data) {
+        var banner = document.getElementById('risk-alert-banner');
+        var bannerContent = banner.querySelector('.risk-banner-content');
+        var title = document.getElementById('risk-banner-title');
+        var details = document.getElementById('risk-banner-details');
+        
+        // Set banner style based on risk level
+        bannerContent.className = 'risk-banner-content';
+        var explanation = '';
+        
+        if (data.risk_level === 'High Risk') {
+            bannerContent.classList.add('risk-high');
+            title.innerHTML = '<i class="fas fa-exclamation-circle"></i> HIGH FLOOD RISK ALERT';
+            explanation = 'Critical zones (Very High & High susceptibility) highlighted - immediate action required';
+        } else if (data.risk_level === 'Moderate Risk') {
+            bannerContent.classList.add('risk-moderate');
+            title.innerHTML = '<i class="fas fa-exclamation-triangle"></i> MODERATE FLOOD RISK';
+            explanation = 'Areas with elevated flood risk highlighted - monitor closely';
+        } else {
+            bannerContent.classList.add('risk-low');
+            title.innerHTML = '<i class="fas fa-check-circle"></i> NORMAL CONDITIONS';
+            explanation = 'All zones within safe parameters - routine monitoring';
+        }
+        
+        // Build details text
+        var detailsText = '<strong>Current:</strong> Rainfall ' + data.rainfall_mm.toFixed(1) + 'mm | Tide ' + data.tide_m.toFixed(2) + 'm';
+        
+        if (data.zones_to_highlight.length > 0) {
+            var zoneNames = {
+                'VHF': 'Very High',
+                'HF': 'High',
+                'MF': 'Moderate',
+                'LF': 'Low'
+            };
+            var highlightedNames = data.zones_to_highlight.map(code => zoneNames[code]).join(', ');
+            detailsText += '<br><strong>Highlighted:</strong> ' + highlightedNames + ' susceptibility zones<br>';
+            detailsText += '<small style="opacity: 0.9;">ℹ️ ' + explanation + '</small>';
+        } else {
+            detailsText += '<br><small style="opacity: 0.9;">ℹ️ ' + explanation + '</small>';
+        }
+        
+        detailsText += '<br><small style="opacity: 0.75; font-size: 11px;">Updated: ' + data.timestamp + '</small>';
+        
+        details.innerHTML = detailsText;
+        
+        // Show banner
+        banner.style.display = 'block';
+    }
+
+    // Function to hide risk banner
+    function hideRiskBanner() {
+        document.getElementById('risk-alert-banner').style.display = 'none';
+    }
+
+    // Initial load of risk highlighting
+    updateMapRiskHighlighting();
+
+    // Auto-refresh every 5 minutes (300000ms)
+    setInterval(updateMapRiskHighlighting, 300000);
+
+    // Manual refresh when user returns to map after checking monitoring page
+    document.addEventListener('visibilitychange', function() {
+        if (!document.hidden) {
+            updateMapRiskHighlighting();
+        }
+    });
+
+    console.log('Real-time flood risk highlighting system initialized');
 </script>
 
 {% endblock %}

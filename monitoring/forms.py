@@ -66,25 +66,8 @@ class FloodRecordForm(forms.ModelForm):
 
     class Meta:
         model = FloodRecord
-        fields = ['event', 'date', 'affected_barangays', 'casualties_dead', 'casualties_injured', 'casualties_missing',
-                  'affected_persons', 'affected_families', 'houses_damaged_partially', 'houses_damaged_totally',
-                  'damage_infrastructure_php', 'damage_agriculture_php', 'damage_institutions_php',
-                  'damage_private_commercial_php', 'damage_total_php']
-        
-        widgets = {
-            'casualties_dead': forms.NumberInput(attrs={'min': '0', 'value': '0', 'placeholder': '0'}),
-            'casualties_injured': forms.NumberInput(attrs={'min': '0', 'value': '0', 'placeholder': '0'}),
-            'casualties_missing': forms.NumberInput(attrs={'min': '0', 'value': '0', 'placeholder': '0'}),
-            'affected_persons': forms.NumberInput(attrs={'min': '0', 'value': '0', 'placeholder': '0'}),
-            'affected_families': forms.NumberInput(attrs={'min': '0', 'value': '0', 'placeholder': '0'}),
-            'houses_damaged_partially': forms.NumberInput(attrs={'min': '0', 'value': '0', 'placeholder': '0'}),
-            'houses_damaged_totally': forms.NumberInput(attrs={'min': '0', 'value': '0', 'placeholder': '0'}),
-            'damage_infrastructure_php': forms.NumberInput(attrs={'min': '0', 'step': '0.01', 'value': '0', 'placeholder': '0.00'}),
-            'damage_agriculture_php': forms.NumberInput(attrs={'min': '0', 'step': '0.01', 'value': '0', 'placeholder': '0.00'}),
-            'damage_institutions_php': forms.NumberInput(attrs={'min': '0', 'step': '0.01', 'value': '0', 'placeholder': '0.00'}),
-            'damage_private_commercial_php': forms.NumberInput(attrs={'min': '0', 'step': '0.01', 'value': '0', 'placeholder': '0.00'}),
-            'damage_total_php': forms.NumberInput(attrs={'min': '0', 'step': '0.01', 'value': '0', 'placeholder': '0.00'}),
-        }
+        fields = ['event', 'date', 'affected_barangays']
+        widgets = {}
 
     def clean_affected_barangays(self):
         """Validate affected barangays field."""
@@ -119,92 +102,3 @@ class FloodRecordForm(forms.ModelForm):
             raise ValidationError("The flood event date cannot be in the future.")
         
         return date
-
-    def clean_casualties_dead(self):
-        """Validate casualties_dead is non-negative."""
-        value = self.cleaned_data.get('casualties_dead', 0)
-        if value < 0:
-            raise ValidationError("Number of deaths cannot be negative.")
-        return value
-
-    def clean_casualties_injured(self):
-        """Validate casualties_injured is non-negative."""
-        value = self.cleaned_data.get('casualties_injured', 0)
-        if value < 0:
-            raise ValidationError("Number of injured cannot be negative.")
-        return value
-
-    def clean_casualties_missing(self):
-        """Validate casualties_missing is non-negative."""
-        value = self.cleaned_data.get('casualties_missing', 0)
-        if value < 0:
-            raise ValidationError("Number of missing persons cannot be negative.")
-        return value
-
-    def clean_affected_persons(self):
-        """Validate affected_persons is non-negative."""
-        value = self.cleaned_data.get('affected_persons', 0)
-        if value < 0:
-            raise ValidationError("Number of affected persons cannot be negative.")
-        return value
-
-    def clean_affected_families(self):
-        """Validate affected_families is non-negative."""
-        value = self.cleaned_data.get('affected_families', 0)
-        if value < 0:
-            raise ValidationError("Number of affected families cannot be negative.")
-        return value
-
-    def clean(self):
-        """Perform cross-field validation."""
-        cleaned_data = super().clean()
-        
-        # Validate that affected persons >= affected families (assuming average family size >= 1)
-        affected_persons = cleaned_data.get('affected_persons', 0)
-        affected_families = cleaned_data.get('affected_families', 0)
-        
-        if affected_families > 0 and affected_persons < affected_families:
-            self.add_error('affected_persons', 
-                "Number of affected persons should be at least equal to the number of affected families.")
-        
-        # Validate damage amounts
-        damage_fields = [
-            'damage_infrastructure_php',
-            'damage_agriculture_php',
-            'damage_institutions_php',
-            'damage_private_commercial_php'
-        ]
-        
-        for field in damage_fields:
-            value = cleaned_data.get(field, 0)
-            if value < 0:
-                self.add_error(field, "Damage amount cannot be negative.")
-        
-        # Calculate and validate total damage
-        total_calculated = sum([
-            cleaned_data.get('damage_infrastructure_php', 0),
-            cleaned_data.get('damage_agriculture_php', 0),
-            cleaned_data.get('damage_institutions_php', 0),
-            cleaned_data.get('damage_private_commercial_php', 0)
-        ])
-        
-        total_entered = cleaned_data.get('damage_total_php', 0)
-        
-        # Allow for small floating point differences
-        if abs(total_calculated - total_entered) > 0.01:
-            # Auto-correct the total
-            cleaned_data['damage_total_php'] = total_calculated
-            # Optionally, you can add a warning
-            # self.add_error('damage_total_php', 
-            #     f"Total damage auto-corrected to match sum of individual damages: ₱{total_calculated:,.2f}")
-        
-        # Validate houses damaged
-        houses_partial = cleaned_data.get('houses_damaged_partially', 0)
-        houses_total = cleaned_data.get('houses_damaged_totally', 0)
-        
-        if houses_partial < 0:
-            self.add_error('houses_damaged_partially', "Number cannot be negative.")
-        if houses_total < 0:
-            self.add_error('houses_damaged_totally', "Number cannot be negative.")
-        
-        return cleaned_data

@@ -7,6 +7,7 @@
     {% load static %}
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ol.css' %}">
     <style>
         :root {
             --primary-blue: #1e3a5f;
@@ -31,6 +32,34 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            position: relative;
+        }
+
+        /* Animated Satellite Map Background */
+        #background-map {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        #background-map-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(
+                135deg,
+                rgba(30, 58, 95, 0.50) 0%,
+                rgba(37, 99, 235, 0.50) 50%,
+                rgba(30, 58, 95, 0.50) 100%
+            );
+            pointer-events: none;
         }
 
         .container {
@@ -363,6 +392,10 @@
     </style>
 </head>
 <body>
+    <!-- Animated Satellite Map Background -->
+    <div id="background-map"></div>
+    <div id="background-map-overlay"></div>
+
     <!-- Toast Notification Container -->
     <div class="toast-container" id="toastContainer"></div>
 
@@ -493,5 +526,76 @@
             {% endif %}
         });
     </script>
-</body>
-</html>
+
+    <script src="{% static 'js/ol.js' %}"></script>
+    <script>
+        // ============================================
+        // ANIMATED SATELLITE BACKGROUND MAP
+        // ============================================
+        
+        // Silay City coordinates
+        var silayCenter = [122.975, 10.787];
+        
+        // Create satellite layer
+        var satelliteLayer = new ol.layer.Tile({
+            source: new ol.source.XYZ({
+                url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+                maxZoom: 19
+            })
+        });
+        
+        // Initialize background map
+        var backgroundMap = new ol.Map({
+            target: 'background-map',
+            layers: [satelliteLayer],
+            controls: [], // No controls for background
+            interactions: [], // No interactions for background
+            view: new ol.View({
+                center: ol.proj.fromLonLat(silayCenter),
+                zoom: 15.5,
+                rotation: 0
+            })
+        });
+        
+        // Animation variables
+        var animationStep = 0;
+        var baseCenter = ol.proj.fromLonLat(silayCenter);
+        var baseZoom = 15.5;
+        var rotationSpeed = 0.0002; // Very slow rotation
+        var panRadius = 500; // Meters to pan in circle
+        
+        // Animation function
+        function animateBackground() {
+            animationStep += 0.0003; // Animation speed
+            
+            var view = backgroundMap.getView();
+            
+            // Circular panning motion
+            var offsetX = Math.sin(animationStep) * panRadius;
+            var offsetY = Math.cos(animationStep) * panRadius;
+            var newCenter = [
+                baseCenter[0] + offsetX,
+                baseCenter[1] + offsetY
+            ];
+            
+            // Smooth zoom oscillation
+            var zoomOffset = Math.sin(animationStep * 0.5) * 0.3;
+            var newZoom = baseZoom + zoomOffset;
+            
+            // Very subtle rotation
+            var newRotation = animationStep * rotationSpeed;
+            
+            view.setCenter(newCenter);
+            view.setZoom(newZoom);
+            view.setRotation(newRotation);
+            
+            requestAnimationFrame(animateBackground);
+        }
+        
+        // Start animation after map loads (1 second delay)
+        setTimeout(() => {
+            animateBackground();
+        }, 1000);
+        
+        console.log('Animated satellite background initialized');
+    </script>

@@ -3549,3 +3549,531 @@ Traceback (most recent call last):
 django.db.utils.DataError: value too long for type character varying(3)
 
 ERROR 2025-12-02 16:31:49 basehttp 12248 15884 "POST /maps/save-assessment/ HTTP/1.1" 500 177005
+ERROR 2025-12-07 20:45:38 views 21744 27456 Error in fetch_trends_api: No module named 'dateutil'
+ERROR 2025-12-07 20:45:38 log 21744 27456 Internal Server Error: /monitoring/api/trends/
+ERROR 2025-12-07 20:45:38 basehttp 21744 27456 "GET /monitoring/api/trends/?time_range=24h&compare_years=2024 HTTP/1.1" 500 39
+ERROR 2025-12-07 20:45:41 views 21744 27456 Error in fetch_trends_api: No module named 'dateutil'
+ERROR 2025-12-07 20:45:41 log 21744 27456 Internal Server Error: /monitoring/api/trends/
+ERROR 2025-12-07 20:45:41 basehttp 21744 27456 "GET /monitoring/api/trends/?time_range=24h&compare_years=2023 HTTP/1.1" 500 39
+ERROR 2025-12-07 20:45:58 views 21744 27456 Error in fetch_trends_api: No module named 'dateutil'
+ERROR 2025-12-07 20:45:58 log 21744 27456 Internal Server Error: /monitoring/api/trends/
+ERROR 2025-12-07 20:45:58 basehttp 21744 27456 "GET /monitoring/api/trends/?time_range=24h&compare_years=2022 HTTP/1.1" 500 39
+ERROR 2025-12-07 20:46:04 views 21744 27456 Error in fetch_trends_api: No module named 'dateutil'
+ERROR 2025-12-07 20:46:04 log 21744 27456 Internal Server Error: /monitoring/api/trends/
+ERROR 2025-12-07 20:46:04 basehttp 21744 27456 "GET /monitoring/api/trends/?time_range=90d HTTP/1.1" 500 39
+ERROR 2025-12-07 20:46:05 views 21744 27456 Error in fetch_trends_api: No module named 'dateutil'
+ERROR 2025-12-07 20:46:05 log 21744 27456 Internal Server Error: /monitoring/api/trends/
+ERROR 2025-12-07 20:46:05 basehttp 21744 27456 "GET /monitoring/api/trends/?time_range=7d HTTP/1.1" 500 39
+ERROR 2025-12-07 20:46:07 views 21744 27456 Error in fetch_trends_api: No module named 'dateutil'
+ERROR 2025-12-07 20:46:07 log 21744 27456 Internal Server Error: /monitoring/api/trends/
+ERROR 2025-12-07 20:46:07 basehttp 21744 27456 "GET /monitoring/api/trends/?time_range=24h HTTP/1.1" 500 39
+ERROR 2025-12-07 20:46:40 views 21744 13436 Error in fetch_trends_api: No module named 'dateutil'
+ERROR 2025-12-07 20:46:40 log 21744 13436 Internal Server Error: /monitoring/api/trends/
+ERROR 2025-12-07 20:46:40 basehttp 21744 13436 "GET /monitoring/api/trends/?time_range=24h&compare_years=2024 HTTP/1.1" 500 39
+ERROR 2025-12-07 20:46:50 views 21744 12584 Error in fetch_trends_api: No module named 'dateutil'
+ERROR 2025-12-07 20:46:50 log 21744 12584 Internal Server Error: /monitoring/api/trends/
+ERROR 2025-12-07 20:46:50 basehttp 21744 12584 "GET /monitoring/api/trends/?time_range=24h&compare_years=2024,2023,2022 HTTP/1.1" 500 39
+ERROR 2025-12-07 20:50:46 views 12536 8532 Error in fetch_trends_api: No module named 'dateutil'
+Traceback (most recent call last):
+  File "C:\Users\aldri\fmswgis-scdrrmo\monitoring\views.py", line 542, in fetch_trends_api
+    from dateutil.relativedelta import relativedelta
+ModuleNotFoundError: No module named 'dateutil'
+
+ERROR 2025-12-07 20:50:46 log 12536 8532 Internal Server Error: /monitoring/api/trends/
+ERROR 2025-12-07 20:50:46 basehttp 12536 8532 "GET /monitoring/api/trends/?time_range=7d HTTP/1.1" 500 67
+ERROR 2025-12-07 20:50:49 views 12536 8532 Error in fetch_trends_api: No module named 'dateutil'
+Traceback (most recent call last):
+  File "C:\Users\aldri\fmswgis-scdrrmo\monitoring\views.py", line 542, in fetch_trends_api
+    from dateutil.relativedelta import relativedelta
+ModuleNotFoundError: No module named 'dateutil'
+
+ERROR 2025-12-07 20:50:49 log 12536 8532 Internal Server Error: /monitoring/api/trends/
+ERROR 2025-12-07 20:50:49 basehttp 12536 8532 "GET /monitoring/api/trends/?time_range=24h HTTP/1.1" 500 67
+ERROR 2025-12-07 21:25:38 views 24484 25688 Error in fetch_trends_api: No module named 'dateutil'
+Traceback (most recent call last):
+  File "C:\Users\aldri\fmswgis-scdrrmo\monitoring\views.py", line 541, in fetch_trends_api
+    from dateutil.relativedelta import relativedelta
+ModuleNotFoundError: No module named 'dateutil'
+
+ERROR 2025-12-07 21:25:38 log 24484 25688 Internal Server Error: /monitoring/api/trends/
+ERROR 2025-12-07 21:25:38 basehttp 24484 25688 "GET /monitoring/api/trends/?time_range=24h&compare_years=2024 HTTP/1.1" 500 67
+ERROR 2025-12-07 21:25:42 views 24484 25688 Error in fetch_trends_api: No module named 'dateutil'
+Traceback (most recent call last):
+  File "C:\Users\aldri\fmswgis-scdrrmo\monitoring\views.py", line 541, in fetch_trends_api
+    from dateutil.relativedelta import relativedelta
+ModuleNotFoundError: No module named 'dateutil'
+
+ERROR 2025-12-07 21:25:42 log 24484 25688 Internal Server Error: /monitoring/api/trends/
+ERROR 2025-12-07 21:25:42 basehttp 24484 25688 "GET /monitoring/api/trends/?time_range=24h&compare_years=2023 HTTP/1.1" 500 67
+ERROR 2025-12-07 21:25:46 views 24484 25688 Error in fetch_trends_api: No module named 'dateutil'
+Traceback (most recent call last):
+  File "C:\Users\aldri\fmswgis-scdrrmo\monitoring\views.py", line 541, in fetch_trends_api
+    from dateutil.relativedelta import relativedelta
+ModuleNotFoundError: No module named 'dateutil'
+
+ERROR 2025-12-07 21:25:46 log 24484 25688 Internal Server Error: /monitoring/api/trends/
+ERROR 2025-12-07 21:25:46 basehttp 24484 25688 "GET /monitoring/api/trends/?time_range=24h&compare_years=2022 HTTP/1.1" 500 67
+ERROR 2025-12-07 21:26:23 views 24484 17264 Error in fetch_trends_api: No module named 'dateutil'
+Traceback (most recent call last):
+  File "C:\Users\aldri\fmswgis-scdrrmo\monitoring\views.py", line 541, in fetch_trends_api
+    from dateutil.relativedelta import relativedelta
+ModuleNotFoundError: No module named 'dateutil'
+
+ERROR 2025-12-07 21:26:23 log 24484 17264 Internal Server Error: /monitoring/api/trends/
+ERROR 2025-12-07 21:26:23 basehttp 24484 17264 "GET /monitoring/api/trends/?time_range=24h&compare_years=2022 HTTP/1.1" 500 67
+ERROR 2025-12-07 21:28:22 views 14156 1956 Unexpected error fetching weather data: unsupported operand type(s) for -: 'datetime.datetime' and 'NoneType'
+ERROR 2025-12-07 21:28:22 log 14156 1956 Internal Server Error: /monitoring/
+Traceback (most recent call last):
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\monitoring\views.py", line 333, in monitoring_view
+    if not tide_data or (timezone.now() - tide_data.timestamp).total_seconds() > 10800:
+                         ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'NoneType'
+ERROR 2025-12-07 21:28:22 basehttp 14156 1956 "GET /monitoring/ HTTP/1.1" 500 93211
+ERROR 2025-12-10 15:29:58 views 9512 17812 Error in fetch_trends_api: name 'manila_tz' is not defined
+Traceback (most recent call last):
+  File "C:\Users\aldri\fmswgis-scdrrmo\monitoring\views.py", line 799, in fetch_trends_api
+    rainfall_timestamps = [r['timestamp'].astimezone(manila_tz).strftime('%Y-%m-%d %H:%M') for r in rainfall_data]
+                                                     ^^^^^^^^^
+NameError: name 'manila_tz' is not defined
+
+ERROR 2025-12-10 15:29:58 log 9512 17812 Internal Server Error: /monitoring/api/trends/
+ERROR 2025-12-10 15:29:58 basehttp 9512 17812 "GET /monitoring/api/trends/?time_range=7d&year=2025 HTTP/1.1" 500 72
+ERROR 2025-12-10 15:30:05 views 9512 17812 Error in fetch_trends_api: name 'manila_tz' is not defined
+Traceback (most recent call last):
+  File "C:\Users\aldri\fmswgis-scdrrmo\monitoring\views.py", line 799, in fetch_trends_api
+    rainfall_timestamps = [r['timestamp'].astimezone(manila_tz).strftime('%Y-%m-%d %H:%M') for r in rainfall_data]
+                                                     ^^^^^^^^^
+NameError: name 'manila_tz' is not defined
+
+ERROR 2025-12-10 15:30:05 log 9512 17812 Internal Server Error: /monitoring/api/trends/
+ERROR 2025-12-10 15:30:05 basehttp 9512 17812 "GET /monitoring/api/trends/?time_range=7d&year=2025 HTTP/1.1" 500 72
+ERROR 2025-12-10 15:30:19 views 9512 17812 Error in fetch_trends_api: name 'manila_tz' is not defined
+Traceback (most recent call last):
+  File "C:\Users\aldri\fmswgis-scdrrmo\monitoring\views.py", line 799, in fetch_trends_api
+    rainfall_timestamps = [r['timestamp'].astimezone(manila_tz).strftime('%Y-%m-%d %H:%M') for r in rainfall_data]
+                                                     ^^^^^^^^^
+NameError: name 'manila_tz' is not defined
+
+ERROR 2025-12-10 15:30:19 log 9512 17812 Internal Server Error: /monitoring/api/trends/
+ERROR 2025-12-10 15:30:19 basehttp 9512 17812 "GET /monitoring/api/trends/?time_range=7d&year=2025 HTTP/1.1" 500 72
+ERROR 2025-12-10 15:31:14 views 9512 17812 Error in fetch_trends_api: name 'manila_tz' is not defined
+Traceback (most recent call last):
+  File "C:\Users\aldri\fmswgis-scdrrmo\monitoring\views.py", line 799, in fetch_trends_api
+    rainfall_timestamps = [r['timestamp'].astimezone(manila_tz).strftime('%Y-%m-%d %H:%M') for r in rainfall_data]
+                                                     ^^^^^^^^^
+NameError: name 'manila_tz' is not defined
+
+ERROR 2025-12-10 15:31:14 log 9512 17812 Internal Server Error: /monitoring/api/trends/
+ERROR 2025-12-10 15:31:14 basehttp 9512 17812 "GET /monitoring/api/trends/?time_range=7d&year=2024 HTTP/1.1" 500 72
+ERROR 2025-12-10 15:31:25 views 9512 17812 Error in fetch_trends_api: name 'manila_tz' is not defined
+Traceback (most recent call last):
+  File "C:\Users\aldri\fmswgis-scdrrmo\monitoring\views.py", line 799, in fetch_trends_api
+    rainfall_timestamps = [r['timestamp'].astimezone(manila_tz).strftime('%Y-%m-%d %H:%M') for r in rainfall_data]
+                                                     ^^^^^^^^^
+NameError: name 'manila_tz' is not defined
+
+ERROR 2025-12-10 15:31:25 log 9512 17812 Internal Server Error: /monitoring/api/trends/
+ERROR 2025-12-10 15:31:25 basehttp 9512 17812 "GET /monitoring/api/trends/?time_range=7d&year=2025 HTTP/1.1" 500 72
+ERROR 2025-12-11 15:30:32 views 17224 5720 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.7959&longitude=122.9749&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001F5E2F9C980>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+ERROR 2025-12-11 15:35:44 views 17224 11708 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.7959&longitude=122.9749&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001F5E30E1520>, 'Connection to api.open-meteo.com timed out. (connect timeout=10)'))
+ERROR 2025-12-11 15:36:37 views 17224 11708 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.7959&longitude=122.9749&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001F5E4720470>, 'Connection to api.open-meteo.com timed out. (connect timeout=10)'))
+ERROR 2025-12-11 15:39:16 views 17224 4620 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Read timed out. (read timeout=10)
+ERROR 2025-12-11 15:39:23 views 17224 20408 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.7959&longitude=122.9749&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001F5E47DEFF0>, 'Connection to api.open-meteo.com timed out. (connect timeout=10)'))
+ERROR 2025-12-11 15:39:34 views 17224 20408 WorldTides API Error (backup): HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-11&days=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001F5E3176B10>: Failed to establish a new connection: [WinError 10053] An established connection was aborted by the software in your host machine'))
+ERROR 2025-12-11 15:39:34 views 17224 4620 WorldTides API Error (backup): HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-11&days=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001F5E3176CC0>: Failed to establish a new connection: [WinError 10053] An established connection was aborted by the software in your host machine'))
+ERROR 2025-12-12 09:58:07 views 16216 23396 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.7959&longitude=122.9749&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000278B17813A0>: Failed to resolve 'api.open-meteo.com' ([Errno 11001] getaddrinfo failed)"))
+ERROR 2025-12-12 09:58:07 views 16216 23396 WorldTides API Error (backup): HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-12&days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000278B1704F50>: Failed to resolve 'www.worldtides.info' ([Errno 11001] getaddrinfo failed)"))
+ERROR 2025-12-12 09:59:24 views 16216 21992 WorldTides API Error (backup): HTTPSConnectionPool(host='www.worldtides.info', port=443): Read timed out. (read timeout=10)
+ERROR 2025-12-12 10:51:31 views 16216 14712 Open-Meteo API Error: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+ERROR 2025-12-12 10:51:31 views 16216 14712 WorldTides API Error (backup): HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-12&days=1 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x00000278B18C2780>: Failed to resolve 'www.worldtides.info' ([Errno 11001] getaddrinfo failed)"))
+ERROR 2025-12-12 10:52:06 views 16216 9024 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.7959&longitude=122.9749&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x00000278B19A6F00>, 'Connection to api.open-meteo.com timed out. (connect timeout=10)'))
+ERROR 2025-12-12 10:52:19 views 16216 9024 WorldTides API Error (backup): HTTPSConnectionPool(host='www.worldtides.info', port=443): Max retries exceeded with url: /api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-12&days=1 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x00000278B18CCA70>, 'Connection to www.worldtides.info timed out. (connect timeout=10)'))
+ERROR 2025-12-12 11:49:37 views 8368 10708 Open-Meteo API Error: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Read timed out. (read timeout=10)
+ERROR 2025-12-13 13:22:50 log 7280 19876 Internal Server Error: /home/
+Traceback (most recent call last):
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\users\views.py", line 400, in home
+    from maps.models import MapLayer
+ImportError: cannot import name 'MapLayer' from 'maps.models' (C:\Users\aldri\fmswgis-scdrrmo\maps\models.py)
+ERROR 2025-12-13 13:22:50 basehttp 7280 19876 "GET /home/ HTTP/1.1" 500 103474
+ERROR 2025-12-13 13:24:00 log 21936 22492 Internal Server Error: /home/
+Traceback (most recent call last):
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\users\views.py", line 409, in home
+    thirty_days_ago = timezone.now() - timedelta(days=30)
+                      ^^^^^^^^
+NameError: name 'timezone' is not defined
+ERROR 2025-12-13 13:24:00 basehttp 21936 22492 "GET /home/ HTTP/1.1" 500 103691
+ERROR 2025-12-13 13:27:40 views 18668 19828 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 13:27:40 views 18668 19828 WorldTides API request failed
+ERROR 2025-12-13 13:45:42 views 18668 19472 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 13:45:42 views 18668 19472 WorldTides API request failed
+ERROR 2025-12-13 13:48:08 views 18668 19472 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 13:48:08 views 18668 19472 WorldTides API request failed
+ERROR 2025-12-13 13:48:25 views 18668 19472 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 13:48:25 views 18668 19472 WorldTides API request failed
+ERROR 2025-12-13 13:51:44 views 18668 19472 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 13:51:44 views 18668 19472 WorldTides API request failed
+ERROR 2025-12-13 13:56:24 views 18668 19472 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 13:56:24 views 18668 19472 WorldTides API request failed
+ERROR 2025-12-13 13:59:10 views 18668 19472 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 13:59:10 views 18668 19472 WorldTides API request failed
+ERROR 2025-12-13 13:59:14 views 18668 19472 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 13:59:14 views 18668 19472 WorldTides API request failed
+ERROR 2025-12-13 14:00:05 views 18668 19472 API request failed: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=10.7959&longitude=122.9749&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&hourly=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Crain&daily=temperature_2m_max%2Ctemperature_2m_min%2Cprecipitation_sum%2Crelative_humidity_2m_mean%2Cwind_speed_10m_max&timezone=Asia%2FManila&forecast_days=7 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)')))
+ERROR 2025-12-13 14:00:06 views 18668 19472 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 14:00:06 views 18668 19472 WorldTides API request failed
+ERROR 2025-12-13 14:00:34 views 18668 19472 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 14:00:34 views 18668 19472 WorldTides API request failed
+ERROR 2025-12-13 14:01:11 views 18668 19472 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 14:01:11 views 18668 19472 WorldTides API request failed
+ERROR 2025-12-13 14:02:03 views 18668 19472 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 14:02:03 views 18668 19472 WorldTides API request failed
+ERROR 2025-12-13 14:09:55 views 18668 19416 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 14:09:55 views 18668 19416 WorldTides API request failed
+ERROR 2025-12-13 14:17:34 views 4672 23476 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 14:17:34 views 4672 23476 WorldTides API request failed
+ERROR 2025-12-13 14:19:47 views 21068 10972 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 14:19:47 views 21068 10972 WorldTides API request failed
+ERROR 2025-12-13 14:22:39 views 21068 10972 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 14:22:39 views 21068 10972 WorldTides API request failed
+ERROR 2025-12-13 14:28:35 views 22496 21284 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 14:28:35 views 22496 21284 WorldTides API request failed
+ERROR 2025-12-13 14:30:55 views 22496 21284 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 14:30:55 views 22496 21284 WorldTides API request failed
+ERROR 2025-12-13 14:33:34 views 22496 21284 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 14:33:34 views 22496 21284 WorldTides API request failed
+ERROR 2025-12-13 14:40:08 views 22496 8972 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 14:40:08 views 22496 8972 WorldTides API request failed
+ERROR 2025-12-13 14:41:57 views 22496 8972 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 14:41:57 views 22496 8972 WorldTides API request failed
+ERROR 2025-12-13 14:45:38 views 22496 8972 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 14:45:38 views 22496 8972 WorldTides API request failed
+ERROR 2025-12-13 14:50:54 views 22496 8972 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 14:50:54 views 22496 8972 WorldTides API request failed
+ERROR 2025-12-13 14:54:45 views 21932 8712 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 14:54:45 views 21932 8712 WorldTides API request failed
+ERROR 2025-12-13 15:05:23 views 17812 21564 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 15:05:23 views 17812 21564 WorldTides API request failed
+ERROR 2025-12-13 15:07:49 views 20536 2140 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 15:07:49 views 20536 2140 WorldTides API request failed
+ERROR 2025-12-13 15:10:24 views 9660 18568 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 15:10:24 views 9660 18568 WorldTides API request failed
+ERROR 2025-12-13 15:16:31 views 23424 10940 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 15:16:31 views 23424 10940 WorldTides API request failed
+ERROR 2025-12-13 15:20:19 views 23424 5900 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 15:20:19 views 23424 5900 WorldTides API request failed
+ERROR 2025-12-13 15:22:49 views 23424 5900 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 15:22:49 views 23424 5900 WorldTides API request failed
+ERROR 2025-12-13 15:23:28 views 23424 5900 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 15:23:28 views 23424 5900 WorldTides API request failed
+ERROR 2025-12-13 15:30:00 log 23424 5900 Internal Server Error: /monitoring/flood-record/
+Traceback (most recent call last):
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endblock'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 81, in inner
+    return func(*args, **kwds)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\monitoring\views.py", line 1178, in flood_record_form
+    return render(request, 'monitoring/flood_record_form.html', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\base.py", line 577, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 476: 'endblock'. Did you forget to register or load this tag?
+ERROR 2025-12-13 15:30:00 basehttp 23424 5900 "GET /monitoring/flood-record/ HTTP/1.1" 500 187147
+ERROR 2025-12-13 15:37:26 views 23424 5900 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 15:37:26 views 23424 5900 WorldTides API request failed
+ERROR 2025-12-13 15:38:16 views 23424 5900 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 15:38:16 views 23424 5900 WorldTides API request failed
+ERROR 2025-12-13 15:39:03 views 23424 5900 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 15:39:03 views 23424 5900 WorldTides API request failed
+ERROR 2025-12-13 15:43:00 views 23424 5900 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 15:43:00 views 23424 5900 WorldTides API request failed
+ERROR 2025-12-13 15:46:19 views 23424 5900 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 15:46:19 views 23424 5900 WorldTides API request failed
+ERROR 2025-12-13 15:47:49 views 23424 5900 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 15:47:49 views 23424 5900 WorldTides API request failed
+ERROR 2025-12-13 15:50:32 views 23424 5900 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 15:50:32 views 23424 5900 WorldTides API request failed
+ERROR 2025-12-13 15:51:05 views 23424 5900 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 15:51:05 views 23424 5900 WorldTides API request failed
+ERROR 2025-12-13 15:54:32 views 23424 5900 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 15:54:32 views 23424 5900 WorldTides API request failed
+ERROR 2025-12-13 15:54:58 views 23424 5900 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 15:54:58 views 23424 5900 WorldTides API request failed
+ERROR 2025-12-13 15:56:25 views 23424 5900 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 15:56:25 views 23424 5900 WorldTides API request failed
+ERROR 2025-12-13 15:59:31 views 23424 5900 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 15:59:31 views 23424 5900 WorldTides API request failed
+ERROR 2025-12-13 16:07:01 views 23424 5900 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 16:07:01 views 23424 5900 WorldTides API request failed
+ERROR 2025-12-13 16:32:16 views 20408 22684 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 16:32:16 views 20408 22684 WorldTides API request failed
+ERROR 2025-12-13 16:58:08 views 20408 22736 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 16:58:08 views 20408 22736 WorldTides API request failed
+ERROR 2025-12-13 17:00:09 views 20408 22736 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 17:00:09 views 20408 22736 WorldTides API request failed
+ERROR 2025-12-13 17:00:16 views 20408 18164 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 17:00:16 views 20408 18164 WorldTides API request failed
+ERROR 2025-12-13 17:02:12 views 23256 14764 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 17:02:12 views 23256 14764 WorldTides API request failed
+ERROR 2025-12-13 17:03:07 views 23256 14764 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 17:03:07 views 23256 14764 WorldTides API request failed
+ERROR 2025-12-13 17:34:51 views 23256 19160 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 17:34:51 views 23256 19160 WorldTides API request failed
+ERROR 2025-12-13 17:34:55 views 23256 19160 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 17:34:55 views 23256 19160 WorldTides API request failed
+ERROR 2025-12-13 17:49:29 views 23256 19160 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 17:49:29 views 23256 19160 WorldTides API request failed
+ERROR 2025-12-13 17:50:53 views 23256 19160 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 17:50:53 views 23256 19160 WorldTides API request failed
+ERROR 2025-12-13 18:05:05 views 9364 20056 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 18:05:05 views 9364 20056 WorldTides API request failed
+ERROR 2025-12-13 18:05:17 views 9364 20056 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 18:05:17 views 9364 20056 WorldTides API request failed
+ERROR 2025-12-13 18:06:53 views 9364 20056 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 18:06:53 views 9364 20056 WorldTides API request failed
+ERROR 2025-12-13 18:09:30 views 9364 2668 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 18:09:30 views 9364 2668 WorldTides API request failed
+ERROR 2025-12-13 18:10:36 log 9364 2668 Internal Server Error: /home/
+Traceback (most recent call last):
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\users\views.py", line 402, in home
+    return render(request, 'users/home.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\loader_tags.py", line 299, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\aldri\fmswgis-scdrrmo\venv\Lib\site-packages\django\template\base.py", line 567, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 8: 'static', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2025-12-13 18:10:36 basehttp 9364 2668 "GET /home/ HTTP/1.1" 500 284214
+ERROR 2025-12-13 18:14:01 views 9364 11952 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 18:14:01 views 9364 11952 WorldTides API request failed
+ERROR 2025-12-13 18:19:20 views 9364 9416 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 18:19:20 views 9364 9416 WorldTides API request failed
+ERROR 2025-12-13 18:19:45 views 9364 9416 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 18:19:45 views 9364 9416 WorldTides API request failed
+ERROR 2025-12-13 18:26:37 views 9364 23436 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 18:26:37 views 9364 23436 WorldTides API request failed
+ERROR 2025-12-13 18:30:14 views 9364 1448 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 18:30:14 views 9364 1448 WorldTides API request failed
+ERROR 2025-12-13 18:33:28 views 9364 12412 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 18:33:28 views 9364 12412 WorldTides API request failed
+ERROR 2025-12-13 18:38:55 views 9364 17912 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 18:38:55 views 9364 17912 WorldTides API request failed
+ERROR 2025-12-13 20:48:50 views 9364 24708 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 20:48:50 views 9364 24708 WorldTides API request failed
+ERROR 2025-12-13 20:56:27 views 9364 23640 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 20:56:28 views 9364 23640 WorldTides API request failed
+ERROR 2025-12-13 20:59:11 views 9364 6612 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 20:59:11 views 9364 6612 WorldTides API request failed
+ERROR 2025-12-13 21:00:53 views 9364 24592 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:00:53 views 9364 24592 WorldTides API request failed
+ERROR 2025-12-13 21:00:56 views 9364 24592 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:00:56 views 9364 24592 WorldTides API request failed
+ERROR 2025-12-13 21:03:18 views 9364 24592 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:03:18 views 9364 24592 WorldTides API request failed
+ERROR 2025-12-13 21:05:02 views 9364 19872 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:05:02 views 9364 19872 WorldTides API request failed
+ERROR 2025-12-13 21:06:49 views 9364 26076 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:06:49 views 9364 26076 WorldTides API request failed
+ERROR 2025-12-13 21:06:55 views 9364 26076 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:06:55 views 9364 26076 WorldTides API request failed
+ERROR 2025-12-13 21:09:17 views 9364 10748 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:09:17 views 9364 10748 WorldTides API request failed
+ERROR 2025-12-13 21:14:50 views 9364 21052 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:14:50 views 9364 21052 WorldTides API request failed
+ERROR 2025-12-13 21:15:16 views 9364 21052 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:15:16 views 9364 21052 WorldTides API request failed
+ERROR 2025-12-13 21:17:52 views 9364 8724 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:17:52 views 9364 8724 WorldTides API request failed
+ERROR 2025-12-13 21:19:13 views 9364 8724 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:19:13 views 9364 8724 WorldTides API request failed
+ERROR 2025-12-13 21:19:29 views 9364 8724 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:19:29 views 9364 8724 WorldTides API request failed
+ERROR 2025-12-13 21:21:35 views 9364 13320 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:21:35 views 9364 13320 WorldTides API request failed
+ERROR 2025-12-13 21:23:56 views 9364 14416 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:23:56 views 9364 14416 WorldTides API request failed
+ERROR 2025-12-13 21:27:13 views 9364 1528 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:27:13 views 9364 1528 WorldTides API request failed
+ERROR 2025-12-13 21:39:10 views 15096 26088 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:39:10 views 15096 26088 WorldTides API request failed
+ERROR 2025-12-13 21:50:07 views 15320 24384 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:50:07 views 15320 24384 WorldTides API request failed
+ERROR 2025-12-13 21:54:01 views 4348 25644 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:54:01 views 4348 25644 WorldTides API request failed
+ERROR 2025-12-13 21:56:04 views 1916 20028 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:56:04 views 1916 20028 WorldTides API request failed
+ERROR 2025-12-13 21:58:20 views 1916 9620 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 21:58:20 views 1916 9620 WorldTides API request failed
+ERROR 2025-12-13 22:02:38 views 22580 21732 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 22:02:38 views 22580 21732 WorldTides API request failed
+ERROR 2025-12-13 22:07:35 views 10260 25236 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 22:07:35 views 10260 25236 WorldTides API request failed
+ERROR 2025-12-13 22:22:10 views 21224 21472 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 22:22:10 views 21224 21472 WorldTides API request failed
+ERROR 2025-12-13 22:25:32 views 24684 23412 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 22:25:32 views 24684 23412 WorldTides API request failed
+ERROR 2025-12-13 22:31:42 views 18940 22748 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 22:31:42 views 18940 22748 WorldTides API request failed
+ERROR 2025-12-13 22:42:08 views 3260 14224 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 22:42:08 views 3260 14224 WorldTides API request failed
+ERROR 2025-12-13 22:51:56 views 21556 20552 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 22:51:56 views 21556 20552 WorldTides API request failed
+ERROR 2025-12-13 22:55:04 views 13480 20788 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 22:55:04 views 13480 20788 WorldTides API request failed
+ERROR 2025-12-13 23:27:43 views 13480 20788 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 23:27:43 views 13480 20788 WorldTides API request failed
+ERROR 2025-12-13 23:34:33 views 7568 20288 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 23:34:33 views 7568 20288 WorldTides API request failed
+ERROR 2025-12-13 23:34:52 views 7568 20288 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-13 23:34:52 views 7568 20288 WorldTides API request failed
+ERROR 2025-12-14 00:59:11 views 24496 19796 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-14 00:59:11 views 24496 19796 WorldTides API request failed
+ERROR 2025-12-14 00:59:52 views 24496 19796 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-13&days=1
+ERROR 2025-12-14 00:59:52 views 24496 19796 WorldTides API request failed
+ERROR 2025-12-15 10:55:48 views 20604 12772 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-15&days=1
+ERROR 2025-12-15 10:55:48 views 20604 12772 WorldTides API request failed
+ERROR 2025-12-15 11:37:57 views 20604 21200 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-15&days=1
+ERROR 2025-12-15 11:37:57 views 20604 21200 WorldTides API request failed
+ERROR 2025-12-15 11:51:28 views 20604 14296 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-15&days=1
+ERROR 2025-12-15 11:51:28 views 20604 14296 WorldTides API request failed
+ERROR 2025-12-15 11:57:24 views 20604 21620 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-15&days=1
+ERROR 2025-12-15 11:57:24 views 20604 21620 WorldTides API request failed
+ERROR 2025-12-15 12:03:42 views 20604 3660 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-15&days=1
+ERROR 2025-12-15 12:03:42 views 20604 3660 WorldTides API request failed
