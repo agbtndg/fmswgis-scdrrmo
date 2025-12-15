@@ -4837,3 +4837,15 @@ INFO 2025-12-15 12:03:41 views 20604 3660 Fetching WorldTides API for Cebu City:
 INFO 2025-12-15 12:03:41 views 20604 3660 Cache MISS: worldtides_cebu_20251215_04 - Fetching from API
 ERROR 2025-12-15 12:03:42 views 20604 3660 API request failed: 400 Client Error: Bad Request for url: https://www.worldtides.info/api/v3?heights=&lat=10.3157&lon=123.8854&key=28d6df6b-6b1c-4aa9-b96d-026ba71348eb&date=2025-12-15&days=1
 ERROR 2025-12-15 12:03:42 views 20604 3660 WorldTides API request failed
+INFO 2025-12-15 13:56:41 views 5020 23612 Requesting Open-Meteo API for current conditions: https://api.open-meteo.com/v1/forecast
+INFO 2025-12-15 13:56:41 views 5020 23612 Cache MISS: open_meteo_silay_20251215_05 - Fetching from API
+INFO 2025-12-15 13:56:43 views 5020 23612 Cached data with key: open_meteo_silay_20251215_05 (TTL: 3600s)
+INFO 2025-12-15 13:56:43 views 5020 23612 Open-Meteo (Current) - Rain: 0.0mm, Temp: 28.9°C, Humidity: 80%, Wind: 30.1km/h
+INFO 2025-12-15 13:56:43 views 5020 23612 Created new rainfall record: 0.0mm
+INFO 2025-12-15 13:56:43 views 5020 23612 Created new weather record
+INFO 2025-12-15 13:56:43 views 5020 23612 Using Open-Meteo for Silay City forecast
+INFO 2025-12-15 13:56:43 views 5020 23612 Processed 7 days of Open-Meteo forecast for Silay City
+INFO 2025-12-15 13:56:43 views 5020 23612 Fetching WorldTides API for Cebu City: https://www.worldtides.info/api/v3
+INFO 2025-12-15 13:56:43 views 5020 23612 Cache MISS: worldtides_cebu_20251215_05 - Fetching from API
+INFO 2025-12-15 13:56:45 views 5020 23612 Cached data with key: worldtides_cebu_20251215_05 (TTL: 10800s)
+INFO 2025-12-15 13:56:45 views 5020 23612 Created tide record from WorldTides (Cebu City): -0.257m

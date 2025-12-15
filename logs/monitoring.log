@@ -19008,3 +19008,15 @@ INFO 2025-12-15 13:56:45 views 5020 23612 Created tide record from WorldTides (C
 INFO 2025-12-15 13:56:45 basehttp 5020 23612 "GET /monitoring/ HTTP/1.1" 200 336825
 INFO 2025-12-15 14:01:57 basehttp 5020 18864 "GET /monitoring/api/data/ HTTP/1.1" 200 203
 INFO 2025-12-15 14:06:57 basehttp 5020 17376 "GET /monitoring/api/data/ HTTP/1.1" 200 203
+INFO 2025-12-15 14:11:57 basehttp 5020 14552 "GET /monitoring/api/data/ HTTP/1.1" 200 203
+INFO 2025-12-15 14:16:57 basehttp 5020 9696 "GET /monitoring/api/data/ HTTP/1.1" 200 203
+INFO 2025-12-15 14:21:57 basehttp 5020 14776 "GET /monitoring/api/data/ HTTP/1.1" 200 203
+INFO 2025-12-15 14:26:57 basehttp 5020 23544 "GET /monitoring/api/data/ HTTP/1.1" 200 203
+INFO 2025-12-15 14:32:22 basehttp 5020 10936 "GET /monitoring/api/data/ HTTP/1.1" 200 203
+INFO 2025-12-15 14:37:22 basehttp 5020 12660 "GET /monitoring/api/data/ HTTP/1.1" 200 203
+INFO 2025-12-15 14:42:22 basehttp 5020 18616 "GET /monitoring/api/data/ HTTP/1.1" 200 203
+INFO 2025-12-15 14:47:22 basehttp 5020 21932 "GET /monitoring/api/data/ HTTP/1.1" 200 203
+INFO 2025-12-15 14:51:00 autoreload 5020 22188 C:\Users\aldri\capstone project\fmswgis-scdrrmo\silay_drrmo\settings.py changed, reloading.
+INFO 2025-12-15 14:51:01 autoreload 16820 6196 Watching for file changes with StatReloader
+INFO 2025-12-15 14:51:28 autoreload 16820 6196 C:\Users\aldri\capstone project\fmswgis-scdrrmo\silay_drrmo\settings.py changed, reloading.
+INFO 2025-12-15 14:51:28 autoreload 10480 19636 Watching for file changes with StatReloader
