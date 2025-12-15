@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: silaydrrmo
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn silay_drrmo.wsgi --log-file -"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: silay_drrmo.settings
+    autoDeploy: true
+    plan: free
+    staticPublishPath: staticfiles
+    
+    # Optional: run collectstatic before start
+    preDeployCommand: "python manage.py collectstatic --noinput"
+    
+    # Optional: database connection (set in Render dashboard)
+    # - key: DATABASE_URL
+    #   fromDatabase: silaydrrmo-db
+    
+    # Optional: media files (use cloud storage for production)
+    # - key: MEDIA_URL
+    #   value: /media/
